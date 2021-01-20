@@ -6,12 +6,6 @@ import * as serviceWorker from "./serviceWorker";
 import history from "./utils/history";
 import { Router } from "react-router-dom";
 
-import AuthContext from "./contexts/authContext";
-import AppContext from "./contexts/appContext";
-import BackofficeContext from "./contexts/backofficeContext";
-import SocketContext from "./contexts/SocketContext";
-import AppAlertsContext from "./contexts/appAlertsContext";
-
 const Test: React.FC = () => {
 
   return(
