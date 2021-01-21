@@ -1,0 +1,119 @@
+.signup_page {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    padding-top: 110px;
+    background: #fff;
+    .signup_header {
+        width: 100%;
+        border-bottom: 1px solid rgba(0,0,0,.2);
+        box-shadow: 0 2px 1px -2px grey;
+        padding: 20px 0 25px;
+        position: relative;
+        margin-bottom: 65px;
+        &::after {
+            content: "";
+            display: block;
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background-image: url(../../assets/signup.png);
+            border-radius: 50%;
+            background-size: 90%;
+            padding: 14px;
+            top: 25px;
+            background-position: 50%;
+            background-repeat: no-repeat;
+        }
+        .signUp_actions {
+            cursor: pointer;
+            width: 100%;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                justify-content: space-between;
+            }
+        }
+    }
+    .signup_holder {
+        text-align: center;
+        padding: 30px 0;
+        .signup_inner_Container{
+            max-width: 450px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: 0;
+            color: #000;
+            opacity: 1;
+            text-transform: uppercase;
+        }
+        .form-group {
+            margin-bottom: 1.5rem!important;
+            position: relative;
+        }
+        .SignupStepOne {
+            max-width: 464px;
+            margin: 40px auto;        
+        }
+        .btn {
+            font-size: 18px;
+            background: #DB422D;
+            border-radius: 6px;
+            color: #f6f8f9;
+            width: 257px;
+            letter-spacing: 0;
+            margin-top: 20px;
+            &:hover {
+                background: #31A99F;
+            }
+        }
+        .login_devider {
+            width: 100%;
+            height: 1px;
+            margin-top: 40px;
+            background-color: rgba(0,0,0,.5);
+            opacity: 0.8;
+            .one {
+              text-align: center;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 16px;
+              letter-spacing: 0;
+              color: rgba(0,0,0,.5);
+              display: inline-block;
+              vertical-align: top;
+              background: #fff;
+              padding: 0 5px 0px 23px;
+              margin-top: -8px;
+            }
+            .two {
+                text-align: center;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0;
+                color: #31A99F;
+                display: inline-block;
+                vertical-align: top;
+                background: #fff;
+                padding-right: 23px;
+                margin-top: -8px;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+

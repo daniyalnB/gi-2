@@ -1,12 +1,12 @@
-.Navbar {
-    height: 15vh;
-    width: 100%;
-    box-shadow: 0px 0px 10px grey;
-    background-color: #fff;
-    img {
-        width: 161px;
-        height: auto;
-        padding: 10px 0px 0px 0px;
-        margin-left: 100px;
-    }
-}
+// Navbar
+
+@import "./Navbar";
+
+// Main
+
+@import "./Main";
+
+// Pages
+
+@import "./pages/login";
+@import "./pages/signup";
