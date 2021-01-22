@@ -44,12 +44,13 @@ function Navbar() {
                   </ul>
               </li>
               <li className='nav-item'>
-                <a
+                <Link
+                  to="/events"
                   className="nav-links"
                   >
 
                   Events
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
                 <a

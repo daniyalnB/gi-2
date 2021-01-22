@@ -64,6 +64,13 @@
             max-width: 464px;
             margin: 40px auto;        
         }
+        .SignupStepTwo {
+            max-width: 250px;
+        }
+        .SignupStepThree {
+            max-width: 464px;
+            margin: 40px auto;        
+        }
         .btn {
             font-size: 18px;
             background: #DB422D;
@@ -112,6 +119,53 @@
                     text-decoration: none;
                 }
             }
+        }
+        .SignupStepFour {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #00000052;
+            border-radius: 5px;                
+            opacity: 1;
+            background: #fff;
+            .radio-custom {
+                opacity: 0;
+                position: absolute;   
+            }
+            
+            .radio-custom, .radio-custom-label {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 5px;
+                cursor: pointer;
+            }
+            
+            .radio-custom-label {
+                position: relative;
+            }
+            
+            .radio-custom + .radio-custom-label:before {
+                content: '';
+                background: #fff;
+                border: 1px solid #ADADAD;
+                border-radius: 50%;
+                display: inline-block;
+                vertical-align: middle;
+                width: 20px;
+                height: 20px;
+                padding: 2px;
+                margin-right: 10px;
+                text-align: center;
+                
+            }
+
+            .radio-custom:checked + .radio-custom-label:before {
+                background: #26A59A;
+                box-shadow: inset 0px 0px 0px 4px #fff;
+                border: 2px solid #26A59A;
+            }
+        }
+        .new_border {
+            border: 1px solid #26A59A;
         }
     }
 }

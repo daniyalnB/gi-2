@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import email from '../../../assets/email.svg';
-import password from '../../../assets/password.svg'
+import password from '../../../assets/password.svg';
 
 export default function login() {
   return (
@@ -21,7 +21,7 @@ export default function login() {
                     <div className="input-group">
                       <img className="input_icon" src={email}></img>
                       <input type="email" className="form-control" required />
-                      <div className="floating_label"> Email </div>
+                      <div className="label"> Email </div>
                     </div>
                   </div>
 
@@ -29,7 +29,7 @@ export default function login() {
                     <div className="input-group">
                       <img className="input_icon" src={password}></img>
                       <input type="password" className="form-control" required/>
-                      <div className="floating_label"> Password </div>
+                      <div className="label"> Password </div>
                     </div>                
                   </div>
 
