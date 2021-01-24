@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import back from '../../../assets/left_arrow.png';
 import email from '../../../assets/email.svg';
-import phone from "../../../assets/email.svg"
+import phone from '../../../assets/phone.png';
+import password from '../../../assets/password.svg';
 
 export default function signup () {
     const [active, setActive] = useState({
@@ -147,26 +148,29 @@ export default function signup () {
                             <form>
                                 <div className="form-group text-center SignupStepThree">
                                     <div className="input-group">
-                                        <img className="input_icon" src={phone}></img>
+                                        <img 
+                                            style={{ width: "30px"}}
+                                            className="input_icon" src={phone}
+                                        />
                                         <input type="text" className="form-control" required />
                                         <div className="label"> Phone Number </div>
-                                        </div>
                                     </div>
-                                    <button 
-                                        className="btn" 
-                                        onClick={() => setActive({
-                                            one: false,
-                                            two: false,
-                                            three: false,
-                                            four: true,
-                                            five: false,
-                                            six: false
-                                        })}
-                                    > 
-                                        <span> Next </span>
-                                        <div className="loader"></div> 
-                                    </button>
-                                </form>
+                                </div>
+                                <button 
+                                    className="btn" 
+                                    onClick={() => setActive({
+                                        one: false,
+                                        two: false,
+                                        three: false,
+                                        four: true,
+                                        five: false,
+                                        six: false
+                                    })}
+                                > 
+                                    <span> Next </span>
+                                    <div className="loader"></div> 
+                                </button>
+                            </form>
                         </div>
                     </div>
                 ) : active.four ?
@@ -291,6 +295,97 @@ export default function signup () {
                                     })}
                                 > 
                                     <span> Next </span>
+                                    <div className="loader"></div> 
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                ) : active.five ?
+                (
+                    <div className="container">
+                        <div className="signup_holder">
+                            <h2> 
+                                Almost there! Setup your password and
+                                <br />
+                                get started.
+                            </h2>
+                            
+                            <div className="SignupStepFive">
+                                <form>
+                                    <div className="row">
+                                        <div className="col">
+
+                                            <div className="form-group">
+                                                <div className="input-group">
+                                                <img className="input_icon" src={password}></img>
+                                                <input type="password" className="form-control" required />
+                                                <div className="label"> Password </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group">
+                                                <div className="input-group">
+                                                <img className="input_icon" src={password}></img>
+                                                <input type="password" className="form-control" required/>
+                                                <div className="label"> Confirm Password </div>
+                                                </div>                
+                                            </div>
+
+                                            <div className="form-group text-left">
+                                                <input type="checkbox" required style={{ height: "11px"}}/>
+                                                <label className="terms"> I have read and I agree to uphold the Actionable Insights Code of Ethics </label>
+                                            </div>
+
+                                            <div className="form-group text-left">
+                                                <input type="checkbox" required style={{ height: "11px"}}/>
+                                                <label className="terms"> I agree with the Terms and Conditions </label>
+                                            </div>
+
+                                            <button 
+                                                style={{ marginTop: "40px"}}
+                                                className="btn" 
+                                                onClick={() => setActive({
+                                                    one: false,
+                                                    two: false,
+                                                    three: false,
+                                                    four: false,
+                                                    five: false,
+                                                    six: true
+                                                })}
+                                            > 
+                                                <span> Get Started </span>
+                                                <div className="loader"></div> 
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                ) : active.six ?
+                (
+                    <div className="container">
+                        <div className="signup_holder">
+                            <h2> 
+                                You're all set! Please check your inbox and
+                                <br />
+                                verify your email.
+                            </h2>
+                            <form>
+                                <button 
+                                    style={{ marginTop: "70px"}}
+                                    className="btn" 
+                                    onClick={() => setActive({
+                                        one: false,
+                                        two: false,
+                                        three: false,
+                                        four: false,
+                                        five: false,
+                                        six: false
+                                    })}
+                                > 
+                                    <span> Continue </span>
                                     <div className="loader"></div> 
                                 </button>
                             </form>
