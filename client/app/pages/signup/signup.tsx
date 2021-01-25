@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import back from '../../../assets/left_arrow.png';
-import email from '../../../assets/email.svg';
+import email from '../../../assets/envelope.svg';
 import phone from '../../../assets/phone.png';
-import password from '../../../assets/password.svg';
+import password from '../../../assets/passwordnew.png';
 
 export default function signup () {
     const [active, setActive] = useState({

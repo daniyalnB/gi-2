@@ -21,7 +21,7 @@ module.exports = merge(common({ development: true }), {
     staticOptions: {
       redirect: false,
     },
-    port: 4000,
+    port: 8000,
     host: '0.0.0.0',
   },
   resolve: {
