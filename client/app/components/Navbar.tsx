@@ -39,7 +39,13 @@ function Navbar() {
                   Insight Sheets <i className="fa fa-angle-down" aria-hidden="true" style={{ paddingLeft: "8px"}}></i>
                 </a>
                   <ul>
-                    <li>Inside Sheet Database</li>
+                    <li> 
+                      <Link
+                        to="/insightsheet"
+                      >
+                        Inside Sheet Database
+                      </Link>
+                    </li>
                     <li>Inside Sheet Tutorial</li>
                   </ul>
               </li>

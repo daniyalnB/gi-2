@@ -27,7 +27,7 @@
   .btn {
     color: #26A69A;
     background-color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     border: 2px solid #fff;
     border-radius: 6px;
@@ -343,6 +343,102 @@
           img {
             padding: 15px;
             width: 400px;
+          }
+          .mg {
+            font-size: 18px;
+            padding-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .discover_section {
+    .btn_1 {
+      margin-right: 0px;
+    }
+  }
+  .DAES_section {
+    .section2 {
+      margin-top: 40px;
+      .col-sm-12 {
+        margin-top: 30px;
+      }
+    }
+  }
+  .Templates_section {
+    .sub_section {
+      .section1 {
+        max-width: 100%;
+        margin-left: 2px;
+        h4 {
+          text-transform: uppercase;
+          font-size: 18px;
+        }
+        hr {
+          width: 65px;
+          border-top: 1px solid #000000;
+        }
+        .section1_1 {
+          margin: 50px 40px 0px 40px;
+          background: #f5d6d2;
+          border-radius: 20px;
+          text-align: center;
+          img {
+            padding: 15px;
+            width: 370px;
+          }
+          .mg {
+            font-size: 18px;
+            padding-bottom: 15px;
+          }
+        }
+      }
+      .section2 {
+        margin-left: 0px;
+        margin-top: 50px;
+        max-width: 100%;
+        h4 {
+          text-transform: uppercase;
+          font-size: 18px;
+        }
+        hr {
+          width: 57px;
+          border-top: 1px solid #000000;
+        }
+        .section1_2 {
+          margin-top: 50px;
+          background: #d3edeb;
+          border-radius: 20px;
+          text-align: center;
+          img {
+            padding: 15px;
+            width: 450px;
+          }
+        }
+      }
+      .section3 {
+        margin-left: 0px;
+        margin-top: 50px;
+        max-width: 100%;
+        h4 {
+          text-transform: uppercase;
+          font-size: 18px;
+        }
+        hr {
+          width: 58px;
+          border-top: 1px solid #000000;
+        }
+        .section1_3 {
+          margin: 50px 40px 0px 40px;
+          background: #d3edeb;
+          border-radius: 20px;
+          text-align: center;
+          img {
+            padding: 15px;
+            width: 370px;
           }
           .mg {
             font-size: 18px;

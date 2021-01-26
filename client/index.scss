@@ -1,5 +1,6 @@
 // @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "styles/fontawesome/scss/font-awesome.scss";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+// @import "styles/fontawesome/scss/font-awesome.scss";
 @import 'styles/index';
 
 * {
@@ -13,4 +14,5 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
 }

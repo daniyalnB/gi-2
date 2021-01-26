@@ -5,6 +5,7 @@ import home from "./pages/home/home";
 import login from "./pages/login/login";
 import signup from "./pages/signup/signup";
 import { events } from "./pages/events/events";
+import ISD from "./pages/InsightSheet/insightsheet";
 
 
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Route exact path='/login' component={login} />
           <Route exact path='/signup' component={signup} />
           <Route exact path='/events' component={events} />
+          <Route exact path='/insightsheet' component={ISD} />
           <Redirect to="/" />
         </Switch>
       </Router>
