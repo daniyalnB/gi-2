@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StarRatingDemo from '../../components/StarRating';
 import img1 from 'assets/DriHeatRadial2.png';
 import search1 from 'assets/search1.png';
@@ -37,44 +38,47 @@ const ISD = () => {
                                     <div className="col-8 description-section">
                                         <div className="row">
                                             <div className="col-7">
-                                            <h4> Door Jamb Retrofit </h4>
-                                        <div className="data">
-                                            <span className="heading"> Category: </span>
-                                            <span className="value"> Repair </span>
-                                        </div>
-                                        <div className="data">
-                                            <span className="heading"> Principal Author(s): </span>
-                                            <span className="value"> Mark Whatley, Seth Harrison </span>
-                                        </div>
-                                        <div className="data">
-                                            <span className="heading"> AI Board Approval: </span>
-                                            <span className="value"> 06/14/2017 </span>
-                                        </div>
-                                        <div className="data">
-                                            <span className="heading"> Last Update: </span>
-                                            <span className="value"> 02/02/2020 </span>
-                                        </div>
-                                        <div className="data">
-                                            <span className="heading"> Tags: </span>
-                                            <span className="value"> Angle Stop, Backsplash, Cabinet, Caulk. </span>
-                                        </div>
-                                       
-
+                                                <h4>
+                                                    <Link 
+                                                        to="/insightsheetdetail"
+                                                    >
+                                                        Door Jamb Retrofit
+                                                    </Link>
+                                                </h4>
+                                                <div className="data">
+                                                    <span className="heading"> Category: </span>
+                                                    <span className="value"> Repair </span>
+                                                </div>
+                                                <div className="data">
+                                                    <span className="heading"> Principal Author(s): </span>
+                                                    <span className="value"> Mark Whatley, Seth Harrison </span>
+                                                </div>
+                                                <div className="data">
+                                                    <span className="heading"> AI Board Approval: </span>
+                                                    <span className="value"> 06/14/2017 </span>
+                                                </div>
+                                                <div className="data">
+                                                    <span className="heading"> Last Update: </span>
+                                                    <span className="value"> 02/02/2020 </span>
+                                                </div>
+                                                <div className="data">
+                                                    <span className="heading"> Tags: </span>
+                                                    <span className="value"> Angle Stop, Backsplash, Cabinet, Caulk. </span>
+                                                </div>
                                             </div>
                                             <div className="col-5">
                                                 <StarRatingDemo />
                                             </div>
-
                                         </div>
                                         <div className="row"> 
                                             <div className="col">
-                                            <div className="data">
-                                            <span className="heading"> Description: </span> <br />
-                                            <span className="value">  This is a residential (Class 2 | Cat 3) water loss. 
-                                                    This loss contemplates a scenario where the door jambs were 
-                                                    cut at 2 linear feet (along with the drywall) Read More
-                                            </span>
-                                        </div>
+                                                <div className="data">
+                                                    <span className="heading"> Description: </span> <br />
+                                                    <span className="value">  This is a residential (Class 2 | Cat 3) water loss. 
+                                                            This loss contemplates a scenario where the door jambs were 
+                                                            cut at 2 linear feet (along with the drywall) Read More
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

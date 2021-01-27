@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 
-function StarRating({count, value, 
-    inactiveColor='#ddd',
-    size=24,
-    activeColor='#f00', onChange}) {
+function StarRating (
+    {
+      count, value, 
+      inactiveColor='#ddd',
+      size=24,
+      activeColor='#f00', 
+      // onChange
+    }
+  ) {
 
-  // short trick 
-  //const stars = Array.from({length: count}, () => '🟊');
   const stars = new Array(count).fill('🟊');
   
-  // Internal handle change function
   const handleChange = (e, value) => {
     
     const area = e.target.getBoundingClientRect();
     console.log(area,e.clientX, e.clientY);
     
-    
-    // Check if half/star
     let isHalfStar = e.clientX > area.left && e.clientX < area.left + area.width/2;
     
     if (typeof onChange !== "function") return;
@@ -25,8 +25,6 @@ function StarRating({count, value,
     
     if (isHalfStar) return onChange((value + 1) - 0.5);
   }
-
-  //<i className="fas fa-star-half-alt"></i>
   
   return (
       <div className="rating_2">
@@ -67,7 +65,7 @@ function StarRating({count, value,
 const StarRatingDemo: React.FC = () => {
   // Get the rating from a db if required.
   // The value 3 is just for testing.
-  const [rating, setRating] = useState(2.5);
+  const [rating, setRating] = useState(4.5);
   
 
   const handleChange = (value) => {
@@ -84,31 +82,35 @@ const StarRatingDemo: React.FC = () => {
           value={rating}
           activeColor ={'#ED8A19'}
           inactiveColor={'#ddd'}
-          onChange={handleChange}  
+          // onChange={handleChange}  
         />    
       </div>
 
     <div className="rating_1">
       <span
-        style={{ fontSize: "14px", color: "#B8B8B8"}}
+        style={{ fontSize: "14px", color: "#B8B8B8" }}
       > 
         (
-          <span style={{ color: "#7E7E7E" }}>
+          <span style={{ color: "#7E7E7E", fontWeight: "500" }}>
             5
           </span> 
+          <span style={{ marginLeft: "0.3rem" }}>
             votes, average: 
-          <span style={{ color: "#7E7E7E" }}>
+          </span>
+          <span style={{ color: "#7E7E7E", marginLeft: "0.2rem", fontWeight: "500" }}>
             {rating}
-          </span> 
-            out of 
-          <span style={{ color: "#7E7E7E" }}>
+          </span>
+          <span style={{ marginLeft: "0.3rem" }}>
+            out of
+          </span>  
+          <span style={{ color: "#7E7E7E", marginLeft: "0.3rem", fontWeight: "500" }}>
             5
           </span>
         ) 
       </span>
       <br />
       <span
-        style={{ fontSize: "12px", color: "#B8B8B8"}}
+        style={{ fontSize: "12px", color: "#B8B8B8" }}
       > 
         You need to be a registered member to rate this.
       </span>

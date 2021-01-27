@@ -6,6 +6,7 @@ import login from "./pages/login/login";
 import signup from "./pages/signup/signup";
 import { events } from "./pages/events/events";
 import ISD from "./pages/InsightSheet/insightsheet";
+import ISDetail from "./pages/InsightSheet/insightsheetdetail";
 
 
 
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           <Route exact path='/signup' component={signup} />
           <Route exact path='/events' component={events} />
           <Route exact path='/insightsheet' component={ISD} />
+          <Route exact path='/insightsheetdetail' component={ISDetail} />
           <Redirect to="/" />
         </Switch>
       </Router>
