@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import StarRatingDemo from '../../components/StarRating';
+import Comments from '../../components/Comments';
 import detail from 'assets/detailpic.jpg';
 import search1 from 'assets/search1.png';
 import search2 from 'assets/search2.png';
@@ -131,6 +132,9 @@ const ISDetail = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="comments">
+                                <Comments />
                             </div>
                         </div>
                     </div>
