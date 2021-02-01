@@ -7,7 +7,7 @@ export default function login() {
   return (
     <>
       <div className="login_page"> 
-        <div className="container">
+        <div className="container-fluid">
           <span className="title"> 
             Sign In with your insighter account
           </span>

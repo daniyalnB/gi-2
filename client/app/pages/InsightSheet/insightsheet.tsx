@@ -9,7 +9,7 @@ const ISD = () => {
     return (
         <>
             <div className="ISD_page">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="holder">
                         <h2> Inside Sheets </h2>
                         <div className="separator">
@@ -35,7 +35,7 @@ const ISD = () => {
                                     <div className="col-4 image-section">          
                                         <img src={img1} />
                                     </div>
-                                    <div className="col-8 description-section">
+                                    <div className="col-8 data-section">
                                         <div className="row">
                                             <div className="col-7">
                                                 <h4>

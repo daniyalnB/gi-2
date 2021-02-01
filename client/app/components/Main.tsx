@@ -16,7 +16,8 @@ function Main() {
     return(
         <div className='sections'>
 
-            <div className="container">
+            <div className="section-1">
+            <div className="container-fluid">
                 <div className="discover_section">
                     <div className="row">
                         <div className="col text-left">
@@ -37,8 +38,11 @@ function Main() {
                     </div>
                 </div>
             </div>
+            </div>
 
-            <div className="container">
+            <div className="section-2">
+            <div className="container-fluid">
+
                 <div className="DAES_section">
                     <h2> Digital Assets & Educational Solutions </h2>
                     <h5> Our non-profit 501(c)(6) status ensures that all of Actionable Insights products are delivered at cost. </h5>
@@ -90,9 +94,10 @@ function Main() {
                     
                 </div>
             </div>
+            </div>
 
             <div className="Templates_section">
-                <div className="container">
+                <div className="container-fluid">
                     <h2> 3700+ Pages of Xactimate invoicing Templates </h2>
                     <br />
                     <h5> We created this database to clarify what line items should be used in a restoration claims environment. Write your </h5>
@@ -100,7 +105,7 @@ function Main() {
                 
                     <div className="row sub_section">
                         <div className="row section1">
-                            <div className="col">
+                            <div className="col-12">
                                 <h4> Mitigation Insight Sheets </h4>
                                 <hr />
                                 <div className="section1_1">
@@ -109,7 +114,7 @@ function Main() {
                                 </div>
                             </div>
                             
-                            <div className="col">
+                            <div className="col-12">
                                 <div className="section1_1">
                                     <img src={img2}></img>
                                     <div className="mg"> Textile Restoration </div>
@@ -120,23 +125,23 @@ function Main() {
                             <div className="col">
                                 <h4> Insight Sheet Tutorial </h4>
                                 <hr />
-                                <div className="section1_2">
+                                <div className="section2_2">
                                     <img src={img3}></img>
                                 </div>
                             </div>
                         </div>
                         <div className="row section3">
-                            <div className="col">
+                            <div className="col-12">
                                 <h4> Repair Insight Sheets </h4>
                                 <hr />
-                                <div className="section1_3">
+                                <div className="section3_3">
                                     <img src={img4}></img>
                                     <div className="mg"> Oven Detach & Reset </div>
                                 </div>
                             </div>
                             
-                            <div className="col">
-                                <div className="section1_3">
+                            <div className="col-12">
+                                <div className="section3_3">
                                     <img src={img5}></img>
                                     <div className="mg"> Siding </div>
                                 </div>

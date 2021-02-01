@@ -31,7 +31,7 @@ export default function signup () {
         <div className="signup_page">
             
             <div className="signup_header">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="signUp_actions">
                         <ul>
                             <li>
@@ -44,7 +44,7 @@ export default function signup () {
             
             {active.one ? 
                 (
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="signup_holder">
                             <h2>
                                 Hello! I'm Fevy. I'll get you signed up in
@@ -89,13 +89,13 @@ export default function signup () {
                     </div>
                 ) : active.two ?
                 (
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="signup_holder">
                             <h2>
                                 Thanks, What's your name?
                             </h2>
                             <form>
-                                <div className="form-group justify-content-center row" style={{ marginTop: "50px"}}>
+                                <div className="form-group justify-content-center row">
                                     <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                         <div className="input-group SignupStepTwo">
                                             <input type="text" className="form-control" required />
@@ -138,7 +138,7 @@ export default function signup () {
                     </div>
                 ) : active.three ?
                 (
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="signup_holder">
                             <h2>
                                 Nice to meet you {lname} What's your
@@ -149,8 +149,7 @@ export default function signup () {
                                 <div className="form-group text-center SignupStepThree">
                                     <div className="input-group">
                                         <img 
-                                            style={{ width: "30px"}}
-                                            className="input_icon" src={phone}
+                                            className="input-icon-phone" src={phone}
                                         />
                                         <input type="text" className="form-control" required />
                                         <div className="label"> Phone Number </div>
@@ -175,13 +174,13 @@ export default function signup () {
                     </div>
                 ) : active.four ?
                 (
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="signup_holder">
                             <h2> 
                                 Select Your Role:
                             </h2>
                             <form>
-                                <div className="row justify-content-center" style={{ marginTop: "50px"}}>
+                                <div className="row justify-content-center" style={{ marginTop: "50px" }}>
                                     <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                         <div 
                                             className={border.one ? "form-group SignupStepFour new_border" : "form-group SignupStepFour"}
@@ -284,6 +283,7 @@ export default function signup () {
                                     </div>
                                 </div>
                                 <button 
+                                    style={{ marginBottom: "30px"}}
                                     className="btn" 
                                     onClick={() => setActive({
                                         one: false,
@@ -302,7 +302,7 @@ export default function signup () {
                     </div>
                 ) : active.five ?
                 (
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="signup_holder">
                             <h2> 
                                 Almost there! Setup your password and
@@ -332,17 +332,16 @@ export default function signup () {
                                             </div>
 
                                             <div className="form-group text-left">
-                                                <input type="checkbox" required style={{ height: "11px"}}/>
+                                                <input type="checkbox" required />
                                                 <label className="terms"> I have read and I agree to uphold the Actionable Insights Code of Ethics </label>
                                             </div>
 
                                             <div className="form-group text-left">
-                                                <input type="checkbox" required style={{ height: "11px"}}/>
+                                                <input type="checkbox" required />
                                                 <label className="terms"> I agree with the Terms and Conditions </label>
                                             </div>
 
                                             <button 
-                                                style={{ marginTop: "40px"}}
                                                 className="btn" 
                                                 onClick={() => setActive({
                                                     one: false,
@@ -365,7 +364,7 @@ export default function signup () {
                     </div>
                 ) : active.six ?
                 (
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="signup_holder">
                             <h2> 
                                 You're all set! Please check your inbox and

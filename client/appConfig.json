@@ -1,6 +1,4 @@
 {
   "serverPort": 9000,
-  "localhost": "https://devconsole.sureti.com",
-  "devconsole.sureti.com": "https://devconsole.sureti.com",
-  "console.sureti.com": "https://console.sureti.com"
+  "localhost": "https://www.getinsights.org"
 }

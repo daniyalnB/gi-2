@@ -11,7 +11,7 @@ const ISDetail = () => {
     return (
         <>
             <div className="ISDetail_page">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="holder">
                         <h2> Inside Sheets </h2>
                         <div className="separator">
@@ -40,7 +40,7 @@ const ISDetail = () => {
                                             <button className="btn"> Sign In </button>
                                         </Link>
                                     </div>
-                                    <div className="col-lg-5">
+                                    <div className="col-lg-5 data-section">
                                         <div className="data">
                                             <span className="heading"> Category: </span>
                                             <span className="value"> Repair </span>

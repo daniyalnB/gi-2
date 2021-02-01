@@ -4,7 +4,6 @@ function StarRating (
     {
       count, value, 
       inactiveColor='#ddd',
-      size=24,
       activeColor='#f00', 
       // onChange
     }
@@ -28,9 +27,7 @@ function StarRating (
   
   return (
       <div className="rating_2">
-        <span 
-          style={{ color:"#38ADA2", fontSize:"20px", marginRight: "10px"}}
-        >
+        <span className="rating-value">
           {value}
         </span>
 
@@ -52,7 +49,7 @@ function StarRating (
         return (
           <i className={className}  
             key={index}
-            style={{color: style, width:size, height:size, fontSize: size}}
+            style={{color: style}}
             onClick={(e)=>handleChange(e, index)}></i>
         )
       })}
@@ -75,10 +72,9 @@ const StarRatingDemo: React.FC = () => {
   
   return (
     <>
-      <div className="container rating">
+      <div className="container-fluid rating">
         <StarRating 
           count={5}
-          size={30}
           value={rating}
           activeColor ={'#ED8A19'}
           inactiveColor={'#ddd'}
@@ -87,31 +83,27 @@ const StarRatingDemo: React.FC = () => {
       </div>
 
     <div className="rating_1">
-      <span
-        style={{ fontSize: "14px", color: "#B8B8B8" }}
-      > 
+      <span className="span-rating-1"> 
         (
-          <span style={{ color: "#7E7E7E", fontWeight: "500" }}>
+          <span className="span-1">
             5
           </span> 
-          <span style={{ marginLeft: "0.3rem" }}>
+          <span className="span-2">
             votes, average: 
           </span>
-          <span style={{ color: "#7E7E7E", marginLeft: "0.2rem", fontWeight: "500" }}>
+          <span className="span-3">
             {rating}
           </span>
-          <span style={{ marginLeft: "0.3rem" }}>
+          <span className="span-4">
             out of
           </span>  
-          <span style={{ color: "#7E7E7E", marginLeft: "0.3rem", fontWeight: "500" }}>
+          <span className="span-5">
             5
           </span>
         ) 
       </span>
       <br />
-      <span
-        style={{ fontSize: "12px", color: "#B8B8B8" }}
-      > 
+      <span className="span-rating-2"> 
         You need to be a registered member to rate this.
       </span>
     </div>
