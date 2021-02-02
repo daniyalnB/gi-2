@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 import email from '../../../assets/envelope.svg';
 import password from '../../../assets/passwordnew.png';
 
 export default function login() {
   return (
     <>
+      <Navbar />
       <div className="login_page"> 
         <div className="container-fluid">
           <span className="title"> 

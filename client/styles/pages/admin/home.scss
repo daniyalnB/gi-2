@@ -1,0 +1,28 @@
+.admin-home {
+    background: #fff;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    .col-3 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .side-menu {
+        box-shadow: 0px 3px 6px #00000029;
+        background: #fff;
+        .image-section {
+            img {
+                margin: 15px;
+                width: 500px;
+                height: 250px;
+            }
+        }
+        .menu-section {
+            margin-top: 20px;
+        }
+    }
+    .user-info {
+        float: right;
+        
+    }
+}

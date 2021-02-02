@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 import StarRatingDemo from '../../components/StarRating';
 import Comments from '../../components/Comments';
 import detail from 'assets/detailpic.jpg';
@@ -10,6 +11,7 @@ import xact from 'assets/xact.png';
 const ISDetail = () => {
     return (
         <>
+            <Navbar />
             <div className="ISDetail_page">
                 <div className="container-fluid">
                     <div className="holder">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 import StarRatingDemo from '../../components/StarRating';
 import img1 from 'assets/DriHeatRadial2.png';
 import search1 from 'assets/search1.png';
@@ -8,6 +9,7 @@ import search2 from 'assets/search2.png';
 const ISD = () => {
     return (
         <>
+            <Navbar />
             <div className="ISD_page">
                 <div className="container-fluid">
                     <div className="holder">

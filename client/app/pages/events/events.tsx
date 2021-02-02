@@ -1,8 +1,10 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
 
 export function events () {
     return (
         <>
+            <Navbar />
             <div className="events_page">
                 <div className="container">
                     <div className="holder">

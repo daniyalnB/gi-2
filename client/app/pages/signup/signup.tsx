@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 import back from '../../../assets/left_arrow.png';
 import email from '../../../assets/envelope.svg';
 import phone from '../../../assets/phone.png';
@@ -27,7 +28,8 @@ export default function signup () {
     const lname= "waseem";
       
   return (
-    <>
+    <>  
+        <Navbar />
         <div className="signup_page">
             
             <div className="signup_header">

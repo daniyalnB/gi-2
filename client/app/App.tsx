@@ -7,6 +7,9 @@ import signup from "./pages/signup/signup";
 import { events } from "./pages/events/events";
 import ISD from "./pages/InsightSheet/insightsheet";
 import ISDetail from "./pages/InsightSheet/insightsheetdetail";
+import dashboard from "./admin/dashboard/dashboard";
+import login_admin from "./admin/login/login";
+import home_admin from "./admin/home/home";
 
 
 
@@ -15,7 +18,7 @@ const App: React.FC = () => {
   return (
     <>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path='/' component={home} />
           <Route exact path='/login' component={login} />
@@ -23,6 +26,9 @@ const App: React.FC = () => {
           <Route exact path='/events' component={events} />
           <Route exact path='/insightsheet' component={ISD} />
           <Route exact path='/insightsheetdetail' component={ISDetail} />
+          <Route exact path={['/admin/login', '/admin']} component={login_admin} />
+          <Route exact path='/admin/dashboard' component={dashboard} />
+          <Route exact path='/admin/home' component={home_admin} />
           <Redirect to="/" />
         </Switch>
       </Router>
