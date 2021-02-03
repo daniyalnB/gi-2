@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import logo from "assets/Logo.png";
 
 export default function login_admin () {
@@ -35,7 +36,11 @@ export default function login_admin () {
                                         </div>
 
                                         <button className="btn"> 
-                                            <span> Sign In </span>
+                                            <Link
+                                                to="/admin/home"    
+                                            >
+                                                Sign In
+                                            </Link>
                                             <div className="loader"></div> 
                                         </button>
 

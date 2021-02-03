@@ -7,9 +7,9 @@ import signup from "./pages/signup/signup";
 import { events } from "./pages/events/events";
 import ISD from "./pages/InsightSheet/insightsheet";
 import ISDetail from "./pages/InsightSheet/insightsheetdetail";
-import dashboard from "./admin/dashboard/dashboard";
-import login_admin from "./admin/login/login";
-import home_admin from "./admin/home/home";
+import dashboard from "./admin/pages/dashboard/dashboard";
+import login_admin from "./admin/pages/login/login";
+import home_admin from "./admin/pages/home/home";
 
 
 

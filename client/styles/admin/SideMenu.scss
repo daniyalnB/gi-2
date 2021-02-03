@@ -1,0 +1,259 @@
+.admin-home {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    .col {
+        padding-left: 0px;
+        padding-right: 0px;
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+    .side-menu {
+        padding-bottom: 50px;
+        box-shadow: 0px 13px 26px #00000029;
+        background: #fff;
+        .image-section {
+            padding: 20px 0 0 30px;
+            img {
+                margin: 15px;
+                width: 500px;
+                height: 250px;
+            }
+        }
+        .menu-section {
+            margin-top: 200px;
+            ul {
+                list-style: none;
+                li {
+                    height: 150px;
+                    margin-bottom: 50px;
+                    padding: 35px 0 0 150px;
+                    img {
+                        width: 60px;
+                        height: auto;
+                        margin-right: 20px;
+                        margin-bottom: 15px;
+                    }
+                    span {
+                        cursor: pointer;
+                        font-size: 40px;
+                        font-weight: 600;
+                        opacity: 0.5;
+                    }
+                }
+                .active {
+                    background: #f4fafa;
+                    border-left: 30px solid #26A59A;
+                    padding-left: 120px;
+                    img {
+                        color: #26A59A;
+                    }
+                    span {
+                        color: #26A59A;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .user-info {
+        width: 100%;
+        float: right;
+        padding: 75px 0px;
+        box-shadow: 0px 15px 30px #45414E1A;
+        h4 {
+            font-size: 50px;
+            color: #DB422D;
+            margin-bottom: -20px;
+        }
+        h5 {
+            font-size: 40px;
+            color: #000;
+            opacity: 0.5;
+        }
+        img {
+            width: 100px;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 3200px) {
+    .admin-home .side-menu .menu-section ul li {
+        padding: 35px 0 0 110px;
+    }
+    .admin-home .side-menu .menu-section ul .active {
+        padding-left: 80px;
+    }
+}
+
+@media screen and (max-width: 2950px) {
+    .admin-home .side-menu .menu-section ul li {
+        padding: 35px 0 0 80px;
+    }
+    .admin-home .side-menu .menu-section ul .active {
+        padding-left: 50px;
+    }
+    .admin-home .side-menu .menu-section ul li span {
+        font-size: 37px;
+    }
+}
+
+@media screen and (max-width: 2700px) {
+    .admin-home .side-menu .menu-section ul li {
+        padding: 35px 0 0 50px;
+    }
+    .admin-home .side-menu .menu-section ul .active {
+        padding-left: 20px;
+    }
+}
+
+@media screen and (max-width: 2560px) {
+    .admin-home {
+        .side-menu {
+            .image-section {
+                padding: 20px 0 0 10px;
+                img {
+                    margin: 15px;
+                    width: auto;
+                    height: 150px;
+                    padding: 10px;
+                }
+            }
+            .menu-section {
+                margin-top: 150px;
+                ul {
+                    li {
+                        margin-bottom: 25px;
+                        padding: 50px 0 0 100px;
+                        img {
+                            width: 40px;
+                            height: auto;
+                            margin-right: 20px;
+                            margin-bottom: 15px;
+                        }
+                        span {
+                            font-size: 30px;
+                        }
+                    }
+                    .active {
+                        border-left: 25px solid #26A59A;
+                        padding-left: 75px;
+                    }
+                }
+            }
+        }
+        .user-info {
+            padding: 75px 0px;
+            h4 {
+                font-size: 40px;
+            }
+            h5 {
+                font-size: 30px;
+            }
+            img {
+                width: 80px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 2300px) {
+    .admin-home .side-menu .menu-section ul li {
+        padding: 50px 0 0 80px;
+    }
+    .admin-home .side-menu .menu-section ul .active {
+        border-left: 20px solid #26A59A;
+        padding-left: 60px;
+    }
+    .admin-home .side-menu .menu-section ul li span {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 2100px) {
+    .admin-home .side-menu .menu-section ul li {
+        padding: 50px 0 0 60px;
+    }
+    .admin-home .side-menu .menu-section ul .active {
+        border-left: 15px solid #26A59A;
+        padding-left: 45px;
+    }
+    .admin-home .side-menu .menu-section ul li span {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .admin-home {
+        .side-menu {
+            .image-section {
+                padding: 10px 0 0 10px;
+                img {
+                    margin: 0px;
+                    width: auto;
+                    height: auto;
+                    padding: 10px;
+                }
+            }
+            .menu-section {
+                margin-top: 50px;
+                ul {
+                    li {
+                        height: 70px;
+                        margin-bottom: 0px;
+                        padding: 20px 0 0 50px;
+                        img {
+                            width: 20px;
+                            height: auto;
+                            margin-right: 10px;
+                            margin-bottom: 7px;
+                        }
+                        span {
+                            font-size: 20px;
+                        }
+                    }
+                    .active {
+                        border-left: 10px solid #26A59A;
+                        padding-left: 40px;
+                    }
+                }
+            }
+        }
+        .user-info {
+            padding: 30px 0px;
+            h4 {
+                font-size: 25px;
+            }
+            h5 {
+                font-size: 20px;
+            }
+            img {
+                width: 60px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .admin-home .side-menu .menu-section ul li span {
+        font-size: 16px;
+    }
+    .admin-home .side-menu .menu-section ul li img {
+        width: 18px;
+        margin-bottom: 5px;
+    }
+    .admin-home .user-info {
+        h4 {
+            font-size: 20px;
+        }
+        h5 {
+            font-size: 15px;
+        }
+        img {
+            width: 45px;
+        }
+    }
+}

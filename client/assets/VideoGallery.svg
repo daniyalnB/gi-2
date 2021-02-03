@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" viewBox="0 0 21 21">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_631" data-name="Rectangle 631" width="21" height="21" transform="translate(31 14)" fill="#717171" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Video_Gallery" data-name="Video Gallery" transform="translate(-31 -14)" clip-path="url(#clip-path)">
+    <g id="video-camera" transform="translate(31 14)">
+      <g id="Group_4342" data-name="Group 4342">
+        <g id="Group_4341" data-name="Group 4341">
+          <path id="Path_1111" data-name="Path 1111" d="M20.644,5.362a.75.75,0,0,0-.73-.033L15,7.786V6a2.25,2.25,0,0,0-2.25-2.25H2.25A2.25,2.25,0,0,0,0,6v9a2.25,2.25,0,0,0,2.25,2.25h10.5A2.25,2.25,0,0,0,15,15V13.213l4.915,2.462A.75.75,0,0,0,21,15V6A.75.75,0,0,0,20.644,5.362ZM13.5,15a.75.75,0,0,1-.75.75H2.25A.75.75,0,0,1,1.5,15V6a.75.75,0,0,1,.75-.75h10.5A.75.75,0,0,1,13.5,6v9Zm6-1.213L15,11.537V9.464l4.5-2.25Z" fill="#717171"/>
+        </g>
+      </g>
+      <g id="Group_4344" data-name="Group 4344">
+        <g id="Group_4343" data-name="Group 4343">
+          <path id="Path_1112" data-name="Path 1112" d="M7.5,7.5a3,3,0,1,0,3,3A3,3,0,0,0,7.5,7.5Zm0,4.5A1.5,1.5,0,1,1,9,10.5,1.5,1.5,0,0,1,7.5,12Z" fill="#717171"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

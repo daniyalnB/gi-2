@@ -1,0 +1,16 @@
+.dashboard {
+    .col-3 {
+        padding-left: 0px;
+        padding-right: 0px;
+        z-index: 1;
+    }
+    .col-9 {
+        padding-left: 0px;
+        padding-right: 0px;
+        z-index: 0;
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+}

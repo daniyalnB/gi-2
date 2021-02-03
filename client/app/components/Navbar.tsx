@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from "../../assets/Logo.png";
 import search from "../../assets/search.png";
 
-function Navbar() {
+function Navbar () {
   
   const [click, setClick] = useState(false);
   // const [drop, setDrop] = useState(false);

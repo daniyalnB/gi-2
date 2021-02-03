@@ -14,7 +14,11 @@
 @import "./pages/insightsheet.scss";
 @import "./pages/insidesheetdetail.scss";
 
-// Admin
+// Admin Side Menu
 
-@import "./pages/admin/login.scss";
-@import "./pages/admin/home.scss";
+@import "./admin/SideMenu.scss";
+
+// Admin Pages
+
+@import "./admin/pages/login.scss";
+@import "./admin/pages/dashboard.scss";
