@@ -34,6 +34,7 @@
             width: 450px;
             height: 90px;
             letter-spacing: 0;
+            line-height: 80px;
             &:focus {
                 box-shadow: none;
             }
@@ -130,6 +131,7 @@
                 height: 50px;
                 border-radius: 6px;
                 margin-top: 20px;
+                line-height: 40px;
             }
             .form-holder input {
                 margin-bottom: 0px;

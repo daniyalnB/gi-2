@@ -34,15 +34,13 @@ export default function login_admin () {
                                             <input type="password" name="Password" required id="inputField2" className="input-area"/>
                                             <label htmlFor="inputField2" className="floating_label"> Password </label>
                                         </div>
-
-                                        <button className="btn"> 
-                                            <Link
-                                                to="/admin/home"    
-                                            >
-                                                Sign In
-                                            </Link>
-                                            <div className="loader"></div> 
-                                        </button>
+                                        
+                                        <Link
+                                            className="btn"
+                                            to="/admin/home"
+                                        >
+                                            Sign In
+                                        </Link>
 
                                     </div>
                                 </div>
