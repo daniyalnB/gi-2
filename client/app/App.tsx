@@ -8,9 +8,9 @@ import signup from "./pages/signup/signup";
 import { events } from "./pages/events/events";
 import ISD from "./pages/InsightSheet/insightsheet";
 import ISDetail from "./pages/InsightSheet/insightsheetdetail";
-// import dashboard from "./admin/pages/Dashboard/dashboard";
 import login_admin from "./admin/pages/login/login";
 import home_admin from "./admin/pages/home/home";
+import dashboard from "./admin/pages/Dashboard/dashboard";
 import insightsheet from "./admin/pages/InsightSheets/insightsheet";
 import products from "./admin/pages/Products/products";
 import CreateInsightSheet from "./admin/components/createInsightSheet";
@@ -32,7 +32,7 @@ const App: React.FC = () => {
           <Route exact path='/insightsheetdetail' component={ISDetail} />
           <Route exact path={['/admin/login', '/admin']} component={login_admin} />
           <Route exact path='/admin/home' component={home_admin} />
-          {/* <Route exact path='/admin/dashboard' component={dashboard} /> */}
+          <Route exact path='/admin/dashboard' component={dashboard} />
           <Route exact path='/admin/insightsheet' component= {insightsheet} />
           <Route exact path='/admin/createInsightSheet' component= {CreateInsightSheet} />
           <Route exact path='/admin/products' component= {products} />
