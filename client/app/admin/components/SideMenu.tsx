@@ -1,26 +1,43 @@
 import React, { useState } from 'react';
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import logo from "assets/Logo.png";
-import dashboard from "assets/Dashboard.svg";
-import insightsheets from "assets/InsightSheets.svg";
-import products from "assets/Products.svg";
-import users from "assets/Users.svg";
-import events from "assets/Events.svg";
-import subscriptions from "assets/Subscriptions.svg";
-import orders from "assets/Orders.svg";
-import manageroles from "assets/ManageRoles.svg";
-import insighterpoints from "assets/InsighterPoints.svg";
-import videogallery from "assets/VideoGallery.svg";
-import pricelist from "assets/PriceList.svg";
-import insighterreport from "assets/InsighterReport.svg";
-import viewallcomments from "assets/ViewAllComments.svg";
-import coupons from "assets/Coupons.svg";
-import subscriptioncoupons from "assets/SubscriptionCoupons.svg";
+import dashboard from "assets/Dashboard.png";
+import dashboardac from "assets/DashboardActive.png";
+import insightsheets from "assets/InsightSheets.png";
+import insightsheetsac from "assets/InsightSheetsActive.png";
+import products from "assets/Products.png";
+import productsac from "assets/ProductsActive.png";
+import users from "assets/Users.png";
+import usersac from "assets/UsersActive.png";
+import events from "assets/Events.png";
+import eventsac from "assets/EventsActive.png";
+import subscriptions from "assets/Subscriptions.png";
+import subscriptionsac from "assets/SubscriptionsActive.png";
+import orders from "assets/Orders.png";
+import ordersac from "assets/OrdersActive.png";
+import manageroles from "assets/ManageRoles.png";
+import managerolesac from "assets/ManageRolesActive.png";
+import insighterpoints from "assets/InsighterPoints.png";
+import insighterpointsac from "assets/InsighterPointsActive.png";
+import videogallery from "assets/VideoGallery.png";
+import videogalleryac from "assets/VideoGalleryActive.png";
+import pricelist from "assets/PriceList.png";
+import pricelistac from "assets/PriceListActive.png";
+import insighterreport from "assets/InsighterReport.png";
+import insighterreportac from "assets/InsighterReportActive.png";
+import viewallcomments from "assets/ViewAllComments.png";
+import viewallcommentsac from "assets/ViewAllCommentsActive.png";
+import coupons from "assets/Coupons.png";
+import couponsac from "assets/CouponsActive.png";
+import subscriptioncoupons from "assets/SubscriptionCoupons.png";
+import subscriptioncouponsac from "assets/SubscriptionCouponsActive.png";
 
 
-export default function SideMenu () {
+export default function SideMenu (props) {
 
     const [active, setActive] = useState({
-        Dahboard: false,
+        Dashboard: false,
         InsightSheets: false,
         Products: false,
         Users: false,
@@ -51,10 +68,11 @@ export default function SideMenu () {
 
                                 <div className="menu-section">
                                     <ul>
+                                   
                                         <li 
-                                            className={active.Dahboard ? "active" : ""}
+                                            className={active.Dashboard ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: true,
+                                                Dashboard: true,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -71,14 +89,22 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.Dahboard ? <img src={dashboard} /> : <img src={dashboard} />}
+                                               
+                                               <Link
+                                                to="/admin/dashboard"
+                                            
+                                            >
+                                            {active.Dashboard ? <img src={dashboardac} /> : <img src={dashboard} />}
                                             
                                             <span> Dashboard </span>
+                                            </Link>
                                         </li>
+                                        
+                                        
                                         <li 
                                             className={active.InsightSheets ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: true,
                                                 Products: false,
                                                 Users: false,
@@ -95,14 +121,20 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.InsightSheets ? <img src={insightsheets} /> : <img src={insightsheets} />}
+                                            <Link
+                                                to="/admin/insightsheet"
+                                                
+                                            >
+                                            {active.InsightSheets ? <img src={insightsheetsac} /> : <img src={insightsheets} />}
                                             
                                             <span> Insight Sheets </span>
+                                            </Link>
                                         </li>
+                                       
                                         <li 
                                             className={active.Products ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: true,
                                                 Users: false,
@@ -119,14 +151,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.Products ? <img src={products} /> : <img src={products} />}
+                                            {active.Products ? <img src={productsac} /> : <img src={products} />}
                                             
                                             <span> Products </span>
                                         </li>
                                         <li 
                                             className={active.Users ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: true,
@@ -143,14 +175,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.Users ? <img src={users} /> : <img src={users} />}
+                                            {active.Users ? <img src={usersac} /> : <img src={users} />}
                                             
                                             <span> Users </span>
                                         </li>
                                         <li 
                                             className={active.Events ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -167,14 +199,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.Events ? <img src={events} /> : <img src={events} />}
+                                            {active.Events ? <img src={eventsac} /> : <img src={events} />}
                                             
                                             <span> Events </span>
                                         </li>
                                         <li 
                                             className={active.Subscriptions ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -191,14 +223,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.Subscriptions ? <img src={subscriptions} /> : <img src={subscriptions} />}
+                                            {active.Subscriptions ? <img src={subscriptionsac} /> : <img src={subscriptions} />}
                                             
                                             <span> Subscriptions </span>
                                         </li>
                                         <li 
                                             className={active.Orders ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -215,14 +247,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.Orders ? <img src={orders} /> : <img src={orders} />}
+                                            {active.Orders ? <img src={ordersac} /> : <img src={orders} />}
                                             
                                             <span> Orders </span>
                                         </li>
                                         <li 
                                             className={active.ManageRoles ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -239,14 +271,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.ManageRoles ? <img src={manageroles} /> : <img src={manageroles} />}
+                                            {active.ManageRoles ? <img src={managerolesac} /> : <img src={manageroles} />}
                                             
                                             <span> Manage Roles </span>
                                         </li>
                                         <li 
                                             className={active.InsighterPoints ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -263,14 +295,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.InsighterPoints ? <img src={insighterpoints} /> : <img src={insighterpoints} />}
+                                            {active.InsighterPoints ? <img src={insighterpointsac} /> : <img src={insighterpoints} />}
                                             
                                             <span> Insighter Points </span>
                                         </li>
                                         <li 
                                             className={active.VideoGallery ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -287,14 +319,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.VideoGallery ? <img src={videogallery} /> : <img src={videogallery} />}
+                                            {active.VideoGallery ? <img src={videogalleryac} /> : <img src={videogallery} />}
                                             
                                             <span> Video Gallery </span>
                                         </li>
                                         <li 
                                             className={active.PriceList ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -311,14 +343,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.PriceList ? <img src={pricelist} /> : <img src={pricelist} />}
+                                            {active.PriceList ? <img src={pricelistac} /> : <img src={pricelist} />}
                                             
                                             <span> Price List Update Summary </span>
                                         </li>
                                         <li 
                                             className={active.InsighterReport ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -335,14 +367,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.InsighterReport ? <img src={insighterreport} /> : <img src={insighterreport} />}
+                                            {active.InsighterReport ? <img src={insighterreportac} /> : <img src={insighterreport} />}
                                             
                                             <span> Insighter Report </span>
                                         </li>
                                         <li 
                                             className={active.ViewAllComments ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -359,14 +391,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.ViewAllComments ? <img src={viewallcomments} /> : <img src={viewallcomments} />}
+                                            {active.ViewAllComments ? <img src={viewallcommentsac} /> : <img src={viewallcomments} />}
                                             
                                             <span> View All Comments </span>
                                         </li>
                                         <li 
                                             className={active.Coupons ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -383,14 +415,14 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: false
                                             })}   
                                         >
-                                            {active.Coupons ? <img src={coupons} /> : <img src={coupons} />}
+                                            {active.Coupons ? <img src={couponsac} /> : <img src={coupons} />}
                                             
                                             <span> Coupons </span>
                                         </li>
                                         <li 
                                             className={active.SubscriptionCoupons ? "active" : ""}
                                             onClick={() => setActive({
-                                                Dahboard: false,
+                                                Dashboard: false,
                                                 InsightSheets: false,
                                                 Products: false,
                                                 Users: false,
@@ -407,7 +439,7 @@ export default function SideMenu () {
                                                 SubscriptionCoupons: true
                                             })}   
                                         >
-                                            {active.SubscriptionCoupons ? <img src={subscriptioncoupons} /> : <img src={subscriptioncoupons} />}
+                                            {active.SubscriptionCoupons ? <img src={subscriptioncouponsac} /> : <img src={subscriptioncoupons} />}
                                             
                                             <span> Subscription Coupons </span>
                                         </li>

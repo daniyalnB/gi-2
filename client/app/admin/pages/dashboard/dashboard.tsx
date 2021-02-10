@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import SideMenu from "../../../admin/components/SideMenu";
 import UserTab from "../../../admin/components/UserTab";
 
-export default function dashboard() {
-    
+export default function dashboard (props) {
+
+    const [active, setActive] = useState(props)
+
+    useEffect(() => {
+        console.log(props);
+    })
 
     return (
         <>
@@ -25,5 +30,5 @@ export default function dashboard() {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
