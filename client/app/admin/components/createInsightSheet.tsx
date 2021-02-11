@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SideMenu from "../../admin/components/SideMenu";
 import UserTab from "../../admin/components/UserTab";
 import Text_Editor from "../../admin/components/Editor";
-import browse_file from "assets/browse.png";
+import browse from "assets/upload.png";
 import mnew from "assets/new.png"
 import back from "assets/arrowleft.svg";
 import up from "assets/arrowup.svg";
@@ -195,7 +195,7 @@ export default function CreateInsightSheet (props) {
                                                         />
                                                         <img 
                                                             className="upload"
-                                                            src={browse_file} 
+                                                            src={browse} 
                                                         />
                                                     </label>
                                                 </div>
@@ -211,7 +211,7 @@ export default function CreateInsightSheet (props) {
                                                         />
                                                         <img 
                                                             className="upload featured"
-                                                            src={browse_file} 
+                                                            src={browse} 
                                                         />
                                                     </label>
                                                 </div>
@@ -254,7 +254,8 @@ export default function CreateInsightSheet (props) {
                                                         />
                                                         <img 
                                                             className="upload"
-                                                            src={browse_file} 
+                                                            src={browse
+                                                            } 
                                                         />
                                                     </label>
                                                 </div>
