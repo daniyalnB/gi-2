@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import SideMenu from "../../admin/components/SideMenu";
 import UserTab from "../../admin/components/UserTab";
 import Text_Editor from "../../admin/components/Editor";
-import file from "assets/file.png";
-import mnew from "assets/new.png"
 import browse from "assets/browse.png";
+import mnew from "assets/new.png"
 import back from "assets/arrowleft.svg";
 import up from "assets/arrowup.svg";
 import down from "assets/arrowdown.svg";
