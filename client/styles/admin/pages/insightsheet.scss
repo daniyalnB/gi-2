@@ -64,6 +64,10 @@
                 &:focus {
                     box-shadow: none;
                 }
+                img {
+                    margin-right: 15px;
+                    width: 35px;
+                }
             }
         }
         hr {
@@ -470,6 +474,9 @@
                     width: 250px;
                     height: 70px;
                     line-height: 50px;
+                    img {
+                        width: 20px;
+                    }
                 }
             }
             hr {
@@ -640,9 +647,13 @@
                 .btn {
                     font-size: 14px;
                     border-radius: 5px;
-                    width: 130px;
+                    width: 150px;
                     height: 40px;
                     line-height: 25px;
+                    img {
+                        margin-right: 10px;
+                        width: 15px;
+                    }
                 }
             }
             hr {
@@ -677,7 +688,7 @@
                         width: 20px;
                         height: 20px;
                         padding: 0px;
-                        margin: 13px 0 0 20px;
+                        margin: 13px 0 0 10px;
                     }
                     input {
                         font-size: 14px;
@@ -798,6 +809,17 @@
     }
 }
 
+@media screen and (max-width: 1000px) {
+    .insightsheet .insightsheet-section .header .btn {
+        font-size: 13px;
+        width: 130px;
+        img {
+            margin-right: 7px;
+            width: 12px;
+        }
+    }
+}
+
 @media screen and (max-width: 920px) {
     .insightsheet .insightsheet-section 
     .inner_sub_area {
@@ -869,10 +891,13 @@
                     font-size: 15px;
                 }
                 .btn {
-                    font-size: 12px;
+                    font-size: 11px;
                     width: 110px;
                     height: 35px;
-                    line-height: 20px;
+                    line-height: 22px;
+                    img {
+                        width: 10px;
+                    }
                 }
             }
             .table-section {

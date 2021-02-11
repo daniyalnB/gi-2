@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SideMenu from "../../admin/components/SideMenu";
 import UserTab from "../../admin/components/UserTab";
+import Text_Editor from "../../admin/components/Editor";
 import file from "assets/file.png";
+import mnew from "assets/new.png"
+import browse from "assets/browse.png";
 import back from "assets/arrowleft.svg";
 import up from "assets/arrowup.svg";
 import down from "assets/arrowdown.svg";
@@ -87,42 +90,42 @@ export default function CreateInsightSheet (props) {
                                         <div className="row">
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input type="text" name="AL" required id="inputField1" className="input-area"/>
-                                                    <label htmlFor="inputField1" className="floating_label"> AL board approval </label>
+                                                    <input type="text" name="AL" required id="inputField3" className="input-area"/>
+                                                    <label htmlFor="inputField3" className="floating_label"> AL board approval </label>
                                                 </div>
                                             </div>
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input type="text" name="LU" required id="inputField2" className="input-area"/>
-                                                    <label htmlFor="inputField2" className="floating_label"> Last update </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-4">
-                                                <div className="form-group nogroup">
-                                                    <input type="text" name="Contributor" required id="inputField1" className="input-area"/>
-                                                    <label htmlFor="inputField1" className="floating_label"> Contributor </label>
-                                                </div>
-                                            </div>
-                                            <div className="col-4">
-                                                <div className="form-group nogroup">
-                                                    <input type="text" name="URL" required id="inputField2" className="input-area"/>
-                                                    <label htmlFor="inputField2" className="floating_label"> iframe URL </label>
+                                                    <input type="text" name="LU" required id="inputField4" className="input-area"/>
+                                                    <label htmlFor="inputField4" className="floating_label"> Last update </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input type="text" name="PA" required id="inputField1" className="input-area"/>
-                                                    <label htmlFor="inputField1" className="floating_label"> Principal Author </label>
+                                                    <input type="text" name="Contributor" required id="inputField5" className="input-area"/>
+                                                    <label htmlFor="inputField5" className="floating_label"> Contributor </label>
                                                 </div>
                                             </div>
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input onClick={() => setmacro(!macro)} type="button" name="Category" required id="inputField7" className="input-area"/>
-                                                    <label htmlFor="inputField7" className="floating_label"> Macro Products </label>
+                                                    <input type="text" name="URL" required id="inputField6" className="input-area"/>
+                                                    <label htmlFor="inputField6" className="floating_label"> iframe URL </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-4">
+                                                <div className="form-group nogroup">
+                                                    <input type="text" name="PA" required id="inputField7" className="input-area"/>
+                                                    <label htmlFor="inputField7" className="floating_label"> Principal Author </label>
+                                                </div>
+                                            </div>
+                                            <div className="col-4">
+                                                <div className="form-group nogroup">
+                                                    <input onClick={() => setmacro(!macro)} type="button" name="Category" required id="inputField8" className="input-area"/>
+                                                    <label htmlFor="inputField8" className="floating_label"> Macro Products </label>
                                                     <label className="file_input_label">
                                                         { macro 
                                                             ?
@@ -139,9 +142,30 @@ export default function CreateInsightSheet (props) {
                                                             />
                                                         }
                                                     </label>
-                                                    <div className={macro ? "active" : "dropdown-content"}>
-                                                        <h3> Insulation & Drywall Behind Toilet V1.0 </h3>
-                                                        <h3> Vinyl Windows with Stucco Elevations V1.1 </h3> 
+                                                    <div className={macro ? "active_new" : "dropdown-content"}>
+                                                        <div className="form-group nogroup">
+                                                            <div className="input-group">
+                                                                <input 
+                                                                    type="text" 
+                                                                    className="form-control" 
+                                                                    placeholder="Search"
+                                                                    required
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div className="macro-options">
+                                                            <h3> Insulation & Drywall Behind Toilet V1.0 </h3>
+                                                            <h3> Vinyl Windows with Stucco Elevations V1.1 </h3>
+                                                        </div>
+                                                        <hr />
+                                                        <div  className="add_new">
+                                                            <Link
+                                                                to=""
+                                                            >
+                                                                <img src={mnew} />
+                                                                Add new
+                                                            </Link> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,14 +173,14 @@ export default function CreateInsightSheet (props) {
                                         <div className="row">
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input type="text" name="xtitle" required id="inputField1" className="input-area"/>
-                                                    <label htmlFor="inputField1" className="floating_label"> Xact title </label>
+                                                    <input type="text" name="xtitle" required id="inputField9" className="input-area"/>
+                                                    <label htmlFor="inputField9" className="floating_label"> Xact title </label>
                                                 </div>
                                             </div>
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input type="text" name="xurl" required id="inputField2" className="input-area"/>
-                                                    <label htmlFor="inputField2" className="floating_label"> Xact iframe URL </label>
+                                                    <input type="text" name="xurl" required id="inputField10" className="input-area"/>
+                                                    <label htmlFor="inputField10" className="floating_label"> Xact iframe URL </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,15 +196,15 @@ export default function CreateInsightSheet (props) {
                                                         />
                                                         <img 
                                                             className="upload"
-                                                            src={file} 
+                                                            src={browse} 
                                                         />
                                                     </label>
                                                 </div>
                                             </div>
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input type="text" name="fimage" required id="inputField2" className="input-area"/>
-                                                    <label htmlFor="inputField2" className="floating_label"> Featured image </label>
+                                                    <input type="text" name="fimage" required id="inputField12" className="input-area"/>
+                                                    <label htmlFor="inputField12" className="floating_label"> Featured image </label>
                                                     <label className="file_input_label">
                                                         <input
                                                             type="file" 
@@ -188,10 +212,20 @@ export default function CreateInsightSheet (props) {
                                                         />
                                                         <img 
                                                             className="upload featured"
-                                                            src={file} 
+                                                            src={browse} 
                                                         />
                                                     </label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="description">
+                                    <h3> Description </h3>
+                                    <div className="row">
+                                        <div className="col-8 Text_Editor">
+                                            <div className="inside">
+                                                <Text_Editor />
                                             </div>
                                         </div>
                                     </div>
@@ -204,16 +238,16 @@ export default function CreateInsightSheet (props) {
                                         <div className="row">
                                             <div className="col-8">
                                                 <div className="form-group nogroup">
-                                                    <input type="text" name="tags" required id="inputField10" className="input-area"/>
-                                                    <label htmlFor="inputField10" className="floating_label"> Tags </label>
+                                                    <input type="text" name="tags" required id="inputField13" className="input-area"/>
+                                                    <label htmlFor="inputField13" className="floating_label"> Tags </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-4">
                                                 <div className="form-group nogroup">
-                                                    <input type="button" name="fimage" required id="inputField11" className="input-area"/>
-                                                    <label htmlFor="inputField11" className="floating_label"> Facebook OG Image </label>
+                                                    <input type="button" name="fimage" required id="inputField14" className="input-area"/>
+                                                    <label htmlFor="inputField14" className="floating_label"> Facebook OG Image </label>
                                                     <label className="file_input_label">
                                                         <input
                                                             type="file" 
@@ -221,7 +255,7 @@ export default function CreateInsightSheet (props) {
                                                         />
                                                         <img 
                                                             className="upload"
-                                                            src={file} 
+                                                            src={browse} 
                                                         />
                                                     </label>
                                                 </div>

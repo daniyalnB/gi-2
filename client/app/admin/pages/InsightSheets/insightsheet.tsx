@@ -6,6 +6,7 @@ import AdminTable from "../../components/Table";
 import IS from "assets/InsightSheetsRed.png";
 import searchicon from "assets/magnifying-glass.svg";
 import vision from "assets/visibility.svg";
+import create from "assets/create.png";
 import MOCK_DATA from "../../components/MOCK_DATA.json";
 
 export default function insightsheet (props) {
@@ -77,7 +78,8 @@ export default function insightsheet (props) {
                                             className="btn"
                                             to="/admin/CreateInsightSheet"
                                         >
-                                            + Create New
+                                            <img src={create} />
+                                            Create New
                                         </Link>
                                     </div>
                                 </div>
