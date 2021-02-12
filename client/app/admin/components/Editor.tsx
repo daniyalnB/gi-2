@@ -10,7 +10,7 @@ const Text_Editor = () => {
   );
   const  [convertedContent, setConvertedContent] = useState(null);
 
-  console.log(convertedContent);
+  // console.log(convertedContent);
 
   const handleEditorChange = (state) => {
     setEditorState(state);
