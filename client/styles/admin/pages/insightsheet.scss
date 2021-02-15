@@ -107,6 +107,7 @@
                     background: #26A59A;
                     opacity: 1;
                     color: #fff;
+                    border-color: #26A59A;
                 }
             }
             .form-group {
@@ -454,28 +455,29 @@
         .insightsheet-section {
             margin: 30px !important;
             .header {
-                padding: 30px 20px 20px 20px;
+                padding: 30px 20px 10px 10px;
                 .heading {
-                    font-size: 30px;
+                    font-size: 20px;
                     padding-top: 10px;
                 }
                 .page_icon {
-                    margin-right: 15px;
-                    width: 35px;
+                    margin-right: 10px;
+                    width: 25px;
                     height: auto;
                     img {
-                        width: 35px;
+                        width: 25px;
                         height: auto;
                     }
                 }
                 .btn {
-                    font-size: 25px;
+                    font-size: 16px;
                     border-radius: 5px;
-                    width: 250px;
-                    height: 70px;
-                    line-height: 50px;
+                    width: 160px;
+                    height: 45px;
+                    line-height: 30px;
                     img {
-                        width: 20px;
+                        width: 15px;
+                        margin-right: 10px;
                     }
                 }
             }
@@ -496,7 +498,7 @@
                         border: 2px solid #EBEDF2;;
                         border-radius: 10px 10px 0px 0px;
                         text-align: center;
-                        font-size: 20px;
+                        font-size: 15px;
                         letter-spacing: 0px;
                         padding: 15px 0px;
                         width: 200px;
@@ -505,18 +507,19 @@
                 .form-group {
                     .input-group {
                         margin-left: 10%;
-                        height: 66px;
+                        height: 50px;
                         width: 90%;
                     }
                     .input_icon {
-                        width: 30px;
-                        height: 30px;
+                        width: 20px;
+                        height: 20px;
                         padding: 0px;
-                        margin: 15px 0 0 20px;
+                        margin: 14px 0 0 15px;
                     }
                     input {
-                        font-size: 20px;
-                        height: 62px;
+                        font-size: 15px;
+                        height: 47px;
+                        padding-top: 10px;
                     }
                 }
             }
@@ -588,33 +591,33 @@
 
 @media screen and (max-width: 1567px) {
     .insightsheet .insightsheet-section .inner_sub_area .subs_filters li {
-        font-size: 18px;
+        // font-size: 18px;
         width: 140px;
     }
-    .insightsheet .insightsheet-section .inner_sub_area .form-group {
-        .input-group {
-            height: 60px;
-        }
-        .input_icon {
-            width: 20px;
-            height: 20px;
-            padding: 0px;
-            margin: 15px 0 0 20px;
-        }
-        input {
-            font-size: 20px;
-            height: 50px;
-        }
-    }
+    // .insightsheet .insightsheet-section .inner_sub_area .form-group {
+    //     .input-group {
+    //         height: 60px;
+    //     }
+    //     .input_icon {
+    //         width: 20px;
+    //         height: 20px;
+    //         padding: 0px;
+    //         margin: 15px 0 0 20px;
+    //     }
+    //     input {
+    //         font-size: 20px;
+    //         height: 50px;
+    //     }
+    // }
 }
 
 @media screen and (max-width: 1640px) {
-    .insightsheet .insightsheet-section .header .btn {
-        font-size: 20px;
-        width: 200px;
-        height: 50px;
-        line-height: 35px;
-    }
+    // .insightsheet .insightsheet-section .header .btn {
+    //     font-size: 20px;
+    //     width: 200px;
+    //     height: 50px;
+    //     line-height: 35px;
+    // }
     .insightsheet .insightsheet-section .table-section .bktables {
         th {
             // padding: 0px 20px 0px 40px;
@@ -674,25 +677,25 @@
                         text-align: center;
                         font-size: 12px;
                         letter-spacing: 0px;
-                        padding: 15px 0px;
+                        padding: 10px 0px;
                         width: 140px;
                     }
                 }
                 .form-group {
                     .input-group {
                         margin-left: 10%;
-                        height: 50px;
+                        height: 44px;
                         width: 90%;
                     }
                     .input_icon {
-                        width: 20px;
-                        height: 20px;
+                        width: 18px;
+                        height: 18px;
                         padding: 0px;
-                        margin: 13px 0 0 10px;
+                        margin: 11px 0 0 10px;
                     }
                     input {
                         font-size: 14px;
-                        height: 45px;
+                        height: 37px;
                     }
                 }
             }
@@ -780,34 +783,31 @@
             text-align: center;
             margin: 0px;
             li {
-                font-size: 15px;
-                width: 200px;
+                // font-size: 15px;
+                width: 145px;
+                padding: 10px 0px;
             }
         }
         .form-group {
             margin-top: 10px;
             .input-group {
                 margin-left: 50%;
-                height: 50px;
                 width: 50%;
-            }
-            input {
-                height: 47px;
             }
         }
     }
 }
 
-@media screen and (max-width: 1190px) {
-    .insightsheet .insightsheet-section 
-    .inner_sub_area {
-        .subs_filters {
-            li {
-                width: 150px;
-            }
-        }
-    }
-}
+// @media screen and (max-width: 1190px) {
+//     .insightsheet .insightsheet-section 
+//     .inner_sub_area {
+//         .subs_filters {
+//             li {
+//                 width: 150px;
+//             }
+//         }
+//     }
+// }
 
 @media screen and (max-width: 1000px) {
     .insightsheet .insightsheet-section .header .btn {
@@ -826,6 +826,51 @@
         .subs_filters {
             li {
                 width: 120px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .insightsheet .insightsheet-section {
+        .header {
+            .heading {
+                font-size: 16px;
+            }
+            .page_icon {
+                width: 18px;
+                margin-right: 5px;
+                img {
+                    width: 18px;
+                }
+            }
+            .btn {
+                font-size: 12px;
+                width: 120px;
+                height: 35px;
+                line-height: 20px;
+                img {
+                    margin-right: 5px;
+                    width: 10px;
+                }
+            }
+        }
+        .inner_sub_area .form-group {
+            .input-group {
+                margin-left: 50%;
+                height: 40px;
+                width: 50%;
+            }
+            .input_icon {
+                width: 14px;
+                height: 14px;
+                padding: 0px;
+                margin: 11px 0 0 10px;
+            }
+            input {
+                font-size: 12px;
+                height: 35px;
+                padding-left: 7px;
             }
         }
     }

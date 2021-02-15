@@ -59,7 +59,7 @@ const Text_Editor = () => {
         wrapperClassName="wrapper-class"
         editorClassName="editor-class"
         toolbarClassName="toolbar-class"
-        placeholder="Type something here.."
+        placeholder="Type something here..."
         toolbar={{
           inline: { inDropdown: false },
           list: { inDropdown: true },

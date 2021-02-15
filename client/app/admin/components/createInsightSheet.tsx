@@ -363,6 +363,7 @@ export default function CreateInsightSheet (props) {
                                                         required 
                                                         id="inputField14" 
                                                         className="input-area"
+                                                        style={{marginBottom: "0px"}}
                                                     />
                                                     <label htmlFor="inputField14" className="floating_label"> Facebook OG Image </label>
                                                     <label className="file_input_label">
@@ -371,9 +372,10 @@ export default function CreateInsightSheet (props) {
                                                             style={{ display: "none"}}
                                                         />
                                                         <img 
-                                                            className="upload"
+                                                            className="facebook"
                                                             src={browse} 
                                                         />
+                                                        <div className="resolution"> Image resolution 1200 x 630 pixels </div>
                                                     </label>
                                                 </div>
                                             </div>
