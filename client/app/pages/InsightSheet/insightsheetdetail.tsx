@@ -15,7 +15,7 @@ const ISDetail = () => {
             <div className="ISDetail_page">
                 <div className="container-fluid">
                     <div className="holder">
-                        <h2> Inside Sheets </h2>
+                        <h2> Insight Sheets </h2>
                         <div className="separator">
                             <div className="form-group nogroup">
                                 <div className="input-group">

@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 100vh;
     height: 100%;
-    padding-top: 110px;
+    padding-top: 130px;
     background: #fff;
     .signup_header {
         width: 100%;
@@ -216,6 +216,7 @@
 
 @media screen and (max-width: 1920px) {
     .signup_page {
+        padding-top: 110px;
         .signup_header {
             padding: 20px 0 25px 80px;
             &::after {

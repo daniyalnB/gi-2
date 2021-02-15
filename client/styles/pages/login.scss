@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  padding-top: 90px;
+  padding-top: 120px;
   background: #fff;
   .container-fluid {
     padding-left: 50px;
@@ -117,6 +117,7 @@
 
 @media screen and (max-width: 1920px) {
   .login_page {
+    padding-top: 90px;
     .title {
       font-size: 30px;
     }

@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 100vh;
     height: 100%;
-    padding-top: 110px;
+    padding-top: 250px;
     background: #fff;
     .container-fluid {
         padding-left: 50px;
@@ -219,6 +219,7 @@
 
 @media screen and (max-width: 1920px) {
     .ISD_page {
+        padding-top: 150px;
         .holder {
             h2 {
                 font-size: 30px;
