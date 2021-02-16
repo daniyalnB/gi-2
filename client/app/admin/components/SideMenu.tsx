@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import logo from "assets/Logo.png";
@@ -35,7 +35,6 @@ import subscriptioncouponsac from "assets/SubscriptionCouponsActive.png";
 
 export default function SideMenu(props) {
   console.log("Props", location.pathname);
-
   const [active, setActive] = useState(false);
 
   return (
@@ -57,7 +56,7 @@ export default function SideMenu(props) {
                       }
                     >
                       <Link to="/admin/dashboard">
-                        {active ? (
+                        {location.pathname === "/admin/dashboard" ? (
                           <img src={dashboardac} />
                         ) : (
                           <img src={dashboard} />
@@ -75,7 +74,7 @@ export default function SideMenu(props) {
                       }
                     >
                       <Link to="/admin/insightsheet">
-                        {active ? (
+                        {location.pathname === "/admin/insightsheet" ? (
                           <img src={insightsheetsac} />
                         ) : (
                           <img src={insightsheets} />
@@ -91,7 +90,7 @@ export default function SideMenu(props) {
                       }
                     >
                       <Link to="/admin/products">
-                        {active ? (
+                        {location.pathname === "/admin/products" ? (
                           <img src={productsac} />
                         ) : (
                           <img src={products} />
