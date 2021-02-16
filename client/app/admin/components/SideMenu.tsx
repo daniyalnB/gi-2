@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import logo from "assets/Logo.png";
 import dashboard from "assets/Dashboard.png";
@@ -35,6 +34,7 @@ import subscriptioncouponsac from "assets/SubscriptionCouponsActive.png";
 
 export default function SideMenu(props) {
   console.log("Props", location.pathname);
+  
   const [active, setActive] = useState(false);
 
   return (
@@ -50,55 +50,51 @@ export default function SideMenu(props) {
 
                 <div className="menu-section">
                   <ul>
-                    <li
-                      className={
-                        location.pathname === "/admin/dashboard" ? "active" : ""
-                      }
-                    >
-                      <Link to="/admin/dashboard">
+                    <Link to="/admin/dashboard">
+                      <li
+                        className={
+                          location.pathname === "/admin/dashboard" ? "active" : ""
+                        }
+                      >
                         {location.pathname === "/admin/dashboard" ? (
                           <img src={dashboardac} />
                         ) : (
                           <img src={dashboard} />
                         )}
-
                         <span> Dashboard </span>
-                      </Link>
-                    </li>
+                      </li>
+                    </Link>
 
-                    <li
-                      className={
-                        location.pathname === "/admin/insightsheet"
-                          ? "active"
-                          : ""
-                      }
-                    >
-                      <Link to="/admin/insightsheet">
+                    <Link to="/admin/insightsheet">
+                      <li
+                        className={
+                          location.pathname === "/admin/insightsheet" ? "active" : ""
+                        }
+                      >
                         {location.pathname === "/admin/insightsheet" ? (
                           <img src={insightsheetsac} />
                         ) : (
                           <img src={insightsheets} />
                         )}
+                          <span> Insight Sheets </span>
+                      </li>
+                    </Link>
 
-                        <span> Insight Sheets </span>
-                      </Link>
-                    </li>
-
-                    <li
-                      className={
-                        location.pathname === "/admin/products" ? "active" : ""
-                      }
-                    >
-                      <Link to="/admin/products">
+                    <Link to="/admin/products">
+                      <li
+                        className={
+                          location.pathname === "/admin/products" ? "active" : ""
+                        }
+                      >
                         {location.pathname === "/admin/products" ? (
                           <img src={productsac} />
                         ) : (
                           <img src={products} />
                         )}
-
                         <span> Products </span>
-                      </Link>
-                    </li>
+                      </li>
+                    </Link>
+
                     <li className={active.Users ? "active" : ""}>
                       {active.Users ? (
                         <img src={usersac} />

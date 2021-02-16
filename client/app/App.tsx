@@ -40,7 +40,6 @@ const App: React.FC = () => {
           <Route exact path='/admin/products' component= {products} />
           <Route exact path='/admin/productsList' component= {ProductsList} />
           <Route exact path='/admin/createProduct' component= {CreateProduct} />
-          <Route exact path='/admin/:page' component={SideMenu}/>
           <Redirect to="/" />
         </Switch>
       </Router>
