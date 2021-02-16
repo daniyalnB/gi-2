@@ -8,6 +8,7 @@ import searchicon from "assets/magnifying-glass.svg";
 import vision from "assets/visibility.svg";
 import create from "assets/create.png";
 import MOCK_DATA from "../../components/MOCK_DATA_IS.json";
+import StarRatingDemo from "../../components/StarRating";
 
 export default function insightsheet (props) {
 
@@ -172,11 +173,20 @@ export default function insightsheet (props) {
                                                     <td>{rowData.original.title}</td>
                                                     <td>{rowData.original.category}</td>
                                                     <td>{rowData.original.last_update}</td>
-                                                    <td>{rowData.original.rating}</td>
-                                                    <td> 
-                                                        <span className={rowData.original.status == "Draft" ? "status_draft" : "status_published"}>  
-                                                            {rowData.original.status} 
+                                                    {/* <td> {rowData.original.rating}</td> */}
+                                                    <td> <StarRatingDemo /> </td>
+                                                    <td>
+                                                    <div className="status_tb">
+                                                        <span
+                                                        className={
+                                                            rowData.original.status == "Draft"
+                                                            ? "status_draft"
+                                                            : "status_published"
+                                                        }
+                                                        >
+                                                        {rowData.original.status}
                                                         </span>
+                                                    </div>
                                                     </td>
                                                     {/* <td>
                                                         {"N/A"}

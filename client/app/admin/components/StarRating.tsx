@@ -26,10 +26,10 @@ function StarRating (
   }
   
   return (
-      <div className="rating_2">
-        <span className="rating-value">
+      <div>
+        {/* <span className="rating-value">
           {value}
-        </span>
+        </span> */}
 
       {stars.map((s, index) => {
         let style = inactiveColor;
@@ -59,10 +59,11 @@ function StarRating (
 }
 
 
-const StarRatingDemo: React.FC = () => {
-  // Get the rating from a db if required.
-  // The value 3 is just for testing.
-  const [rating, setRating] = useState(4.5);
+const StarRatingDemo: React.FC = (props) => {
+  const {
+   value
+  } = props;
+  const [rating, setRating] = useState(3.5);
   
 
   const handleChange = (value) => {
@@ -76,38 +77,11 @@ const StarRatingDemo: React.FC = () => {
         <StarRating 
           count={5}
           value={rating}
-          activeColor ={'#ED8A19'}
+          activeColor ={'#DB422D'}
           inactiveColor={'#ddd'}
           // onChange={handleChange}  
         />    
       </div>
-
-    <div className="rating_1">
-      <span className="span-rating-1"> 
-        (
-          <span className="span-1">
-            5
-          </span> 
-          <span className="span-2">
-            votes, average: 
-          </span>
-          <span className="span-3">
-            {rating}
-          </span>
-          <span className="span-4">
-            out of
-          </span>  
-          <span className="span-5">
-            5
-          </span>
-        ) 
-      </span>
-      <br />
-      <span className="span-rating-2"> 
-        You need to be a registered member to rate this.
-      </span>
-    </div>
-    
     </>
   )
 }
