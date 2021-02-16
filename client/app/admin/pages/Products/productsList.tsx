@@ -7,9 +7,10 @@ import IS from "assets/InsightSheetsRed.png";
 import searchicon from "assets/magnifying-glass.svg";
 import vision from "assets/visibility.svg";
 import create from "assets/create.png";
-import MOCK_DATA from "../../components/MOCK_DATA_IS.json";
+import back from "assets/arrowleft.svg";
+import MOCK_DATA from "../../components/MOCK_DATA_Product.json";
 
-export default function insightsheet (props) {
+export default function ProductsList (props) {
 
     const data = useMemo(() => MOCK_DATA, [])
     console.log(data);
@@ -19,7 +20,7 @@ export default function insightsheet (props) {
         All: true,
         Draft: false,
         Published: false,
-        Trash: false
+        OutofStock: false
     });
 
     const [headers, setHeaders] = useState([
@@ -28,16 +29,16 @@ export default function insightsheet (props) {
           accessor: "title",
         },
         {
-          Header: "Category",
-          accessor: "category",
+          Header: "Created at",
+          accessor: "created_at",
         },
         {
-          Header: "Last Update",
-          accessor: "last_update",
+          Header: "Purchased Count",
+          accessor: "purchased_count",
         },
         {
-          Header: "Ratings",
-          accessor: "rating",
+          Header: "Price",
+          accessor: "price",
         },
         {
           Header: "Status",
@@ -65,18 +66,27 @@ export default function insightsheet (props) {
                             </div>
                             <div className="insightsheet-section">
                                 <div className="row header">
-                                    <div className="col-9">
+                                    <div className="col-6">
                                         <div className="page_icon">
                                             <img src={IS} />
                                         </div>
                                         <h3 className="heading">
-                                            Insight Sheets
+                                            Macro
                                         </h3>
                                     </div>
-                                    <div className="col-3 text-right">
+                                    <div className="col-6 text-right">
+                                        <div className="back">
+                                        <Link
+                                            className="bk"
+                                            to="/admin/products"
+                                        >
+                                            <img src={back} className=""/>
+                                            Back
+                                        </Link>
+                                        </div>
                                         <Link
                                             className="btn"
-                                            to="/admin/CreateInsightSheet"
+                                            to="/admin/createProduct"
                                         >
                                             <img src={create} />
                                             Create New
@@ -95,7 +105,7 @@ export default function insightsheet (props) {
                                                             All: true,
                                                             Draft: false,
                                                             Published: false,
-                                                            Trash: false
+                                                            OutofStock: false
                                                         })
                                                     }
                                                 >
@@ -108,7 +118,7 @@ export default function insightsheet (props) {
                                                             All: false,
                                                             Draft: true,
                                                             Published: false,
-                                                            Trash: false
+                                                            OutofStock: false
                                                         })
                                                     }
                                                 >
@@ -121,24 +131,24 @@ export default function insightsheet (props) {
                                                             All: false,
                                                             Draft: false,
                                                             Published: true,
-                                                            Trash: false
+                                                            OutofStock: false
                                                         })
                                                     }
                                                 >
                                                     Published (42)
                                                 </li>
                                                 <li
-                                                    className={activeTab.Trash == true ? "active" : ""}
+                                                    className={activeTab.OutofStock == true ? "active" : ""}
                                                     onClick={() =>
                                                         setActiveTab({
                                                             All: false,
                                                             Draft: false,
                                                             Published: false,
-                                                            Trash: true
+                                                            OutofStock: true
                                                         })
                                                     }
                                                 >
-                                                    Trash (21)
+                                                    Out of Stock (21)
                                                 </li>
                                             </ul>
                                         </div>
@@ -170,11 +180,15 @@ export default function insightsheet (props) {
                                                 return (
                                                     <tr key={index}>
                                                     <td>{rowData.original.title}</td>
-                                                    <td>{rowData.original.category}</td>
-                                                    <td>{rowData.original.last_update}</td>
-                                                    <td>{rowData.original.rating}</td>
+                                                    <td>{rowData.original.created_at}</td>
+                                                    <td>{rowData.original.purchased_count}</td>
+                                                    <td>{rowData.original.price}</td>
                                                     <td> 
-                                                        <span className={rowData.original.status == "Draft" ? "status_draft" : "status_published"}>  
+                                                        <span 
+                                                            className={rowData.original.status == "Draft" ? "status_draft" : 
+                                                                rowData.original.status == "Published" ? "status_published" : "status_outofstock"
+                                                            }
+                                                        >  
                                                             {rowData.original.status} 
                                                         </span>
                                                     </td>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SideMenu from "../../admin/components/SideMenu";
-import UserTab from "../../admin/components/UserTab";
-import Text_Editor from "../../admin/components/Editor";
+import SideMenu from "../../components/SideMenu";
+import UserTab from "../../components/UserTab";
+import Text_Editor from "../../components/Editor";
 import browse from "assets/upload.png";
 import mnew from "assets/new.png"
 import back from "assets/arrowleft.svg";

@@ -98,7 +98,7 @@
                 height: 100px;
                 border: 1px solid rgba(10,81,105,.5);
                 border-radius: 10px;
-                padding: 12px 15px;
+                padding: 12px 30px;
                 outline: none;
                 &:hover {
                     border: 1px solid #26A59A;
@@ -442,8 +442,8 @@
                 .back {
                     padding-top: 5px;
                     img {
-                       width: 20px;
-                       margin-right: 20px;
+                       width: 18px;
+                       margin-right: 15px;
                        margin-bottom: 2px;
                     }
                     .bk {
@@ -486,7 +486,7 @@
                     height: 50px;
                     border: 1px solid rgba(10,81,105,.5);
                     border-radius: 4px;
-                    padding: 10px 15px;
+                    padding: 10px 20px;
                     outline: none;
                     &:hover {
                         border: 1px solid #26A59A;
@@ -886,7 +886,7 @@
             }
         }
         .info {
-            width: 87%;
+            width: 90%;
         }
         .info-data .form-holder {
             .col-4 {
@@ -894,8 +894,8 @@
                 max-width: 48%;
             }
             .col-8 {
-                flex: 93%;
-                max-width: 93%;
+                flex: 96%;
+                max-width: 96%;
             }
         }
         .second-hr {
@@ -910,11 +910,11 @@
 
 @media screen and (max-width: 900px) {
     .createInsightSheet .createInsightSheet-section 
-    .info-data { 
-        .col-8 {
-            flex: 95%;
-            max-width: 95%;
-        }
+    .info-data .form-holder { 
+        // .col-8 {
+        //     flex: 96%;
+        //     max-width: 96%;
+        // }
         .newcol {
             flex: 60% !important;
             max-width: 60% !important;

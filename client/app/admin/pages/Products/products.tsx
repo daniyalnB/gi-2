@@ -1,9 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SideMenu from "../../components/SideMenu";
 import UserTab from "../../components/UserTab";
 import productsac from "assets/ProductsRed.png";
-import file from "assets/file.png";
-import left from "assets/left_arrow.png";
 import swag from "assets/swag.png";
 import giftcards from "assets/giftcards.png";
 import macro from "assets/macro.png";
@@ -71,6 +70,7 @@ export default function products (props) {
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div className="data">
                                             <div className="row">
                                                 <div className="data-image-one">
@@ -81,11 +81,16 @@ export default function products (props) {
                                                     
                                                     <h4> 23 Products </h4>
                                                 </div>
-                                                <div className="data-image-two">
-                                                    <img src={right} />
-                                                </div>
+                                                <Link
+                                                    to="/admin/productsList"
+                                                >
+                                                    <div className="data-image-two">
+                                                        <img src={right} />
+                                                    </div>
+                                                </Link>
                                             </div>
                                         </div>
+                                        
                                         <div className="row-margin"></div>
                                         <div className="data">
                                             <div className="row">

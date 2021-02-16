@@ -13,7 +13,9 @@ import home_admin from "./admin/pages/home/home";
 import dashboard from "./admin/pages/Dashboard/dashboard";
 import insightsheet from "./admin/pages/InsightSheets/insightsheet";
 import products from "./admin/pages/Products/products";
-import CreateInsightSheet from "./admin/components/createInsightSheet";
+import CreateInsightSheet from "./admin/pages/InsightSheets/createInsightSheet";
+import ProductsList from "./admin/pages/Products/productsList";
+import CreateProduct from "./admin/pages/Products/createProduct";
 
 
 
@@ -36,6 +38,8 @@ const App: React.FC = () => {
           <Route exact path='/admin/insightsheet' component= {insightsheet} />
           <Route exact path='/admin/createInsightSheet' component= {CreateInsightSheet} />
           <Route exact path='/admin/products' component= {products} />
+          <Route exact path='/admin/productsList' component= {ProductsList} />
+          <Route exact path='/admin/createProduct' component= {CreateProduct} />
           <Route exact path='/admin/:page' component={SideMenu}/>
           <Redirect to="/" />
         </Switch>
