@@ -37,7 +37,7 @@ export default function login_admin () {
                                         
                                         <Link
                                             className="btn"
-                                            to="/admin/home"
+                                            to="/admin/dashboard"
                                         >
                                             Sign In
                                         </Link>

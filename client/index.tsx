@@ -5,17 +5,22 @@ import App from "./app/App";
 import * as serviceWorker from "./serviceWorker";
 import history from "./utils/history";
 import { Router } from "react-router-dom";
+import AuthContext from "./contexts/authContext";
 
-const Test: React.FC = () => {
+const GI2: React.FC = () => {
 
   return(
       <>
-        <App />
+        {/* <AuthContext> */}
+          <Router history={history}>
+            <App />
+          </Router>
+        {/* </AuthContext> */}
       </>
   );
 };
 
-ReactDOM.render(<Test />, document.getElementById("root"));
+ReactDOM.render(<GI2 />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
