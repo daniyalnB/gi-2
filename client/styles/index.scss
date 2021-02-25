@@ -6,29 +6,47 @@
 
 @import "./Main";
 
+// Progress Circle 
+
+@import "./ProgressCircle";
+
+// Modal Video
+
+@import "./modal-video";
+
+// Footer
+
+@import "./Footer";
+
+// Main Search
+
+@import "./Search";
+
 // Pages
 
 @import "./pages/login";
 @import "./pages/signup";
 @import "./pages/events";
-@import "./pages/insightsheet.scss";
-@import "./pages/insidesheetdetail.scss";
+@import "./pages/insightsheet";
+@import "./pages/insidesheetdetail";
+@import "./pages/product";
+@import "./pages/buyproduct";
 
 // Admin Side Menu
 
-@import "./admin/SideMenu.scss";
+@import "./admin/SideMenu";
 
 // Admin Pages
 
-@import "./admin/pages/login.scss";
-@import "./admin/pages/dashboard.scss";
-@import "./admin/pages/insightsheet.scss";
-@import "./admin/pages/products.scss";
+@import "./admin/pages/login";
+@import "./admin/pages/dashboard";
+@import "./admin/pages/insightsheet";
+@import "./admin/pages/products";
 
 // Admin Create Insight Sheet
 
-@import "./admin/createInsightSheet.scss";
+@import "./admin/createInsightSheet";
 
 // Admin Text Editor
 
-@import "./admin/react-draft-wysiwyg.scss";
+@import "./admin/react-draft-wysiwyg";

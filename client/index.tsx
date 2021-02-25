@@ -11,11 +11,11 @@ const GI2: React.FC = () => {
 
   return(
       <>
-        {/* <AuthContext> */}
+        <AuthContext>
           <Router history={history}>
             <App />
           </Router>
-        {/* </AuthContext> */}
+        </AuthContext>
       </>
   );
 };

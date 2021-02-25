@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-import power from "assets/Power.png";
+import React, { useState, useContext } from 'react';
+import power from "assets/Power.svg";
+import { AuthContext } from "../../../contexts/authContext";
 
 export default function UserTab () {
+
+    const { logout } = useContext(AuthContext);
+
     return (
         <>
             <div className="admin-home">
@@ -16,7 +20,10 @@ export default function UserTab () {
                                     <h5> Admin </h5>
                                 </div>
                                 <div className="col-1">
-                                    <img src={power} />
+                                    <img 
+                                        src={power}
+                                        onClick={logout}
+                                    />
                                 </div>
                             </div>
 

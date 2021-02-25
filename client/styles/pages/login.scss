@@ -1,17 +1,9 @@
 .login_page {
-  width: 100%;
-  min-height: 100vh;
-  height: 100%;
-  padding-top: 120px;
-  background: #fff;
-  .container-fluid {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
+  padding-top: 120px !important;
   .title {
     margin: 5% 0;
     font-weight: 700;
-    font-size: 60px;
+    font-size: 30px;
     line-height: 60px;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -21,7 +13,7 @@
     display: block;
   }
   .login_inner_Container {
-    max-width: 1000px;
+    max-width: 450px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -73,7 +65,7 @@
 }
 
 .form-group {
-  margin-bottom: 2rem!important;
+  margin-bottom: 1.5rem !important;
   position: relative;
   .input-group {
     background: #fff;
@@ -164,15 +156,6 @@
       font-size: 14px;
       left: 56px;
       top: 12px;
-    }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .login_page {
-    .container-fluid {
-      padding-left: 15px;
-      padding-right: 15px;
     }
   }
 }

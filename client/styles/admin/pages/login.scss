@@ -65,7 +65,7 @@
             font-size: 30px;
             top: 20px;
             left: 30px;
-            background-color: rgb(255, 255, 255);
+            background-color: #fff;
             transition: all .3s;
             font-weight: 600;
             color: rgba(73,80,87,.8)!important;
@@ -75,18 +75,21 @@
             padding: 0 3px;
             font-size: 24px;
             color: #26A59A !important;
+            background-color: #f6f8f9;
         }
         .form-group .input-area:focus + .floating_label {
             top: -15px;
             padding: 0 3px;
             font-size: 24px;
             color: #26A59A !important;
+            background-color: #f6f8f9;
         }
         .form-group .input-area:valid  + .floating_label {
             top: -15px;
             padding: 0 3px;
             font-size: 24px;
             color: #26A59A !important;
+            background-color: #f6f8f9;
         }
     }
 }
@@ -174,7 +177,7 @@
     .admin-login {
         .image-section {
             img {
-                width: auto;
+                width: 200px;
                 height: auto;
             }
         }

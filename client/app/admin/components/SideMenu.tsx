@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "assets/Logo.png";
+import logo from "assets/Logo.svg";
 import dashboard from "assets/Dashboard.png";
 import dashboardac from "assets/DashboardActive.png";
 import insightsheets from "assets/InsightSheets.png";

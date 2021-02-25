@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 
-export function events () {
+const events = () => {
     return (
         <>
             <Navbar />
@@ -18,3 +18,5 @@ export function events () {
         </>
     );
 };
+
+export default events;

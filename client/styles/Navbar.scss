@@ -470,7 +470,7 @@
     box-shadow: 0px 3px 6px #00000029;
   }
   .navbar-container {
-    max-width: 1600px;
+    max-width: 1800px;
   }
   .logo_image {
     margin-top: 0px;
@@ -604,7 +604,7 @@
     font-size: 13px;
     width: 100px;
     height: 35px;
-    line-height: 20px;
+    line-height: 21px;
   }
   
   .nav-item {
@@ -637,186 +637,192 @@
     }
   }
 }
-  
-  @media screen and (max-width: 1100px) {
-    .navbar {
-      background: #fff;
-      padding: 10px 0px 20px 0px;
-    }
 
-    .navbar-logo img {
-      width: 142px;
-      height: 66px;
-      padding: 0px;
-    }
-
-    .search {
-      margin-left: 0px;
-      margin-right: 0px;
-      margin-top: 20px;
-    }
+@media screen and (max-width: 1200px) {
+  .nav-menu {
+    grid-gap: 15px;
+  }
+}
   
-    .NavbarItems {
-      position: relative;
-    }
-  
-    .nav-menu {
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 90px;
-      left: -100%;
-      opacity: 1;
-      transition: all 0.5s ease;
-      grid-gap: 0;
-    }
-  
-    .nav-menu.active-nav {
-      left: 0;
-      opacity: 1;
-      transition: all 0.5s ease;
-      z-index: 1;
-      padding: 10px 0px; 
-      // box-shadow: 0px 8px 16px 0px #00000029;
-      box-shadow: 0px 8px 16px -15px #111;
-    }
-  
-    .nav-item {
-      height: 40px;
-    }
-  
-    .nav-links {
-      text-align: center;
-      padding: 0;
-      width: 100%;
-      display: table;
-      font-weight: 500;
-      margin-top: 0px;
-      height: 0px;
-    }
-
-    .fa-angle-down {
-      padding-left: 3px;
-    } 
-  
-    .navbar-logo {
-      position: absolute;
-      margin-left: 0;
-      top: -20px;
-      left: 0;
-      transform: translate(25%, 50%);
-    }
-  
-    .menu-icon {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      margin-bottom: 40px;
-      transform: translate(-100%, 60%);
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-  
-    .fa-times {
-      color: #000;
-      font-size: 2rem;
-    }
-
-    .login_btn {
-      margin-left: 0;
-    }
+@media screen and (max-width: 1100px) {
+  .navbar {
+    background: #fff;
+    padding: 10px 0px 20px 0px;
   }
 
-  @media screen and (max-width: 960px) {
-    .navbar {
-      background: white;
-    }
-  
-    .NavbarItems {
-      position: relative;
-    }
-  
-    .nav-menu {
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 100px;
-      left: -100%;
-      opacity: 1;
-      transition: all 0.5s ease;
-    }
-  
-    .nav-menu.active {
-      left: 0;
-      opacity: 1;
-      transition: all 0.5s ease;
-      z-index: 1;
-    }
-  
-    .nav-item {
-      height: 40px;
-    }
-  
-    .nav-links {
-      color: #4a4848;
-      text-align: center;
-      padding: 0;
-      width: 100%;
-      display: table;
-    }
-  
-    // .nav-links:hover {
-    //   color: green;
-    //   border-radius: 0;
-    // }
-  
-    .navbar-logo {
-      position: absolute;
-      margin-left: 0;
-      top: -10;
-      left: 0;
-      transform: translate(25%, 50%);
-    }
-  
-    .menu-icon {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      margin-bottom: 40px;
-      transform: translate(-100%, 60%);
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-  
-    .fa-times {
-      color: #000;
-      font-size: 2rem;
-    }
-  
-    .login_btn {
-      margin-left: 0;
-    }
+  .navbar-logo img {
+    width: 142px;
+    height: 66px;
+    padding: 0px;
+  }
+
+  .search {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
   }
   
-  @media screen and (max-width: 600px) {
-    .navbar-logo img {
-      margin-left: -10%;
-    }
+  .NavbarItems {
+    position: relative;
   }
   
-  @media screen and (max-width: 500px) {
-    .navbar-logo img {
-      margin-left: -15%;
-    }
+  .nav-menu {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 90px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    grid-gap: 0;
   }
+  
+  .nav-menu.active-nav {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    padding: 10px 0px; 
+    // box-shadow: 0px 8px 16px 0px #00000029;
+    box-shadow: 0px 8px 16px -15px #111;
+  }
+  
+  .nav-item {
+    height: 40px;
+  }
+  
+  .nav-links {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 500;
+    margin-top: 0px;
+    height: 0px;
+  }
+
+  .fa-angle-down {
+    padding-left: 3px;
+  } 
+  
+  .navbar-logo {
+    position: absolute;
+    margin-left: 0;
+    top: -20px;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+  
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 40px;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  
+  .fa-times {
+    color: #000;
+    font-size: 2rem;
+  }
+
+  .login_btn {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .navbar {
+    background: white;
+  }
+  
+  .NavbarItems {
+    position: relative;
+  }
+  
+  .nav-menu {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 100px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  
+  .nav-item {
+    height: 40px;
+  }
+  
+  .nav-links {
+    color: #4a4848;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    display: table;
+  }
+  
+  // .nav-links:hover {
+  //   color: green;
+  //   border-radius: 0;
+  // }
+  
+  .navbar-logo {
+    position: absolute;
+    margin-left: 0;
+    top: -10;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+  
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 40px;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  
+  .fa-times {
+    color: #000;
+    font-size: 2rem;
+  }
+  
+  .login_btn {
+    margin-left: 0;
+  }
+}
+  
+@media screen and (max-width: 600px) {
+  .navbar-logo img {
+    margin-left: -10%;
+  }
+}
+  
+@media screen and (max-width: 500px) {
+  .navbar-logo img {
+    margin-left: -15%;
+  }
+}
   

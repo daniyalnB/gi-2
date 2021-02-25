@@ -36,7 +36,7 @@ const GENERAL = {
       input:  path.resolve(public, 'index.html'),
       output: path.resolve(output, 'index.html'),
     },
-    htaccess: path.resolve(root, '.htaccess'),
+    htaccess: path.resolve(client, '.htaccess'),
     assets: path.resolve(client, 'assets'),
     utils: path.resolve(client, 'utils'),
     styles: path.resolve(client, 'styles'),

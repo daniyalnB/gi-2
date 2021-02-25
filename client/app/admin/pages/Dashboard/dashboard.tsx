@@ -2,7 +2,7 @@ import React from 'react';
 import SideMenu from "../../components/SideMenu";
 import UserTab from "../../components/UserTab";
 
-export default function dashboard (props) {
+function dashboard (props) {
 
     return (
         <>
@@ -26,3 +26,5 @@ export default function dashboard (props) {
         </>
     );
 };
+
+export default (dashboard);

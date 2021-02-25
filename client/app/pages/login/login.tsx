@@ -8,8 +8,8 @@ export default function login() {
   return (
     <>
       <Navbar />
-      <div className="login_page"> 
-        <div className="container-fluid">
+      <div className="main-container login_page"> 
+        <div className="container">
           <span className="title"> 
             Sign In with your insighter account
           </span>

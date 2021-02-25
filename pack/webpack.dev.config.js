@@ -12,7 +12,7 @@ const { GENERAL, PATHS } = require('../settings');
 
 module.exports = merge(common({ development: true }), {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     contentBase: PATHS.output,
     historyApiFallback: true,
@@ -34,35 +34,15 @@ module.exports = merge(common({ development: true }), {
       {
         test: /\.(css|s[ac]ss)$/,
         exclude: /node_modules/,
+        // 
         use: [
-          {
-            loader: 'style-loader',
-            options: {
-              hmr: true,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              localIdentName: '[local]',
-              modules: true,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'fast-sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          "resolve-url-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
         ],
       },
     ],

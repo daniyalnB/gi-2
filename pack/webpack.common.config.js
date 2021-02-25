@@ -8,7 +8,7 @@ const API_URL = {
   development: appConfig.development,
 };
 
-const { NamedModulesPlugin, DefinePlugin } = require('webpack');
+const {  DefinePlugin } = require('webpack');
 
 const { GENERAL, PATHS } = require('../settings');
 
@@ -67,28 +67,21 @@ module.exports = (env) => {
         {
           test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: 'file-loader',
-          query: {
-            limit: 10000,
-            mimetype: 'application/font-woff2',
-          },
+          
         },
         {
           test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: 'file-loader',
-          query: {
-            limit: 10000,
-            mimetype: 'application/font-woff',
-          },
+          
         },
         {
           test: /\.(ttf|eot|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: 'file-loader',
-          query: {},
         },
       ],
     },
     plugins: [
-      new NamedModulesPlugin(),
+      
       new HTMLWebpackPlugin({
         filename: PATHS.index.output,
         template: PATHS.index.input,
