@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import visa from 'assets/VISA.png';
-import mastercard from 'assets/Mastercard.png';
+import visa from 'assets/visa.png';
+import mastercard from 'assets/mastercard.png';
 
 const buyproduct = () => {
     return (
