@@ -216,6 +216,9 @@
                         height: 55px;
                         letter-spacing: 0;
                         margin-left: 20px;
+                        &:focus {
+                            box-shadow: none;
+                        }
                     }
                 }
                 .insighter-points {
@@ -256,6 +259,9 @@
                         height: 55px;
                         letter-spacing: 0;
                         margin-left: 20px;
+                        &:focus {
+                            box-shadow: none;
+                        }
                     }
                 }
                 .total {
@@ -315,6 +321,10 @@
                     width: 190px;
                     height: 55px;
                     letter-spacing: 0;
+                    line-height: 40px;
+                    &:focus {
+                        box-shadow: none;
+                    }
                 }
             }
         }

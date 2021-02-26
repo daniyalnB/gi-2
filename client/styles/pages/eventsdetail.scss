@@ -1,0 +1,245 @@
+.ED_page {
+    padding-top: 20px;
+    .event {
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #00000029;
+        background: #FFF;
+        margin: 0 auto;
+        .image-section {
+            padding: 15px;
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        }
+        .data-section {
+            margin-top: 20px;
+            h4 {
+                font-size: 20px;
+                font-weight: 600;
+                color: #38ADA2;
+                a {
+                    color: #38ADA2;
+                }
+            }
+            .data {
+                padding: 5px 0px;
+                img {
+                    margin-right: 10px;
+                }
+                .heading {
+                    font-size: 16px;
+                    color: #B8B8B8;
+                }
+                .value {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+            .price {
+                display: inline-block;
+                color: #DB422D;
+                font-size: 28px;
+                font-weight: 600;
+                text-align: right;
+            }
+            .points {
+                color: #DB422D;
+                font-size: 18px;
+                font-weight: 500;
+                text-align: right;
+            }
+            .RN {
+                padding-top: 70px;
+                .btn {
+                    font-size: 16px;
+                    background: #DB422D;
+                    border-radius: 6px;
+                    color: #f6f8f9;
+                    width: 137px;
+                    height: 40px;
+                    letter-spacing: 0;
+                    line-height: 25px;
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+    .event_description {
+        .description {
+            margin-top: 30px;
+            .heading {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .detail {
+                font-size: 16px;
+                font-weight: 500;
+                ul {
+                    list-style: none;
+                }
+            }
+            .btn {
+                font-size: 14px;
+                background: #DB422D;
+                border-radius: 6px;
+                color: #f6f8f9;
+                width: auto;
+                height: 40px;
+                letter-spacing: 0;
+                &:hover {
+                    background: #38ADA2;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+            .btnical {
+                margin-left: 20px;
+            }
+        }
+    }
+    .event_attendance {
+        margin-top: 30px;
+        .attendance {
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 13px #00000029;
+            border-radius: 10px;
+            .noattendees {
+                padding: 20px;
+                h3 {
+                    font-size: 18px;
+                    font-weight: bold;
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+                .form-control {
+                    display: inline-block;
+                    width: 186px;
+                    height: 55px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    text-align: center;
+                    color: #38ADA2;
+                    background-color: #fff;
+                    border: 1px solid #D2D2D2;
+                    border-radius: 5px;
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+            .inner_attendance {
+                padding: 30px 30px 0 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                .subs_filters {
+                  padding: 0;
+                  margin: 0 0 0 20px;
+                  list-style: none;
+                  li {
+                    display: inline-block;
+                    vertical-align: middle;
+                    border: 1px solid #D2D2D2;
+                    border-radius: 4px 4px 0px 0px;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 500;
+                    letter-spacing: 0px;
+                    color: #000;
+                    opacity: 0.6;
+                    padding: 5px 0px;
+                    cursor: pointer;
+                    position: relative;
+                    background: #fff;
+                    width: 79px;
+                    height: 48px;
+                    img {
+                        width: 16px;
+                        height: 16px;
+                    }
+                  }
+                  .active {
+                    background: #26a59a;
+                    opacity: 1;
+                    color: #fff;
+                    border: 1px solid #38ADA2;
+                  }
+                }
+            }
+            .attendee_info {
+                padding: 30px 20px;
+                .form-group {
+                    label {
+                        color: #38ADA2;
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                    .form-control {
+                        display: block;
+                        width: 100%;
+                        height: 55px;
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #495057;
+                        background-color: #fff;
+                        border: 1px solid #D2D2D2;
+                        border-radius: 5px;
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .checkout {
+        padding-top: 40px;
+        .btn {
+            font-size: 16px;
+            background: #DB422D;
+            border-radius: 6px;
+            color: #f6f8f9;
+            width: auto;
+            height: 50px;
+            letter-spacing: 0;
+            line-height: 35px;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .ED_page .event .data-section .RN {
+        padding-top: 110px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .ED_page .event .data-section .RN {
+        padding-top: 160px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .ED_page .event .data-section .RN {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .ED_page .event_description .description {
+        .btn {
+            margin-right: 10px;
+        }
+        .btnical {
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+    }
+}

@@ -159,13 +159,7 @@
         .holder {
             .separator {
                 .sheet {
-                    .col-4 {
-                        max-width: 100%;
-                        flex: 100%;
-                    }
                     .col-8 {
-                        max-width: 100%;
-                        flex: 100%;
                         padding: 15px;
                     }
                     .data-section {
@@ -182,39 +176,6 @@
                         }
                         .rating_1 {
                             text-align: left;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .IS_page {
-        .holder {
-            .separator {
-                .insight {
-                    margin: 50px 15px 15px 15px;
-                }
-                .sheet {
-                    .col-4 {
-                        max-width: 100%;
-                        flex: 100%;
-                    }
-                    .col-8 {
-                        max-width: 100%;
-                        flex: 100%;
-                        padding: 15px;
-                    }
-                    .data-section {
-                        .col-7 {
-                            max-width: 100%;
-                            flex: 100%;
-                        }
-                        .col-5 {
-                            max-width: 100%;
-                            flex: 100%;
                         }
                     }
                 }

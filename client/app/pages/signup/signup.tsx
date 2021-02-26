@@ -54,29 +54,41 @@ export default function signup () {
                                 seconds. Ready to go?
                             </h2>
                             <div className="signup_inner_Container">
-                                <form>
-                                    <div className="form-group SignupStepOne">
-                                        <div className="input-group">
-                                            <img className="input_icon" src={email}></img>
-                                            <input type="email" className="form-control" required />
-                                            <div className="label"> Email </div>
+                                <div className="form-holder">
+                                    <form>
+                                        <div className="form-group nogroup">
+                                            <img 
+                                                className="input_icon" 
+                                                src={email}
+                                            />
+                                            <input
+                                                type="text"
+                                                name="Email"
+                                                required
+                                                id="inputField1"
+                                                className="input-area"
+                                            />
+                                            <label htmlFor="inputField1" className="floating_label">
+                                                {" "}
+                                                Email{" "}
+                                            </label>
                                         </div>
-                                    </div>
-                                    <button 
-                                        className="btn" 
-                                        onClick={() => setActive({
-                                            one: false,
-                                            two: true,
-                                            three: false,
-                                            four: false,
-                                            five: false,
-                                            six: false
-                                        })}
-                                    > 
-                                        <span> Let's Do This </span>
-                                        <div className="loader"></div> 
-                                    </button>
-                                </form>
+                                        <button 
+                                            className="btn" 
+                                            onClick={() => setActive({
+                                                one: false,
+                                                two: true,
+                                                three: false,
+                                                four: false,
+                                                five: false,
+                                                six: false
+                                            })}
+                                        > 
+                                            <span> Let's Do This </span>
+                                            <div className="loader"></div> 
+                                        </button>
+                                    </form>
+                                </div>
                                 <div className="login_devider">
                                     <span className="one"> Already have an account? </span>
                                     <Link
@@ -96,46 +108,56 @@ export default function signup () {
                             <h2>
                                 Thanks, What's your name?
                             </h2>
-                            <form>
-                                <div className="form-group justify-content-center row">
-                                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                        <div className="input-group SignupStepTwo">
-                                            <input type="text" className="form-control" required />
-                                            <div 
-                                                className="label"
-                                                style={{ left: "20px"}}
-                                            > 
-                                                First Name 
+                            <div className="form-holder">
+                                <form>
+                                    <div className="form-group justify-content-center row">
+                                        <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                            <div className="form-group nogroup SignupStepTwo">
+                                                <input
+                                                    type="text"
+                                                    name="fname"
+                                                    required
+                                                    id="inputField2"
+                                                    className="input-area"
+                                                />
+                                                <label htmlFor="inputField2" className="floating_label">
+                                                    {" "}
+                                                    First Name{" "}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                            <div className="form-group nogroup SignupStepTwo">
+                                                <input
+                                                    type="text"
+                                                    name="lname"
+                                                    required
+                                                    id="inputField3"
+                                                    className="input-area"
+                                                />
+                                                <label htmlFor="inputField3" className="floating_label">
+                                                    {" "}
+                                                    Last Name{" "}
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                        <div className="input-group SignupStepTwo">
-                                            <input type="text" className="form-control" required />
-                                            <div 
-                                                className="label"
-                                                style={{ left: "20px"}}
-                                            > 
-                                                Last Name 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button 
-                                    className="btn" 
-                                    onClick={() => setActive({
-                                        one: false,
-                                        two: false,
-                                        three: true,
-                                        four: false,
-                                        five: false,
-                                        six: false
-                                    })}
-                                > 
-                                    <span> Next </span>
-                                    <div className="loader"></div> 
-                                </button>
-                            </form>
+                                    <button 
+                                        className="btn" 
+                                        onClick={() => setActive({
+                                            one: false,
+                                            two: false,
+                                            three: true,
+                                            four: false,
+                                            five: false,
+                                            six: false
+                                        })}
+                                    > 
+                                        <span> Next </span>
+                                        <div className="loader"></div> 
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 ) : active.three ?
@@ -147,31 +169,43 @@ export default function signup () {
                                 <br />
                                 Mobile number?
                             </h2>
-                            <form>
-                                <div className="form-group text-center SignupStepThree">
-                                    <div className="input-group">
-                                        <img 
-                                            className="input-icon-phone" src={phone}
-                                        />
-                                        <input type="text" className="form-control" required />
-                                        <div className="label"> Phone Number </div>
-                                    </div>
+                            <div className="signup_inner_Container">
+                                <div className="form-holder">
+                                    <form>
+                                        <div className="form-group nogroup SignupStepThree">
+                                            <img 
+                                                className="input_icon" 
+                                                src={phone}
+                                            />
+                                            <input
+                                                type="text"
+                                                name="phone"
+                                                required
+                                                id="inputField4"
+                                                className="input-area"
+                                            />
+                                            <label htmlFor="inputField4" className="floating_label">
+                                                {" "}
+                                                Phone Number{" "}
+                                            </label>
+                                        </div>
+                                        <button 
+                                            className="btn" 
+                                            onClick={() => setActive({
+                                                one: false,
+                                                two: false,
+                                                three: false,
+                                                four: true,
+                                                five: false,
+                                                six: false
+                                            })}
+                                        > 
+                                            <span> Next </span>
+                                            <div className="loader"></div> 
+                                        </button>
+                                    </form>
                                 </div>
-                                <button 
-                                    className="btn" 
-                                    onClick={() => setActive({
-                                        one: false,
-                                        two: false,
-                                        three: false,
-                                        four: true,
-                                        five: false,
-                                        six: false
-                                    })}
-                                > 
-                                    <span> Next </span>
-                                    <div className="loader"></div> 
-                                </button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 ) : active.four ?
@@ -313,54 +347,85 @@ export default function signup () {
                             </h2>
                             
                             <div className="SignupStepFive">
-                                <form>
-                                    <div className="row">
-                                        <div className="col">
-
-                                            <div className="form-group">
-                                                <div className="input-group">
-                                                <img className="input_icon" src={password}></img>
-                                                <input type="password" className="form-control" required />
-                                                <div className="label"> Password </div>
+                                <div className="form-holder">
+                                    <form>
+                                        <div className="row">
+                                            <div className="col">
+                                                <div className="form-group nogroup">
+                                                    <img 
+                                                        className="input_icon" 
+                                                        src={password}
+                                                    />
+                                                    <input
+                                                        type="password"
+                                                        name="password"
+                                                        required
+                                                        id="inputField5"
+                                                        className="input-area"
+                                                    />
+                                                    <label htmlFor="inputField5" className="floating_label">
+                                                        {" "}
+                                                        Password{" "}
+                                                    </label>
                                                 </div>
+                                                <div className="form-group nogroup">
+                                                    <img 
+                                                        className="input_icon" 
+                                                        src={password}
+                                                    />
+                                                    <input
+                                                        type="password"
+                                                        name="confirmpassword"
+                                                        required
+                                                        id="inputField6"
+                                                        className="input-area"
+                                                    />
+                                                    <label htmlFor="inputField6" className="floating_label">
+                                                        {" "}
+                                                        Confirm Password{" "}
+                                                    </label>
+                                                </div>
+                                                {/* <div className="form-group text-left">
+                                                    <input type="checkbox" required />
+                                                    <label className="terms"> I have read and I agree to uphold the Actionable Insights Code of Ethics </label>
+                                                </div>
+
+                                                <div className="form-group text-left">
+                                                    <input type="checkbox" required />
+                                                    <label className="terms"> I agree with the Terms and Conditions </label>
+                                                </div> */}
+                                                <div className="checkbox-one">
+                                                    <input type="checkbox" id="c1" />
+                                                    <label htmlFor="c1">
+                                                        I have read and I agree to uphold the Actionable Insights Code of Ethics
+                                                    </label>
+                                                </div>
+                                                <div className="checkbox-two">
+                                                    <input type="checkbox" id="c2" />
+                                                    <label htmlFor="c2">
+                                                        I agree with the Terms and Conditions
+                                                    </label>
+                                                </div>
+
+                                                <button 
+                                                    className="btn" 
+                                                    onClick={() => setActive({
+                                                        one: false,
+                                                        two: false,
+                                                        three: false,
+                                                        four: false,
+                                                        five: false,
+                                                        six: true
+                                                    })}
+                                                > 
+                                                    <span> Get Started </span>
+                                                    <div className="loader"></div> 
+                                                </button>
+
                                             </div>
-
-                                            <div className="form-group">
-                                                <div className="input-group">
-                                                <img className="input_icon" src={password}></img>
-                                                <input type="password" className="form-control" required/>
-                                                <div className="label"> Confirm Password </div>
-                                                </div>                
-                                            </div>
-
-                                            <div className="form-group text-left">
-                                                <input type="checkbox" required />
-                                                <label className="terms"> I have read and I agree to uphold the Actionable Insights Code of Ethics </label>
-                                            </div>
-
-                                            <div className="form-group text-left">
-                                                <input type="checkbox" required />
-                                                <label className="terms"> I agree with the Terms and Conditions </label>
-                                            </div>
-
-                                            <button 
-                                                className="btn" 
-                                                onClick={() => setActive({
-                                                    one: false,
-                                                    two: false,
-                                                    three: false,
-                                                    four: false,
-                                                    five: false,
-                                                    six: true
-                                                })}
-                                            > 
-                                                <span> Get Started </span>
-                                                <div className="loader"></div> 
-                                            </button>
-
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

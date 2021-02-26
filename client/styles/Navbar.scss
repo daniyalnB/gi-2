@@ -4,7 +4,7 @@
   height: auto;
   top: 0;
   left: 0;
-  z-index: 999999999999;
+  z-index: 9999;
 }
   
 .navbar {
@@ -15,9 +15,7 @@
   align-items: center;
   position: sticky;
   border-bottom: 1px solid hsla(0,0%,100%,.5);
-  // box-shadow: 0px 3px 6px #00000029;
   box-shadow: 0px 10px 10px #00000029;
-  // transition: all .7s;
   padding: 20px 10px 30px 10px;
 }
   
@@ -30,7 +28,6 @@
 }
   
 .logo_image {
-  // margin-left: 100px;
   margin-top: 10px;
 }
   
@@ -63,7 +60,6 @@
   text-align: center;
   width: 80vw;
   justify-content: end;
-  // margin-bottom: 30px;
 }
   
 .nav-item {
@@ -76,7 +72,6 @@
   text-decoration: none;
   height: 160px;
   padding-bottom: 30px;
-  // padding-left: 1.3rem;
   font-weight: 600;
   font-size: 35px;
   line-height: 32px;
@@ -93,7 +88,6 @@
   
 .nav-links:hover {
   color: #000;
-  // transition: all 0.2s ease-out;
   text-decoration: none;
 }
 
@@ -101,20 +95,22 @@
   padding-left: 15px;
 }
   
-.btn {
-  font-size: 35px;
-  background: #db422d;
-  border-radius: 10px;
-  color: #f6f8f9;
-  width: 300px;
-  height: 90px;
-  letter-spacing: 0;
-  line-height: 80px;
-  &:hover {
+.nav-item {
+  .btn {
+    font-size: 35px;
+    background: #db422d;
+    border-radius: 10px;
     color: #f6f8f9;
-  }
-  &:focus {
-    box-shadow: none;
+    width: 300px;
+    height: 90px;
+    letter-spacing: 0;
+    line-height: 80px;
+    &:hover {
+      color: #f6f8f9;
+    }
+    &:focus {
+      box-shadow: none;
+    }
   }
 }
   
@@ -150,7 +146,6 @@
       padding: 30px 0px 30px 10px;
       color: #575962;
       cursor: pointer;
-      // border-bottom: 4px solid rgba(0,0,0,.1);
       &:hover {
         background: #E9F6F5;
         color: #26A59A;
@@ -194,11 +189,13 @@
   .nav-links {
     font-size: 33px;
   }
-  .btn {
-    font-size: 33px;
-    width: 270px;
-    height: 80px;
-    line-height: 70px;
+  .nav-item {
+    .btn {
+      font-size: 33px;
+      width: 270px;
+      height: 80px;
+      line-height: 70px;
+    }
   }
   .active h3 {
     font-size: 33px;
@@ -222,11 +219,6 @@
   .nav-links {
     font-size: 32px;
   }
-  .btn {
-    font-size: 32px;
-    width: 250px;
-    line-height: 60px;
-  }
   .nav-item {
     .active {
       margin-left: -120px;
@@ -247,6 +239,11 @@
     .active-five {
       margin-left: -115px;
     }
+    .btn {
+      font-size: 32px;
+      width: 250px;
+      line-height: 60px;
+    }
   }
 }
 
@@ -256,12 +253,6 @@
   }
   .nav-links {
     font-size: 30px;
-  }
-  .btn {
-    font-size: 30px;
-    width: 200px;
-    height: 75px;
-    line-height: 50px;
   }
   .nav-item {
     .active {
@@ -287,6 +278,12 @@
       width: 500px;
       margin-left: -100px;
     }
+    .btn {
+      font-size: 30px;
+      width: 200px;
+      height: 75px;
+      line-height: 50px;
+    }
   }
 }
 
@@ -296,11 +293,6 @@
   }
   .nav-links {
     font-size: 29px;
-  }
-  .btn {
-    font-size: 29px;
-    width: 180px;
-    height: 70px;
   }
   .nav-item {
     .active {
@@ -327,6 +319,11 @@
       width: 480px;
       margin-left: -90px;
     }
+    .btn {
+      font-size: 29px;
+      width: 180px;
+      height: 70px;
+    }
   }
 }
 
@@ -349,12 +346,6 @@
   .nav-links {
     font-size: 25px;
     height: 150px;
-  }
-  .btn {
-    font-size: 25px;
-    width: 160px;
-    height: 60px;
-    line-height: 40px;
   }
   .nav-item {
     .active {
@@ -382,6 +373,12 @@
       width: 420px;
       margin-left: -85px;
     }
+    .btn {
+      font-size: 25px;
+      width: 160px;
+      height: 60px;
+      line-height: 40px;
+    }
   }
 }
 
@@ -391,12 +388,6 @@
   }
   .nav-links {
     font-size: 23px;
-  }
-  .btn {
-    font-size: 23px;
-    width: 150px;
-    height: 50px;
-    line-height: 30px;
   }
   .nav-item {
     .active {
@@ -423,18 +414,18 @@
       width: 400px;
       margin-left: -80px;
     }
+    .btn {
+      font-size: 23px;
+      width: 150px;
+      height: 50px;
+      line-height: 30px;
+    }
   }
 }
 
 @media screen and (max-width: 2100px) {
   .nav-links {
     font-size: 20px;
-  }
-  .btn {
-    font-size: 20px;
-    width: 120px;
-    height: 45px;
-    line-height: 25px;
   }
   .nav-item {
     .active {
@@ -460,6 +451,12 @@
     .active-five {
       width: 350px;
       margin-left: -70px;
+    }
+    .btn {
+      font-size: 20px;
+      width: 120px;
+      height: 45px;
+      line-height: 25px;
     }
   }
 }
@@ -501,13 +498,6 @@
     border-bottom: #f05922 solid 5px;
     padding-top: 5px;
   }
-  .btn {
-    border-radius: 6px;
-    font-size: 16px;
-    width: 126px;
-    height: 40px;
-    line-height: 25px;
-  }
   .nav-item {
     .active {
       border-radius: 5px;
@@ -539,6 +529,13 @@
       width: 300px;
       margin-left: -65px;
     }
+    .btn {
+      border-radius: 6px;
+      font-size: 16px;
+      width: 126px;
+      height: 40px;
+      line-height: 25px;
+    }
   }
 }
 
@@ -552,17 +549,17 @@
   .nav-links {
     font-size: 15px;
   }
-  .btn {
-    width: 110px;
-    height: 37px;
-    line-height: 20px;
-    font-size: 15px;
-  }
   .nav-item {
     .active {
       h3 {
         font-size: 15px;
       }
+    }
+    .btn {
+      width: 110px;
+      height: 37px;
+      line-height: 20px;
+      font-size: 15px;
     }
   }
 }
@@ -599,14 +596,6 @@
     height: 80px;
     margin-top: 30px;
   }
-  .btn {
-    border-radius: 6px;
-    font-size: 13px;
-    width: 100px;
-    height: 35px;
-    line-height: 21px;
-  }
-  
   .nav-item {
     .active {
       border-radius: 5px;
@@ -634,6 +623,13 @@
     .active-five {
       width: 230px;
       margin-left: -50px;
+    }
+    .btn {
+      border-radius: 6px;
+      font-size: 13px;
+      width: 100px;
+      height: 35px;
+      line-height: 21px;
     }
   }
 }
@@ -686,7 +682,6 @@
     transition: all 0.5s ease;
     z-index: 1;
     padding: 10px 0px; 
-    // box-shadow: 0px 8px 16px 0px #00000029;
     box-shadow: 0px 8px 16px -15px #111;
   }
   
@@ -732,10 +727,6 @@
     color: #000;
     font-size: 2rem;
   }
-
-  .login_btn {
-    margin-left: 0;
-  }
 }
 
 @media screen and (max-width: 960px) {
@@ -779,11 +770,6 @@
     display: table;
   }
   
-  // .nav-links:hover {
-  //   color: green;
-  //   border-radius: 0;
-  // }
-  
   .navbar-logo {
     position: absolute;
     margin-left: 0;
@@ -807,10 +793,6 @@
   .fa-times {
     color: #000;
     font-size: 2rem;
-  }
-  
-  .login_btn {
-    margin-left: 0;
   }
 }
   

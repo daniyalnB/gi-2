@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import visa from 'assets/visa.png';
@@ -272,11 +273,12 @@ const buyproduct = () => {
                                     </label>
                                 </div>
                                 <div className="checkout">
-                                    <button 
+                                    <Link
+                                        to=""
                                         className="btn"
                                     >
                                         Checkout
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

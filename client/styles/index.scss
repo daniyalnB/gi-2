@@ -27,10 +27,13 @@
 @import "./pages/login";
 @import "./pages/signup";
 @import "./pages/events";
+@import "./pages/eventsdetail";
 @import "./pages/insightsheet";
 @import "./pages/insidesheetdetail";
 @import "./pages/product";
 @import "./pages/buyproduct";
+@import "./pages/pricelistupdatesummary";
+@import "./pages//pricelistupdatesummaryofmonth";
 
 // Admin Side Menu
 
@@ -41,11 +44,8 @@
 @import "./admin/pages/login";
 @import "./admin/pages/dashboard";
 @import "./admin/pages/insightsheet";
+@import "./admin/pages/createInsightSheet";
 @import "./admin/pages/products";
-
-// Admin Create Insight Sheet
-
-@import "./admin/createInsightSheet";
 
 // Admin Text Editor
 

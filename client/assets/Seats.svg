@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="19" viewBox="0 0 19 19">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_865" data-name="Rectangle 865" width="19" height="19" transform="translate(639 279)" fill="#db422d" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_34" data-name="Mask Group 34" transform="translate(-639 -279)" clip-path="url(#clip-path)">
+    <g id="group" transform="translate(639 279)">
+      <g id="Group_1428" data-name="Group 1428">
+        <g id="Group_1427" data-name="Group 1427">
+          <path id="Path_1120" data-name="Path 1120" d="M16.257,10.143H14.788a3.822,3.822,0,0,1,.232,1.314V17.01a1.638,1.638,0,0,1-.094.549h2.429A1.648,1.648,0,0,0,19,15.913V12.885A2.746,2.746,0,0,0,16.257,10.143Z" fill="#db422d"/>
+        </g>
+      </g>
+      <g id="Group_1430" data-name="Group 1430">
+        <g id="Group_1429" data-name="Group 1429">
+          <path id="Path_1121" data-name="Path 1121" d="M3.981,11.457a3.822,3.822,0,0,1,.232-1.314H2.743A2.746,2.746,0,0,0,0,12.886v3.027a1.648,1.648,0,0,0,1.646,1.646H4.075a1.638,1.638,0,0,1-.094-.549Z" fill="#db422d"/>
+        </g>
+      </g>
+      <g id="Group_1432" data-name="Group 1432">
+        <g id="Group_1431" data-name="Group 1431">
+          <path id="Path_1122" data-name="Path 1122" d="M11.18,8.714H7.82a2.746,2.746,0,0,0-2.743,2.743V17.01a.549.549,0,0,0,.549.549h7.748a.549.549,0,0,0,.549-.549V11.457A2.746,2.746,0,0,0,11.18,8.714Z" fill="#db422d"/>
+        </g>
+      </g>
+      <g id="Group_1434" data-name="Group 1434">
+        <g id="Group_1433" data-name="Group 1433">
+          <path id="Path_1123" data-name="Path 1123" d="M9.5,1.441a3.3,3.3,0,1,0,3.3,3.3A3.3,3.3,0,0,0,9.5,1.441Z" fill="#db422d"/>
+        </g>
+      </g>
+      <g id="Group_1436" data-name="Group 1436">
+        <g id="Group_1435" data-name="Group 1435">
+          <path id="Path_1124" data-name="Path 1124" d="M3.708,4.516A2.466,2.466,0,1,0,6.175,6.983,2.47,2.47,0,0,0,3.708,4.516Z" fill="#db422d"/>
+        </g>
+      </g>
+      <g id="Group_1438" data-name="Group 1438">
+        <g id="Group_1437" data-name="Group 1437">
+          <path id="Path_1125" data-name="Path 1125" d="M15.292,4.516a2.467,2.467,0,1,0,2.467,2.467A2.47,2.47,0,0,0,15.292,4.516Z" fill="#db422d"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

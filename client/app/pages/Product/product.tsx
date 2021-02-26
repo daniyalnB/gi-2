@@ -14,7 +14,7 @@ const product = () => {
                         <div className="row product">
                             <div className="col-5">    
                                 <div className="image-section">
-                                        <img src={primg} />
+                                    <img src={primg} />
                                 </div>      
                             </div>
                             <div className="col-7 ">

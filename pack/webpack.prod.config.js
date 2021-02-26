@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizer = require('css-minimizer-webpack-plugin');
@@ -11,7 +11,8 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.config');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-
+const CompressionPlugin = require("compression-webpack-plugin");
+const webpack = require('webpack'); 
 const { EnvironmentPlugin } = require('webpack');
 
 const { GENERAL, PATHS } = require('../settings');
@@ -19,7 +20,7 @@ const { GENERAL, PATHS } = require('../settings');
 module.exports = (env) => {
   return merge(common(env), {
     mode: 'production',
-    devtool: 'source-map',
+    //devtool: 'source-map',
     cache: {
       type: 'filesystem',
     },
@@ -32,7 +33,7 @@ module.exports = (env) => {
             // Creates `style` nodes from JS strings
             "style-loader",
             // Translates CSS into CommonJS
-            "css-loader",
+            "css-loader?url=false",
             "resolve-url-loader",
             // Compiles Sass to CSS
             "sass-loader",
@@ -65,6 +66,9 @@ module.exports = (env) => {
       ],
     },
     optimization: {
+      minimize: true,
+      mangleWasmImports: true,
+      removeAvailableModules: true,
       splitChunks: {
         cacheGroups: {
           commons: {
@@ -82,10 +86,18 @@ module.exports = (env) => {
         new TerserPlugin({
           cache: path.resolve(PATHS.cache, 'terser-webpack-plugin'),
           parallel: true,
-          sourceMap: true,
+          sourceMap: false,
+          extractComments: "all",
         }),
         new OptimizeCSSAssetsPlugin({}),
-        new CssMinimizer(),
+        new CssMinimizer({minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },}),
         new UglifyJsPlugin({ // minify js file
           cache: true,
           parallel: true,
@@ -104,11 +116,13 @@ module.exports = (env) => {
     },
    
     plugins: [
-      new CleanWebpackPlugin([PATHS.static], {
-        root: PATHS.output,
-        dry: true,
-        cleanOnceBeforeBuildPatterns: ['**/*', '!./static/*'],
-      }),
+          new CompressionPlugin({ algorithm: "gzip",
+         
+          threshold: 4240,
+          minRatio: 0.7}),
+          new OptimizeCSSAssetsPlugin({
+          }),
+     new CleanWebpackPlugin(),
       new CopyWebpackPlugin([
         {
           from: PATHS.client + "/.htaccess",
@@ -122,6 +136,8 @@ module.exports = (env) => {
         // * explicitly setting the node environment variable for clarity
         NODE_ENV: 'production',
       }),
+      new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ja|it/),
     ],
   });
 };

@@ -9,10 +9,13 @@ import home from "./pages/home/home";
 import login from "./pages/login/login";
 import signup from "./pages/signup/signup";
 import events from "./pages/events/events";
+import eventsdetail from "./pages/events/eventsdetail";
 import IS from "./pages/InsightSheet/insightsheet";
 import ISDetail from "./pages/InsightSheet/insightsheetdetail";
 import product from './pages/Product/product';
 import buyproduct from './pages/Product/buyproduct';
+import pricelistupdatesummary from "./pages/PriceListUpdateSummary/pricelistupdatesummary";
+import pricelistupdatesummaryofmonth from "./pages/PriceListUpdateSummary/pricelistupdatesummaryofmonth";
 import AdminLogin from "./admin/pages/login/login";
 import dashboard from "./admin/pages/Dashboard/dashboard";
 import insightsheet from "./admin/pages/InsightSheets/insightsheet";
@@ -32,10 +35,13 @@ const App: React.FC = () => {
         <Route exact path="/login" component={login} />
         <Route exact path="/signup" component={signup} />
         <Route exact path="/events" component={events} />
+        <Route exact path="/eventsdetail" component={eventsdetail} />
         <Route exact path="/insightsheet" component={IS} />
         <Route exact path="/insightsheetdetail" component={ISDetail} />
         <Route exact path="/product" component={product} />
         <Route exact path="/buyproduct" component={buyproduct} />
+        <Route exact path="/pricelistupdatesummary" component={pricelistupdatesummary} />
+        <Route exact path="/pricelistupdatesummaryofmonth" component={pricelistupdatesummaryofmonth} />
         <Route exact path={["/admin/login", "/admin"]} component={AdminLogin} />
         <ProtectedRoute path="/admin/dashboard" component={dashboard} />
         <ProtectedRoute path="/admin/insightsheet" component={insightsheet} />

@@ -7,6 +7,7 @@ interface IContextProps {
   payload: object;
   loginError: string | undefined;
   isAuthenticated: boolean;
+  setIsAuthenticated: Function;
   status: string | undefined;
   dispatchLogin: Function;
   emailOnChange: Function;
@@ -29,11 +30,10 @@ export default React.memo(({ children }) => {
   let profile: ProfileStorage = { token: "" };
 
   // React.useEffect(() => {
-  //   // console.log("pageIsPublic",pageIsPublic);
-
   //   auth().subscribe(
   //     (response: any) => {
   //       console.log(response, "response");
+  //       //console.log(props, "hello");
   //     },
   //     (error) => {
   //       logout();
@@ -108,17 +108,12 @@ export default React.memo(({ children }) => {
       (response: any) => {
         setStatus("success");
         setIsAuthenticated(false);
-        localStorage.removeItem("profile");
         localStorage.removeItem("token");
         history.push("/admin/login");
       },
       (response) => {
         setIsAuthenticated(false);
-        // setLoginError(
-        //   response.response.message
-        //     ? response.response.message
-        //     : response.response.Message
-        // );
+
         setStatus("error");
       }
     );
@@ -133,6 +128,7 @@ export default React.memo(({ children }) => {
     emailOnChange,
     passwordOnChange,
     logout,
+    setIsAuthenticated,
   };
 
   return (

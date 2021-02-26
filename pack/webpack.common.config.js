@@ -1,5 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+
 
 const appConfig = require('../client/appConfig.json');
 
@@ -13,10 +15,10 @@ const {  DefinePlugin } = require('webpack');
 const { GENERAL, PATHS } = require('../settings');
 
 module.exports = (env) => {
-  console.log(env);
+  console.log(env, 'env');
   const envirement = env.production ? 'production' : 'development';
   return {
-    entry: { app: PATHS.entry },
+    entry: { app: PATHS.entry,},
     resolve: {
       alias: {
         app: PATHS.app,
@@ -81,7 +83,7 @@ module.exports = (env) => {
       ],
     },
     plugins: [
-      
+new webpack.optimize.ModuleConcatenationPlugin(),
       new HTMLWebpackPlugin({
         filename: PATHS.index.output,
         template: PATHS.index.input,

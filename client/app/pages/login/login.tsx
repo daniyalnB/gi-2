@@ -8,45 +8,66 @@ export default function login() {
   return (
     <>
       <Navbar />
-      <div className="main-container login_page"> 
-        <div className="container">
+      <div className="login_page"> 
+        <div className="container-fluid">
           <span className="title"> 
             Sign In with your insighter account
           </span>
 
           <div className="login_inner_Container">
-            <form>
-              <div className="row">
-                <div className="col">
-
-                  <div className="form-group nogroup">
-                    <div className="input-group">
-                      <img className="input_icon" src={email}></img>
-                      <input type="email" className="form-control" required />
-                      <div className="label"> Email </div>
+            <div className="form-holder">
+              <form>
+                <div className="row">
+                  <div className="col">
+                    <div className="form-group nogroup">
+                      <img 
+                        className="input_icon" 
+                        src={email}
+                      />
+                      <input
+                        type="text"
+                        name="Email"
+                        required
+                        id="inputField1"
+                        className="input-area"
+                      />
+                      <label htmlFor="inputField1" className="floating_label">
+                        {" "}
+                        Email{" "}
+                      </label>
                     </div>
+
+                    <div className="form-group nogroup">
+                      <img 
+                        className="input_icon" 
+                        src={password}
+                      />
+                      <input
+                        type="password"
+                        name="Email"
+                        required
+                        id="inputField2"
+                        className="input-area"
+                      />
+                      <label htmlFor="inputField2" className="floating_label">
+                        {" "}
+                        Password{" "}
+                      </label>
+                    </div>
+
+                    <div className="forgotP_container">
+                      <a href="#"> Forgot Password? </a>
+                    </div>
+
+                    <button className="btn"> 
+                      <span> Sign In </span>
+                      <div className="loader"></div> 
+                    </button>
+
                   </div>
-
-                  <div className="form-group nogroup">
-                    <div className="input-group">
-                      <img className="input_icon" src={password}></img>
-                      <input type="password" className="form-control" required/>
-                      <div className="label"> Password </div>
-                    </div>                
-                  </div>
-
-                  <div className="forgotP_container">
-                    <a href="#"> Forgot Password? </a>
-                  </div>
-
-                  <button className="btn"> 
-                    <span> Sign In </span>
-                    <div className="loader"></div> 
-                  </button>
-
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
 
             <div className="login_devider">
               <span>New to getinsights.org?</span>

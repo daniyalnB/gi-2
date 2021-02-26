@@ -1,9 +1,5 @@
 .signup_page {
-  width: 100%;
-  min-height: 100vh;
-  height: 100%;
-  padding-top: 130px;
-  background: #fff;
+  padding-top: 220px !important;
   .signup_header {
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -71,24 +67,65 @@
       text-align: center;
     }
     .form-group {
-      margin-bottom: 2.5rem !important;
+      margin-bottom: 1.5rem!important;
       position: relative;
     }
-    .SignupStepOne {
-      max-width: 1000px;
-      margin: 40px auto;
+    .form-holder input {
+      margin-bottom: 24px;
+    } 
+    .form-holder input {
+      font-size: 30px;
+      width: 100%;
+      height: 90px;
+      border: 1px solid #00000052;
+      border-radius: 10px;
+      padding: 12px 100px;
+      outline: none;
+      &:hover {
+        border: 1px solid #00000052;
+      }
+    }
+    .form-holder .input_icon {
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      padding: 13px;
+      margin: 6px 0 0 10px;
+    }
+    .form-group .floating_label {
+      position: absolute;
+      font-size: 30px;
+      top: 25px;
+      left: 100px;
+      background-color: #fff;
+      transition: all .3s;
+      font-weight: 600;
+      color: rgba(0,0,0,.5) !important;
+    }
+    .form-group .input-area:hover + .floating_label {
+      top: -15px;
+      padding: 0 3px;
+      font-size: 24px;
+      background-color: #fff;
+    }
+    .form-group .input-area:focus + .floating_label {
+      top: -15px;
+      padding: 0 3px;
+      font-size: 24px;
+      background-color: #fff;
+    }
+    .form-group .input-area:valid  + .floating_label {
+      top: -15px;
+      padding: 0 3px;
+      font-size: 24px;
+      background-color: #fff;
     }
     .SignupStepTwo {
-      max-width: 900px;
-    }
-    .SignupStepThree {
-      max-width: 1000px;
-      margin: 40px auto;
-      .input-icon-phone {
-        width: 70px;
-        height: 85px;
-        padding: 13px;
-        margin: 0 0 0 10px;
+      input {
+        padding: 12px 30px;
+      }
+      .floating_label {
+        left: 30px;
       }
     }
     .btn {
@@ -222,7 +259,7 @@
 
 @media screen and (max-width: 1920px) {
   .signup_page {
-    padding-top: 110px;
+    padding-top: 130px !important;
     .signup_header {
       padding: 20px 0 25px 80px;
       &::after {
@@ -249,19 +286,52 @@
       .signup_inner_Container {
         max-width: 450px;
       }
-      .form-group {
-        margin-bottom: 1.5rem !important;
+      .form-holder input {
+        margin-bottom: 0px;
       }
-      .SignupStepOne {
-        max-width: 464px;
-        margin: 40px auto;
+      .form-holder input {
+        height: auto;
+        font-size: 14px;
+        border-radius: 4px;
+        padding: 12px 50px;
+      }
+      .form-holder .input_icon {
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+        margin: 5px;
+      }
+      .form-group .floating_label {
+        font-size: 14px;
+        top: 14px;
+        left: 50px;
+      }
+      .form-group .input-area:hover + .floating_label {
+        top: -9px;
+        padding: 0 3px;
+        font-size: 12px;
+      }
+      .form-group .input-area:focus + .floating_label {
+        top: -9px;
+        padding: 0 3px;
+        font-size: 12px;
+      }
+      .form-group .input-area:valid  + .floating_label {
+        top: -9px;
+        padding: 0 3px;
+        font-size: 12px;
       }
       .SignupStepTwo {
         max-width: 900px;
+        input {
+          padding: 12px 15px;
+        }
+        .floating_label {
+          left: 15px;
+        }
       }
       .SignupStepThree {
-        max-width: 464px;
-        .input-icon-phone {
+        .input_icon {
           width: 30px;
           height: 35px;
           padding: 5px;
@@ -300,15 +370,67 @@
       }
       .SignupStepFive {
         max-width: 464px;
-        .form-group {
+        .checkbox-one {
+          margin-top: -20px;
           input[type="checkbox"] {
-            height: 10px;
-            width: 10px;
+            visibility: hidden;
+          }
+          label {
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 12px;
+          }
+          input[type="checkbox"] + label:before {
+            border: 1px solid #000;
+            background: #fff;
+            border-radius: 3px;
+            content: "\00a0";
+            display: inline-block;
+            font-size: 11px;
+            height: 15px;
+            width: 15px;
+            margin: 0px 10px 0 -35px;
+            padding: 0;
+            vertical-align: top;
+          }
+          input[type="checkbox"]:checked + label:before {
+            border: 1px solid #38ADA2;
+            background: #38ADA2;
+            color: #fff;
+            content: "\2713";
+            text-align: center;
           }
         }
-        .terms {
-          font-size: 12px;
-          margin-left: 8px;
+        .checkbox-two {
+          margin-top: -20px;
+          input[type="checkbox"] {
+            visibility: hidden;
+          }
+          label {
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 12px;
+          }
+          input[type="checkbox"] + label:before {
+            border: 1px solid #000;
+            background: #fff;
+            border-radius: 3px;
+            content: "\00a0";
+            display: inline-block;
+            font-size: 11px;
+            height: 15px;
+            width: 15px;
+            margin: 0px 10px 0 -222px;
+            padding: 0;
+            vertical-align: top;
+          }
+          input[type="checkbox"]:checked + label:before {
+            border: 1px solid #38ADA2;
+            background: #38ADA2;
+            color: #fff;
+            content: "\2713";
+            text-align: center;
+          }
         }
       }
     }
@@ -345,36 +467,13 @@
   }
 }
 
-@media screen and (max-width: 575px) {
-  .signup_page .signup_holder .SignupStepTwo {
-    margin-bottom: 10px;
-  }
+@media screen and (max-width: 490px) {
   .signup_page .signup_holder .SignupStepFive {
-    .form-group {
-      input[type="checkbox"] {
-        height: 8px;
-        width: 8px;
-      }
+    .checkbox-one input[type="checkbox"] + label:before {
+      margin: 0 10px 0px 0px;
     }
-    .terms {
-      font-size: 10px;
-      margin-left: 5px;
-    }
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .signup_page .signup_holder .SignupStepFive {
-    max-width: 464px;
-    .form-group {
-      input[type="checkbox"] {
-        height: 7px;
-        width: 7px;
-      }
-    }
-    .terms {
-      font-size: 9px;
-      margin-left: 5px;
+    .checkbox-two input[type="checkbox"] + label:before {
+      margin: 0 10px 0px 0px;
     }
   }
 }
