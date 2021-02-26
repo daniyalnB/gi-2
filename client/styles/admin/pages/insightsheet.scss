@@ -157,6 +157,9 @@
           color: #000;
           height: 88px;
           background: #fff !important;
+          &:focus {
+            box-shadow: none;
+          }
         }
       }
     }

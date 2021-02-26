@@ -375,8 +375,8 @@ export default function CreateInsightSheet (props) {
                                                             className="facebook"
                                                             src={browse} 
                                                         />
-                                                        <div className="resolution"> Image resolution 1200 x 630 pixels </div>
                                                     </label>
+                                                    <div className="resolution"> Image resolution 1200 x 630 pixels </div>
                                                 </div>
                                             </div>
                                         </div>

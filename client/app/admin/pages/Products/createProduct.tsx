@@ -99,8 +99,8 @@ export default function CreateProduct (props) {
                                                             className="facebook"
                                                             src={browse} 
                                                         />
-                                                        <div className="resolution"> Image size XXX x XXX </div>
                                                     </label>
+                                                    <div className="resolution"> Image size XXX x XXX </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -139,8 +139,8 @@ export default function CreateProduct (props) {
                                                             className="facebook"
                                                             src={browse} 
                                                         />
-                                                        <div className="resolution"> Image resolution 1200 x 630 pixels </div>
                                                     </label>
+                                                    <div className="resolution"> Image resolution 1200 x 630 pixels </div>
                                                 </div>
                                             </div>
                                         </div>
