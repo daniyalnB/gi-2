@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import env from '../../assets/envelope.png';
+import env from '../../assets/Location.svg';
 
 const Receipt = () => {
     return (
