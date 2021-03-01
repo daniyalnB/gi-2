@@ -1,0 +1,61 @@
+.IR_page {
+    .holder {
+        padding: 30px 0;
+        h2 {
+            text-align: center;
+            color: #38ADA2;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 30px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            text-align: center;
+            color: #000;
+            font-size: 20px;
+        }
+    }
+    .reports {
+        padding-top: 30px;
+        .insighter_report {
+            background: #fff;
+            box-shadow: 0px 0px 10px #00000029;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 75vh;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+            .name {
+                padding-top: 20px;
+                text-align: left;
+                color: #38ADA2;
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .date {
+                padding-top: 20px;
+                font-size: 16px;
+                color: #000;
+                text-align: left;
+                font-weight: 500;
+            }
+            .description {
+                padding-top: 10px;
+                font-size: 16px;
+                color: #000;
+                opacity: 0.6;
+                font-weight: 500;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .IR_page .reports .insighter_report {
+        margin-bottom: 25px;
+    }
+}

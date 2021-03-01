@@ -78,7 +78,9 @@ function Navbar() {
                     <h3> Price List Update Summary </h3>
                   </Link>
                   <hr />
-                  <h3> Insighter Report </h3>
+                  <Link to="/insighterreport">
+                    <h3> Insighter Report </h3>
+                  </Link>
                   <hr />
                   <h3> Video Gallery </h3>
                   <hr />

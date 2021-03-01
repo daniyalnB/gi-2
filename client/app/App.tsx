@@ -16,6 +16,7 @@ import product from './pages/Product/product';
 import buyproduct from './pages/Product/buyproduct';
 import pricelistupdatesummary from "./pages/PriceListUpdateSummary/pricelistupdatesummary";
 import pricelistupdatesummaryofmonth from "./pages/PriceListUpdateSummary/pricelistupdatesummaryofmonth";
+import IR from "./pages/InsighterReport/insighterreport";
 import Receipt from "./components/Receipt";
 import AdminLogin from "./admin/pages/login/login";
 import dashboard from "./admin/pages/Dashboard/dashboard";
@@ -45,6 +46,7 @@ const App: React.FC = () => {
         <Route exact path="/buyproduct" component={buyproduct} />
         <Route exact path="/pricelistupdatesummary" component={pricelistupdatesummary} />
         <Route exact path="/pricelistupdatesummaryofmonth" component={pricelistupdatesummaryofmonth} />
+        <Route exact path="/insighterreport" component={IR} />
         <Route exact path="/receipt" component={Receipt} />
         <Route exact path={["/admin/login", "/admin"]} component={AdminLogin} />
         <ProtectedRoute path="/admin/dashboard" component={dashboard} />
