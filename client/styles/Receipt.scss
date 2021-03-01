@@ -1,0 +1,166 @@
+.Receipt {
+    .holder {
+        padding: 30px 0;
+        text-align: center;
+        h2 {
+            color: #38ADA2;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 30px;
+            padding-bottom: 20px;
+        }
+        h3 {
+            color: #7f7f7f;
+            font-size: 25px;
+            font-weight: 500;
+            .downloads {
+                color: #38ADA2;
+                margin-left: 5px;
+            }
+        }
+    }
+    .order_data {
+        margin-top: 20px;
+        text-align: center;
+        .menu {
+            display: inline-block;
+            font-size: 13px;
+            ul {
+                display: inline-block;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    display: inline-block;
+                    position: relative;
+                    margin: 0;
+                    padding: 0 30px;
+                    border-right: 1px solid #7f7f7f;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    &:last-child {
+                        border-right: none;
+                    }
+                    h4 {
+                        text-align: left;
+                        text-transform: uppercase;
+                        color: #7f7f7f;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+                    h5 {
+                        text-align: left;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    .order-info {
+        margin-top: 40px;
+        background: #fff;
+        box-shadow: 0px 3px 13px #00000029;
+        border-radius: 5px;
+        padding-bottom: 15px;
+        .hr-two {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 0;
+            border-top: 2px solid rgba(0,0,0,.1);
+        }
+        .order {
+            background: #E8E8E8;
+            padding: 20px 30px 15px 30px;
+            h3 {
+                color: #000;
+                opacity: 0.5;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+        .product_event {
+            background: #fff;
+            padding: 30px 30px 10px 30px;
+            h3 {
+                color: #000;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+        .details {
+            background: #fff;
+            padding: 20px 30px 10px 30px;
+            h3 {
+                color: #000;
+                opacity: 0.5;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+        .total {
+            background: #fff;
+            padding: 10px 30px 0px 30px;
+            h3 {
+                color: #38ADA2;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+        .billing_info {
+            padding: 20px 30px 0px 30px;
+            img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+            h5 {
+                display: inline-block;
+                font-size: 16px;
+                font-weight: bold;
+                color: #000;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .Receipt .order-info {
+        .order {
+            padding: 20px 20px 15px 20px;
+        }
+        .product_event {
+            padding: 30px 20px 10px 20px;
+        }
+        .details {
+            padding: 20px 20px 10px 20px;
+        }
+        .total {
+            padding: 20px 20px 0px 20px;
+        }
+        .billing_info {
+            padding: 20px 20px 0px 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .Receipt .order_data .menu ul li:last-child {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-width: 407px) {
+    .Receipt .order_data {
+        text-align: left;
+        .menu ul li {
+            display: inline;
+            border-right: none;
+            &:last-child {
+                padding-top: 0px;
+            }
+        }
+    }
+}

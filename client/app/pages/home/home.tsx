@@ -8,8 +8,11 @@ function home() {
     <>
       <Suspense
         fallback={
-          <div>
-            <i className="fas fa-circle-notch fa-spin"></i>
+          <div
+            className="d-flex align-items-center justify-content-center"
+            style={{ margin: "0 auto", height: "100vh" }}
+          >
+            <div className="loader"></div>
           </div>
         }
       >

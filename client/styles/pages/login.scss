@@ -88,6 +88,9 @@
       width: 450px;
       height: 90px;
       letter-spacing: 0;
+      &:focus {
+        box-shadow: none;
+      }
     }
     .create_account {
       border: 2px solid #31A99F;

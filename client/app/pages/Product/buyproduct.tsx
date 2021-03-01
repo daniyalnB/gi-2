@@ -274,7 +274,7 @@ const buyproduct = () => {
                                 </div>
                                 <div className="checkout">
                                     <Link
-                                        to=""
+                                        to="/receipt"
                                         className="btn"
                                     >
                                         Checkout

@@ -16,6 +16,7 @@ import product from './pages/Product/product';
 import buyproduct from './pages/Product/buyproduct';
 import pricelistupdatesummary from "./pages/PriceListUpdateSummary/pricelistupdatesummary";
 import pricelistupdatesummaryofmonth from "./pages/PriceListUpdateSummary/pricelistupdatesummaryofmonth";
+import Receipt from "./components/Receipt";
 import AdminLogin from "./admin/pages/login/login";
 import dashboard from "./admin/pages/Dashboard/dashboard";
 import insightsheet from "./admin/pages/InsightSheets/insightsheet";
@@ -23,6 +24,8 @@ import products from "./admin/pages/Products/products";
 import CreateInsightSheet from "./admin/pages/InsightSheets/createInsightSheet";
 import ProductsList from "./admin/pages/Products/productsList";
 import CreateProduct from "./admin/pages/Products/createProduct";
+import events_admin from "./admin/pages/Events/events";
+import CreateEvent from "./admin/pages/Events/createEvent";
 import ProtectedRoute from "./admin/components/ProtectedRoute";
 import history from "../utils/history";
 
@@ -42,6 +45,7 @@ const App: React.FC = () => {
         <Route exact path="/buyproduct" component={buyproduct} />
         <Route exact path="/pricelistupdatesummary" component={pricelistupdatesummary} />
         <Route exact path="/pricelistupdatesummaryofmonth" component={pricelistupdatesummaryofmonth} />
+        <Route exact path="/receipt" component={Receipt} />
         <Route exact path={["/admin/login", "/admin"]} component={AdminLogin} />
         <ProtectedRoute path="/admin/dashboard" component={dashboard} />
         <ProtectedRoute path="/admin/insightsheet" component={insightsheet} />
@@ -49,6 +53,8 @@ const App: React.FC = () => {
         <ProtectedRoute path="/admin/products" component={products} />
         <ProtectedRoute path="/admin/productsList" component={ProductsList} />
         <ProtectedRoute path="/admin/createProduct" component={CreateProduct} />
+        <ProtectedRoute path="/admin/events" component={events_admin} />
+        <ProtectedRoute path="/admin/createEvent" component={CreateEvent} />
         <Redirect to="/" />
       </Switch>
     </>

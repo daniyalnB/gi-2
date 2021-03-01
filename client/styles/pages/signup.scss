@@ -140,6 +140,9 @@
       &:hover {
         background: #31a99f;
       }
+      &:focus {
+        box-shadow: none;
+      }
     }
     .login_devider {
       width: 100%;

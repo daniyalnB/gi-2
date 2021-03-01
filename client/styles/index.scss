@@ -2,11 +2,11 @@
 
 @import "./Navbar";
 
-// Main
+// Home Page
 
 @import "./Main";
 
-// Progress Circle 
+// Progress Circle
 
 @import "./ProgressCircle";
 
@@ -22,8 +22,16 @@
 
 @import "./Search";
 
-// Pages
+// Comments
 
+@import "./Comments";
+
+// Receipt
+
+@import "./Receipt";
+
+// Pages
+@import "./loader";
 @import "./pages/login";
 @import "./pages/signup";
 @import "./pages/events";

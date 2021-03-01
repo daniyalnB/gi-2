@@ -6,7 +6,7 @@ import Text_Editor from "../../components/Editor";
 import browse from "assets/upload.png";
 import back from "assets/arrowleft.svg";
 
-export default function CreateProduct (props) {
+export default function CreateEvent (props) {
     return (
         <>
             <div className="createInsightSheet">
@@ -23,7 +23,7 @@ export default function CreateProduct (props) {
                                 <div className="row header">
                                     <div className="col-9">
                                         <h3 className="heading">
-                                            Create Macro Product
+                                            Create Event
                                         </h3>
                                         {/* <div className="status">
                                             <span> Draft </span>
@@ -32,7 +32,7 @@ export default function CreateProduct (props) {
                                     <div className="col-3 text-right back">
                                         <Link
                                             className="bk"
-                                            to="/admin/productsList"
+                                            to="/admin/events"
                                         >
                                             <img src={back} className=""/>
                                             Back
@@ -63,11 +63,64 @@ export default function CreateProduct (props) {
                                                         type="text" 
                                                         name="Price" 
                                                         required 
-                                                        id="inputField3" 
+                                                        id="inputField2" 
                                                         className="input-area"
                                                         placeholder="$"
                                                     />
-                                                    <label htmlFor="inputField3" className="floating_label"> Price </label>
+                                                    <label htmlFor="inputField2" className="floating_label"> Price </label>
+                                                </div>
+                                            </div>
+                                            <div className="col-4">
+                                                <div className="form-group nogroup">
+                                                    <input 
+                                                        type="text" 
+                                                        name="Seats" 
+                                                        required 
+                                                        id="inputField3" 
+                                                        className="input-area"
+                                                    />
+                                                    <label htmlFor="inputField3" className="floating_label"> Number of Seats </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-4">
+                                                <div className="form-group nogroup">
+                                                    <input 
+                                                        type="text" 
+                                                        name="Start" 
+                                                        required 
+                                                        id="inputField4" 
+                                                        className="input-area"
+                                                    />
+                                                    <label htmlFor="inputField4" className="floating_label"> Start date and time </label>
+                                                </div>
+                                            </div>
+                                            <div className="col-4">
+                                                <div className="form-group nogroup">
+                                                    <input 
+                                                        type="text" 
+                                                        name="End" 
+                                                        required 
+                                                        id="inputField5" 
+                                                        className="input-area"
+                                                    />
+                                                    <label htmlFor="inputField5" className="floating_label"> End date and time </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-4">
+                                                <div className="form-group nogroup">
+                                                    <input 
+                                                        type="text" 
+                                                        name="Location" 
+                                                        required 
+                                                        id="inputField6" 
+                                                        className="input-area"
+                                                        placeholder="$"
+                                                    />
+                                                    <label htmlFor="inputField6" className="floating_label"> Location </label>
                                                 </div>
                                             </div>
                                             <div className="col-4">
@@ -76,11 +129,11 @@ export default function CreateProduct (props) {
                                                         type="button" 
                                                         name="fimage" 
                                                         required 
-                                                        id="inputField12" 
+                                                        id="inputField7" 
                                                         className="input-area"
                                                         style={{marginBottom: "0px"}}
                                                     />
-                                                    <label htmlFor="inputField12" className="floating_label"> Featured image </label>
+                                                    <label htmlFor="inputField7" className="floating_label"> Featured image </label>
                                                     <label className="file_input_label">
                                                         <input
                                                             type="file" 

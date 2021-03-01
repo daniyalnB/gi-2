@@ -179,42 +179,30 @@ export default function ProductsList (props) {
                                             Row={({ index, rowData }) => {
                                                 return (
                                                     <tr key={index}>
-                                                    <td>{rowData.original.title}</td>
-                                                    <td>{rowData.original.created_at}</td>
-                                                    <td>{rowData.original.purchased_count}</td>
-                                                    <td>${rowData.original.price}</td>
-                                                    <td>
-                                                    <div className="status_tb">
-                                                        <span
-                                                        className={
-                                                            rowData.original.status == "Draft"
-                                                            ? "status_draft" :
-                                                            rowData.original.status == "Published" 
-                                                            ? "status_published" : "status_outofstock"
-                                                        }
-                                                        >
-                                                        {rowData.original.status}
-                                                        </span>
-                                                    </div>
-                                                    </td>
-                                                    {/* <td> 
-                                                        <span 
-                                                            className={rowData.original.status == "Draft" ? "status_draft" : 
-                                                                rowData.original.status == "Published" ? "status_published" : "status_outofstock"
-                                                            }
-                                                        >  
-                                                            {rowData.original.status} 
-                                                        </span>
-                                                    </td> */}
-                                                    {/* <td>
-                                                        {"N/A"}
-                                                    </td> */}
-                                                    <td>
-                                                        <div
-                                                        className="view_icon_users">
-                                                        <img src={vision} />
-                                                        </div>
-                                                    </td>
+                                                        <td>{rowData.original.title}</td>
+                                                        <td>{rowData.original.created_at}</td>
+                                                        <td>{rowData.original.purchased_count}</td>
+                                                        <td>${rowData.original.price}</td>
+                                                        <td>
+                                                            <div className="status_tb">
+                                                                <span
+                                                                    className={
+                                                                        rowData.original.status == "Draft"
+                                                                        ? "status_draft" :
+                                                                        rowData.original.status == "Published" 
+                                                                        ? "status_published" : "status_outofstock"
+                                                                    }
+                                                                >
+                                                                    {rowData.original.status}
+                                                                </span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div
+                                                                className="view_icon_users">
+                                                                <img src={vision} />
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 );
                                             }}

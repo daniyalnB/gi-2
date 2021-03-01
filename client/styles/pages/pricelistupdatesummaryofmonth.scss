@@ -52,6 +52,13 @@
                 li {
                     font-size: 18px;
                     color: #38ADA2;
+                    a {
+                        color: #38ADA2;
+                        &:hover {
+                            text-decoration: none;
+                            color: #000;
+                        }
+                    }
                     &::marker {
                         color: #38ADA2;
                         font-size: 20px;

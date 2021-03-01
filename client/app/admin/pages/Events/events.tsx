@@ -8,9 +8,8 @@ import searchicon from "assets/magnifying-glass.svg";
 import vision from "assets/visibility.svg";
 import create from "assets/create.png";
 import MOCK_DATA from "../../components/MOCK_DATA_IS.json";
-import StarRatingDemo from "../../components/StarRating";
 
-export default function insightsheet (props) {
+export default function events_admin (props) {
 
     const data = useMemo(() => MOCK_DATA, [])
     console.log(data);
@@ -19,8 +18,6 @@ export default function insightsheet (props) {
     const [activeTab, setActiveTab] = useState({
         All: true,
         Draft: false,
-        Published: false,
-        Trash: false
     });
 
     const [headers, setHeaders] = useState([
@@ -29,20 +26,16 @@ export default function insightsheet (props) {
           accessor: "title",
         },
         {
-          Header: "Category",
-          accessor: "category",
+          Header: "Locaion",
+          accessor: "location",
         },
         {
-          Header: "Last Update",
-          accessor: "last_update",
+          Header: "Start Date",
+          accessor: "start_date",
         },
         {
-          Header: "Ratings",
-          accessor: "rating",
-        },
-        {
-          Header: "Status",
-          accessor: "status",
+          Header: "End Date",
+          accessor: "end_date",
         },
         {
           Header: "Action",
@@ -71,13 +64,13 @@ export default function insightsheet (props) {
                                             <img src={IS} />
                                         </div>
                                         <h3 className="heading">
-                                            Insight Sheets
+                                            Events
                                         </h3>
                                     </div>
                                     <div className="col-3 text-right">
                                         <Link
                                             className="btn"
-                                            to="/admin/createInsightSheet"
+                                            to="/admin/createEvent"
                                         >
                                             <img src={create} />
                                             Create New
@@ -95,8 +88,6 @@ export default function insightsheet (props) {
                                                         setActiveTab({
                                                             All: true,
                                                             Draft: false,
-                                                            Published: false,
-                                                            Trash: false
                                                         })
                                                     }
                                                 >
@@ -108,38 +99,10 @@ export default function insightsheet (props) {
                                                         setActiveTab({
                                                             All: false,
                                                             Draft: true,
-                                                            Published: false,
-                                                            Trash: false
                                                         })
                                                     }
                                                 >
                                                     Draft (30)
-                                                </li>
-                                                <li
-                                                    className={activeTab.Published == true ? "active" : ""}
-                                                    onClick={() =>
-                                                        setActiveTab({
-                                                            All: false,
-                                                            Draft: false,
-                                                            Published: true,
-                                                            Trash: false
-                                                        })
-                                                    }
-                                                >
-                                                    Published (42)
-                                                </li>
-                                                <li
-                                                    className={activeTab.Trash == true ? "active" : ""}
-                                                    onClick={() =>
-                                                        setActiveTab({
-                                                            All: false,
-                                                            Draft: false,
-                                                            Published: false,
-                                                            Trash: true
-                                                        })
-                                                    }
-                                                >
-                                                    Trash (21)
                                                 </li>
                                             </ul>
                                         </div>
@@ -173,25 +136,11 @@ export default function insightsheet (props) {
                                                         <td>{rowData.original.title}</td>
                                                         <td>{rowData.original.category}</td>
                                                         <td>{rowData.original.last_update}</td>
-                                                        {/* <td> {rowData.original.rating}</td> */}
-                                                        <td> <StarRatingDemo /> </td>
-                                                        <td>
-                                                            <div className="status_tb">
-                                                                <span
-                                                                    className={
-                                                                        rowData.original.status == "Draft"
-                                                                        ? "status_draft"
-                                                                        : "status_published"
-                                                                    }
-                                                                >
-                                                                    {rowData.original.status}
-                                                                </span>
-                                                            </div>
-                                                        </td>
+                                                        <td> {rowData.original.last_update} </td> 
                                                         <td>
                                                             <div
                                                                 className="view_icon_users">
-                                                                <img src={vision} />
+                                                            <   img src={vision} />
                                                             </div>
                                                         </td>
                                                     </tr>

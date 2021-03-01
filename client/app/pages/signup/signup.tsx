@@ -85,7 +85,6 @@ export default function signup () {
                                             })}
                                         > 
                                             <span> Let's Do This </span>
-                                            <div className="loader"></div> 
                                         </button>
                                     </form>
                                 </div>
@@ -154,7 +153,6 @@ export default function signup () {
                                         })}
                                     > 
                                         <span> Next </span>
-                                        <div className="loader"></div> 
                                     </button>
                                 </form>
                             </div>
@@ -201,7 +199,6 @@ export default function signup () {
                                             })}
                                         > 
                                             <span> Next </span>
-                                            <div className="loader"></div> 
                                         </button>
                                     </form>
                                 </div>
@@ -331,7 +328,6 @@ export default function signup () {
                                     })}
                                 > 
                                     <span> Next </span>
-                                    <div className="loader"></div> 
                                 </button>
                             </form>
                         </div>
@@ -419,7 +415,6 @@ export default function signup () {
                                                     })}
                                                 > 
                                                     <span> Get Started </span>
-                                                    <div className="loader"></div> 
                                                 </button>
 
                                             </div>
@@ -452,7 +447,6 @@ export default function signup () {
                                     })}
                                 > 
                                     <span> Continue </span>
-                                    <div className="loader"></div> 
                                 </button>
                             </form>
                         </div>

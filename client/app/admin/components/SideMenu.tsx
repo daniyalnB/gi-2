@@ -104,15 +104,22 @@ export default function SideMenu(props) {
 
                       <span> Users </span>
                     </li>
-                    <li className={active.Events ? "active" : ""}>
-                      {active.Events ? (
-                        <img src={eventsac} />
-                      ) : (
-                        <img src={events} />
-                      )}
+                   
+                    <Link to="/admin/events">
+                      <li
+                        className={
+                          location.pathname === "/admin/events" ? "active" : ""
+                        }
+                      >
+                        {location.pathname === "/admin/events" ? (
+                          <img src={eventsac} />
+                        ) : (
+                          <img src={events} />
+                        )}
+                        <span> Events </span>
+                      </li>
+                    </Link>
 
-                      <span> Events </span>
-                    </li>
                     <li className={active.Subscriptions ? "active" : ""}>
                       {active.Subscriptions ? (
                         <img src={subscriptionsac} />

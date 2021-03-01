@@ -61,7 +61,6 @@ export default function login() {
 
                     <button className="btn"> 
                       <span> Sign In </span>
-                      <div className="loader"></div> 
                     </button>
 
                   </div>
