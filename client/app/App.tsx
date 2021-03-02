@@ -12,11 +12,14 @@ import events from "./pages/events/events";
 import eventsdetail from "./pages/events/eventsdetail";
 import IS from "./pages/InsightSheet/insightsheet";
 import ISDetail from "./pages/InsightSheet/insightsheetdetail";
-import product from './pages/Product/product';
-import buyproduct from './pages/Product/buyproduct';
+import product from "./pages/Product/product";
+import buyproduct from "./pages/Product/buyproduct";
 import pricelistupdatesummary from "./pages/PriceListUpdateSummary/pricelistupdatesummary";
 import pricelistupdatesummaryofmonth from "./pages/PriceListUpdateSummary/pricelistupdatesummaryofmonth";
 import IR from "./pages/InsighterReport/insighterreport";
+import IRDetail from "./pages/InsighterReport/insighterreportdetail";
+import VG from "./pages/VideoGallery/videogallery";
+import VGDetail from "./pages/VideoGallery/videogallerydetail";
 import Receipt from "./components/Receipt";
 import AdminLogin from "./admin/pages/login/login";
 import dashboard from "./admin/pages/Dashboard/dashboard";
@@ -47,6 +50,9 @@ const App: React.FC = () => {
         <Route exact path="/pricelistupdatesummary" component={pricelistupdatesummary} />
         <Route exact path="/pricelistupdatesummaryofmonth" component={pricelistupdatesummaryofmonth} />
         <Route exact path="/insighterreport" component={IR} />
+        <Route exact path="/insighterreportdetail" component={IRDetail} />
+        <Route exact path="/videogallery" component={VG} />
+        <Route exact path="/videogallerydetail" component={VGDetail} />
         <Route exact path="/receipt" component={Receipt} />
         <Route exact path={["/admin/login", "/admin"]} component={AdminLogin} />
         <ProtectedRoute path="/admin/dashboard" component={dashboard} />

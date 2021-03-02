@@ -82,7 +82,9 @@ function Navbar() {
                     <h3> Insighter Report </h3>
                   </Link>
                   <hr />
-                  <h3> Video Gallery </h3>
+                  <Link to="/videogallery">
+                    <h3> Video Gallery </h3>
+                  </Link>
                   <hr />
                   <h3> 3D Training Modules </h3>
                   <hr />
