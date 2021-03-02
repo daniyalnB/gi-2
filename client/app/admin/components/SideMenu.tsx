@@ -33,6 +33,7 @@ import subscriptioncoupons from "assets/SubscriptionCoupons.png";
 import subscriptioncouponsac from "assets/SubscriptionCouponsActive.png";
 
 export default function SideMenu(props) {
+  
   console.log("Props", location.pathname);
   
   const [active, setActive] = useState(false);

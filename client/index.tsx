@@ -1,22 +1,34 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "./app/App";
+const App = React.lazy(() => import("./app/App"));
 import * as serviceWorker from "./serviceWorker";
+import React, { Suspense } from "react";
 import history from "./utils/history";
+
 import { Router } from "react-router-dom";
-import AuthContext from "./contexts/authContext";
+const AuthContext = React.lazy(() => import("./contexts/authContext"));
 
 const GI2: React.FC = () => {
-
-  return(
-      <>
+  return (
+    <>
+      <Suspense
+        fallback={
+          <div
+            className="d-flex align-items-center justify-content-center"
+            style={{ margin: "0 auto", height: "100vh" }}
+          >
+            {" "}
+            <div className="loader"></div>
+          </div>
+        }
+      >
         <AuthContext>
           <Router history={history}>
             <App />
           </Router>
         </AuthContext>
-      </>
+      </Suspense>
+    </>
   );
 };
 

@@ -86,7 +86,9 @@ function Navbar() {
                     <h3> Video Gallery </h3>
                   </Link>
                   <hr />
-                  <h3> 3D Training Modules </h3>
+                  <Link to="/3d-training-modules">
+                    <h3> 3D Training Modules </h3>
+                  </Link>
                   <hr />
                   <h3> Matterport Standards </h3>
                 </div>
