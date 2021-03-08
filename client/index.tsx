@@ -1,11 +1,10 @@
 import ReactDOM from "react-dom";
 import "./index.scss";
-const App = React.lazy(() => import("./app/App"));
 import * as serviceWorker from "./serviceWorker";
 import React, { Suspense } from "react";
 import history from "./utils/history";
-
 import { Router } from "react-router-dom";
+const App = React.lazy(() => import("./app/App"));
 const AuthContext = React.lazy(() => import("./contexts/authContext"));
 
 const GI2: React.FC = () => {

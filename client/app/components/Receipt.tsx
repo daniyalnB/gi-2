@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import env from '../../assets/Location.svg';
+import person from '../../assets/receipt_person.svg';
+import envelope from '../../assets/receipt_envelope.svg';
+import phone from '../../assets/receipt_phone.svg';
+import location from '../../assets/receipt_location.svg';
+
 
 const Receipt = () => {
     return (
@@ -119,7 +123,7 @@ const Receipt = () => {
                             <div className="billing_info">
                                 <div className="row">
                                     <div className="col">
-                                        <img src={env} />
+                                        <img src={person} />
                                         <h5> Matt Will </h5>
                                     </div>
                                 </div>
@@ -127,7 +131,7 @@ const Receipt = () => {
                             <div className="billing_info">
                                 <div className="row">
                                     <div className="col">
-                                        <img src={env} />
+                                        <img src={envelope} />
                                         <h5> example@example.com </h5>
                                     </div>
                                 </div>
@@ -135,7 +139,7 @@ const Receipt = () => {
                             <div className="billing_info">
                                 <div className="row">
                                     <div className="col">
-                                        <img src={env} />
+                                        <img src={phone} />
                                         <h5> 234-578-2221 </h5>
                                     </div>
                                 </div>
@@ -143,7 +147,7 @@ const Receipt = () => {
                             <div className="billing_info">
                                 <div className="row">
                                     <div className="col">
-                                        <img src={env} />
+                                        <img src={location} />
                                         <h5> Corporate Alliance, 9540 Towne Centre Drive STE 150 San Diego, CA 92122 United States </h5>
                                     </div>
                                 </div>

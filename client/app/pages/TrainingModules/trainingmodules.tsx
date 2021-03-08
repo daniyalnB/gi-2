@@ -24,13 +24,21 @@ const trainingmodules = () => {
                                 <div className="col-xl-6 col-lg-6 col-md-12">
                                     <h3> Pre-Mitigation </h3>
                                     <div className="mitigation_border">
-                                        <iframe src="https://my.matterport.com/show/?m=eCsvANPp7Dn&brand=0" frameBorder="0" allowFullScreen />
+                                        <iframe 
+                                            src="https://my.matterport.com/show/?m=eCsvANPp7Dn&brand=0" 
+                                            frameBorder="0" 
+                                            allowFullScreen 
+                                        />
                                     </div>
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12">
                                     <h3> Post-Mitigation </h3>
                                     <div className="mitigation_border">
-                                        <iframe src="https://my.matterport.com/show/?m=S9X5VbMx8CU&brand=0" frameBorder="0" allowFullScreen />
+                                        <iframe 
+                                            src="https://my.matterport.com/show/?m=S9X5VbMx8CU&brand=0" 
+                                            frameBorder="0" 
+                                            allowFullScreen 
+                                        />
                                     </div>
                                 </div>
                             </div>

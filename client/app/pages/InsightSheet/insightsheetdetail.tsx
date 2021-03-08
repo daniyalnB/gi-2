@@ -5,8 +5,6 @@ const Search = React.lazy(() => import("../../components/Search"));
 const StarRatingDemo = React.lazy(() => import("../../components/StarRating"));
 const Footer = React.lazy(() => import("../../components/Footer"));
 const Comments = React.lazy(() => import("../../components/Comments"));
-import detail from "assets/detailpic.jpg";
-import xact from "assets/xact.png";
 
 const ISDetail = () => {
   return (
@@ -39,7 +37,7 @@ const ISDetail = () => {
                             borderRadius: "10px",
                           }}
                         >
-                          <img src={detail} />
+                          <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2017/07/25054201/857188_AI-Insight-Sheet-and-Macro-Thumbnail-Redesign_Temporary-Roof-Tarping_01_InsightSheet_1920x1080_110920.png" />
                         </div>
                         <Link to="/login">
                           <button className="btn"> Sign In </button>
@@ -153,7 +151,7 @@ const ISDetail = () => {
                       <div className="col">
                         <div className="image-bg">
                           <div style={{ backgroundColor: "#000" }}>
-                            <img src={xact} />
+                            <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2017/05/18083833/AI_DBK_DRYII_V1_01.png" />
                             <Link to="/login">
                               <button className="btn"> Sign In </button>
                             </Link>

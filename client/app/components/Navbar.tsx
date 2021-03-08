@@ -90,7 +90,9 @@ function Navbar() {
                     <h3> 3D Training Modules </h3>
                   </Link>
                   <hr />
-                  <h3> Matterport Standards </h3>
+                  <Link to="/matterport-standards">
+                    <h3> Matterport Standards </h3>
+                  </Link>
                 </div>
               </li>
               <li
@@ -112,11 +114,23 @@ function Navbar() {
                     navthree ? "active active-three" : "dropdown-content"
                   }
                 >
-                  <h3> Insight Sheet Database </h3>
+                  <h3> Membership Plans </h3>
                   <hr />
-                  <h3> Solidifai (Estimate Edit Engine) </h3>
+                  <Link to="/insightsheet">
+                    <h3> Insight Sheet Database </h3>
+                  </Link>
                   <hr />
-                  <h3> ZORA (Estimate Audit Engine) </h3>
+                  <Link to="/commonly-overlooked-line-items">
+                    <h3> Commonly Overlooked Line Items </h3>
+                  </Link>
+                  <hr />
+                  <Link to="/solidifai">
+                    <h3> Solidifai (Estimate Edit Engine) </h3>
+                  </Link>
+                  <hr />
+                  <Link to="/zora">
+                    <h3> ZORA (Estimate Audit Engine) </h3>
+                  </Link>
                 </div>
               </li>
               <li

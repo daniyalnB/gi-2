@@ -21,6 +21,10 @@ import IRDetail from "./pages/InsighterReport/insighterreportdetail";
 import VG from "./pages/VideoGallery/videogallery";
 import VGDetail from "./pages/VideoGallery/videogallerydetail";
 import trainingmodules from "./pages/TrainingModules/trainingmodules";
+import matterportstandards from "./pages/MatterportStandards/matterportstandards";
+import commonlyoverlookedlineitems from "./pages/CommonlyOverlookedLineItems/commonlyoverlookedlineitems";
+import solidifai from "./pages/Solidifai/solidifai";
+import zora from "./pages/Zora/zora";
 import Receipt from "./components/Receipt";
 import AdminLogin from "./admin/pages/login/login";
 import dashboard from "./admin/pages/Dashboard/dashboard";
@@ -55,6 +59,10 @@ const App: React.FC = () => {
         <Route exact path="/videogallery" component={VG} />
         <Route exact path="/videogallerydetail" component={VGDetail} />
         <Route exact path="/3d-training-modules" component={trainingmodules} />
+        <Route exact path="/matterport-standards" component={matterportstandards} />
+        <Route exact path="/commonly-overlooked-line-items" component={commonlyoverlookedlineitems} />
+        <Route exact path="/solidifai" component={solidifai} />
+        <Route exact path="/zora" component={zora} />
         <Route exact path="/receipt" component={Receipt} />
         <Route exact path={["/admin/login", "/admin"]} component={AdminLogin} />
         <ProtectedRoute path="/admin/dashboard" component={dashboard} />

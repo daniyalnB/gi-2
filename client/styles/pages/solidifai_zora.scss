@@ -1,0 +1,57 @@
+.Solidifai_Zora {
+    .holder {
+        padding: 30px 0;
+        text-align: center;
+        h2 {
+            color: #38ADA2;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 30px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 20px;
+            .here {
+                color: #38ADA2;
+                font-weight: bold;
+            }
+        }
+    }
+    .analysis {
+        margin-top: 20px;
+        h2 {
+            text-align: center;
+            color: #38ADA2;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 30px;
+        }
+        .analysis-image-section {
+            .image-bg {
+                img {
+                    width: 100%;
+                    height: auto;
+                    opacity: 0.4;
+                    filter: blur(0px);
+                }
+                .btn {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 16px;
+                    background: #DB422D;
+                    border-radius: 6px;
+                    color: #f6f8f9;
+                    width: 197px;
+                    height: 50px;
+                    letter-spacing: 0;
+                    text-align: center;
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+}

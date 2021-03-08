@@ -15,7 +15,7 @@ const pricelistupdatesummary = () => {
                             <h3> Do you know what line items were added to the Price List last month? </h3>
                             <h3> Do you know why they were adopted? </h3>
                             <h3 className="nyd"> Now you do… </h3>
-                            <h3> Have you identified a need for a new line item? Submit your request 
+                            <h3> Have you identified a need for a new line item? Submit your request&nbsp;
                                 <Link
                                     to=""
                                     className="here"

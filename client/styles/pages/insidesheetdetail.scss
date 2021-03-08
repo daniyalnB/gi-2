@@ -136,7 +136,7 @@
                 }
             }    
             .description {
-                margin-top: 30px;
+                margin-top: 10px;
                 h2 {
                     text-align: left;
                     color: #38ADA2;
@@ -187,6 +187,9 @@
                             height: 50px;
                             letter-spacing: 0;
                             text-align: center;
+                            &:focus {
+                                box-shadow: none;
+                            }
                         }
                     }
                 }
@@ -201,12 +204,6 @@
     }
 }
 
-@media screen and (max-width: 1199px) {
-    .ISDetail_page .holder .separator .detail .image-section .btn {
-        top: 50%;
-    }
-}
-
 @media screen and (max-width: 991px) {
     .ISDetail_page {
         .holder {
@@ -214,6 +211,9 @@
                 .detail {
                     .image-section {
                         margin-bottom: 15px;
+                        .btn {
+                            top: 50%;
+                        }
                     }
                 }
             }

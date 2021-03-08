@@ -4,7 +4,6 @@ const Navbar = React.lazy(() => import("../../components/Navbar"));
 const Footer = React.lazy(() => import("../../components/Footer"));
 const Search = React.lazy(() => import("../../components/Search"));
 const StarRatingDemo = React.lazy(() => import("../../components/StarRating"));
-import img1 from "assets/DriHeatRadial2.png";
 
 const IS = () => {
   return (
@@ -40,7 +39,7 @@ const IS = () => {
                     <div className="container">
                       <div className="row sheet">
                         <div className="col-4 image-section">
-                          <img src={img1} />
+                          <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2017/07/25054201/857188_AI-Insight-Sheet-and-Macro-Thumbnail-Redesign_Temporary-Roof-Tarping_01_InsightSheet_1920x1080_110920.png" />
                         </div>
                         <div className="col-8 data-section">
                           <div className="row">
