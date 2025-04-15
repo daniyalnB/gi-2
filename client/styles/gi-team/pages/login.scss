@@ -1,0 +1,255 @@
+.admin-login {
+	background: #f6f8f9;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	padding-top: 250px;
+	.image-section {
+		text-align: center;
+		align-items: center;
+		img {
+			width: 500px;
+			height: 250px;
+		}
+	}
+	.text-section {
+		text-align: center;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		h3 {
+			font-size: 50px;
+			font-weight: 600;
+		}
+	}
+	.login_inner_Container {
+		max-width: 1000px;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+		.btn {
+			font-size: 35px;
+			background: #DB422D;
+			border-radius: 10px;
+			color: #f6f8f9;
+			width: 450px;
+			height: 90px;
+			letter-spacing: 0;
+			line-height: 80px;
+			&:focus {
+				box-shadow: none;
+			}
+			a {
+				color: #f6f8f9;
+			}
+		}
+		.form-group {
+			margin-bottom: 1.5rem!important;
+			position: relative;
+		}
+		.form-holder input {
+			margin-bottom: 24px;
+		} 
+		.form-holder input {
+			font-size: 30px;
+			width: 100%;
+			border: 1px solid rgba(10,81,105,.5);
+			border-radius: 10px;
+			padding: 12px 50px 12px 15px;
+			outline: none;
+			&:hover {
+				border: 1px solid #26A59A;
+			}
+		}
+		.form-holder .input_icon {
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      padding: 13px;
+      margin: 6px 0 0 10px;
+    }
+		.form-group .floating_label {
+			position: absolute;
+			font-size: 30px;
+			top: 20px;
+			left: 30px;
+			background-color: #fff;
+			transition: all .3s;
+			font-weight: 600;
+			color: rgba(73,80,87,.8)!important;
+		}
+		.form-group .input-area:hover + .floating_label {
+			top: -15px;
+			padding: 0 3px;
+			font-size: 24px;
+			color: #26A59A !important;
+			background-color: #f6f8f9;
+		}
+		.form-group .input-area:focus + .floating_label {
+			top: -15px;
+			padding: 0 3px;
+			font-size: 24px;
+			color: #26A59A !important;
+			background-color: #f6f8f9;
+		}
+		.form-group .input-area:valid  + .floating_label {
+			top: -15px;
+			padding: 0 3px;
+			font-size: 24px;
+			color: #26A59A !important;
+			background-color: #f6f8f9;
+		}
+		.form-holder {
+			.upLabel {
+				position: absolute;
+				font-size: 30px;
+				top: 20px;
+				left: 30px;
+				background-color: #fff;
+				transition: all .3s;
+				font-weight: 600;
+				color: rgba(73,80,87,.8)!important;
+			}
+			.upInputs input:focus~.upLabel,
+			.upInputs input:not(:placeholder-shown)~.upLabel {
+				top: -15px;
+				padding: 0 3px;
+				font-size: 24px;
+				color: #26A59A !important;
+				background-color: #f6f8f9;
+			}
+			.upInputs input:hover~.upLabel,
+			.upInputs input:not(:placeholder-shown)~.upLabel {
+				top: -15px;
+				padding: 0 3px;
+				font-size: 24px;
+				color: #26A59A !important;
+				background-color: #f6f8f9;
+			}
+			.upInputs input:valid~.upLabel,
+			.upInputs input:not(:placeholder-shown)~.upLabel {
+				top: -15px;
+				padding: 0 3px;
+				font-size: 24px;
+				color: #26A59A !important;
+				background-color: #f6f8f9;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 2560px) {
+	.admin-login {
+		.image-section {
+			text-align: center;
+			align-items: center;
+			img {
+				width: 400px;
+				height: 200px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1920px) {
+	.admin-login {
+		padding-top: 150px;
+		.image-section {
+			img {
+				width: 250px;
+				height: auto;
+			}
+		}
+		.text-section {
+			h3 {
+				font-size: 30px;
+			}
+		}
+		.login_inner_Container {
+			max-width: 450px;
+			.btn {
+				font-size: 18px;
+				width: 257px;
+				height: 50px;
+				border-radius: 6px;
+				margin-top: 20px;
+				line-height: 40px;
+			}
+			.form-holder input {
+				margin-bottom: 0px;
+			}
+			.form-holder input {
+				font-size: 14px;
+				border-radius: 4px;
+			}
+			.form-holder .input_icon {
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+        margin: 5px;
+      }
+			.form-group .floating_label {
+				font-size: 14px;
+				top: 15px;
+				left: 20px;
+			}
+			.form-group .input-area:hover + .floating_label {
+				top: -9px;
+				padding: 0 3px;
+				font-size: 12px;
+			}
+			.form-group .input-area:focus + .floating_label {
+				top: -9px;
+				padding: 0 3px;
+				font-size: 12px;
+			}
+			.form-group .input-area:valid  + .floating_label {
+				top: -9px;
+				padding: 0 3px;
+				font-size: 12px;
+			}
+			.form-holder {
+				.upLabel {
+					font-size: 14px;
+					top: 15px;
+					left: 20px;
+				}
+				.upInputs input:focus~.upLabel,
+				.upInputs input:not(:placeholder-shown)~.upLabel {
+					top: -9px;
+					padding: 0 3px;
+					font-size: 12px;
+				}
+				.upInputs input:hover~.upLabel,
+				.upInputs input:not(:placeholder-shown)~.upLabel {
+					top: -9px;
+					padding: 0 3px;
+					font-size: 12px;
+				}
+				.upInputs input:valid~.upLabel,
+				.upInputs input:not(:placeholder-shown)~.upLabel {
+					top: -9px;
+					padding: 0 3px;
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1366px) {
+	.admin-login {
+		padding-top: 130px;
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	.admin-login {
+		.image-section {
+			img {
+				width: 200px;
+				height: auto;
+			}
+		}
+	}
+}
+

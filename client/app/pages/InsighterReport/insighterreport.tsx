@@ -1,26 +1,55 @@
-import { Link } from "react-router-dom";
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
+import LottieLoader from "../../components/LottieLoader";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import ScrollToTop from "../../components/ScrollToTop";
+import SEO from "../../components/SEO";
 const Navbar = React.lazy(() => import("../../components/Navbar"));
 const Footer = React.lazy(() => import("../../components/Footer"));
+const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent"));
+const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
+import { GetAllPriceInsighterReportsCustomer } from "../../../utils/api-routes/api-routes.util";
+import moment from "moment";
 
-const IR = () => {
+const InsighterReport = () => {
+  
+  const [loading, setLoading] = useState(true);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    GetAllPriceInsighterReportsCustomer().subscribe((response) => {
+      if (response.response.Requested_Action) {
+        setData(response.response.data);
+        setLoading(false);
+      } else {
+        alert("error");
+      }
+    });
+  }, []);
+
+  const sortedReports = data.sort((a, b) => moment(b.dateforsorting, "DD.MM.YYYY").format("YYYYMMDD") - moment(a.dateforsorting, "DD.MM.YYYY").format("YYYYMMDD"));
+
   return (
     <>
+      <SEO
+        title="Insighter Report | A resource library by Actionable Insights"
+        description="Our Insighter Report contains resources for restoration and claims professionals including industry news, white papers, and more. Check it out."
+        link="resources/insighter-report"
+      />
       <Suspense
         fallback={
-          <div
-            className="d-flex align-items-center justify-content-center"
-            style={{ margin: "0 auto", height: "100vh" }}
-          >
-            {" "}
-            <div className="loader"></div>
+          <div className="loader">
+            <LottieLoader />
           </div>
         }
       >
+        <ScrollToTop />
         <Navbar />
+        <Breadcrumbs />
         <div className="main-container">
           <div className="IR_page">
-            <div className="container">
+            <div className="">
               <div className="holder">
                 <h2> The Insighter Report </h2>
                 <h3>
@@ -28,88 +57,58 @@ const IR = () => {
                   A resource library for restoration and claims professionals.{" "}
                 </h3>
               </div>
-              <div className="reports">
-                <div className="row">
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div className="insighter_report">
-                      <Link to="/insighterreportdetail">
-                        <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2018/07/31224007/Xactware_White_Paper_Labor_Efficiencies_Design_Thumbnail_01_1024x3471.jpg" />
-                        <h3 className="name"> Labor Efficiencies Design </h3>
-                      </Link>
-                      <h3 className="date"> AUGUST 11, 2020 </h3>
-                      <p className="description">
-                        Labor is generally the largest variable in
-                        construction-related tasks. Factors such as job size and
-                        complexity, accessibility, and whether the structure is
-                        occupied all have a significant effect on the time
-                        needed to complete the work.
-                      </p>
-                    </div>
+              {!loading && (
+                <>
+                  <div className="row">
+                    {sortedReports.map((val, key) => {
+                      return (
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                          <div className="reports">
+                            <div className="insighter_report">
+                              <Link to={`/resources/insighter-report/${val.permalink}`}>
+                                <img
+                                  src={val.featureimage}
+                                  alt={val.featuredtitle}
+                                  loading="lazy"
+                                />
+                              </Link>
+                              <h3 className="name">
+                                <Link to={`/resources/insighter-report/${val.permalink}`}>
+                                  {val.featuredtitle}
+                                </Link>
+                              </h3>
+                              <h3 className="date">
+                              {/* moment(x.dateforsorting, "DD.MM.YYYY").format("yyyy-MM-DD") */}
+                                {moment(val.dateforsorting, "DD.MM.YYYY").format(
+                                  "MMMM DD, YYYY"
+                                )}
+                              </h3>
+                              <div className="description">
+                                {val.featureddescription.substring(0, 250)}
+                                ...{" "}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div className="insighter_report">
-                      <Link to="/insighterreportdetail">
-                        <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2018/07/24225246/Xactimate_White_Paper_re_OP_01_1024x347.jpg" />
-                        <h3 className="name"> OVERHEAD AND PROFIT </h3>
-                      </Link>
-                      <h3 className="date"> FEBRUARY 05, 2020 </h3>
-                      <p className="description">
-                        One of the most commonly asked questions in property
-                        insurance is about Xactimate’s pricing methodology.
-                        There is consistent confusion as to what is and is not
-                        included within the line items of Xactimate’s price
-                        lists. As a result, we wanted to host the most recent
-                        version of Xactware’s Overhead and Profit White Paper so
-                        the Insighters can quickly access and reference it.
-                      </p>
-                    </div>
-                  </div>
+                </>
+              )}
+              {loading && (
+                <div className="loader-inner">
+                  <LottieLoader />
                 </div>
-                <div className="row">
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div className="insighter_report">
-                      <Link to="/insighterreportdetail">
-                        <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2018/07/31224007/Xactware_White_Paper_Labor_Efficiencies_Design_Thumbnail_01_1024x3471.jpg" />
-                        <h3 className="name"> Labor Efficiencies Design </h3>
-                      </Link>
-                      <h3 className="date"> AUGUST 11, 2020 </h3>
-                      <p className="description">
-                        Labor is generally the largest variable in
-                        construction-related tasks. Factors such as job size and
-                        complexity, accessibility, and whether the structure is
-                        occupied all have a significant effect on the time
-                        needed to complete the work.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div className="insighter_report">
-                      <Link to="/insighterreportdetail">
-                        <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2018/07/24225246/Xactimate_White_Paper_re_OP_01_1024x347.jpg" />
-                        <h3 className="name"> OVERHEAD AND PROFIT </h3>
-                      </Link>
-                      <h3 className="date"> FEBRUARY 05, 2020 </h3>
-                      <p className="description">
-                        One of the most commonly asked questions in property
-                        insurance is about Xactimate’s pricing methodology.
-                        There is consistent confusion as to what is and is not
-                        included within the line items of Xactimate’s price
-                        lists. As a result, we wanted to host the most recent
-                        version of Xactware’s Overhead and Profit White Paper so
-                        the Insighters can quickly access and reference it.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
-
+        <WrongBrowserDisclaimer />
+        <CookieConsentGI2 />
         <Footer />
       </Suspense>
     </>
   );
 };
 
-export default IR;
+export default withRouter(InsighterReport);

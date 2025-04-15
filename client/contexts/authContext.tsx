@@ -1,9 +1,17 @@
 import * as React from "react";
-import { login, logoutAPI, auth } from "../utils/api-routes/api-routes.util";
+import { useState, useEffect } from "react";
+import {
+  login,
+  logoutAPI,
+  auth,
+  customerLogin,
+  customerLogout,
+  customerAuth,
+} from "../utils/api-routes/api-routes.util";
 import history from "../utils/history";
-import { useState } from "react";
 
 interface IContextProps {
+  profile: object;
   payload: object;
   loginError: string | undefined;
   isAuthenticated: boolean;
@@ -13,33 +21,35 @@ interface IContextProps {
   emailOnChange: Function;
   passwordOnChange: Function;
   logout: Function;
+  isAuthenticatedCustomer: boolean;
+  setIsAuthenticatedCustomer: Function;
+  dispatchLoginCustomer: Function;
+  logoutCustomer: Function;
+  switchData: any;
 }
 
 export const AuthContext = React.createContext({} as IContextProps);
 
-// TODO: Move to typings file
-interface ProfileStorage {
-  token: string;
+interface CustomerProfileStorage {
+  tokenCustomer: string;
+}
+
+interface CustomerFirstName {
+  CustomerFirstName: string;
 }
 
 export default React.memo(({ children }) => {
+
   const [loginError, setLoginError] = useState("");
   const [status, setStatus] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticatedCustomer, setIsAuthenticatedCustomer] = useState(false);
+  const [profile, setProfile] = useState("");
+  const [switchData, setSwitchData] = useState([]);
 
-  let profile: ProfileStorage = { token: "" };
+  let customerProfile: CustomerProfileStorage = { tokenCustomer: "" };
 
-  // React.useEffect(() => {
-  //   auth().subscribe(
-  //     (response: any) => {
-  //       console.log(response, "response");
-  //       //console.log(props, "hello");
-  //     },
-  //     (error) => {
-  //       logout();
-  //     }
-  //   );
-  // }, []);
+  let CustomerFirstName: CustomerFirstName = { CustomerFirstName: "" };
 
   let payload = React.useMemo(() => {
     return { emailaddress: "", password: "" };
@@ -47,60 +57,39 @@ export default React.memo(({ children }) => {
 
   const emailOnChange = (email: string) => {
     payload.emailaddress = email;
-    //  validateEmail();
   };
 
   const passwordOnChange = (pwd: string) => {
     payload.password = pwd;
-    //  validatePassword();
   };
 
-  const dispatchLogin = () => {
+  const dispatchLogin = (email) => {
     setStatus("pending");
 
     login(payload).subscribe(
       (response) => {
+        // console.log(response.response, "login response");
+        setProfile(response.response);
         setIsAuthenticated(true);
         setStatus("success");
-        //console.log(response);
-        profile = response.response;
-        localStorage.setItem("token", profile);
-        history.push("/admin/dashboard");
+        if (response.response.mfaenabled) {
+          localStorage.setItem("email", email);
+          history.push("/gi-team/login-mfa");
+        } else {
+          localStorage.setItem("email", email);
+          localStorage.setItem("token", response.response.sessiontoken);
+          localStorage.setItem("role", response.response.role);
+          localStorage.setItem("2fa", response.response.mfaenabled);
+          history.push("/gi-team/dashboard");
+        }
       },
       (error) => {
-        console.log(error, "asasdasdc");
+        // console.log(error, "admin login error");
         setIsAuthenticated(false);
-        setLoginError(error.response);
+        setLoginError(error.response.Message);
         setStatus("error");
       }
-    ); //.subscribe(
-    //   (response: any) => {
-    //     console.log("sdas");
-    //     // if (response.response === "Invalid Credentials") {
-    //     //   console.log(response, "asdas");
-    //     //   setLoginError("Invalid Credentials");
-    //     //   setStatus("error");
-    //     //   setIsAuthenticated(false);
-    //     //   // showNotify("success", "Invalid Credentials");
-    //     // } else {
-    //     setIsAuthenticated(true);
-    //     setStatus("success");
-    //     //console.log(response);
-    //     profile = response.response;
-    //     localStorage.setItem("profile", JSON.stringify(profile));
-    //     localStorage.setItem("token", profile);
-    //     history.push("/admin/dashboard");
-
-    //     console.log(response.status);
-    //   },
-    //   (error) => {
-    //     setIsAuthenticated(false);
-    //     setLoginError(error.status);
-    //     setStatus("error");
-    //     //console.log(status);
-    //     //showNotify("error", "Invalid Credentials");
-    //   }
-    // );
+    );
   };
 
   const logout = () => {
@@ -108,18 +97,76 @@ export default React.memo(({ children }) => {
       (response: any) => {
         setStatus("success");
         setIsAuthenticated(false);
+        localStorage.removeItem("email");
         localStorage.removeItem("token");
-        history.push("/admin/login");
+        localStorage.removeItem("role");
+        localStorage.removeItem("2fa");
+        localStorage.removeItem("activeTab");
+        history.push("/gi-team/login");
       },
       (response) => {
         setIsAuthenticated(false);
+        setStatus("error");
+      }
+    );
+  };
 
+  const dispatchLoginCustomer = (path) => {
+    setStatus("pending");
+
+    const newPath = `${path === "/my-account/lost-password/show-reset-form" || path === "/my-account/lost-password" ? "/" : path}`;
+
+    customerLogin(payload).subscribe(
+      (response) => {
+        // console.log(response, "customer login response");
+        setIsAuthenticatedCustomer(true);
+        setStatus("success");
+        customerProfile = response.response.sessiontoken;
+        localStorage.setItem("tokenCustomer", customerProfile);
+        CustomerFirstName = response.response.firstname;
+        localStorage.setItem("CustomerFirstName", CustomerFirstName);
+        history.push(`${newPath}`);
+      },
+      (error) => {
+        // console.log(error, "customer login error");
+        if (error.response.data) {
+          const token = error.response.data[0];
+          localStorage.setItem("signoutTokenCustomer", token);
+        }
+        setIsAuthenticatedCustomer(false);
+        setLoginError(error.response.Message);
+        setStatus("error");
+      }
+    );
+  };
+
+  // useEffect(() => {
+  //   setSwitchData(JSON.parse(localStorage.getItem("switchData")));
+  // }, []);
+
+  const logoutCustomer = (path, removeAll) => {
+    customerLogout(removeAll ? true : false).subscribe(
+      (response: any) => {
+        setStatus("success");
+        setIsAuthenticatedCustomer(false);
+        localStorage.removeItem("tokenCustomer");
+        localStorage.removeItem("CustomerFirstName");
+        if (localStorage.getItem("signoutTokenCustomer") == null) {
+          history.push("/");
+        } else {
+          localStorage.removeItem("signoutTokenCustomer");
+          dispatchLoginCustomer(path);
+        }
+      },
+      (response) => {
+        setIsAuthenticatedCustomer(false);
         setStatus("error");
       }
     );
   };
 
   const defaultContext = {
+    profile,
     payload,
     loginError,
     isAuthenticated,
@@ -129,6 +176,11 @@ export default React.memo(({ children }) => {
     passwordOnChange,
     logout,
     setIsAuthenticated,
+    isAuthenticatedCustomer,
+    setIsAuthenticatedCustomer,
+    dispatchLoginCustomer,
+    logoutCustomer,
+    switchData,
   };
 
   return (

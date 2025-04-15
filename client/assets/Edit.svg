@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39">
+  <g id="Edit" transform="translate(-534 -251)">
+    <rect id="Rectangle_358" data-name="Rectangle 358" width="39" height="39" rx="6" transform="translate(534 251)" fill="#db422d" opacity="0.3"/>
+    <g id="edit-2" data-name="edit" transform="translate(545.178 262.178)">
+      <g id="Group_354" data-name="Group 354">
+        <g id="Group_353" data-name="Group 353">
+          <path id="Path_308" data-name="Path 308" d="M0,77.774v3.349H3.349l9.881-9.881L9.881,67.893Z" transform="translate(0 -65.051)" fill="#e15a40"/>
+          <path id="Path_309" data-name="Path 309" d="M263.649,2.346,261.564.261a.9.9,0,0,0-1.264,0L258.666,1.9l3.349,3.349,1.634-1.634A.9.9,0,0,0,263.649,2.346Z" transform="translate(-247.838)" fill="#e15a40"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

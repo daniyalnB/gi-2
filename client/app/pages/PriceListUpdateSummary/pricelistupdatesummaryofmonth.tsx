@@ -1,9 +1,26 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
+import LottieLoader from "../../components/LottieLoader";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import ScrollToTop from "../../components/ScrollToTop";
+import SEO from "../../components/SEO";
+import NotFound from "../../components/NotFound";
 const Navbar = React.lazy(() => import("../../components/Navbar"));
 const Footer = React.lazy(() => import("../../components/Footer"));
+const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent"));
+const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 const Comments = React.lazy(() => import("../../components/Comments"));
+import { GetPriceListUpdateSummaryByPermalink } from "../../../utils/api-routes/api-routes.util";
+import history from "../../../utils/history";
+import Lightbox from "react-image-lightbox";
+import moment from "moment";
 
-const pricelistupdatesummaryofmonth = () => {
+const PriceListUpdateSummaryOfMonth = (props) => {
+
+  const [show, setShow] = useState(true);
+
+  const [loading, setLoading] = useState(true);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 150,
@@ -11,124 +28,220 @@ const pricelistupdatesummaryofmonth = () => {
     });
   };
 
+  const [data, setData] = useState(false);
+
+  const [previews, setPreviews] = useState([]);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  useEffect(() => {
+    GetPriceListUpdateSummaryByPermalink(props.match.params.permalink).subscribe((response) => {
+      if (response.response.Requested_Action) {
+        const x = response.response.data;
+        if (x == undefined || x == null) {
+          setShow(false);
+        }
+        setData(x);
+        setLoading(false);
+        var element = document.getElementsByClassName("link");
+        if (element) {
+          console.log(element);
+          for (var i = 0; i < element.length; i++) {
+            element[i].addEventListener("click", function () {
+              scrollToTop();
+            });
+          }
+        }
+        var elementimage = document.getElementsByClassName("imagepreview");
+        if (elementimage) {
+          console.log(elementimage);
+          var images = [];
+          for (var i = 0; i < elementimage.length; i++) {
+            images.push(elementimage[i].src);
+            if (images.length > 1) {
+              setPreviews(images);
+              console.log(previews, "previews");
+            } else {
+              setPreviews(images);
+              console.log(previews, "previews");
+            }
+            elementimage[i].addEventListener("click", function () {
+              handleOpen();
+            });
+          }
+        }
+      } else {
+        setShow(false);
+      }
+    });
+  }, []);
+
   return (
     <>
-      <Suspense
-        fallback={
-          <div
-            className="d-flex align-items-center justify-content-center"
-            style={{ margin: "0 auto", height: "100vh" }}
+      {show ? (
+        <>
+          <SEO
+            title={
+              data
+                ? data.metatitle || data.metatitle !== null
+                  ? `${data.metatitle}`
+                  : `${data.tabtitle}`
+                : "Price List Update Summary"
+            }
+            description={data.metadescription ? `${data.metadescription}` : ""}
+            link={`resources/price-list-update-summary/${data.permalink}`}
+          />
+          <Suspense
+            fallback={
+              <div className="loader">
+                <LottieLoader />
+              </div>
+            }
           >
-            {" "}
-            <div className="loader"></div>
-          </div>
-        }
-      >
-        <Navbar />
-        <div className="main-container">
-          <div className="PLUS_OM">
-            <div className="container">
-              <div className="holder">
-                <h2> Price List Update Summary - January 2020 </h2>
-              </div>
-              <div className="youtube_video">
-                <div className="video">
-                  <div className="fluid-width-video-wrapper">
-                    <iframe
-                      src="https://www.youtube.com/embed/iCsft6QVlXY?start=1"
-                      frameBorder="0"
-                      allow="autoplay; encrypted-media"
-                      allowFullScreen
-                      name="example"
-                    />
-                  </div>
+            <ScrollToTop />
+            <Navbar />
+            <Breadcrumbs data={data} />
+            <div className="main-container">
+              <div className="PLUS_OM">
+                <div className="">
+                  {!loading && (
+                    <>
+                      <div className="holder">
+                        {data.iframeurl.includes("https") ? (
+                          <>
+                            <h2>
+                              Price List Update Summary - {data.title}{" "}
+                              {moment(data.selecteddate).format("YYYY")}
+                            </h2>
+                            <h5>New Xactimate Line Items</h5>
+                          </>
+                        ) : (
+                          <h2>
+                            Price List Commentary & New Line Items - {data.title}{" "}
+                            {moment(data.selecteddate).format("YYYY")}
+                          </h2>
+                        )}
+                      </div>
+                      {data.iframeurl.includes("https") ? (
+                        <>
+                          <div className="youtube_video">
+                            <div className="video">
+                              <div className="fluid-width-video-wrapper">
+                                <iframe
+                                  src={data.iframeurl}
+                                  frameBorder="0"
+                                  allow="autoplay; encrypted-media"
+                                  allowFullScreen
+                                  name="plus-video-frame"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="CTA">
+                            <h3>
+                              {" "}
+                              Looking for more helpful Xactimate estimating
+                              information? Check out the Commonly Overlooked Line
+                              Items database of Xactimate line items that are often
+                              warranted but rarely included in invoices/estimates!{" "}
+                            </h3>
+                            <Link
+                              to="/commonly-overlooked-line-items"
+                              className="btn"
+                            >
+                              COMMONLY OVERLOOKED LINE ITEMS
+                            </Link>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="new-line-item">
+                          <p>
+                            Have you identified a need for a new line item? Submit
+                            your request&nbsp;
+                            <Link to="/advance-the-cause/line-item-request">
+                              here
+                            </Link>
+                            .
+                          </p>
+                        </div>
+                      )}
+                      <div className="changes">
+                        {data.iframeurl.includes("https") ? (
+                          <h2>
+                            {data.title} {moment(data.selecteddate).format("YYYY")}{" "}
+                            Price List Changes Report
+                          </h2>
+                        ) : (
+                          <h2> Price List Commentary </h2>
+                        )}
+                        <div className="change_list">
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: `${
+                                data.description
+                                  ? data.description
+                                      .replace(/<a/g, `<a class='link'`)
+                                      .replace(/_self/g, `plus-video-frame`)
+                                      .replace(/(<p><\/p>)/g, `<br>`)
+                                      .replace(/<img/g, `<img class='imagepreview'`)
+                                  : ""
+                              }`,
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        {isOpen && previews.length > 1 && (
+                          <Lightbox
+                            mainSrc={previews[photoIndex]}
+                            nextSrc={previews[(photoIndex + 1) % previews.length]}
+                            prevSrc={
+                              previews[
+                                (photoIndex + previews.length - 1) % previews.length
+                              ]
+                            }
+                            onCloseRequest={() => setIsOpen(false)}
+                            onMovePrevRequest={() =>
+                              setPhotoIndex(
+                                (photoIndex + previews.length - 1) % previews.length
+                              )
+                            }
+                            onMoveNextRequest={() =>
+                              setPhotoIndex((photoIndex + 1) % previews.length)
+                            }
+                          />
+                        )}
+                        {isOpen && previews.length == 1 && (
+                          <Lightbox
+                            mainSrc={previews[photoIndex]}
+                            onCloseRequest={() => setIsOpen(false)}
+                          />
+                        )}
+                      </div>
+                      <Comments pricelistid={data.id} page="pricelist" />
+                    </>
+                  )}
+                  {loading && (
+                    <div className="loader-inner">
+                      <LottieLoader />
+                    </div>
+                  )}
                 </div>
               </div>
-              <div className="changes">
-                <h2> January 2020 Price List Changes Report </h2>
-                <h3> Major changes and new items added </h3>
-                <div className="change_list">
-                  <ul>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/embed/iCsft6QVlXY?start=813&autoplay=1"
-                        target="example"
-                        onClick={scrollToTop}
-                      >
-                        ELE (Electrical) – Additional items added for metal clad
-                        110-volt copper wiring.
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/embed/iCsft6QVlXY?start=573&autoplay=1"
-                        target="example"
-                        onClick={scrollToTop}
-                      >
-                        EXC (Excavation) – Item added for silt fencing.
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/embed/iCsft6QVlXY?start=588&autoplay=1"
-                        target="example"
-                        onClick={scrollToTop}
-                      >
-                        FEN (Fencing) – Item added for 2 3/8" diameter metal
-                        posts for 7′ to 8′ fencing.
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/embed/iCsft6QVlXY?start=75&autoplay=1"
-                        target="example"
-                        onClick={scrollToTop}
-                      >
-                        HMR (Hazardous Material Remediation) – Items added for
-                        plastic glove bags for hazardous material cleanup.
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/embed/iCsft6QVlXY?start=383&autoplay=1"
-                        target="example"
-                        onClick={scrollToTop}
-                      >
-                        HVC (Heat, Vent & Air Conditioning) – Item added for a
-                        recessed clothes dryer vent box.
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/embed/iCsft6QVlXY?start=1650&autoplay=1"
-                        target="example"
-                        onClick={scrollToTop}
-                      >
-                        TCR (Trauma/Crime Scene Remediation) – Items added for
-                        plastic glove bags for trauma or crime scene cleanup.
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/embed/iCsft6QVlXY?start=1075&autoplay=1"
-                        target="example"
-                        onClick={scrollToTop}
-                      >
-                        WTR (Water Extraction & Remediation) – Items added for
-                        plastic glove bags for hazardous material cleanup.
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <Comments />
             </div>
-          </div>
-        </div>
-        <Footer />
-      </Suspense>
+            <WrongBrowserDisclaimer />
+            <CookieConsentGI2 />
+            <Footer />
+          </Suspense>
+        </>
+      ) : (
+        <NotFound />
+      )}
     </>
   );
 };
 
-export default pricelistupdatesummaryofmonth;
+export default withRouter(PriceListUpdateSummaryOfMonth);

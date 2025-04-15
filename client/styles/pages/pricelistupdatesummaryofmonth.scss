@@ -1,70 +1,136 @@
 .PLUS_OM {
-    .holder {
-        padding: 30px 0px;
-        h2 {
-            text-align: center;
-            color: #38ADA2;
-            text-transform: uppercase;
-            font-size: 30px;
-            font-weight: 600;
-        }
-    }
-    .youtube_video {
-        text-align: center;
-        .video {
-            background: #fff;
-            box-shadow: 0px 3px 13px #00000029;
-            padding: 15px;
-            width: 100%;
-            margin: auto;
-            .fluid-width-video-wrapper {
-                width: 100%;
-                position: relative;
-                padding: 0;
-                padding-top: 56.25%;
-                iframe {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
-    }
-    .changes {
-        margin-top: 60px;
-        h2 {
-            text-align: left;
-            color: #38ADA2;
-            font-size: 30px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        h3 {
-            font-size: 18px;
-            color: #000;
-            text-align: left;
-        }
-        .change_list {
-            ul {
-                padding-left: 20px;
-                li {
-                    font-size: 18px;
-                    color: #38ADA2;
-                    a {
-                        color: #38ADA2;
-                        &:hover {
-                            text-decoration: none;
-                            color: #000;
-                        }
-                    }
-                    &::marker {
-                        color: #38ADA2;
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
-    }
+	.holder {
+		padding: 30px 0px;
+		h2 {
+			text-align: center;
+			color: #38ADA2;
+			text-transform: uppercase;
+			font-size: 30px;
+			font-weight: 600;
+		}
+		h5 {
+			text-align: center;
+			color: #38ADA2;
+			font-size: 24px;
+			font-weight: 600;
+			margin-bottom: 0px;
+			margin-top: 20px;
+		}
+	}
+	.youtube_video {
+		text-align: center;
+		.video {
+			background: #fff;
+			box-shadow: 0px 3px 13px #00000029;
+			padding: 15px;
+			width: 100%;
+			margin: auto;
+			.fluid-width-video-wrapper {
+				width: 100%;
+				position: relative;
+				padding: 0;
+				padding-top: 56.25%;
+				iframe {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+	.CTA {
+		margin-top: 50px;
+		text-align: center;
+		h3 {
+			font-size: 25px;
+			font-weight: 600;
+			margin-bottom: 30px;
+		}
+		.btn {
+			font-size: 16px;
+			background: #DB422D;
+			border-radius: 6px;
+			color: #f6f8f9;
+			padding: 5px 25px;
+			letter-spacing: 0;
+			line-height: 37px;
+			&:focus {
+				box-shadow: none;
+			}
+			&:hover {
+				background: #38ADA2;
+			}
+		}
+	}
+	.new-line-item {
+		color: #636363;
+		font-size: 22px;
+		line-height: 28px;
+		font-weight: 600;
+		text-align: center;
+		a {
+			color: #26A69A;
+		}
+	}
+	.changes {
+		margin-top: 60px;
+		h2 {
+			text-align: left;
+			color: #38ADA2;
+			font-size: 30px;
+			font-weight: 600;
+			margin-bottom: 20px;
+		}
+		h3 {
+			font-size: 18px;
+			color: #000;
+			text-align: left;
+		}
+		.change_list {
+			a {
+				&:hover {
+					text-decoration: none;
+					color: #000 !important;
+				}
+			}
+			td {
+				img {
+					width: auto !important;
+					max-width: 100%;
+				}
+			}
+			img {
+				cursor: pointer;
+				display: block;
+				margin: 0 auto;
+				height: auto !important;
+				width: 500px !important;
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.PLUS_OM .changes .change_list {
+		.January_2022 {
+			td {
+				font-size: 12px !important;
+				&:last-child {
+					word-break: break-word;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.PLUS_OM .changes .change_list {
+		img {
+			width: 100% !important;
+			height: 100% !important;
+		}
+	}
 }

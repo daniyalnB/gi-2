@@ -1,0 +1,25 @@
+{
+  "short_name": "GI",
+  "name": "Actionalable Insights",
+  "icons": [
+    {
+      "src": "android-launchericon-48-48.png",
+      "sizes": "49x49",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "android-launchericon-192-192.png",
+      "type": "image/png",
+      "sizes": "193x193"
+    },
+    {
+      "src": "android-launchericon-512-512.png",
+      "type": "image/png",
+      "sizes": "513x513"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF"
+}

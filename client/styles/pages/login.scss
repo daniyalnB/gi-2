@@ -1,5 +1,10 @@
 .login_page {
-  padding-top: 150px !important;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0 auto;
+  // padding-top: 150px;
+  padding-bottom: 100px;
+  background: #fff;
   .title {
     margin: 5% 0 2% 0;
     font-weight: 700;
@@ -11,6 +16,11 @@
     opacity: 1;
     text-align: center;
     display: block;
+  }
+  .reset_password {
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 70px;
   }
   .login_inner_Container {
     max-width: 1000px;
@@ -71,6 +81,40 @@
       font-size: 24px;
       background-color: #fff;
     }
+    .form-holder {
+      .upLabel {
+        position: absolute;
+        pointer-events: none;
+        font-size: 30px;
+        top: 25px;
+        left: 100px;
+        background-color: #fff;
+        transition: all .3s;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.5) !important;
+      }
+      .upInputs input:focus~.upLabel,
+      .upInputs input:not(:placeholder-shown)~.upLabel {
+        top: -15px;
+        padding: 0 3px;
+        font-size: 24px;
+        background-color: #fff;
+      }
+      .upInputs input:hover~.upLabel,
+      .upInputs input:not(:placeholder-shown)~.upLabel {
+        top: -15px;
+        padding: 0 3px;
+        font-size: 24px;
+        background-color: #fff;
+      }
+      .upInputs input:valid~.upLabel,
+      .upInputs input:not(:placeholder-shown)~.upLabel {
+        top: -15px;
+        padding: 0 3px;
+        font-size: 24px;
+        background-color: #fff;
+      }
+    }
     .forgotP_container {
       font-size: 30px;
       text-align: right;
@@ -78,6 +122,20 @@
       margin-top: -15px;
       a {
         color: #31A99F;
+      }
+    }
+    .passwrd-height {
+      text-align: left;
+      padding-bottom: 20px;
+      .password-strength {
+        font-style: italic;
+        width: 100%;
+        display: block;
+        color: #ff0000;
+        font-weight: bolder;
+      }
+      .strong {
+        color: #26A69A !important;
       }
     }
     .btn {
@@ -91,12 +149,21 @@
       &:focus {
         box-shadow: none;
       }
+      &:hover {
+        background: #38ADA2;
+      }
+    }
+    .reset_btn {
+      margin-top: 15px;
     }
     .create_account {
       border: 2px solid #31A99F;
       background: none;
       color: #31A99F;
       line-height: 2.2;
+      &:hover {
+        color: #fff;
+      }
     }
     .login_devider {
       width: 100%;
@@ -121,11 +188,69 @@
   }
 }
 
+.ActivateAccount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  height: 100%;
+  .email-verification-success-msg {
+    margin: 100px 0px 0px 0px;
+    h4 {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .btn {
+      font-size: 18px;
+      background: #DB422D;
+      border-radius: 6px;
+      padding: 8px 20px;
+      color: #f6f8f9;
+      letter-spacing: 0;
+      &:focus {
+        box-shadow: none;
+      }
+      &:hover {
+        background: #38ADA2;
+      }
+    }
+  }
+  .email-verification-failed-msg {
+    margin: 100px 0px 0px 0px;
+    h4 {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .btn {
+      font-size: 18px;
+      background: #DB422D;
+      border-radius: 6px;
+      padding: 8px 20px;
+      color: #f6f8f9;
+      letter-spacing: 0;
+      &:focus {
+        box-shadow: none;
+      }
+      &:hover {
+        background: #38ADA2;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1920px) {
   .login_page {
-    padding-top: 90px !important;
+    // padding-top: 100px !important;
     .title {
       font-size: 30px;
+    }
+    .reset_password {
+      font-size: 20px;
+      padding-bottom: 30px;
     }
     .login_inner_Container {
       max-width: 450px;
@@ -163,6 +288,31 @@
         top: -9px;
         padding: 0 3px;
         font-size: 12px;
+      }
+      .form-holder {
+        .upLabel {
+          font-size: 14px;
+          top: 14px;
+          left: 50px;
+        }
+        .upInputs input:focus~.upLabel,
+        .upInputs input:not(:placeholder-shown)~.upLabel {
+          top: -9px;
+          padding: 0 3px;
+          font-size: 12px;
+        }
+        .upInputs input:hover~.upLabel,
+        .upInputs input:not(:placeholder-shown)~.upLabel {
+          top: -9px;
+          padding: 0 3px;
+          font-size: 12px;
+        }
+        .upInputs input:valid~.upLabel,
+        .upInputs input:not(:placeholder-shown)~.upLabel {
+          top: -9px;
+          padding: 0 3px;
+          font-size: 12px;
+        }
       }
       .forgotP_container {
         margin-bottom: 30px;

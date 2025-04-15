@@ -1,0 +1,8 @@
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Allow: /
+
+Sitemap: https://getinsights.org/sitemap.xml
+# ---------------------------
+# END YOAST BLOCK

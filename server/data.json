@@ -1,0 +1,829 @@
+{
+  "routes": [
+    {
+      "exact": true,
+      "path": "/",
+      "component": "Home"
+    },
+    {
+      "exact": true,
+      "path": "/my-account",
+      "component": "MyAccount"
+    },
+    {
+      "exact": true,
+      "path": "/my-account/lost-password",
+      "component": "EmailForm"
+    },
+    {
+      "exact": true,
+      "path": "/my-account/lost-password/show-reset-form",
+      "component": "PasswordForm"
+    },
+    {
+      "exact": true,
+      "path": "/ConfirmEmail",
+      "component": "ActivateAccount"
+    },
+    {
+      "exact": true,
+      "path": "/get-started",
+      "component": "signup"
+    },
+    {
+      "exact": true,
+      "path": "/search",
+      "component": "GlobalSearch"
+    },
+    {
+      "exact": true,
+      "path": "/events",
+      "component": "events"
+    },
+    {
+      "exact": true,
+      "path": "/event/:permalink",
+      "component": "eventsdetail"
+    },
+    {
+      "exact": true,
+      "path": "/online-sketch-gallery",
+      "component": "XSG"
+    },
+    {
+      "exact": true,
+      "path": "/insight-sheets",
+      "component": "IS"
+    },
+    {
+      "exact": true,
+      "path": "/insight-sheets/:permalink",
+      "component": "ISDetail"
+    },
+    {
+      "exact": true,
+      "path": "/s::searchfield",
+      "component": "ISDS"
+    },
+    {
+      "exact": true,
+      "path": "/insight-sheet-tutorial",
+      "component": "ISTutorial"
+    },
+    {
+      "exact": true,
+      "path": "/macros",
+      "component": "ISMacros"
+    },
+    {
+      "exact": true,
+      "path": "/shop/macros/:permalink",
+      "component": "product_macro"
+    },
+    {
+      "exact": true,
+      "path": "/shop/uncategorized/:permalink",
+      "component": "product_umpiresmanual"
+    },
+    {
+      "exact": true,
+      "path": "/shop/swag/:permalink",
+      "component": "product_swag"
+    },
+    {
+      "exact": true,
+      "path": "/shop/buy-points/insighter-points",
+      "component": "product_insighterpoints"
+    },
+    {
+      "exact": true,
+      "path": "/shop/gift-card/:permalink",
+      "component": "product_giftcards"
+    },
+    {
+      "exact": true,
+      "path": "/shop/certification/:permalink",
+      "component": "product_certification"
+    },
+    {
+      "exact": true,
+      "path": "/resources/price-list-update-summary",
+      "component": "pricelistupdatesummary"
+    },
+    {
+      "exact": true,
+      "path": "/resources/price-list-update-summary/:permalink",
+      "component": "pricelistupdatesummaryofmonth"
+    },
+    {
+      "exact": true,
+      "path": "/resources/insighter-report",
+      "component": "IR"
+    },
+    {
+      "exact": true,
+      "path": "/resources/insighter-report/:permalink",
+      "component": "IRDetail"
+    },
+    {
+      "exact": true,
+      "path": "/media-release",
+      "component": "MR"
+    },
+    {
+      "exact": true,
+      "path": "/video-gallery",
+      "component": "VG"
+    },
+    {
+      "exact": true,
+      "path": "/video-gallery/:permalink",
+      "component": "VGDetail"
+    },
+    {
+      "exact": true,
+      "path": "/blog",
+      "component": "BG"
+    },
+    {
+      "exact": true,
+      "path": "/resources/3d-training-modules",
+      "component": "trainingmodules"
+    },
+    {
+      "exact": true,
+      "path": "/matterport-standards",
+      "component": "matterportstandards"
+    },
+    {
+      "exact": true,
+      "path": "/commonly-overlooked-line-items",
+      "component": "commonlyoverlookedlineitems"
+    },
+    {
+      "exact": true,
+      "path": "/advance-the-cause/line-item-request",
+      "component": "lineitemrequest"
+    },
+    {
+      "exact": true,
+      "path": "/advance-the-cause/line-item-request/line-item-request-form",
+      "component": "lineitemrequestform"
+    },
+    {
+      "exact": true,
+      "path": "/advance-the-cause/xactimate-feature-request",
+      "component": "xactimatefeaturerequest"
+    },
+    {
+      "exact": true,
+      "path": "/advance-the-cause/matterport-feature-request",
+      "component": "matterportfeaturerequest"
+    },
+    {
+      "exact": true,
+      "path": "/advance-the-cause/matterport-feature-request/matterport-feature-request-form",
+      "component": "matterportfeaturerequestform"
+    },
+    {
+      "exact": true,
+      "path": "/advance-the-cause/insight-sheet-collaboration",
+      "component": "insightsheetcollaboration"
+    },
+    {
+      "exact": true,
+      "path": "/advance-the-cause/insight-sheet-collaboration/insight-sheets-collaboration-form",
+      "component": "insightsheetscollaborationform"
+    },
+    {
+      "exact": true,
+      "path": "/swag",
+      "component": "swag"
+    },
+    {
+      "exact": true,
+      "path": "/resources/gift-cards",
+      "component": "giftards"
+    },
+    {
+      "exact": true,
+      "path": "/plan-matrix",
+      "component": "planmatrix"
+    },
+    {
+      "exact": true,
+      "path": "/enterprise-membership",
+      "component": "EnterprisePlan"
+    },
+    {
+      "exact": true,
+      "path": "/actionable-insights-mitigation-and-repair-manual",
+      "component": "umpiresmanual"
+    },
+    {
+      "exact": true,
+      "path": "/code-of-ethics",
+      "component": "CodeOfEthics"
+    },
+    {
+      "exact": true,
+      "path": "/terms-and-conditions",
+      "component": "TermsAndConditions"
+    },
+    {
+      "exact": true,
+      "path": "/contact-us",
+      "component": "ContactUs"
+    },
+    {
+      "exact": true,
+      "path": "/about-us",
+      "component": "AboutUs"
+    },
+    {
+      "exact": true,
+      "path": "/gi-ownership",
+      "component": "GiOwnership"
+    },
+    {
+      "exact": true,
+      "path": "/digital-assets-license-agreement",
+      "component": "DigitalAssetsLicenseAgreement"
+    },
+    {
+      "exact": true,
+      "path": "/demo",
+      "component": "Demo"
+    },
+    {
+      "exact": true,
+      "path": "/foundation-structure",
+      "component": "FoundationStructure"
+    },
+    {
+      "exact": true,
+      "path": "/retail-labor-rates",
+      "component": "RetailLaborRates"
+    },
+    {
+      "exact": true,
+      "path": "/transcending-the-restoration-paradox",
+      "component": "TranscendingTheRestorationParadox"
+    },
+    {
+      "exact": true,
+      "path": "/mx_lvl2_ai_v10",
+      "component": "XactimateLevelCurriculum"
+    },
+    {
+      "exact": true,
+      "path": "/race-machines-recap",
+      "component": "RaceWithTheMachinesRecap"
+    },
+    {
+      "exact": true,
+      "path": "/state-insurance-license-reciprocity",
+      "component": "StateInsuranceLicenseReciprocity"
+    },
+    {
+      "exact": true,
+      "path": "/resources/gift-cards/enterprise-gift-cards",
+      "component": "EnterpriseGiftCards"
+    },
+    {
+      "exact": true,
+      "path": "/what-others-say",
+      "component": "WhatOthersSay"
+    },
+    {
+      "exact": true,
+      "path": "/2019-year-review",
+      "component": "YearReview2019"
+    },
+    {
+      "exact": true,
+      "path": "/fit-guide",
+      "component": "FitGuide"
+    },
+    {
+      "exact": true,
+      "path": "/media-kit",
+      "component": "MediaKit"
+    },
+    {
+      "exact": true,
+      "path": "/aimc-refund-policy",
+      "component": "aimc_refund_policy"
+    },
+    {
+      "exact": true,
+      "path": "/aimc",
+      "component": "aimc"
+    },
+    {
+      "exact": true,
+      "path": "/aimc-graduates-public-registry",
+      "component": "aimc_gpr"
+    },
+    {
+      "exact": true,
+      "path": "/private-training",
+      "component": "privatetraining"
+    },
+    {
+      "exact": true,
+      "path": "/2-day-remote-training",
+      "component": "TwoDayRemoteTraining"
+    },
+    {
+      "exact": true,
+      "path": "/3-day-site-training",
+      "component": "ThreeDaySiteTraining"
+    },
+    {
+      "exact": true,
+      "path": "/train-tomorrow-today",
+      "component": "TrainTomorrowToday"
+    },
+    {
+      "exact": true,
+      "path": "/actionable-xactimate-profile",
+      "component": "ActionablexactimateProfile"
+    },
+    {
+      "exact": true,
+      "path": "/actionable-xactimate-profile/FAQ",
+      "component": "ActionablexactimateProfileFAQs"
+    },
+    {
+      "exact": true,
+      "path": "/live",
+      "component": "Live"
+    },
+    {
+      "exact": true,
+      "path": "/404",
+      "component": "NotFound"
+    },
+    {
+      "exact": true,
+      "path": "/xactimate-future",
+      "component": "XactimateFuture"
+    },
+    {
+      "exact": true,
+      "path": "/checkout",
+      "component": "buyproduct"
+    },
+    {
+      "exact": true,
+      "path": "/buy-event",
+      "component": "Buy_Event"
+    },
+    {
+      "exact": true,
+      "path": "/buy-certification",
+      "component": "Buy_Certification"
+    },
+    {
+      "exact": true,
+      "path": "/receipt",
+      "component": "Receipt"
+    },
+    {
+      "exact": true,
+      "path": "/my-account/downloads",
+      "component": "MyDownloads"
+    },
+    {
+      "exact": true,
+      "path": "/my-account/points",
+      "component": "Points"
+    },
+    {
+      "exact": true,
+      "path": "/my-account/view-log",
+      "component": "ReviewActivity"
+    },
+    {
+      "exact": true,
+      "path": "/users",
+      "component": "Users"
+    },
+    {
+      "exact": true,
+      "path": "/users/actionable-xactimate-profile/:id",
+      "component": "ActionablexactimateProfileChild"
+    },
+    {
+      "exact": true,
+      "path": "/users/invite-users",
+      "component": "InviteUsers"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/login",
+      "component": "AdminLogin"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team",
+      "component": "AdminLogin"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/login-mfa",
+      "component": "LoginMFA"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/enable-2FA",
+      "component": "Enable2FA"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/dashboard",
+      "component": "dashboard"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/reporting",
+      "component": "reporting"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/actionable-xactimate-profile",
+      "component": "ActionablexactimateProfileLogos"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/live-stream-zone",
+      "component": "livestreamzone"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insight-sheets",
+      "component": "insightsheet"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-insight-sheet",
+      "component": "CreateInsightSheet"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-insight-sheet/:id",
+      "component": "UpdateInsightSheet"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products",
+      "component": "products"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/macro",
+      "component": "macro"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/create-macro",
+      "component": "CreateMacro"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/update-macro/:id",
+      "component": "UpdateMacro"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/umpires-manual",
+      "component": "umpiresmanual_admin"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/view-umpires-manual/:id",
+      "component": "ViewUmpiresManual"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/update-umpires-manual/:id",
+      "component": "UpdateUmpiresManual"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/swag",
+      "component": "swag_admin"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/create-swag",
+      "component": "CreateSwag"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/view-swag/:id",
+      "component": "ViewSwag"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/update-swag/:id",
+      "component": "UpdateSwag"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/certifications",
+      "component": "certifications"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/create-certification",
+      "component": "CreateCertification"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/view-certification/:id",
+      "component": "ViewCertification"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/update-certification/:id",
+      "component": "UpdataCertification"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/gift-cards",
+      "component": "giftards_admin"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/estimate-engines",
+      "component": "estimateengines"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/products/insighter-points-buckets",
+      "component": "insighterpointsbuckets"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/events",
+      "component": "events_admin"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-event",
+      "component": "CreateEvent"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-event/:id",
+      "component": "UpdateEvent"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/price-list-update-summary",
+      "component": "pricelist"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/price-list-update-summary-of-:year",
+      "component": "pricelistofyear"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-price-list-update-summary",
+      "component": "CreatePriceListUpdateSummary"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-price-list-update-summary/:id",
+      "component": "UpdatePriceListUpdateSummary"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-report",
+      "component": "insighterreport"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-insighter-report",
+      "component": "CreateInsighterReport"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-insighter-report/:id",
+      "component": "UpdateInsighterReport"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/commonly-used-line-items",
+      "component": "commonlyusedlineitems"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-commonly-used-line-items",
+      "component": "CreateCommonlyUsedLineItems"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-commonly-used-line-items/:id",
+      "component": "UpdateCommonlyUsedLineItems"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/manage-roles",
+      "component": "manageroles"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/users",
+      "component": "users"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/user-details/:id",
+      "component": "UserDetails"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/user-subscription/:id",
+      "component": "UserSubscription"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/edit-user/:id",
+      "component": "EditUser"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/subscription-coupons",
+      "component": "subscriptioncoupons"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-subscription-coupon",
+      "component": "CreateSubscriptionCoupon"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/view-subscription-coupon/:id",
+      "component": "ViewSubscriptionCoupon"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-subscription-coupon/:id",
+      "component": "UpdateSubscriptionCoupon"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/video-gallery",
+      "component": "videogallery"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-video-gallery",
+      "component": "CreateVideoGallery"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-video-gallery/:id",
+      "component": "UpdateVideoGallery"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/orders",
+      "component": "orders"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/view-order/:ordernumber",
+      "component": "ViewOrder"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/product-coupons",
+      "component": "productcoupons"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-product-coupon",
+      "component": "CreateProductCoupon"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/view-product-coupon/:id",
+      "component": "ViewProductCoupon"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-product-coupon/:id",
+      "component": "UpdateProductCoupon"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-points",
+      "component": "insighterpoints"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-points/view-codes",
+      "component": "viewcodes"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-points/create-code",
+      "component": "CreateCode"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-points/view-code/:id",
+      "component": "ViewCode"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-points/view-user-balance",
+      "component": "viewuserbalance"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-points/balance-details/:id",
+      "component": "BalanceDetails"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/insighter-points/audit",
+      "component": "audit"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/subscriptions",
+      "component": "subscriptions"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/view-subscription/:id",
+      "component": "ViewSubscription"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/start-subscription/:id",
+      "component": "StartSubscription"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/subscription-checkout/:id",
+      "component": "SubscriptionCheckout"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/manage-payment/:id",
+      "component": "ManagePayments"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/xactimate-sketch-gallery",
+      "component": "xactimatesketchgallery"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-xactimate-sketch-gallery",
+      "component": "CreatexactimateSketchGallery"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-xactimate-sketch-gallery/:id",
+      "component": "UpdatexactimateSketchGallery"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/media-release",
+      "component": "mediarelease"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-media-release",
+      "component": "CreateMediaRelease"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-media-release/:id",
+      "component": "UpdateMediaRelease"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/blog",
+      "component": "blog"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/create-blog",
+      "component": "CreateBlog"
+    },
+    {
+      "exact": true,
+      "path": "/gi-team/update-blog/:id",
+      "component": "UpdateBlog"
+    }
+  ]
+}

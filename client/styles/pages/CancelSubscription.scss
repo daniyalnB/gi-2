@@ -1,0 +1,368 @@
+.Cancel_Subscription {
+  .holder {
+    padding: 30px 0px;
+    text-align: center;
+    h2 {
+      color: #38ADA2;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 30px;
+      margin-bottom: 0px;
+    }
+    h5 {
+      color: #000;
+      font-size: 18px;
+      margin-bottom: 0px;
+    }
+  }
+  .d-grid {
+    display: grid;
+  }
+  .Membership {
+    background: #fff;
+    box-shadow: 0px 8px 32px #23232314;
+    border: 1px solid #70707014;
+    border-radius: 5px;
+    max-width: 532px;
+    width: 100%;
+    padding: 40px 50px;
+    .btn {
+			font-size: 18px;
+			background: #DB422D;
+			border-radius: 6px;
+			color: #fff;
+			max-width: 430px;
+      width: 100%;
+			min-height: 50px;
+			letter-spacing: 0;
+      border: none;
+			&:hover {
+				background: #38ADA2;
+			}
+			&:focus {
+				box-shadow: none;
+			}
+      &:focus-visible {
+        outline: none;
+      }
+		}
+    .info-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #000;
+      margin: 0px;
+    }
+    .btns {
+      font-size: 18px;
+			background: #38ADA2;
+			border-radius: 6px;
+			color: #fff;
+			max-width: 430px;
+      width: 100%;
+			min-height: 50px;
+			letter-spacing: 0;
+      border: none;
+			&:hover {
+				background: #DB422D;
+			}
+      &:focus {
+				box-shadow: none;
+        outline: none;
+			}
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    hr {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      border-top: 2px solid #0000001F;
+    }
+    .downgrade {
+      font-size: 16px;
+      font-weight: 400;
+      color: #DB422D;
+      margin: 0px;
+    }
+    .plan-price {
+      .current-plan-price {
+        display: inline;
+        font-size: 20px;
+        font-weight: 400;
+        color: #00000099;
+        margin: 0px;
+      }
+      img {
+        margin: 0px 15px;
+      }
+      .downgrade-plan-price {
+        display: inline;
+        margin: 0px;
+        .amount {
+          font-size: 28px;
+          font-weight: 500;
+          color: #000;
+        }
+        .month {
+          font-size: 16px;
+          font-weight: 400;
+          color: #000;
+        }
+      }
+    }
+    .error-msg {
+      text-align: center;
+      margin: 20px 0px;
+      h2 {
+        font-size: 16px;
+        margin-bottom: 0px;
+        color: #db422d;
+      }
+    }
+  }
+  .Offer {
+    background: #fff;
+    box-shadow: 0px 8px 50px #23232314;
+    border: 1px solid #38ADA2;
+    border-radius: 5px;
+    max-width: 532px;
+    width: 100%;
+    padding: 30px 50px;
+    .offer-heading {
+      font-size: 28px;
+      font-weight: 600;
+      color: #38ADA2;
+      margin: 0px;
+    }
+    img {
+      max-width: 100%;
+      width: 232px;
+      height: 140px;
+    }
+    .current-plan-price {
+      font-size: 24px;
+      font-weight: 400;
+      color: #00000099;
+    }
+    .discounted-plan-price {
+      margin: 0px;
+      .amount {
+        font-size: 42px;
+        font-weight: 600;
+        color: #000;
+      }
+      .month {
+        font-size: 16px;
+        font-weight: 400;
+        color: #000;
+      }
+    }
+    .error-msg {
+      text-align: center;
+      margin: 20px 0px;
+      h2 {
+        font-size: 16px;
+        margin-bottom: 0px;
+        color: #db422d;
+      }
+    }
+    .btns {
+      font-size: 18px;
+			background: #38ADA2;
+			border-radius: 6px;
+			color: #fff;
+			max-width: 430px;
+      width: 100%;
+			min-height: 50px;
+			letter-spacing: 0;
+      border: none;
+			&:hover {
+				background: #DB422D;
+			}
+      &:focus {
+				box-shadow: none;
+        outline: none;
+			}
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    .discount-period {
+      font-size: 16px;
+      font-weight: 400;
+      color: #000;
+      margin: 0px;
+    }
+  }
+  .continue-cancellation {
+    font-size: 16px;
+    color: #DB422D;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .error-msg {
+    text-align: center;
+    h2 {
+      font-size: 16px;
+      margin-bottom: 0px;
+      color: #db422d;
+    }
+  }
+  .Form-Section {
+    h4 {
+      color: #38ADA2;
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .radio-item {
+      position: relative;
+      margin: 10px 0 0;
+    }
+    .radio-item input[type='radio'] {
+      display: none;
+    }
+    .radio-item label {
+      font-size: 18px;
+      color: #000;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .radio-item label:before {
+      content: " ";
+      display: inline-block;
+      position: relative;
+      top: 3px;
+      margin: 0 10px 0 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 11px;
+      border: 2px solid #0000001A;
+      background-color: transparent;
+    }
+    .radio-item input[type=radio]:checked + label:after {
+      border-radius: 50px;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 8px;
+      left: 5px;
+      content: " ";
+      display: block;
+      background: #38ADA2;
+    }
+    .new_border label:before {
+      border: 2px solid #38ADA2;
+    }
+    .form-group {
+      .form-control {
+        display: block;
+        max-width: 621px;
+        height: 114px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #7f7f7f;
+        background-color: #fff;
+        border: 1px solid #00000052;
+        border-radius: 5px;
+        padding: 15px 15px;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+    span {
+      font-size: 18px;
+      color: #000;
+      font-weight: 500;
+    }
+    .Buttons {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      a {
+        font-size: 18px;
+        background: #fff;
+        border-radius: 6px;
+        border: 1px solid #DB422D;
+        color: #DB422D;
+        width: 172px;
+        height: 40px;
+        line-height: 37px;
+        text-decoration: none;
+        &:hover {
+          background: #DB422D;
+          color: #fff;
+        }
+      }
+      .btn {
+        font-size: 18px;
+        background: #DB422D;
+        border-radius: 6px;
+        color: #fff;
+        width: 172px;
+        height: 40px;
+        letter-spacing: 0;
+        border: none;
+        &:hover {
+          background: #38ADA2;
+        }
+        &:focus {
+          box-shadow: none;
+        }
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+    .error-msg {
+      text-align: center;
+      margin-top: 30px;
+      h2 {
+        font-size: 16px;
+        margin-bottom: 0px;
+        color: #db422d;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Cancel_Subscription {
+    .Membership {
+      padding: 20px 15px;
+      .plan-price {
+        .current-plan-price {
+          font-size: 12px;
+        }
+        img {
+          width: 15px;
+        }
+        .downgrade-plan-price {
+          .amount {
+            font-size: 16px;
+          }
+          .month {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    .Offer {
+      padding: 30px 30px;
+      .current-plan-price {
+        font-size: 20px;
+      }
+      .discounted-plan-price {
+        .amount {
+          font-size: 24px;
+        }
+        .month {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

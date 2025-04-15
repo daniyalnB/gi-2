@@ -1,0 +1,55 @@
+.Swag {
+	.holder {
+		padding: 30px 0px;
+		h2 {
+			text-align: center;
+			color: #38ADA2;
+			text-transform: uppercase;
+			font-size: 30px;
+			font-weight: 600;
+		}
+	}
+	.item {
+		background: #fff;
+		border: 1px solid #CFCFCF;
+		border-radius: 10px;
+		text-align: center;
+		padding-bottom: 40px;
+		margin-bottom: 20px;
+		.type {
+			padding: 30px 0px;
+			font-size: 20px;
+			font-weight: bold;
+			color: #38ADA2;
+			text-transform: uppercase;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+		.name {
+			padding-top: 30px;
+			font-size: 16px;
+			font-weight: 500;
+		}
+		.purchase {
+			padding-top: 30px;
+			.btn {
+				font-size: 16px;
+				background: #DB422D;
+				border-radius: 6px;
+				color: #f6f8f9;
+				width: 174px;
+				height: 50px;
+				letter-spacing: 0;
+				line-height: 35px;
+				&:focus {
+					box-shadow: none;
+				}
+				&:hover {
+					background: #38ADA2;
+				}
+			}
+		}
+	}
+}

@@ -1,166 +1,269 @@
 .Receipt {
-    .holder {
-        padding: 30px 0;
-        text-align: center;
-        h2 {
-            color: #38ADA2;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 30px;
-            padding-bottom: 20px;
-        }
-        h3 {
-            color: #7f7f7f;
-            font-size: 25px;
-            font-weight: 500;
-            .downloads {
-                color: #38ADA2;
-                margin-left: 5px;
-            }
-        }
-    }
-    .order_data {
-        margin-top: 20px;
-        text-align: center;
-        .menu {
-            display: inline-block;
-            font-size: 13px;
-            ul {
-                display: inline-block;
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                li {
-                    display: inline-block;
-                    position: relative;
-                    margin: 0;
-                    padding: 0 30px;
-                    border-right: 1px solid #7f7f7f;
-                    &:first-child {
-                        margin-left: 0;
-                    }
-                    &:last-child {
-                        border-right: none;
-                    }
-                    h4 {
-                        text-align: left;
-                        text-transform: uppercase;
-                        color: #7f7f7f;
-                        font-size: 16px;
-                        font-weight: 500;
-                    }
-                    h5 {
-                        text-align: left;
-                        font-size: 18px;
-                        font-weight: bold;
-                    }
-                }
-            }
-        }
-    }
-    .order-info {
-        margin-top: 40px;
-        background: #fff;
-        box-shadow: 0px 3px 13px #00000029;
-        border-radius: 5px;
-        padding-bottom: 15px;
-        .hr-two {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border: 0;
-            border-top: 2px solid rgba(0,0,0,.1);
-        }
-        .order {
-            background: #E8E8E8;
-            padding: 20px 30px 15px 30px;
-            h3 {
-                color: #000;
-                opacity: 0.5;
-                font-size: 18px;
-                font-weight: bold;
-            }
-        }
-        .product_event {
-            background: #fff;
-            padding: 30px 30px 10px 30px;
-            h3 {
-                color: #000;
-                font-size: 16px;
-                font-weight: bold;
-            }
-        }
-        .details {
-            background: #fff;
-            padding: 20px 30px 10px 30px;
-            h3 {
-                color: #000;
-                opacity: 0.5;
-                font-size: 16px;
-                font-weight: bold;
-            }
-        }
-        .total {
-            background: #fff;
-            padding: 10px 30px 0px 30px;
-            h3 {
-                color: #38ADA2;
-                font-size: 18px;
-                font-weight: bold;
-            }
-        }
-        .billing_info {
-            padding: 20px 30px 0px 30px;
-            img {
-                width: 20px;
-                height: 20px;
-                margin-right: 5px;
-            }
-            h5 {
-                display: inline-block;
-                font-size: 16px;
-                font-weight: bold;
-                color: #000;
-                opacity: 0.5;
-            }
-        }
-    }
+	.holder {
+		padding: 30px 0;
+		text-align: center;
+		h2 {
+			color: #38ADA2;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 30px;
+			padding-bottom: 20px;
+		}
+		h3 {
+			color: #7f7f7f;
+			font-size: 25px;
+			font-weight: 500;
+			margin-bottom: 0px;
+			.downloads {
+				color: #38ADA2;
+				margin-left: 5px;
+			}
+		}
+	}
+	.add-additional-sub-users {
+		text-align: center;
+		margin: -20px 0px -10px 0px;
+		a {
+			font-size: 20px;
+			color: #38ADA2;
+			text-decoration: underline;
+		}
+	}
+	.order_data {
+		margin-top: 20px;
+		text-align: center;
+		.menu {
+			display: inline-block;
+			font-size: 13px;
+			ul {
+				display: inline-block;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				li {
+					display: inline-block;
+					position: relative;
+					margin: 0;
+					padding: 0 30px;
+					border-right: 1px solid #7f7f7f;
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						border-right: none;
+					}
+					h4 {
+						text-align: left;
+						text-transform: uppercase;
+						color: #7f7f7f;
+						font-size: 16px;
+						font-weight: 500;
+					}
+					h5 {
+						text-align: left;
+						font-size: 18px;
+						font-weight: bold;
+					}
+					img {
+						display: block;
+						margin-bottom: 10px;
+					}
+					a {
+						font-size: 14px;
+						color: #38ADA2;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+	.certification_extra_info {
+		margin-top: 40px;
+		text-align: center;
+		h3 {
+			color: #7f7f7f;
+			font-size: 25px;
+			font-weight: 500;
+			margin-bottom: 0px;
+			span {
+				color: #38ADA2;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		}
+	}
+	.order-info {
+		margin-top: 40px;
+		background: #fff;
+		box-shadow: 0px 3px 13px #00000029;
+		border-radius: 5px;
+		padding-bottom: 15px;
+		.hr-two {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border: 0;
+			border-top: 2px solid rgba(0,0,0,.1);
+		}
+		.invite-users {
+			&:last-child {
+				border: none;
+				margin: 0px;
+			}
+		}
+		.my-download-products {
+			background: #fff;
+			padding: 20px 30px 20px 30px;
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+			h3 {
+				color: #000;
+				font-size: 16px;
+				font-weight: bold;
+				padding-top: 12px;
+			}
+			a {
+				text-decoration: none;
+				font-size: 14px;
+				padding: 10px 20px;
+				color: #fff;
+				display: inline-block;
+				background-color: #db422d;
+				border-radius: 6px;
+				&:hover {
+					background-color: #38ada2;
+				}
+			}
+		}
+		.order {
+			background: #E8E8E8;
+			padding: 20px 30px 15px 30px;
+			h3 {
+				color: #000;
+				opacity: 0.5;
+				font-size: 18px;
+				font-weight: bold;
+			}
+		}
+		.product_event {
+			background: #fff;
+			padding: 30px 30px 10px 30px;
+			h3 {
+				color: #000;
+				font-size: 16px;
+				font-weight: bold;
+				word-break: break-all;
+			}
+		}
+		.details {
+			background: #fff;
+			padding: 20px 30px 10px 30px;
+			h3 {
+				color: #000;
+				opacity: 0.5;
+				font-size: 16px;
+				font-weight: bold;
+			}
+		}
+		.coupon_success {
+			font-size: 15px;
+			color: #000;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: left;
+			background: #fff;
+			border-radius: 8px;
+			padding: 10px 15px;
+			border: 1px solid #DB422D;
+			width: auto;
+		}
+		.total {
+			background: #fff;
+			padding: 10px 30px 0px 30px;
+			h3 {
+				color: #38ADA2;
+				font-size: 18px;
+				font-weight: bold;
+			}
+		}
+		.billing_info {
+			padding: 20px 30px 0px 30px;
+			img {
+				width: 20px;
+				height: 20px;
+				margin-right: 5px;
+			}
+			h5 {
+				display: inline-block;
+				font-size: 16px;
+				font-weight: bold;
+				color: #000;
+				opacity: 0.5;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 1024px) {
-    .Receipt .order-info {
-        .order {
-            padding: 20px 20px 15px 20px;
-        }
-        .product_event {
-            padding: 30px 20px 10px 20px;
-        }
-        .details {
-            padding: 20px 20px 10px 20px;
-        }
-        .total {
-            padding: 20px 20px 0px 20px;
-        }
-        .billing_info {
-            padding: 20px 20px 0px 20px;
-        }
-    }
+	.Receipt .order-info {
+		.my-download-products {
+			padding: 20px 20px 10px 20px;;
+		}
+		.order {
+			padding: 20px 20px 15px 20px;
+		}
+		.product_event {
+			padding: 30px 20px 10px 20px;
+		}
+		.details {
+			padding: 20px 20px 10px 20px;
+		}
+		.total {
+			padding: 20px 20px 0px 20px;
+		}
+		.billing_info {
+			padding: 20px 20px 0px 20px;
+		}
+	}
 }
+
+@media screen and (max-width: 889px) {
+	.Receipt .order_data .menu ul .order-receipt {
+		padding-top: 20px;
+	}
+}
+
 
 @media screen and (max-width: 767px) {
-    .Receipt .order_data .menu ul li:last-child {
-        padding-top: 20px;
-    }
+	.Receipt .order_data .menu ul li:last-child {
+		padding-top: 20px;
+	}
 }
 
-@media screen and (max-width: 407px) {
-    .Receipt .order_data {
-        text-align: left;
-        .menu ul li {
-            display: inline;
-            border-right: none;
-            &:last-child {
-                padding-top: 0px;
-            }
-        }
-    }
+@media screen and (max-width: 575px) {
+	.Receipt .order-info .my-download-products {
+		h3 {
+			color: #000;
+			font-size: 16px;
+			font-weight: bold;
+			padding-top: 0px;
+			padding-bottom: 20px;
+		}
+	}
+}
+
+@media screen and (max-width: 498px) {
+	.Receipt .order_data {
+		text-align: left;
+		.menu ul {
+			li {
+				display: inline;
+				border-right: none;
+				&:last-child {
+					padding-top: 0px;
+				}
+			}
+			.order-receipt {
+				padding-top: 0px;
+			}
+		}
+	}
 }

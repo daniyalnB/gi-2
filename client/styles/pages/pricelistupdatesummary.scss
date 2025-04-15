@@ -1,63 +1,65 @@
 .PLUS {
-    .holder {
-        padding: 30px 0;
-        text-align: center;
-        h2 {
-            color: #38ADA2;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 30px;
-            padding-bottom: 10px;
-        }
-        h3 {
-            font-size: 20px;
-            .here {
-                color: #38ADA2;
-                font-weight: bold;
-            }
-        }
-        .nyd {
-            font-weight: bold;
-        }
-    }
-    .summary {
-        padding-top: 30px;
-        .summary_inner {
-            box-shadow: 0px 0px 10px #00000029;
-            border-radius: 10px;
-            .heading {
-                background: #E8E8E8;
-                border-radius: 5px;
-                text-align: center;
-                padding: 15px 0px 10px 0px;
-                h3 {
-                    font-size: 20px;
-                    color: #000;
-                    opacity: 0.5;
-                    font-weight: bold;
-                }
-            }
-            .summary_months {
-                text-align: center;
-                .months {
-                    padding: 20px;
-                }
-                a {
-                    font-size: 18px;
-                    font-weight: bold;
-                    color: #38ADA2;
-                    padding: 10px;
-                    &:hover {
-                        text-decoration: none;
-                        background: #E9F6F5;
-                        color: #26A59A;
-                        border-radius: 5px;
-                    }
-                }
-                hr {
-                    margin: 0px;
-                }
-            }
-        }
-    }
+	.holder {
+		padding: 30px 0;
+		text-align: center;
+		h2 {
+			color: #38ADA2;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 30px;
+			padding-bottom: 10px;
+		}
+		h3 {
+			font-size: 20px;
+			.here {
+				color: #38ADA2;
+				font-weight: bold;
+			}
+		}
+		.nyd {
+			font-weight: bold;
+		}
+	}
+	.summary {
+		padding-top: 30px;
+		.summary_inner {
+			box-shadow: 0px 0px 10px #00000029;
+			border-radius: 10px;
+			margin-bottom: 50px;
+			.heading {
+				background: #E8E8E8;
+				border-radius: 5px;
+				text-align: center;
+				padding: 15px 0px 10px 0px;
+				h3 {
+					font-size: 20px;
+					color: #000;
+					opacity: 0.5;
+					font-weight: bold;
+				}
+			}
+			.summary_months {
+				text-align: center;
+				.months {
+					margin: 0 auto;
+					.month {
+						border-bottom: 1px solid rgba(0,0,0,.1);
+						padding: 20px;
+						a {
+							font-size: 18px;
+							font-weight: bold;
+							color: #38ADA2;
+							padding: 10px;
+							&:hover {
+								text-decoration: none;
+								background: #E9F6F5;
+								color: #26A59A;
+								border-radius: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

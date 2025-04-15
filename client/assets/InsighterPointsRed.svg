@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" viewBox="0 0 21 21">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_671" data-name="Rectangle 671" width="21" height="21" transform="translate(31 14)" fill="#db422d" stroke="#db422d" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Insighter_Points" data-name="Insighter Points" transform="translate(-31 -14)" clip-path="url(#clip-path)">
+    <g id="exclamation" transform="translate(31 14)">
+      <g id="Group_4402" data-name="Group 4402">
+        <g id="Group_4401" data-name="Group 4401">
+          <path id="Path_1161" data-name="Path 1161" d="M10.5,0A10.5,10.5,0,1,0,21,10.5,10.494,10.494,0,0,0,10.5,0Zm0,19.359A8.859,8.859,0,1,1,19.359,10.5,8.854,8.854,0,0,1,10.5,19.359Z" fill="#db422d"/>
+        </g>
+      </g>
+      <g id="Group_4404" data-name="Group 4404">
+        <g id="Group_4403" data-name="Group 4403">
+          <path id="Path_1162" data-name="Path 1162" d="M10.5,5.286a.82.82,0,0,0-.82.82v5.283a.82.82,0,1,0,1.641,0V6.106A.82.82,0,0,0,10.5,5.286Z" fill="#db422d"/>
+        </g>
+      </g>
+      <g id="Group_4406" data-name="Group 4406">
+        <g id="Group_4405" data-name="Group 4405">
+          <circle id="Ellipse_103" data-name="Ellipse 103" cx="1.107" cy="1.107" r="1.107" transform="translate(9.393 13.214)" fill="#db422d"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="62" viewBox="0 0 52 62">
+  <g id="Calander" transform="translate(-296 -272)">
+    <path id="_5aa737ee-d142-476f-b3d8-e863e2b56648-getty-688398000" data-name="5aa737ee-d142-476f-b3d8-e863e2b56648-getty-688398000" d="M4,0H52a0,0,0,0,1,0,0V62a0,0,0,0,1,0,0H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" transform="translate(296 272)" fill="#26a59a" opacity="0.05"/>
+    <g id="Group_4463" data-name="Group 4463" transform="translate(307 290)">
+      <path id="Path_572" data-name="Path 572" d="M279,281.418a2.034,2.034,0,0,0,2.031,2.031h2.387a2.034,2.034,0,0,0,2.031-2.031v-2.387A2.033,2.033,0,0,0,283.418,277h-2.387A2.033,2.033,0,0,0,279,279.031Zm2.031-2.387h2.387v2.387h-2.388Z" transform="translate(-264.832 -262.934)" fill="#26a59a"/>
+      <circle id="Ellipse_91" data-name="Ellipse 91" cx="1.02" cy="1.02" r="1.02" transform="translate(18.353 9.686)" fill="#26a59a" opacity="0.6"/>
+      <circle id="Ellipse_92" data-name="Ellipse 92" cx="1.02" cy="1.02" r="1.02" transform="translate(14.275 9.686)" fill="#26a59a" opacity="0.6"/>
+      <path id="Path_573" data-name="Path 573" d="M24.984,17.875A1.016,1.016,0,0,0,26,16.859V6.094a4.067,4.067,0,0,0-4.062-4.062h-1.32V1.016a1.016,1.016,0,0,0-2.031,0V2.031H13.965V1.016a1.016,1.016,0,1,0-2.031,0V2.031H7.363V1.016a1.016,1.016,0,1,0-2.031,0V2.031H4.063A4.067,4.067,0,0,0,0,6.094V21.938A4.067,4.067,0,0,0,4.063,26H21.938A4.067,4.067,0,0,0,26,21.938a1.016,1.016,0,0,0-2.031,0,2.034,2.034,0,0,1-2.031,2.031H4.063a2.034,2.034,0,0,1-2.031-2.031V6.094A2.034,2.034,0,0,1,4.063,4.063h1.27V5.078a1.016,1.016,0,1,0,2.031,0V4.063h4.57V5.078a1.016,1.016,0,1,0,2.031,0V4.063h4.621V5.078a1.016,1.016,0,0,0,2.031,0V4.063h1.32a2.034,2.034,0,0,1,2.031,2.031V16.859A1.016,1.016,0,0,0,24.984,17.875Z" transform="translate(0)" fill="#26a59a"/>
+      <circle id="Ellipse_93" data-name="Ellipse 93" cx="1.02" cy="1.02" r="1.02" transform="translate(5.098 18.353)" fill="#26a59a" opacity="0.6"/>
+      <circle id="Ellipse_94" data-name="Ellipse 94" cx="1.02" cy="1.02" r="1.02" transform="translate(5.098 9.686)" fill="#26a59a" opacity="0.6"/>
+      <circle id="Ellipse_95" data-name="Ellipse 95" cx="1.02" cy="1.02" r="1.02" transform="translate(5.098 14.275)" fill="#26a59a" opacity="0.6"/>
+      <circle id="Ellipse_96" data-name="Ellipse 96" cx="1.02" cy="1.02" r="1.02" transform="translate(9.686 14.275)" fill="#26a59a" opacity="0.6"/>
+      <circle id="Ellipse_97" data-name="Ellipse 97" cx="1.02" cy="1.02" r="1.02" transform="translate(9.686 9.686)" fill="#26a59a" opacity="0.6"/>
+      <circle id="Ellipse_98" data-name="Ellipse 98" cx="1.02" cy="1.02" r="1.02" transform="translate(9.686 18.353)" fill="#26a59a" opacity="0.6"/>
+    </g>
+  </g>
+</svg>

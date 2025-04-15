@@ -1,257 +1,373 @@
 .Matterport_Standards {
-    .holder {
-        padding: 30px 0px 10px 0px;
-        text-align: left;
-        img {
-            width: auto;
-            height: auto;
-        }
-    }
-    .certified {
-        background: #e8e8e8;
-        border-radius: 10px;
-        padding: 30px;
-        text-align: left;
-        h2 {
-            color: #000;
-            font-weight: bold;
-            font-size: 25px;
-            text-transform: uppercase;
-            padding-bottom: 15px;
-        }
-        h5 {
-            color: #000;
-            font-weight: 500;
-            font-size: 20px;
-        }
-        .lm {
-            padding-top: 20px;
-            .btn {
-                font-size: 16px;
-                background: #DB422D;
-                border-radius: 6px;
-                color: #f6f8f9;
-                width: 183px;
-                height: 50px;
-                letter-spacing: 0;
-                line-height: 35px;
-                &:focus {
-                    box-shadow: none;
-                }
-                &:hover {
-                    background: #38ADA2;
-                }
-            }
-        }
-    }
-    .Content {
-        text-align: left;
-        padding: 30px 0px;
-        .detail {
-            color: #000;
-            font-weight: 400;
-            font-size: 20px;
-            a {
-                color: #26A59A;
-            }
-        }
-        .heading {
-            color: #000;
-            font-weight: bold;
-            font-size: 25px;
-            padding: 30px 0px 10px 0px;
-        }
-        .sub-heading {
-            font-size: 20px;
-            font-weight: bold;
-            padding: 15px 0px;
-        }
-        .fun {
-            font-style: italic;
-            color: #000;
-            font-weight: 400;
-            font-size: 20px;
-            padding: 30px 0px;
-        }
-    }
-    .Matterport_Color_Standards {
-        padding: 20px 0px;
-        img {
-            border-radius: 5px;
-            width: 100%;
-            height: 100%;
-        }
-    }
-    .Scan_Terminology {
-        margin-top: 50px;
-        display: block;
-        h2 {
-            color: #000;
-            font-weight: bold;
-            font-size: 25px;
-            padding-bottom: 20px;
-        }
-        .Tabs {
-            background: #fff;
-            box-shadow: 0px 0px 6px #00000029;
-            border-radius: 5px;
-            color: #000;
-            display: inline-block;
-            justify-content: space-between;
-            width: 100%;
-            cursor: pointer;
-            padding: 30px;
-            margin-bottom: 25px;
-            h1 {
-                font-size: 16px;
-                font-weight: bold;
-                margin: 0px;
-            }
-            .fas {
-                color: #7F7F7F;
-                float: right;
-                margin-top: 3px;
-            }
-            .Dropdown {
-                padding-top: 20px;
-                p {
-                    color: #000;
-                    opacity: 0.7;
-                    font-size: 16px;
-                    line-height: 20px;
-                }
-                iframe {
-                    width: 100%;
-                    height: 480px;
-                }
-            }
-        }
-    }
-    .Floor_Plan_One {
-        padding: 20px 120px;
-        .Shadow {
-            box-shadow: 0px 3px 6px #00000029;
-            border-radius: 5px;
-            img {
-                border-radius: 5px;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-    .Floor_Plan_Two {
-        padding: 20px 250px;
-        img {
-            border-radius: 5px;
-            width: 100%;
-            height: 100%;
-        }
-    }
-    .Matterport_TrueSketch {
-        padding: 20px 0px 0px 0px;
-        .TrueSketch {
-            background: #fff;
-            box-shadow: 0px 3px 3px #00000029;
-            border-radius: 5px;
-            margin-bottom: 25px;
-            img {
-                border-radius: 5px;
-                width: 100%;
-                height: 100%;
-                padding: 15px;
-            }
-        }
-    }
-    .Matterport_Cameras {
-        padding: 5px 120px;
-        .Shadow {
-            box-shadow: 0px 3px 6px #00000029;
-            border-radius: 5px;
-            img {
-                border-radius: 5px;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-    .Matterport_iOS_Supported_Devices {
-        background: #fff;
-        box-shadow: 0px 3px 13px #00000029;
-        border-radius: 5px;
-        table {
-            width: 100%;
-            margin-bottom: 20px;
-            .heading {
-                border: 1px solid #e9e9e9;
-                line-height: 1.42857;
-                padding: 10px;
-                vertical-align: middle;
-                text-align: center;
-                color: #000;
-                opacity: 0.5;
-                font-weight: bold;
-                font-size: 15px;
-            }
-            .new {
-                border: 1px solid #e9e9e9;
-                line-height: 1.42857;
-                padding: 5px;
-                vertical-align: middle;
-                text-align: center;
-                ul {
-                    padding: 0;
-                    list-style-type: none;
-                    li {
-                        margin: 20px 0;
-                        color: #000;
-                        opacity: 0.7;
-                        font-size: 14px;
-                    }
-                }
-            }
-        }
-    }
-    .Matterport_Ninjas {
-        text-align: left;
-        padding-bottom: 150px;
-        a {
-            width: 100%;
-            float: left;
-            position: relative;
-            img {
-                width: 428px;
-                height: 128px;
-            }
-        }
-    }
+	.holder {
+		padding: 30px 0px 10px 0px;
+		max-width: 100%;
+		width: 100%;
+		img {
+			max-width: 100%;
+			display: block;
+		}
+	}
+	.certified {
+		background: #e8e8e8;
+		border-radius: 10px;
+		padding: 30px;
+		text-align: left;
+		h2 {
+			color: #000;
+			font-weight: bold;
+			font-size: 30px;
+			text-transform: uppercase;
+			padding-bottom: 15px;
+		}
+		h5 {
+			color: #000;
+			font-weight: 500;
+			font-size: 18px;
+			margin: 0px;
+		}
+		.lm {
+			padding-top: 30px;
+			.btn {
+				font-size: 16px;
+				background: #DB422D;
+				border-radius: 6px;
+				color: #fff;
+				width: 183px;
+				height: 50px;
+				letter-spacing: 0;
+				line-height: 35px;
+				&:focus {
+					box-shadow: none;
+				}
+				&:hover {
+					background: #38ADA2;
+				}
+			}
+		}
+	}
+	.Content {
+		text-align: left;
+		padding: 30px 0px;
+		.detail {
+			color: #000;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 25px;
+			text-align: justify;
+			margin: 0px;
+			a {
+				color: #26A59A;
+			}
+		}
+		.heading {
+			color: #38ADA2;
+			font-weight: bold;
+			font-size: 30px;
+			text-transform: uppercase;
+			margin: 0px;
+			padding: 50px 0px 15px 0px;
+		}
+		.sub-heading {
+			font-size: 25px;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin: 0px;
+		}
+		.fun {
+			font-style: italic;
+			color: #000;
+			font-weight: 400;
+			font-size: 20px;
+			padding: 30px 0px;
+		}
+		.ACTIONABLE_KIT {
+			background: #fff;
+			border: 1px solid #CFCFCF;
+			border-radius: 10px;
+			text-align: center;
+			padding: 30px 20px;
+			min-height: 382px;
+			img {
+				max-width: 100%;
+				width: auto;
+				height: auto;
+			}
+			.name {
+				color: #000;
+				font-size: 16px;
+				font-weight: 500;
+				margin: 30px 0px;
+			}
+			.btn {
+				position: absolute;
+				bottom: 30px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 15px;
+				background: #DB422D;
+				border-radius: 6px;
+				color: #fff;
+				width: 174px;
+				height: 50px;
+				letter-spacing: 0;
+				line-height: 35px;
+				&:focus {
+					box-shadow: none;
+				}
+				&:hover {
+					background: #38ADA2;
+				}
+			}
+		}
+	}
+	.Matterport_Color_Standards {
+		margin-top: 50px;
+		.heading {
+			color: #38ADA2;
+			font-weight: bold;
+			font-size: 30px;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+		.detail {
+			color: #000;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 25px;
+			text-align: justify;
+			margin-bottom: 25px;
+		}
+		img {
+			border-radius: 5px;
+			max-width: 100%;
+			width: auto;
+			height: auto;
+		}
+	}
+	.Scan_Terminology {
+		display: block;
+		margin-top: 50px;
+		h2 {
+			color: #38ADA2;
+			font-weight: bold;
+			font-size: 30px;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+		.Tabs {
+			background: #fff;
+			box-shadow: 0px 0px 6px #00000029;
+			border-radius: 5px;
+			color: #000;
+			display: inline-block;
+			justify-content: space-between;
+			width: 100%;
+			margin-bottom: 25px;
+			.row {
+				margin: 0px;
+				padding: 25px 10px;
+				cursor: pointer;
+			}
+			h1 {
+				font-size: 16px;
+				font-weight: bold;
+				margin: 0px;
+			}
+			.fas {
+				color: #7F7F7F;
+				float: right;
+				margin-top: 3px;
+			}
+			.Dropdown {
+				padding: 0px 25px 25px 25px;
+				p {
+					color: #000;
+					opacity: 0.7;
+					font-size: 16px;
+					line-height: 20px;
+				}
+				iframe {
+					width: 100%;
+					height: 480px;
+				}
+			}
+		}
+	}
+	.Floor_Plan_One {
+		.Shadow {
+			box-shadow: 0px 3px 6px #00000029;
+			border-radius: 5px;
+			img {
+				border-radius: 5px;
+				max-width: 100%;
+				width: auto;
+				height: auto;
+			}
+		}
+	}
+	.Floor_Plan_Two {
+		img {
+			border-radius: 5px;
+			max-width: 100%;
+			width: auto;
+			height: auto;
+		}
+	}
+	.Matterport_TrueSketch {
+		.TrueSketch {
+			background: #fff;
+			box-shadow: 0px 3px 3px #00000029;
+			border-radius: 5px;
+			margin-bottom: 25px;
+			img {
+				border-radius: 5px;
+				max-width: 100%;
+				width: auto;
+				height: auto;
+				padding: 15px;
+			}
+		}
+	}
+	.Matterport_Cameras {
+		.Shadow {
+			box-shadow: 0px 3px 6px #00000029;
+			border-radius: 5px;
+			img {
+				border-radius: 5px;
+				max-width: 100%;
+				width: auto;
+				height: auto;
+			}
+		}
+	}
+	.Matterport_iOS_Supported_Devices {
+		background: #fff;
+		box-shadow: 0px 3px 13px #00000029;
+		border-radius: 5px;
+		table {
+			width: 100%;
+			margin-bottom: 20px;
+			.heading {
+				border: 1px solid #e9e9e9;
+				line-height: 1.42857;
+				padding: 10px;
+				vertical-align: middle;
+				text-align: center;
+				color: #000;
+				opacity: 0.5;
+				font-weight: bold;
+				font-size: 15px;
+			}
+			.new {
+				border: 1px solid #e9e9e9;
+				line-height: 1.42857;
+				padding: 5px;
+				vertical-align: middle;
+				text-align: center;
+				ul {
+					padding: 0;
+					list-style-type: none;
+					li {
+						margin: 20px 0;
+						color: #000;
+						opacity: 0.7;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+	.Matterport_Ninjas {
+		text-align: left;
+		padding-bottom: 150px;
+		a {
+			width: 100%;
+			float: left;
+			position: relative;
+			img {
+				width: 315px;
+				height: auto;
+				max-width: 100%;
+			}
+		}
+	}
+	.youtube_video {
+		text-align: center;
+		.video_border {
+			background: #fff;
+			box-shadow: 0px 3px 13px #00000029;
+			padding: 15px;
+			width: 100%;
+			margin: auto;
+			.fluid-width-video-wrapper {
+				width: 100%;
+				position: relative;
+				padding: 0;
+				padding-top: 56.25%;
+				iframe {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 1199px) {
-    .Matterport_Standards {
-        .Floor_Plan_One {
-            padding: 20px 0px;
-        }
-        .Floor_Plan_Two {
-            padding: 20px 0px;
-        }
-        .Matterport_Cameras {
-            padding: 5px 0px;
-        }
-    }
+	.Matterport_Standards {
+		.Floor_Plan_One {
+			padding: 20px 0px;
+		}
+		.Floor_Plan_Two {
+			padding: 20px 0px;
+		}
+		.Matterport_Cameras {
+			padding: 5px 0px;
+		}
+	}
 }
 
 @media screen and (max-width: 767px) {
-    .Matterport_Standards .Matterport_Ninjas {
-        text-align: center;
-        a img {
-            width: 300px;
-            height: 100px;
-        }
-    }
+	.Matterport_Standards {
+		.Content {
+			.detail {
+				text-align: left;
+			}
+		}
+		.Scan_Terminology {
+			.Tabs {
+				.row {
+					padding: 25px 0px;
+				}
+				.Dropdown {
+					padding: 0px 15px 15px 15px;
+				}
+			}
+		}
+		.Matterport_Color_Standards {
+			.detail {
+				text-align: left;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 575px) {
-    .Matterport_Standards .Matterport_iOS_Supported_Devices {
-        box-shadow: none;
-    }
+	.Matterport_Standards {
+		.Matterport_iOS_Supported_Devices {
+			box-shadow: none;
+			table {
+				.heading {
+					font-size: 13px;
+				}
+				.new ul li {
+					font-size: 12px;
+				}
+			}
+		}
+	}
 }

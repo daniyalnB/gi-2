@@ -1,28 +1,22 @@
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizer = require('css-minimizer-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin         = require('copy-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.config');
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.config");
+const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
-const webpack = require('webpack'); 
-const { EnvironmentPlugin } = require('webpack');
+const webpack = require("webpack");
+const { EnvironmentPlugin } = require("webpack");
 
-const { GENERAL, PATHS } = require('../settings');
+const { GENERAL, PATHS } = require("../settings");
 
 module.exports = (env) => {
   return merge(common(env), {
-    mode: 'production',
+    mode: "production",
     //devtool: 'source-map',
     cache: {
-      type: 'filesystem',
+      type: "filesystem",
     },
     module: {
       rules: [
@@ -33,9 +27,8 @@ module.exports = (env) => {
             // Creates `style` nodes from JS strings
             "style-loader",
             // Translates CSS into CommonJS
-            "css-loader?url=false",
-            "resolve-url-loader",
-            // Compiles Sass to CSS
+            "css-loader",
+            "postcss-loader", // Compiles Sass to CSS
             "sass-loader",
           ],
           // use: [
@@ -51,93 +44,56 @@ module.exports = (env) => {
           //       sourceMap: true,
           //     },
           //   },
-          //   {
-          //     loader: 'postcss-loader',
-          //     options: { sourceMap: true,  },
-          //   },
-          //   {
-          //     loader: 'fast-sass-loader',
-          //     options: {
-          //       sourceMap: true,
-          //     },
-          //   },
           // ],
         },
-      ],
-    },
-    optimization: {
-      minimize: true,
-      mangleWasmImports: true,
-      removeAvailableModules: true,
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/](react|react-dom)[\\/](stripe)[\\/](react-bootstrap)[\\/](react-stripe-js)[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-            
+        {
+          test: /\.m?js/,
+          resolve: {
+            fullySpecified: false
           }
         },
-      
-      },
-      
-      
-      minimizer: [
-        new TerserPlugin({
-          cache: path.resolve(PATHS.cache, 'terser-webpack-plugin'),
-          parallel: true,
-          sourceMap: false,
-          extractComments: "all",
-        }),
-        new OptimizeCSSAssetsPlugin({}),
-        new CssMinimizer({minimizerOptions: {
-          preset: [
-            'default',
-            {
-              discardComments: { removeAll: true },
-            },
-          ],
-        },}),
-        new UglifyJsPlugin({ // minify js file
-          cache: true,
-          parallel: true,
-          sourceMap: false,
-          extractComments: 'all',
-          uglifyOptions: {
-              compress: true,
-              loops: false,
-          inline: false,
-          dead_code: true,
-          evaluate: true,
-              output: null
-          }
-      }),
       ],
     },
-   
+
+    optimization: {
+      minimize: true,
+      usedExports: true,
+      concatenateModules: false,
+      minimizer: [new TerserPlugin()],
+
+      splitChunks: {
+        chunks: "all",
+      },
+    },
     plugins: [
-          new CompressionPlugin({ algorithm: "gzip",
-         
-          threshold: 4240,
-          minRatio: 0.7}),
-          new OptimizeCSSAssetsPlugin({
-          }),
-     new CleanWebpackPlugin(),
-      new CopyWebpackPlugin([
-        {
-          from: PATHS.client + "/.htaccess",
-          to: PATHS.output,
-        }
-      ]),
+      new CompressionPlugin({
+        algorithm: "gzip",
+        threshold: 4240,
+        minRatio: 0.7,
+      }),
+
+      new OptimizeCSSAssetsPlugin({}),
+      new CleanWebpackPlugin(),
+      // new CopyWebpackPlugin({
+      //   patterns: [
+      //     {
+      //       from: PATHS.client + "/.htaccess",
+      //       to: PATHS.output,
+      //     },
+      //   ],
+      // }),
       new MiniCssExtractPlugin({
-        filename: '[name].[hash].css',
+        filename: "[name].[hash].css",
       }),
       new EnvironmentPlugin({
         // * explicitly setting the node environment variable for clarity
-        NODE_ENV: 'production',
+        NODE_ENV: "production",
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ja|it/),
+      new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ja|it/),
+      new webpack.ProvidePlugin({
+        process: "process/browser",
+      }),
     ],
   });
 };

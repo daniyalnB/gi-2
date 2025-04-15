@@ -1,18 +1,18 @@
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const CircularDependencyPlugin = require('circular-dependency-plugin');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.config');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
+const CircularDependencyPlugin = require("circular-dependency-plugin");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.config");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const path = require("path");
+const webpack = require("webpack");
 
-const { EnvironmentPlugin, HotModuleReplacementPlugin } = require('webpack');
+const { EnvironmentPlugin, HotModuleReplacementPlugin } = require("webpack");
 
-const { GENERAL, PATHS } = require('../settings');
+const { GENERAL, PATHS } = require("../settings");
 
 module.exports = merge(common({ development: true }), {
-  mode: 'development',
-  devtool: 'eval-cheap-module-source-map',
+  mode: "development",
+  devtool: "eval-cheap-module-source-map",
   devServer: {
     contentBase: PATHS.output,
     historyApiFallback: true,
@@ -22,11 +22,11 @@ module.exports = merge(common({ development: true }), {
       redirect: false,
     },
     port: 8000,
-    host: '0.0.0.0',
+    host: "0.0.0.0",
   },
   resolve: {
     alias: {
-      'react-dom': '@hot-loader/react-dom',
+      "react-dom": "@hot-loader/react-dom",
     },
   },
   module: {
@@ -34,16 +34,22 @@ module.exports = merge(common({ development: true }), {
       {
         test: /\.(css|s[ac]ss)$/,
         exclude: /node_modules/,
-        // 
+        //
         use: [
           // Creates `style` nodes from JS strings
           "style-loader",
           // Translates CSS into CommonJS
           "css-loader",
-          "resolve-url-loader",
+          "postcss-loader",
           // Compiles Sass to CSS
           "sass-loader",
         ],
+      },
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
       },
     ],
   },
@@ -56,23 +62,29 @@ module.exports = merge(common({ development: true }), {
     }),
     new EnvironmentPlugin({
       // * explicitly setting the node environment variable for clarity
-      NODE_ENV: 'development',
+      NODE_ENV: "development",
     }),
     new CircularDependencyPlugin({
       exclude: /node_modules/,
       failOnError: false,
     }),
-    new CopyWebpackPlugin([
-      {
-        context: PATHS.assets,
-        from: '**/*',
-        to: 'static/assets/',
-      },
-    ]),
+
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "**/*",
+          to: "static/assets/",
+          context: PATHS.assets,
+        },
+      ],
+    }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
   ],
   output: {
     path: PATHS.output,
-    filename: '[name].[hash].js',
-    publicPath: '/',
+    filename: "[name].[hash].js",
+    publicPath: "/",
   },
 });

@@ -1,4 +1,8 @@
 {
   "serverPort": 9000,
-  "localhost": "https://reactdev.getinsights.org"
+  "localhost": "https://reactdev.getinsights.org",
+  "beta.getinsights.org": "https://beta.getinsights.org",
+  "reactdev.getinsights.org" : "https://reactdev.getinsights.org",
+  "getinsights.org": "https://getinsights.org",
+  "www.getinsights.org": "https://getinsights.org"
 }

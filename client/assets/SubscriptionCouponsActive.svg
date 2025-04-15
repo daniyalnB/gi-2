@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" viewBox="0 0 21 21">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_646" data-name="Rectangle 646" width="21" height="21" transform="translate(31 14)" fill="#26a59a"/>
+    </clipPath>
+  </defs>
+  <g id="Subscription_Coupons" data-name="Subscription Coupons" transform="translate(-31 -14)" clip-path="url(#clip-path)">
+    <g id="coupon" transform="translate(31 13.999)">
+      <g id="Group_954" data-name="Group 954">
+        <g id="Group_953" data-name="Group 953">
+          <path id="Path_669" data-name="Path 669" d="M11.771,6.194a1.846,1.846,0,1,0,1.846,1.846,1.846,1.846,0,0,0-1.846-1.846Zm0,2.461a.618.618,0,1,1,.618-.618A.618.618,0,0,1,11.771,8.654Z" fill="#26a59a"/>
+        </g>
+      </g>
+      <g id="Group_956" data-name="Group 956">
+        <g id="Group_955" data-name="Group 955">
+          <path id="Path_670" data-name="Path 670" d="M16.694,11.118a1.846,1.846,0,1,0,1.846,1.846,1.846,1.846,0,0,0-1.846-1.846Zm0,2.461a.618.618,0,1,1,.618-.618.618.618,0,0,1-.618.618Z" fill="#26a59a"/>
+        </g>
+      </g>
+      <g id="Group_958" data-name="Group 958">
+        <g id="Group_957" data-name="Group 957">
+          <path id="Path_671" data-name="Path 671" d="M17.035,6.3a.618.618,0,0,0-.854.17L11.26,13.85a.618.618,0,0,0,1.024.682l4.921-7.383A.618.618,0,0,0,17.035,6.3Z" fill="#26a59a"/>
+        </g>
+      </g>
+      <g id="Group_960" data-name="Group 960">
+        <g id="Group_959" data-name="Group 959">
+          <path id="Path_672" data-name="Path 672" d="M20.382,3.732H.618A.618.618,0,0,0,0,4.349v3.69a.618.618,0,0,0,.618.618,1.846,1.846,0,0,1,0,3.691A.618.618,0,0,0,0,12.966v3.686a.618.618,0,0,0,.618.618H20.382A.618.618,0,0,0,21,16.652V4.348A.618.618,0,0,0,20.382,3.732Zm-.618,12.3H6.152v-.618a.618.618,0,0,0-1.235,0v.618H1.235V13.514a3.077,3.077,0,0,0,0-6.028V4.963H4.978v.618a.618.618,0,0,0,1.235,0V4.963H19.765Z" fill="#26a59a"/>
+        </g>
+      </g>
+      <g id="Group_962" data-name="Group 962">
+        <g id="Group_961" data-name="Group 961">
+          <path id="Path_673" data-name="Path 673" d="M5.537,11.118a.618.618,0,0,0-.618.618v1.235a.618.618,0,1,0,1.235,0V11.735A.618.618,0,0,0,5.537,11.118Z" fill="#26a59a"/>
+        </g>
+      </g>
+      <g id="Group_964" data-name="Group 964">
+        <g id="Group_963" data-name="Group 963">
+          <path id="Path_674" data-name="Path 674" d="M5.537,7.424a.618.618,0,0,0-.618.618V9.277a.618.618,0,1,0,1.235,0V8.042A.618.618,0,0,0,5.537,7.424Z" fill="#26a59a"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

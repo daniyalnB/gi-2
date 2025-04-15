@@ -1,0 +1,31 @@
+.CodeOfEthics {
+	.holder {
+		padding: 30px 0px 0px 0px;
+		h2 {
+			text-align: center;
+			color: #38ADA2;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 30px;
+		}
+	}
+	.Ethics {
+		margin: 30px 0px 0px 0px;
+		img {
+			max-width: 100%;
+			width: auto;
+			height: auto;
+		}
+		ul {
+			padding: 0;
+			list-style-type: none;
+			li {
+				margin: 8px 0;
+				font-weight: 500;
+				i {
+					padding-right: 5px;
+				}
+			}
+		}
+	}
+}

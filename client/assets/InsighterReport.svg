@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" viewBox="0 0 21 21">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_656" data-name="Rectangle 656" width="21" height="21" transform="translate(31 14)" fill="#717171"/>
+    </clipPath>
+  </defs>
+  <g id="Insighter_Report" data-name="Insighter Report" transform="translate(-31 -14)" clip-path="url(#clip-path)">
+    <g id="file_2_" data-name="file (2)" transform="translate(32.456 14)">
+      <path id="Path_1137" data-name="Path 1137" d="M17.884,4.39,13.594.176A.615.615,0,0,0,13.163,0H2.316A2.3,2.3,0,0,0,.02,2.3V18.7a2.3,2.3,0,0,0,2.3,2.3H15.773a2.3,2.3,0,0,0,2.3-2.3V4.829a.615.615,0,0,0-.184-.439ZM13.778,2.082l2.171,2.132H13.973a.2.2,0,0,1-.2-.2Zm1.995,17.688H2.316A1.066,1.066,0,0,1,1.251,18.7V2.3A1.066,1.066,0,0,1,2.316,1.23H12.548V4.018a1.428,1.428,0,0,0,1.426,1.426h2.864V18.7a1.066,1.066,0,0,1-1.065,1.065Zm0,0" fill="#717171"/>
+      <path id="Path_1138" data-name="Path 1138" d="M13.316,9.762H4.643a.615.615,0,0,0,0,1.23h8.673a.615.615,0,0,0,0-1.23Zm0,0" fill="#717171"/>
+      <path id="Path_1139" data-name="Path 1139" d="M4.643,13.453h7.072a.615.615,0,0,0,0-1.23H4.643a.615.615,0,1,0,0,1.23Zm0,0" fill="#717171"/>
+      <path id="Path_1140" data-name="Path 1140" d="M12.567,14.684H4.643a.615.615,0,0,0,0,1.23h7.925a.615.615,0,1,0,0-1.23Zm0,0" fill="#717171"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="_512px-Gmail_icon__2020_.svg" data-name="512px-Gmail_icon_(2020).svg" width="18" height="18" transform="translate(486.5 1322.5)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Group_4192" data-name="Group 4192" transform="translate(-480 -1316)">
+    <circle id="Ellipse_81" data-name="Ellipse 81" cx="17.5" cy="17.5" r="17.5" transform="translate(480 1316)" fill="#db422d"/>
+    <g id="Mask_Group_37" data-name="Mask Group 37" transform="translate(2.5 2.5)" clip-path="url(#clip-path)">
+      <g id="Email" transform="translate(486 1322.041)">
+        <path id="Path_1618" data-name="Path 1618" d="M4.107,10.232l5.377,4.079,1.5-1.139a.321.321,0,0,1,.388,0l1.5,1.138,5.376-4.078V4.107H4.107Zm7.071-4.517a2.9,2.9,0,0,1,2.893,2.893V9.25a.962.962,0,0,1-1.779.511,1.6,1.6,0,1,1,.493-1.154V9.25a.321.321,0,0,0,.643,0V8.607a2.25,2.25,0,1,0-2.25,2.25h.964a.321.321,0,1,1,0,.643h-.964a2.893,2.893,0,0,1,0-5.786Z" transform="translate(-2.179 -2.261)" fill="#fff"/>
+        <circle id="Ellipse_86" data-name="Ellipse 86" cx="0.964" cy="0.964" r="0.964" transform="translate(8.036 5.382)" fill="#fff"/>
+        <path id="Path_1619" data-name="Path 1619" d="M1.912,10.041l1.075.815V9.226Z" transform="translate(-1.701 -3.373)" fill="#fff"/>
+        <path id="Path_1620" data-name="Path 1620" d="M1.643,21.372l6.774-5.139L1.643,11.1Z" transform="translate(-1.643 -3.78)" fill="#fff"/>
+        <path id="Path_1621" data-name="Path 1621" d="M23,10.857l1.075-.815L23,9.226Z" transform="translate(-6.286 -3.373)" fill="#fff"/>
+        <path id="Path_1622" data-name="Path 1622" d="M22.761,11.1l-6.774,5.138,6.774,5.139Z" transform="translate(-4.761 -3.78)" fill="#fff"/>
+        <path id="Path_1623" data-name="Path 1623" d="M10.819,16.533,2.453,22.88H19.185Z" transform="translate(-1.819 -4.962)" fill="#fff"/>
+        <path id="Path_1624" data-name="Path 1624" d="M11.115,2.951h3.174L12.7,1.748Z" transform="translate(-3.702 -1.748)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

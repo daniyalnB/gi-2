@@ -1,27 +1,26 @@
-import Navbar from "app/components/Navbar";
-import React, { Suspense } from "react";
+import React from "react";
+import ScrollToTop from "../../components/ScrollToTop";
+import SEO from "../../components/SEO";
+const Navbar = React.lazy(() => import("../../components/Navbar"));
+const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent"));
+const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 const Main = React.lazy(() => import("../../components/Main"));
-const Footer = React.lazy(() => import("../../components/Footer"));
 
-function home() {
+const Home = () => {
   return (
     <>
+      <SEO
+        title="Actionable Insights | Resources for Xactimate & Matterport"
+        description="Actionable Insights is an educational non-profit that creates tools and resources for claims professionals to master Xactimate and Matterport."
+        link="/"
+      />
+      <ScrollToTop />
       <Navbar />
-      <Suspense
-        fallback={
-          <div
-            className="d-flex align-items-center justify-content-center"
-            style={{ margin: "0 auto", height: "100vh" }}
-          >
-            <div className="loader"></div>
-          </div>
-        }
-      >
-        <Main />
-        <Footer />
-      </Suspense>
+      <Main />
+      <WrongBrowserDisclaimer />
+      <CookieConsentGI2 />
     </>
   );
-}
+};
 
-export default home;
+export default Home;

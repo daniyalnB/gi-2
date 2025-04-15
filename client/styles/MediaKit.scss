@@ -1,0 +1,331 @@
+.MediaKit {
+  .holder {
+    margin: 30px 0px;
+    height: 203px;
+    background: transparent linear-gradient(100deg, #25A79B 0%, #081F3E 100%);
+    border-radius: 10px;
+    .sub-holder {
+      max-width: 100%;
+      padding: 65px 50px;
+    }
+    h1 {
+      text-align: left;
+      color: #fff;
+      font-size: 30px;
+      font-weight: 600;
+      margin: 0px 0px 10px 0px;
+    }
+    p {
+      text-align: left;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0px;
+    }
+    .eye_icon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 255px;
+      right: 17%;
+      width: 100px;
+      height: 95px;
+      z-index: 9;
+      padding: 0px !important;
+      text-align: center;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      background: #DA4326;
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+      }
+    }
+  }
+  .logo-box1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 523px;
+    min-height: 267px;
+    background-color: #000;
+    border-radius: 10px;
+    text-align: center;
+    img {
+      width: 213px;
+      height: 99px;
+      max-width: 100%;
+    }
+    .ai_logo {
+      width: 344px;
+      height: 30px;
+      max-width: 100%;
+    }
+  }
+  .logo-box2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 523px;
+    min-height: 267px;
+    background-color: #fff;
+    box-shadow: 0px 0px 8px #00000014;
+    border-radius: 10px;
+    img {
+      width: 213px;
+      height: 99px;
+      max-width: 100%;
+    }
+    .ai_logo {
+      width: 344px;
+      height: 30px;
+      max-width: 100%;
+    }
+  }
+  .mediaTitle {
+    color: #38ADA2;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 5%;
+  }
+  .logo-download {
+    font-size: 20px;
+    font-weight: 500;
+    color: #DB422D;
+    text-decoration: underline;
+  }
+  .color-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 305px;
+    min-height: 172px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .color-box1 {
+    background-color: #38ADA2;
+  }
+  .color-box2 {
+    background-color: #DB422D;
+  }
+  .color-box3 {
+    background-color: #000000;
+  }
+  .color-box4 {
+    background-color: #B8B8B8;
+  }
+  .color-box5 {
+    background-color: #d4edea;
+  }
+  .color-info-text {
+    color: #000;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 40px;
+    text-decoration: underline;
+    margin: 0px;
+  }
+  .owner-profile {
+    background: #fff;
+    box-shadow: 0px 0px 8px #00000014;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    img {
+      width: 300px;
+      height: 300px;
+      max-width: 100%;
+      border-radius: 10px;
+      background: #38ADA2;
+      object-fit: contain;
+    }
+    .whatley {
+      object-fit: cover;
+    }
+    .seth {
+      background: #DB422D;
+    }
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      color: #38ADA2;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #DB422D;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 0px;
+      .read-more {
+        display: block;
+        font-size: 12px;
+        color: #DB422D;
+        text-decoration: underline;
+        margin-top: 10px;
+      }
+      .read-less {
+        display: block;
+        font-size: 12px;
+        color: #DB422D;
+        text-decoration: underline;
+        margin-top: 10px;
+      }
+    }
+  }
+  .download-headshot {
+    font-size: 20px;
+    font-weight: 500;
+    color: #DB422D;
+    text-decoration: underline;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .MediaKit {
+    .holder {
+      .eye_icon {
+        top: 195px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .MediaKit {
+    .owner-profile {
+      img {
+        width: 165px;
+        height: 215px;
+        object-fit: cover;
+      }
+      .seth {
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .MediaKit {
+    .holder {
+      .eye_icon {
+        top: 165px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .MediaKit {
+    .owner-profile {
+      .seth {
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .MediaKit {
+    .owner-profile {
+      img {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 20px;
+        object-fit: contain;
+      }
+      .seth {
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .MediaKit {
+    .holder {
+      height: 236px;
+      .sub-holder {
+        padding: 90px 30px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
+      .eye_icon {
+        width: 69px;
+        height: 59px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        img {
+          padding: 15px;
+        }
+      }
+    }
+    .logo-box1 {
+      max-width: 337px;
+      min-height: 172px;
+      img {
+        width: 137px;
+        height: 63px;
+      }
+    }
+    .logo-box2 {
+      max-width: 337px;
+      min-height: 172px;
+      img {
+        width: 137px;
+        height: 63px;
+      }
+    }
+    .color-info {
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 688px) {
+  .MediaKit {
+    .owner-profile {
+      img {
+        object-fit: fill;
+      }
+      .seth {
+        object-fit: fill;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .MediaKit {
+    .owner-profile {
+      .col-sm-12 {
+        text-align: center;
+      }
+      img {
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+      }
+      .seth {
+        object-fit: contain;
+      }
+    }
+  }
+}

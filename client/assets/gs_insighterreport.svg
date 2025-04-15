@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="17" viewBox="0 0 15 17">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_925" data-name="Rectangle 925" width="15" height="17" transform="translate(30.809 14)" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Insighter_Report" data-name="Insighter Report" transform="translate(-30.809 -14)" opacity="0.5" clip-path="url(#clip-path)">
+    <g id="file_2_" data-name="file (2)" transform="translate(32.033 14)">
+      <path id="Path_2003" data-name="Path 2003" d="M12.517,3.306l-3-3.173A.415.415,0,0,0,9.214,0H1.626A1.673,1.673,0,0,0,.02,1.729V14.086a1.673,1.673,0,0,0,1.606,1.729H11.04a1.673,1.673,0,0,0,1.606-1.729V3.637a.482.482,0,0,0-.129-.331ZM9.645,1.568l1.519,1.605H9.782a.143.143,0,0,1-.137-.147Zm1.4,13.32H1.626a.776.776,0,0,1-.745-.8V1.729a.776.776,0,0,1,.745-.8H8.784v2.1a1.039,1.039,0,0,0,1,1.074h2v9.986a.776.776,0,0,1-.745.8Zm0,0" transform="translate(-0.02 0)"/>
+      <path id="Path_2004" data-name="Path 2004" d="M10.525,9.762H4.458a.43.43,0,1,0,0,.861h6.067a.43.43,0,1,0,0-.861Zm0,0" transform="translate(-1.224 -2.378)"/>
+      <path id="Path_2005" data-name="Path 2005" d="M4.458,13.083H9.4a.43.43,0,1,0,0-.861H4.458a.43.43,0,1,0,0,.861Zm0,0" transform="translate(-1.224 -2.977)"/>
+      <path id="Path_2006" data-name="Path 2006" d="M10,14.684H4.458a.43.43,0,1,0,0,.861H10a.43.43,0,0,0,0-.861Zm0,0" transform="translate(-1.224 -3.577)"/>
+    </g>
+  </g>
+</svg>

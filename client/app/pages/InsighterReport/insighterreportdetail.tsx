@@ -1,89 +1,193 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import LottieLoader from "../../components/LottieLoader";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import ScrollToTop from "../../components/ScrollToTop";
+import SEO from "../../components/SEO";
+import NotFound from "../../components/NotFound";
 const Navbar = React.lazy(() => import("../../components/Navbar"));
 const Footer = React.lazy(() => import("../../components/Footer"));
+const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent"));
+const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
+import { GetAllPriceInsighterReportsCustomer } from "../../../utils/api-routes/api-routes.util";
+import history from "../../../utils/history";
+import Lightbox from "react-image-lightbox";
 
-const IRDetail = () => {
+const InsighterReportDetail = (props) => {
+
+  const [show, setShow] = useState(true);
+  
+  const [loading, setLoading] = useState(true);
+
+  const [data, setData] = useState(false);
+
+  const [previews, setPreviews] = useState([]);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  useEffect(() => {
+    GetAllPriceInsighterReportsCustomer().subscribe((response) => {
+      if (response.response.Requested_Action) {
+        const x = response.response.data.filter(
+          (insighterreport) => insighterreport.permalink === props.match.params.permalink
+        )[0];
+        if (x == undefined) {
+          setShow(false);
+        }
+        setData(x);
+        setLoading(false);
+        var element = document.getElementsByClassName("imagepreview");
+        if (element) {
+          console.log(element);
+          var images = [];
+          for (var i = 0; i < element.length; i++) {
+            images.push(element[i].src);
+            if (images.length > 1) {
+              setPreviews(images);
+              console.log(previews, "previews");
+            } else {
+              setPreviews(images);
+              console.log(previews, "previews");
+            }
+            element[i].addEventListener("click", function () {
+              handleOpen();
+            });
+          }
+        }
+      } else {
+        setShow(false);
+      }
+    });
+  }, []);
+
   return (
     <>
-      <Suspense
-        fallback={
-          <div
-            className="d-flex align-items-center justify-content-center"
-            style={{ margin: "0 auto", height: "100vh" }}
-          >
-            <div className="loader"></div>
-          </div>
-        }
-      >
-        <Navbar />
-        <div className="main-container">
-          <div className="IR_page">
-            <div className="container">
-              <div className="holder">
-                <h2> Xactimate White Paper Labor Efficiencies Design </h2>
+      {show ? (
+        <>
+          <SEO
+            title={
+              data
+                ? data.metatitle
+                  ? `${data.metatitle}`
+                  : `${data.tabtitle}`
+                : "Insighter Report - Actionable Insights"
+            }
+            description={data.metadescription ? `${data.metadescription}` : ""}
+            link={`resources/insighter-report/${data.permalink}`}
+          />
+          <Suspense
+            fallback={
+              <div className="loader">
+                <LottieLoader />
               </div>
-              <div className="reports">
-                <div className="row">
-                  <div className="col">
-                    <div className="insighter_report_detail">
-                      <img src="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2018/07/31224007/Xactware_White_Paper_Labor_Efficiencies_Design_Thumbnail_01_1024x3471.jpg" />
-                      <h3 className="name"> White Paper Excerpt: </h3>
-                      <h3 className="heading"> White Paper Excerpt: </h3>
-                      <p className="description">
-                        This document provides an overview of the features
-                        related to labor efficiency found in Xactimate version
-                        28. The first Labor Efficiencies design was introduced
-                        by Xactware beginning with Xactimate version 2002. The
-                        features were implemented after analyzing the concerns
-                        of many customers from both the service provider and
-                        insurance carrier markets who desired a more accurate
-                        way of addressing economies of scale of labor among
-                        jobs.
-                      </p>
-                      <h3 className="heading">
-                        {" "}
-                        The Goal of the Labor Efficiencies Design{" "}
-                      </h3>
-                      <p className="description">
-                        <p>
-                          Labor is generally the largest variable in
-                          construction-related tasks. Factors such as job size
-                          and complexity, accessibility, and whether the
-                          structure is occupied all have a significant effect on
-                          the time needed to complete the work. While labor
-                          productivity often varies between jobs, it is
-                          generally accepted in the industry that jobs can be
-                          categorized into one of two groups:
-                        </p>
-                        <p>
-                          {`1) new construction and 2) restoration or remodeling.`}{" "}
-                        </p>
-                        <p>
-                          Within an estimate, customers can easily change their
-                          productivity default from Restoration/Service/Remodel
-                          to New Construction by checking the “New Construction”
-                          box.
-                        </p>
-                      </p>
-                      <div className="cr">
-                        <a
-                          href="https://s3.amazonaws.com/getinsights-live/wp-content/uploads/2020/08/20001341/Labor_Efficiencies_Design.pdf"
-                          target="_blank"
-                        >
-                          Continue Reading
-                        </a>
+            }
+          >
+            <ScrollToTop />
+            <Navbar />
+            <Breadcrumbs data={data} />
+            <div className="main-container">
+              <div className="IR_page">
+                <div className="">
+                  {!loading && (
+                    <>
+                      <div className="holder">
+                        <h2> {data.pagetitle} </h2>
                       </div>
+                      <div className="reports">
+                        <div className="row">
+                          <div className="col">
+                            <div className="insighter_report_detail">
+                              <img
+                                src={data.featureimage}
+                                alt={data.pagetitle}
+                                loading="lazy"
+                              />
+                              <div className="description">
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: `${
+                                      data.description
+                                        ? data.description
+                                            .replace(/(<p><\/p>)/g, `<br>`)
+                                            .replace(
+                                              /<img/g,
+                                              `<img class='imagepreview'`
+                                            )
+                                        : ""
+                                    }`,
+                                  }}
+                                ></div>
+                              </div>
+                              {data.attachedPDF == null ? (
+                                ""
+                              ) : (
+                                <div className="cr">
+                                  <a href={data.attachedPDF} target="_blank">
+                                    Continue Reading
+                                  </a>
+                                </div>
+                              )}
+                              <div>
+                                {isOpen && previews.length > 1 && (
+                                  <Lightbox
+                                    mainSrc={previews[photoIndex]}
+                                    nextSrc={
+                                      previews[(photoIndex + 1) % previews.length]
+                                    }
+                                    prevSrc={
+                                      previews[
+                                        (photoIndex + previews.length - 1) %
+                                          previews.length
+                                      ]
+                                    }
+                                    onCloseRequest={() => setIsOpen(false)}
+                                    onMovePrevRequest={() =>
+                                      setPhotoIndex(
+                                        (photoIndex + previews.length - 1) %
+                                          previews.length
+                                      )
+                                    }
+                                    onMoveNextRequest={() =>
+                                      setPhotoIndex(
+                                        (photoIndex + 1) % previews.length
+                                      )
+                                    }
+                                  />
+                                )}
+                                {isOpen && previews.length == 1 && (
+                                  <Lightbox
+                                    mainSrc={previews[photoIndex]}
+                                    onCloseRequest={() => setIsOpen(false)}
+                                  />
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                  {loading && (
+                    <div className="loader-inner">
+                      <LottieLoader />
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <Footer />
-      </Suspense>
+            <WrongBrowserDisclaimer />
+            <CookieConsentGI2 />
+            <Footer />
+          </Suspense>
+        </>
+      ) : (
+        <NotFound />
+      )}
     </>
   );
 };
 
-export default IRDetail;
+export default withRouter(InsighterReportDetail);

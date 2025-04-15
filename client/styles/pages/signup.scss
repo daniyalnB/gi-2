@@ -1,5 +1,9 @@
 .signup_page {
-  padding-top: 220px !important;
+  padding-bottom: 100px;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0 auto;
+  background: #fff;
   .signup_header {
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -16,7 +20,7 @@
       left: 0;
       right: 0;
       margin: 0 auto;
-      background-image: url("../../assets/signup.png");
+      background-image: url("assets/signup.png");
       border-radius: 50%;
       background-size: 90%;
       padding: 14px;
@@ -67,12 +71,12 @@
       text-align: center;
     }
     .form-group {
-      margin-bottom: 1.5rem!important;
+      margin-bottom: 1.5rem !important;
       position: relative;
     }
     .form-holder input {
       margin-bottom: 24px;
-    } 
+    }
     .form-holder input {
       font-size: 30px;
       width: 100%;
@@ -98,9 +102,9 @@
       top: 25px;
       left: 100px;
       background-color: #fff;
-      transition: all .3s;
+      transition: all 0.3s;
       font-weight: 600;
-      color: rgba(0,0,0,.5) !important;
+      color: rgba(0, 0, 0, 0.5) !important;
     }
     .form-group .input-area:hover + .floating_label {
       top: -15px;
@@ -114,11 +118,45 @@
       font-size: 24px;
       background-color: #fff;
     }
-    .form-group .input-area:valid  + .floating_label {
+    .form-group .input-area:valid + .floating_label {
       top: -15px;
       padding: 0 3px;
       font-size: 24px;
       background-color: #fff;
+    }
+    .form-holder {
+      .upLabel {
+        position: absolute;
+        pointer-events: none;
+        font-size: 30px;
+        top: 25px;
+        left: 100px;
+        background-color: #fff;
+        transition: all .3s;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.5) !important;
+      }
+      .upInputs input:focus~.upLabel,
+      .upInputs input:not(:placeholder-shown)~.upLabel {
+        top: -15px;
+        padding: 0 3px;
+        font-size: 24px;
+        background-color: #fff;
+      }
+      .upInputs input:hover~.upLabel,
+      .upInputs input:not(:placeholder-shown)~.upLabel {
+        top: -15px;
+        padding: 0 3px;
+        font-size: 24px;
+        background-color: #fff;
+      }
+      .upInputs input:valid~.upLabel,
+      .upInputs input:not(:placeholder-shown)~.upLabel {
+        top: -15px;
+        padding: 0 3px;
+        font-size: 24px;
+        background-color: #fff;
+      }
     }
     .SignupStepTwo {
       input {
@@ -142,6 +180,9 @@
       }
       &:focus {
         box-shadow: none;
+      }
+      &:disabled {
+        cursor: not-allowed;
       }
     }
     .login_devider {
@@ -202,6 +243,7 @@
       }
       .radio-custom-label {
         position: relative;
+        width: 100%;
       }
       .radio-custom + .radio-custom-label:before {
         content: "";
@@ -228,18 +270,65 @@
     .SignupStepFive {
       max-width: 1000px;
       margin: 30px auto;
-      .form-group {
-        input[type="checkbox"] {
-          height: 25px;
-          width: 25px;
+      .SignupStepFive-checkbox {
+        ul {
+          margin: 0px auto;
+          li {
+            list-style-type: none;
+            margin: 8px 0px;
+            font-size: 12px;
+            text-align: left;
+            color: #000;
+            span {
+              cursor: pointer;
+            }
+          }
         }
       }
-      .text-left {
-        margin-bottom: 0px !important;
+      .SignupStepFive-checkbox input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
       }
-      .terms {
-        font-size: 27px;
-        margin-left: 15px;
+      .SignupStepFive-checkbox input[type="checkbox"]+span:before {
+        content: '';
+        border: 1px solid grey;
+        border-radius: 3px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 0.5em;
+        margin-top: 0.5em;
+        vertical-align: -3px;
+      }
+      .SignupStepFive-checkbox input[type="checkbox"]:checked+span:before {
+        background-image: url("assets/Tick.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px;
+        border-radius: 2px;
+        background-color: #38ADA2;
+        border-color: #38ADA2;
+      }
+      .SignupStepFive-checkbox input[type="checkbox"]:focus+span:before,
+      .SignupStepFive-checkbox input[type="checkbox"]:not(:disabled)+span:hover:before {
+        outline-color: transparent;
+        outline-width: 2px;
+        outline-style: dotted;
+      }
+      .password-height {
+        text-align: left;
+        padding-bottom: 20px;
+        .password-strength {
+          font-style: italic;
+          width: 100%;
+          display: block;
+          color: #ff0000;
+          font-weight: bolder;
+        }
+        .strong {
+          color: #26A69A !important;
+        }
       }
     }
   }
@@ -256,13 +345,13 @@
   }
   .signup_holder .SignupStepFour .radio-custom,
   .signup_page .signup_holder .SignupStepFour .radio-custom-label {
+    width: 100%;
     font-size: 40px;
   }
 }
 
 @media screen and (max-width: 1920px) {
   .signup_page {
-    padding-top: 130px !important;
     .signup_header {
       padding: 20px 0 25px 80px;
       &::after {
@@ -319,10 +408,35 @@
         padding: 0 3px;
         font-size: 12px;
       }
-      .form-group .input-area:valid  + .floating_label {
+      .form-group .input-area:valid + .floating_label {
         top: -9px;
         padding: 0 3px;
         font-size: 12px;
+      }
+      .form-holder {
+        .upLabel {
+          font-size: 14px;
+          top: 14px;
+          left: 50px;
+        }
+        .upInputs input:focus~.upLabel,
+        .upInputs input:not(:placeholder-shown)~.upLabel {
+          top: -9px;
+          padding: 0 3px;
+          font-size: 12px;
+        }
+        .upInputs input:hover~.upLabel,
+        .upInputs input:not(:placeholder-shown)~.upLabel {
+          top: -9px;
+          padding: 0 3px;
+          font-size: 12px;
+        }
+        .upInputs input:valid~.upLabel,
+        .upInputs input:not(:placeholder-shown)~.upLabel {
+          top: -9px;
+          padding: 0 3px;
+          font-size: 12px;
+        }
       }
       .SignupStepTwo {
         max-width: 900px;
@@ -363,6 +477,7 @@
           font-size: 1rem;
         }
         .radio-custom-label {
+          width: 100%;
           position: relative;
         }
         .radio-custom + .radio-custom-label:before {
@@ -373,68 +488,6 @@
       }
       .SignupStepFive {
         max-width: 464px;
-        .checkbox-one {
-          margin-top: -20px;
-          input[type="checkbox"] {
-            visibility: hidden;
-          }
-          label {
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 12px;
-          }
-          input[type="checkbox"] + label:before {
-            border: 1px solid #000;
-            background: #fff;
-            border-radius: 3px;
-            content: "\00a0";
-            display: inline-block;
-            font-size: 11px;
-            height: 15px;
-            width: 15px;
-            margin: 0px 10px 0 -35px;
-            padding: 0;
-            vertical-align: top;
-          }
-          input[type="checkbox"]:checked + label:before {
-            border: 1px solid #38ADA2;
-            background: #38ADA2;
-            color: #fff;
-            content: "\2713";
-            text-align: center;
-          }
-        }
-        .checkbox-two {
-          margin-top: -20px;
-          input[type="checkbox"] {
-            visibility: hidden;
-          }
-          label {
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 12px;
-          }
-          input[type="checkbox"] + label:before {
-            border: 1px solid #000;
-            background: #fff;
-            border-radius: 3px;
-            content: "\00a0";
-            display: inline-block;
-            font-size: 11px;
-            height: 15px;
-            width: 15px;
-            margin: 0px 10px 0 -222px;
-            padding: 0;
-            vertical-align: top;
-          }
-          input[type="checkbox"]:checked + label:before {
-            border: 1px solid #38ADA2;
-            background: #38ADA2;
-            color: #fff;
-            content: "\2713";
-            text-align: center;
-          }
-        }
       }
     }
   }
@@ -444,6 +497,7 @@
   .signup_page .signup_holder .SignupStepFour .radio-custom,
   .signup_page .signup_holder .SignupStepFour {
     .radio-custom-label {
+      width: 100%;
       font-size: 10px;
     }
     .radio-custom + .radio-custom-label:before {
@@ -470,13 +524,16 @@
   }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 446px) {
   .signup_page .signup_holder .SignupStepFive {
-    .checkbox-one input[type="checkbox"] + label:before {
-      margin: 0 10px 0px 0px;
+    .SignupStepFive-checkbox {
+      label {
+        display: flex;
+        margin-bottom: 20px;
+      }
     }
-    .checkbox-two input[type="checkbox"] + label:before {
-      margin: 0 10px 0px 0px;
+    .SignupStepFive-checkbox input[type="checkbox"] + span:before {
+      margin-top: 2px;
     }
   }
 }

@@ -1,0 +1,1172 @@
+#Estimate-Type {
+	.arrow::before {
+		border-top-color: #313131;
+	}
+	.tooltip-inner {
+    text-align: left;
+		background-color: #313131;
+		max-width: 304px;
+		height: 65px;
+		padding: 10px;
+	}
+}
+.MasterXactimateImproveEstimatingSkills-header {
+  background-image: url("assets/Banner.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 450px;
+  .sub-header {
+    width: auto;
+    margin: 0 auto;
+    max-width: 80%;
+    height: 450px;
+    padding: 130px 0px;
+    .image-sec {
+      text-align: right;
+      img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    span {
+      color: #DB422D;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 20px;
+  }
+}
+.MasterXactimateImportantTips-header {
+  background-image: url("assets/Banner1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 450px;
+  .sub-header {
+    width: auto;
+    margin: 0 auto;
+    max-width: 80%;
+    height: 450px;
+    padding: 90px 0px;
+    .image-sec {
+      text-align: right;
+      img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    span {
+      color: #DB422D;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 20px;
+  }
+}
+.BecomeExpertXactimateEstimator-header {
+  background-image: url("assets/Banner.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 450px;
+  .sub-header {
+    width: auto;
+    margin: 0 auto;
+    max-width: 80%;
+    height: 450px;
+    padding: 50px 0px;
+    .image-sec {
+      text-align: right;
+      img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    span {
+      color: #DB422D;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 20px;
+  }
+}
+
+.contact-us {
+  .sub-holder {
+    margin: 30px 0px 50px 0px;
+    height: 288px;
+    background: transparent linear-gradient(100deg, #25a79b 0%, #081f3e 100%);
+    border-radius: 10px;
+    padding: 100px 50px;
+    h1 {
+      text-align: left;
+      color: #fff;
+      font-size: 30px;
+      font-weight: 600;
+      margin: 0px 0px 10px 0px;
+    }
+    p {
+      text-align: left;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0px;
+    }
+    .bg-image {
+      position: absolute;
+      top: 304px;
+      right: 13%;
+      z-index: 9;
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+      }
+    }
+  }
+  .sub-holder-quote {
+    margin: 30px 0px 50px 0px;
+    height: 288px;
+    background: transparent linear-gradient(100deg, #25a79b 0%, #081f3e 100%);
+    border-radius: 10px;
+    padding: 100px 50px;
+    .text-sec {
+      width: 1500px;
+    }
+    h1 {
+      text-align: left;
+      color: #fff;
+      font-size: 30px;
+      font-weight: 600;
+      margin: 0px 0px 10px 0px;
+    }
+    p {
+      text-align: left;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0px;
+    }
+    .bg-image {
+      position: absolute;
+      top: 304px;
+      right: 13%;
+      z-index: 9;
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+      }
+    }
+  }
+  .questions_search {
+    .form-group {
+      margin-bottom: 1rem !important;
+      position: relative;
+      .input-group {
+        background: #fff;
+        border: 1px solid #db422d;
+        border-radius: 5px;
+        opacity: 1;
+        display: flex;
+        height: 50px;
+      }
+      .input_icon {
+        width: 35px;
+        height: 35px;
+        margin: 7px;
+        padding: 0px;
+      }
+      input {
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        text-align: left;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0;
+        color: #000;
+        height: 48px;
+        background: #fff !important;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  .Questions {
+    margin-top: 50px;
+    display: block;
+    .Tabs {
+      background: #fff;
+      box-shadow: 0px 0px 6px #00000029;
+      border-radius: 5px;
+      color: #000;
+      display: inline-block;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 25px;
+      .row {
+        margin: 0px;
+        padding: 25px 10px;
+        cursor: pointer;
+        h1 {
+          font-size: 20px;
+          font-weight: bold;
+          margin: 0px;
+        }
+        .col-3 {
+          margin: auto;
+          img {
+            max-width: 100%;
+            width: 25px;
+            height: auto;
+          }
+        }
+      }
+      .Dropdown {
+        hr {
+          margin: 0px;
+          border: 0;
+          border-top: 1px solid #e0e0e0;
+        }
+        p {
+          color: #000;
+          font-weight: 500;
+          font-size: 20px;
+          word-break: break-word;
+          margin-bottom: 0px;
+          padding: 25px;
+          a {
+            color: #26a69a;
+          }
+        }
+      }
+    }
+    .no-result {
+      text-align: center;
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .view-less-more {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    .btn {
+      font-size: 20px;
+      font-weight: 600;
+      background: #db422d;
+      border-radius: 6px;
+      color: #fff;
+      width: 223px;
+      height: 52px;
+      &:focus {
+        box-shadow: none;
+      }
+      &:hover {
+        background: #38ada2;
+      }
+    }
+  }
+  .holder {
+    padding: 50px 0px;
+    text-align: center;
+    h1 {
+      color: #38ada2;
+      text-transform: uppercase;
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 0px;
+    }
+  }
+  .holder-quote {
+    padding: 0px 0px 30px 0px;
+    h1 {
+      color: #38ada2;
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 0px;
+    }
+    p {
+      color: #000;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 0px;
+      margin-top: 10px;
+    }
+  }
+  .master-xactimate-improve-estimating-skills {
+    p {
+      color: #000;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 0px;
+      a {
+        color: #38ADA2;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .red {
+        color: #DB422D;
+      }
+    }
+    h2 {
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 0px;
+      .blue {
+        color: #38ADA2;
+      }
+      .red {
+        color: #DB422D;
+      }
+      a {
+        color: #38ADA2;
+        text-decoration: none;
+      }
+    }
+    h4 {
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 0px;
+      a {
+        color: #38ADA2;
+        text-decoration: none;
+      }
+    }
+    h5 {
+      color: #000;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 0px;
+    }
+    ul {
+      padding-left: 25px;
+      li {
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        &::marker {
+          color: #DB422D;
+        }
+        span {
+          color: #DB422D;
+          font-weight: 600;
+        }
+      }
+      .black {
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        &::marker {
+          color: #000;
+        }
+        span {
+          color: #000;
+          font-weight: 700;
+        }
+        a {
+          color: #38ADA2;
+          font-weight: 700;
+          text-decoration: none;
+        }
+      }
+    }
+    ol {
+      padding-left: 25px;
+      li {
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        &::marker {
+          font-weight: 700;
+        }
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      table {
+        width: 100%;
+        border: 1px solid #ccc;
+        overflow: hidden;
+        text-align: left;
+      }
+      tbody {
+        tr {
+          td {
+            color: #000;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 400;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+      }
+    }
+    .try-it-now {
+      text-align: center;
+      .btn {
+        font-weight: 500;
+        background: #db422d;
+        border-radius: 6px;
+        color: #fff;
+        &:focus {
+          box-shadow: none;
+        }
+        &:hover {
+          background: #38ada2;
+        }
+      }
+    }
+    .youtube_video_main {
+      .video {
+        width: 600px;
+        margin: auto;
+        .fluid-width-video-wrapper {
+          width: 100%;
+          position: relative;
+          padding: 0;
+          padding-top: 56%;
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+    .frame_sub {
+      max-width: 600px;
+      margin: auto;
+      img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  .contact-us-form {
+    .form-group {
+      label {
+        color: #38ada2;
+        font-size: 18px;
+        font-weight: 500;
+        display: inline;
+      }
+      .form-control {
+        display: block;
+        width: 100%;
+        height: 55px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #6c757d;
+        background-color: #fff;
+        border: 1px solid #d2d2d2;
+        border-radius: 5px;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      .image-name {
+        margin-top: 30px;
+        color: #26a59a;
+        font-size: 10px;
+        font-style: italic;
+        font-weight: bold;
+        word-break: break-all;
+      }
+      .image-error {
+        margin-top: 30px;
+        color: #db422d;
+        font-size: 10px;
+        font-style: italic;
+        font-weight: bold;
+        word-break: break-all;
+      }
+      .file {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        input {
+          margin-bottom: 0px;
+          visibility: hidden;
+        }
+        .input_icon {
+          position: absolute;
+          z-index: 1;
+          top: 17px;
+          right: 15px;
+        }
+        .file-custom {
+          position: absolute;
+          top: 0px;
+          right: 0;
+          left: 0;
+          font-size: 16px;
+          font-weight: 400;
+          height: 55px;
+          padding: 15px 10px;
+          color: #495057;
+          background-color: #fff;
+          border: 1px solid #d2d2d2;
+          border-radius: 5px;
+        }
+      }
+    }
+    .send {
+      margin-top: 10px;
+      .btn {
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        background: #db422d;
+        border-radius: 6px;
+        color: #fff;
+        padding: 15px 23px 15px 23px;
+        line-height: 1;
+        letter-spacing: 1px;
+        &:hover {
+          background: #38ada2;
+        }
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+    .submit {
+      margin-top: 10px;
+      .btn {
+        font-size: 14px;
+        font-weight: 500;
+        background: #db422d;
+        border-radius: 6px;
+        color: #fff;
+        width: 186px;
+        height: 40px;
+        line-height: 1;
+        letter-spacing: 1px;
+        &:hover {
+          background: #38ada2;
+        }
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  .Corporate-Headquarters-Address {
+    h5 {
+      color: #414141;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+    p {
+      color: #7a7a7a;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 30px auto;
+    }
+    iframe {
+      width: 100%;
+      height: 700px;
+    }
+  }
+  .about-actionable-profile {
+    h2 {
+      color: #414141;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 10px 0px 15px 0px;
+      span {
+        color: #38ADA2;
+      }
+    }
+    p {
+      color: #000;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    .book-a-demo {
+      .btn {
+        font-size: 16px;
+        font-weight: 500;
+        background: #db422d;
+        border-radius: 5px;
+        color: #fff;
+        width: 250px;
+        height: 35px;
+        padding: 5px;
+        &:focus {
+          box-shadow: none;
+        }
+        &:hover {
+          background: #38ada2;
+        }
+      }
+    }
+    .youtube_video_main {
+      margin-top: 30px;
+      .video {
+        width: 100%;
+        .fluid-width-video-wrapper {
+          width: 100%;
+          position: relative;
+          padding: 0;
+          padding-top: 56%;
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.about-us {
+  .holder {
+    padding: 30px 0px 50px 0px;
+    text-align: center;
+    h1 {
+      color: #38ada2;
+      text-transform: uppercase;
+      font-size: 30px;
+      font-weight: 600;
+      padding-bottom: 10px;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+    p {
+      color: #777777;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+  }
+  .about-us_video {
+    text-align: center;
+    .video {
+      background: #fff;
+      box-shadow: 0px 3px 13px #00000029;
+      padding: 15px;
+      width: 100%;
+      margin: auto;
+      .fluid-width-video-wrapper {
+        width: 100%;
+        position: relative;
+        padding: 0;
+        padding-top: 56.25%;
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .sec-1 {
+    margin-top: 50px;
+    .text-sec {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        color: #000;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 0px;
+      }
+    }
+    img {
+      max-width: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+  .sec-2 {
+    background: url("assets/bg-gradient.webp");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    padding: 50px 0px;
+    .img-sec {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 267px;
+        height: 124px;
+      }
+    }
+    .text-sec {
+      background: url("assets/Quotation-White.png");
+      background-position: left top;
+      background-repeat: no-repeat;
+      background-size: 120px 85px;
+      margin-top: -50px;
+      padding: 50px 0px 0px 0px;
+      p {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 0px;
+        padding: 0px 50px 0px 0px;
+      }
+    }
+  }
+  .ultimate-beneficiary {
+    text-align: center;
+    margin-top: 50px;
+    p {
+      color: #000;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+  }
+  .foundation-structure {
+    text-align: center;
+    .divider {
+      width: 100%;
+      margin-top: 35px;
+      margin-bottom: 35px;
+      display: inline-block;
+      border-bottom: 1px solid #ccc;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+    }
+    p {
+      color: #777777;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+    img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+    .Buttons {
+      .btn {
+        font-size: 16px;
+        background: #db422d;
+        border-radius: 6px;
+        color: #f6f8f9;
+        padding: 5px 17px;
+        letter-spacing: 0;
+        line-height: 37px;
+        &:focus {
+          box-shadow: none;
+        }
+        &:hover {
+          background: #38ada2;
+        }
+      }
+    }
+  }
+}
+
+.gi-owner {
+  .gi-owner-picture {
+    padding: 30px 0px;
+    text-align: center;
+    img {
+      width: 30%;
+      height: auto;
+    }
+  }
+  .gi-owner-detail {
+    text-align: center;
+    p {
+      color: #777777;
+      font-size: 14px;
+      font-weight: 500;
+      &:nth-child(4) {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .MasterXactimateImproveEstimatingSkills-header {
+    .sub-header {
+      width: 1600px;
+      max-width: 90%;
+    }
+  }
+  .MasterXactimateImportantTips-header {
+    .sub-header {
+      width: 1600px;
+      max-width: 90%;
+    }
+  }
+  .BecomeExpertXactimateEstimator-header {
+    .sub-header {
+      width: 1600px;
+      max-width: 90%;
+    }
+  }
+  .contact-us {
+    .sub-holder {
+      .bg-image {
+        top: 244px;
+        right: 12%;
+      }
+    }
+    .sub-holder-quote {
+      .bg-image {
+        top: 244px;
+        right: 12%;
+      }
+    }
+    .Corporate-Headquarters-Address {
+      iframe {
+        width: 100%;
+        height: 400px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .MasterXactimateImproveEstimatingSkills-header {
+    .sub-header {
+      width: 1140px;
+    }
+    .official-website {
+      font-size: 27px;
+    }
+  }
+  .MasterXactimateImportantTips-header {
+    .sub-header {
+      width: 1140px;
+    }
+  }
+  .BecomeExpertXactimateEstimator-header {
+    .sub-header {
+      width: 1140px;
+    }
+  }
+  .contact-us {
+    .sub-holder {
+      .bg-image {
+        right: 15%;
+      }
+    }
+    .sub-holder-quote {
+      .text-sec {
+        width: 750px;
+      }
+      .bg-image {
+        top: 323px;
+        right: 15%;
+        img {
+          width: 350px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .contact-us {
+    .sub-holder {
+      height: 200px;
+      padding: 60px 30px;
+      .bg-image {
+        top: 229px;
+        right: 9%;
+        img {
+          width: 300px;
+        }
+      }
+    }
+    .sub-holder-quote {
+      height: 200px;
+      padding: 35px 30px;
+      .text-sec {
+        width: 600px;
+      }
+      .bg-image {
+        top: 229px;
+        right: 9%;
+        img {
+          width: 300px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about-us {
+    .sec-2 {
+      .img-sec {
+        img {
+          width: 200px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .contact-us {
+    .sub-holder-quote {
+      padding: 15px 20px;
+      .text-sec {
+        width: 400px;
+      }
+    }
+    .Corporate-Headquarters-Address {
+      h5 {
+        margin-top: 20px;
+      }
+    }
+    .about-actionable-profile {
+      h2 {
+        margin: 20px 0px 15px 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .MasterXactimateImproveEstimatingSkills-header {
+    .sub-header {
+      padding: 50px 0px;
+      .image-sec {
+        margin-top: 20px;
+      }
+    }
+    h1 {
+      font-size: 20px;
+    }
+  }
+  .MasterXactimateImportantTips-header {
+    .sub-header {
+      padding: 30px 0px;
+      .image-sec {
+        margin-top: 20px;
+      }
+    }
+    h1 {
+      font-size: 20px;
+    }
+  }
+  .BecomeExpertXactimateEstimator-header {
+    .sub-header {
+      padding: 30px 0px;
+      .image-sec {
+        margin-top: 20px;
+        img {
+          width: 230px;
+        }
+      }
+    }
+    h1 {
+      font-size: 20px;
+    }
+  }
+  .contact-us {
+    .sub-holder {
+      height: 150px;
+      padding: 40px 30px;
+      h1 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 15px;
+      }
+      .bg-image {
+        top: 224px;
+        right: 9%;
+        img {
+          width: 200px;
+        }
+      }
+    }
+    .sub-holder-quote {
+      height: 150px;
+      .text-sec {
+        width: 300px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 15px;
+      }
+      .bg-image {
+        top: 224px;
+        right: 9%;
+        img {
+          width: 200px;
+        }
+      }
+    }
+  }
+  .about-us {
+    .sec-1 {
+      margin-top: 0px;
+    }
+    .sec-2 {
+      .text-sec {
+        background: none;
+        margin-top: -25px;
+        p {
+          padding: 0px 30px;
+        }
+      }
+    }
+  }
+  .gi-owner {
+    .gi-owner-picture {
+      img {
+        width: 80%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 606px) {
+  .MasterXactimateImproveEstimatingSkills-header {
+    .official-website {
+      font-size: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .contact-us {
+    .sub-holder {
+      height: 125px;
+      padding: 30px 150px 30px 10px;
+      h1 {
+        font-size: 15px;
+      }
+      p {
+        font-size: 10px;
+      }
+      .bg-image {
+        top: 221px;
+        right: 9%;
+        img {
+          width: 150px;
+        }
+      }
+    }
+    .sub-holder-quote {
+      height: 125px;
+      padding: 15px 15px 15px 10px;
+      .text-sec {
+        width: 300px;
+      }
+      h1 {
+        font-size: 15px;
+      }
+      p {
+        font-size: 10px;
+      }
+      .bg-image {
+        top: 235px;
+        right: 9%;
+        img {
+          width: 120px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 494px) {
+  .MasterXactimateImproveEstimatingSkills-header {
+    .official-website {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .contact-us {
+    .sub-holder-quote {
+      .text-sec {
+        width: 200px;
+      }
+    }
+  }
+}

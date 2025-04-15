@@ -22,6 +22,10 @@
 
 @import "./Search";
 
+// Global Search
+
+@import "./GlobalSearch";
+
 // Comments
 
 @import "./Comments";
@@ -30,6 +34,47 @@
 
 @import "./Receipt";
 
+// Zora-Solidifai
+
+@import "./Zora-Solidifai";
+
+// Code of Ethics
+
+@import "./CodeOfEthics";
+
+// Contact Us
+
+@import "./ContactUs";
+
+// Demo
+
+@import "./Demo";
+
+// MediaKit
+
+@import "./MediaKit";
+
+// Missing Pages
+
+@import "./missingpages";
+
+// Hubspot Form
+
+@import "./HubspotForm";
+
+// React Image Lightbox
+
+@import "./react-image-lightbox";
+
+// React Responsive Carousel
+
+@import "./carousel.min";
+
+// React Slick
+
+@import "./slick-theme";
+@import "./slick";
+
 // Pages
 @import "./loader";
 @import "./pages/login";
@@ -37,7 +82,7 @@
 @import "./pages/events";
 @import "./pages/eventsdetail";
 @import "./pages/insightsheet";
-@import "./pages/insidesheetdetail";
+@import "./pages/insightsheetdetail";
 @import "./pages/product";
 @import "./pages/buyproduct";
 @import "./pages/pricelistupdatesummary";
@@ -48,19 +93,70 @@
 @import "./pages/matterportstandards";
 @import "./pages/commonlyoverlookedlineitems";
 @import "./pages/solidifai_zora";
+@import "./pages/lineitemrequest";
+@import "./pages/swag";
+@import "./pages/giftcards";
+@import "./pages/planmatrix";
+@import "./pages/umpiresmanual";
+@import "./pages/myaccount";
+@import "./pages/users";
+@import "./pages/insighterpoints";
+@import "./pages/transactionhistory";
+@import "./pages/actionableacademy";
+@import "./pages/CancelSubscription";
 
 // Admin Side Menu
 
-@import "./admin/SideMenu";
+@import "./gi-team/SideMenu";
 
 // Admin Pages
 
-@import "./admin/pages/login";
-@import "./admin/pages/dashboard";
-@import "./admin/pages/insightsheet";
-@import "./admin/pages/createInsightSheet";
-@import "./admin/pages/products";
+@import "./gi-team/pages/login";
+@import "./gi-team/pages/dashboard";
+@import "./gi-team/pages/insightsheet";
+@import "./gi-team/pages/createInsightSheet";
+@import "./gi-team/pages/products";
+@import "./gi-team/pages/pricelistupdatesummary";
 
 // Admin Text Editor
 
-@import "./admin/react-draft-wysiwyg";
+@import "./gi-team/react-draft-wysiwyg";
+
+// Admin Confirm Alert
+
+@import "./gi-team/react-confirm-alert";
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #ddd;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #38ADA2;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-bar::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

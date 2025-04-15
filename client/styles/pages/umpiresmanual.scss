@@ -1,0 +1,61 @@
+.Umpires_Manual {
+  .holder {
+    padding: 30px 0;
+    text-align: center;
+    h2 {
+      color: #38ADA2;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
+    h3 {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      a {
+        color: #38ADA2;
+        text-decoration: underline;
+      }
+    }
+  }
+  .Manual_Section {
+    padding-top: 60px;
+    h3 {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    .manual_border {
+      background: #fff;
+      box-shadow: 0px 3px 13px #00000029;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px !important;
+        padding: 10px;
+      }
+      .values {
+        padding: 15px;
+        .isbn {
+          font-size: 16px;
+          text-align: left;
+        }
+        .price {
+          font-size: 40px;
+          color: #DB422D;
+          font-weight: bold;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

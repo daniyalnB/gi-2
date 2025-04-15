@@ -1,0 +1,135 @@
+.Transaction_History {
+  .holder {
+    padding: 30px 0px;
+    text-align: center;
+    h2 {
+      color: #38ADA2;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 30px;
+      margin-bottom: 0px;
+    }
+  }
+  .back-to-my-account {
+    margin: 10px 0px;
+		a {
+			color: #38ADA2;
+			font-size: 14px;
+			font-weight: 500;
+		}
+	}
+  .select_type_section {
+    background: #fff;
+    box-shadow: 0px 0px 6px #00000029;
+    border-radius: 5px;
+    height: 510px;
+    padding: 20px;
+    span {
+      font-size: 14px;
+      color: #B8B8B8;
+    }
+    .type-tabs {
+      border: none;
+      background: #fff;
+      margin-top: 10px;
+      ul {
+        li {
+          list-style: none;
+          cursor: pointer;
+        }
+      }
+      .tabs {
+        .item {
+          font-size: 16px;
+          font-weight: 500;
+          color: #B8B8B8;
+          display: block;
+          padding: 10px 15px;
+        }
+        .active {
+          font-weight: 600;
+          color: #38ADA2;
+          background: #ebf7f6;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+  .history_section {
+    background: #fff;
+    box-shadow: 0px 0px 8px #00000027;
+    border-radius: 5px;
+    height: 510px;
+    padding: 20px;
+    span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #DB422D;
+    }
+    .transaction_history {
+      height: 360px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    .payment_section_heading {
+      .row {
+        margin: 0 auto;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .heading {
+        padding: 20px 10px 10px 10px;
+        h1 {
+          font-size: 14px;
+          font-weight: bold;
+          color: #000;
+          margin-bottom: 0px;
+        }
+      }
+    }
+    .payment_section_body {
+      .row {
+        margin: 0 auto;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      .date {
+        padding: 20px 10px;
+        h4 {
+          font-size: 12px;
+          letter-spacing: 0.02px;
+          color: #4D4D4D;
+          margin-bottom: 0px;
+        }
+      }
+      .price {
+        padding: 20px 10px;
+        h5 {
+          font-size: 12px;
+          letter-spacing: 0.02px;
+          color: #4D4D4D;
+          margin-bottom: 0px;
+        }
+      }
+      .download {
+        padding: 15px 30px;
+        a {
+          cursor: pointer;
+        }
+        img {
+          width: 15px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Transaction_History {
+    .history_section {
+      margin-top: 30px;
+    }
+  }
+}
