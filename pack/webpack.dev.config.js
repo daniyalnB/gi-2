@@ -1,5 +1,5 @@
 const CircularDependencyPlugin = require("circular-dependency-plugin");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const common = require("./webpack.common.config");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -14,19 +14,17 @@ module.exports = merge(common({ development: true }), {
   mode: "development",
   devtool: "eval-cheap-module-source-map",
   devServer: {
-    contentBase: PATHS.output,
-    historyApiFallback: true,
-    hot: true,
-    overlay: false,
-    staticOptions: {
-      redirect: false,
+    static: {
+      directory: PATHS.output,
+      watch: true,
     },
-    port: 8000,
+    historyApiFallback: true,
+    port: 8080,
     host: "0.0.0.0",
   },
   resolve: {
-    alias: {
-      "react-dom": "@hot-loader/react-dom",
+    fallback: {
+      vm: require.resolve("vm-browserify"),
     },
   },
   module: {
@@ -34,22 +32,18 @@ module.exports = merge(common({ development: true }), {
       {
         test: /\.(css|s[ac]ss)$/,
         exclude: /node_modules/,
-        //
         use: [
-          // Creates `style` nodes from JS strings
           "style-loader",
-          // Translates CSS into CommonJS
           "css-loader",
           "postcss-loader",
-          // Compiles Sass to CSS
           "sass-loader",
         ],
       },
       {
         test: /\.m?js/,
         resolve: {
-          fullySpecified: false
-        }
+          fullySpecified: false,
+        },
       },
     ],
   },
@@ -61,14 +55,12 @@ module.exports = merge(common({ development: true }), {
       title: GENERAL.name,
     }),
     new EnvironmentPlugin({
-      // * explicitly setting the node environment variable for clarity
       NODE_ENV: "development",
     }),
     new CircularDependencyPlugin({
       exclude: /node_modules/,
       failOnError: false,
     }),
-
     new CopyWebpackPlugin({
       patterns: [
         {

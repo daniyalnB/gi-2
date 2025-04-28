@@ -1,40 +1,29 @@
 import React, { useContext, useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../contexts/authContext";
 import { auth } from "utils/api-routes/api-routes.util";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const { isAuthenticated } = useContext(AuthContext);
+  const location = useLocation();
 
   useEffect(() => {
     auth().subscribe(
       (response: any) => {
         // console.log(response, "response");
-        //console.log(props, "hello");
       },
       (error) => {
         console.log("error in Protected Route Admin");
         //logout();
       }
     );
-  }, [rest.location.pathname]);
+  }, [location.pathname]);
 
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        if (localStorage.getItem("token")) {
-          return <Component />;
-        } else {
-          return (
-            <Redirect
-              to={{ pathname: "/gi-team/login", state: { from: props.location } }}
-            />
-          );
-        }
-      }}
-    />
-  );
-}
+  if (!localStorage.getItem("token")) {
+    return <Navigate to="/gi-team/login" state={{ from: location }} replace />;
+  }
+
+  return <Component />;
+};
 
 export default ProtectedRoute;

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import queryString from "query-string";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -308,6 +308,8 @@ const FormElementCoAdmin = (props) => {
 
 const ActiveUsers = (props) => {
 
+  const location = useLocation();
+
   const { getCustomerInfo, myInfo, getMyInvitedUser, invitedUsers, getMyCoAdmin, coAdmins } = useContext(AppContext);
 
   useEffect(() => {
@@ -612,7 +614,7 @@ const ActiveUsers = (props) => {
                 </OverlayTrigger>
               ) : (
                 <>
-                  {(props.location.state && props.location.state.step === "three" &&
+                  {(location.state && location.state.step === "three" &&
                     <div
                       style={showPopup ? { display: "block" } : { display: "none" }}
                       className="step-3-tooltip"
@@ -1126,4 +1128,4 @@ const ActiveUsers = (props) => {
   );
 };
 
-export default withRouter(ActiveUsers);
+export default ActiveUsers;

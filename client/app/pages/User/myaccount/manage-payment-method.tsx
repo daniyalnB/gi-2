@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import queryString from "query-string";
 import { 
@@ -260,4 +260,4 @@ const ManagePaymentMethod = (props) => {
   );
 }
 
-export default withRouter(ManagePaymentMethod);
+export default ManagePaymentMethod;

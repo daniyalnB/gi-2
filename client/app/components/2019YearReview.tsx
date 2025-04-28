@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../components/LottieLoader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ScrollToTop from "../components/ScrollToTop";
@@ -72,4 +71,4 @@ const YearReview2019 = () => {
 	);
 };
 
-export default withRouter(YearReview2019);
+export default YearReview2019;

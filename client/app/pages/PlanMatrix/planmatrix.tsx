@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useContext, useEffect, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -25,6 +25,8 @@ import rain from "assets/rain.png";
 import ati from "assets/ati.png";
 
 const PlanMatrix = () => {
+
+	const navigate = useNavigate();
 
 	const { getCustomerInfo, myInfo } = useContext(AppContext);
 
@@ -87,8 +89,7 @@ const PlanMatrix = () => {
     cancelSubscriptionPlan().subscribe((response) => {
       setCancelPlanLoading(false);
       handleClose();
-			history.push({
-				pathname: "/my-account",
+			navigate("/my-account", {
 				state: {
 					subscription: true,
 					plan: `${AllPlans[flag]}`,
@@ -99,8 +100,7 @@ const PlanMatrix = () => {
   };
 
 	const BuyNewPlan = (planNumber) => {
-    history.push({
-			pathname: "/my-account",
+		navigate("/my-account", {
 			state: {
 				subscription: true,
 				plan: `${AllPlans[planNumber]}`,
@@ -3995,4 +3995,4 @@ const PlanMatrix = () => {
 	);
 };
 
-export default withRouter(PlanMatrix);
+export default PlanMatrix;

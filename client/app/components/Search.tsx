@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { SearchInsightSheets } from "../../utils/api-routes/api-routes.util";
 import history from "../../utils/history";
 import queryString from "query-string";
@@ -8,6 +8,9 @@ import search2 from "assets/search2.png";
 import cancel from "assets/Cancel.svg";
 
 const Search = (props) => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
   
   const [loadingSearch, setLoadingSearch] = useState(false);
 
@@ -25,14 +28,14 @@ const Search = (props) => {
   const [repair, setRepair] = useState(true);
 
   useEffect(() => {
-    if (props.location.state == undefined) {
+    if (!location.state) {
       setMitigation(true);
       setRepair(true);
     } else {
-      setMitigation(props.location.state.mitigation);
-      setRepair(props.location.state.repair);
+      setMitigation(location.state.mitigation);
+      setRepair(location.state.repair);
     }
-  }, []);
+  }, [location]);
 
   const [limit, setLimit] = useState(5);
 
@@ -91,16 +94,15 @@ const Search = (props) => {
     if (e.charCode === 13) {
       if (searchPage == undefined || searchPage == "") {
       } else {
-        history.push({
-          pathname: `/s=${
+        navigate(`/s/${
             searchfield
               ? searchfield.replace(/\//gi, "%2F")
               : searchPage.replace(/\//gi, "%2F")
-          }`,
+          }`, {
           state: {
             mitigation: mitigation,
             repair: repair,
-          },
+          }
         });
         setSearchField("");
       }
@@ -174,16 +176,14 @@ const Search = (props) => {
               <img className="input_icon" src={search2} alt="search2" />
             ) : (
               <Link
-                to={{
-                  pathname: `/s=${
-                    searchfield
-                      ? searchfield.replace(/\//gi, "%2F")
-                      : searchPage.replace(/\//gi, "%2F")
-                  }`,
-                  state: {
-                    mitigation: mitigation,
-                    repair: repair,
-                  },
+                to={`/s/${
+                  searchfield
+                    ? searchfield.replace(/\//gi, "%2F")
+                    : searchPage.replace(/\//gi, "%2F")
+                }`}
+                state={{
+                  mitigation: mitigation,
+                  repair: repair,
                 }}
               >
                 <img
@@ -362,4 +362,4 @@ const Search = (props) => {
   );
 };
 
-export default withRouter(Search);
+export default Search;

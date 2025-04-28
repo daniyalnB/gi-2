@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState, useRef } from "react";
-import { withRouter } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../../../../components/LottieLoader";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -24,10 +24,9 @@ import {
   getSubscriptionHistory,
 } from "../../../../../utils/api-routes/api-routes.util";
 import PaymentCard from "../PaymentCard";
-import history from "../../../../../utils/history";
 import queryString from "query-string";
 import { Modal } from "react-bootstrap";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import validator from "validator";
 import modalclose from "assets/modal-close.svg";
 import AddCard from "assets/AddCard.svg";
@@ -120,6 +119,9 @@ const FormElement = (props) => {
 
 const Checkout = (props) => {
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const { getCustomerInfo, myInfo, cards, getMyInvitedUser, invitedUsers, getNavbarData } = useContext(AppContext);
 
   const [plandata, setPlanData] = useState([]);
@@ -129,7 +131,7 @@ const Checkout = (props) => {
       if (response.response.Requested_Action) {
         setPlanData(response.response.data);
         const x = response.response.data.filter(
-					(plan) => plan.name === props.location.state.plan
+					(plan) => plan.name === location.state.plan
 				)[0];
         setPlanData(x);
         setLoadingPage(false);
@@ -325,8 +327,8 @@ const Checkout = (props) => {
 
   useEffect(() => {
     setActionableXactimateProfile({
-      xactProfileveriskid: props.location.state.ActionableXactimateProfile.ActionableXactimateProfile.xactProfileveriskid ? props.location.state.ActionableXactimateProfile.ActionableXactimateProfile.xactProfileveriskid : "",
-      xactProfileStatus: props.location.state.ActionableXactimateProfile.ActionableXactimateProfile.xactProfileStatus,
+      xactProfileveriskid: location.state.ActionableXactimateProfile.ActionableXactimateProfile.xactProfileveriskid ? location.state.ActionableXactimateProfile.ActionableXactimateProfile.xactProfileveriskid : "",
+      xactProfileStatus: location.state.ActionableXactimateProfile.ActionableXactimateProfile.xactProfileStatus,
     });
   }, []);
 
@@ -403,7 +405,7 @@ const Checkout = (props) => {
           props.BillingDetails(objContactInformationForOrderDTO);
           props.ExtraData(response.response.data);
           handleCheckout();
-          history.replace(props.location.state, undefined);
+          navigate(location.pathname, { replace: true, state: undefined });
           window.scrollTo(0, 0);
         } else {
           setLoading(false);
@@ -1300,7 +1302,7 @@ const Checkout = (props) => {
                           <>
                             Amount Reduced:{" "}
                             <b>
-                              <NumberFormat
+                              <NumericFormat
                                 value={(couponData.amountreducned / 100).toFixed(2)}
                                 displayType={"text"}
                                 thousandSeparator={true}
@@ -1334,7 +1336,7 @@ const Checkout = (props) => {
                           <>
                             Amount Reduced:{" "}
                             <b>
-                              <NumberFormat
+                              <NumericFormat
                                 value={(couponData.amountreducned / 100).toFixed(2)}
                                 displayType={"text"}
                                 thousandSeparator={true}
@@ -1425,7 +1427,7 @@ const Checkout = (props) => {
             <div className="checkout-btns">
               <button 
                 className="btn back"
-                onClick={() => history.push("/plan-matrix")}
+                onClick={() => navigate("/plan-matrix")}
               >
                 Back
               </button>
@@ -1486,4 +1488,4 @@ const Checkout = (props) => {
   );
 }
 
-export default withRouter(Checkout);
+export default Checkout;

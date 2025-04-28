@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -10,7 +10,6 @@ const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 import { GetAllMacrosCustomer } from "../../../utils/api-routes/api-routes.util";
 import { AppContext } from "../../../contexts/appContext";
-import history from "../../../utils/history";
 import Modal from "react-bootstrap/Modal";
 import ReactPaginate from "react-paginate";
 import down from "assets/down-arrow-user.svg";
@@ -19,12 +18,14 @@ import modalclose from "assets/modal-close.svg";
 
 const FormElement = (props) => {
 
+  const navigate = useNavigate();
+
   const handleContinue = () => {
-    history.push(`/shop/macros/${props.permalink}`)
+    navigate(`/shop/macros/${props.permalink}`);
   };
 
   const handleUpgrade = () => {
-    history.push("/plan-matrix");
+    navigate("/plan-matrix");
   };
 
   return (
@@ -50,27 +51,32 @@ const FormElement = (props) => {
   );
 };
 
-export const useDetectOutsideClick = (el, initialState) => {
+const InsightSheetMacros = () => {
 
-  const [isActive, setIsActive] = useState(initialState);
+  const dropdownRef1 = useRef<HTMLDivElement | null>(null);
+  const [activeMenue, setActiveMenue] = useState(false);
 
   useEffect(() => {
-    const onClick = e => {
-      if (el.current !== null && !el.current.contains(e.target)) {
-        setIsActive(!isActive);
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef1.current &&
+        !dropdownRef1.current.contains(event.target)
+      ) {
+        setActiveMenue(false);
       }
     };
-    if (isActive) {
-      window.addEventListener("click", onClick);
-    }
-    return () => {
-      window.removeEventListener("click", onClick);
-    };
-  }, [isActive, el]);
-  return [isActive, setIsActive];
-};
 
-const InsightSheetMacros = () => {
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [dropdownRef1]);
+
+  const toggleActive = (event) => {
+    event.stopPropagation();
+    setActiveMenue(!activeMenue);
+  };
 
   const { getCustomerInfo, myInfo } = useContext(AppContext);
 
@@ -90,10 +96,6 @@ const InsightSheetMacros = () => {
       setIsChildUser(myInfo.ischilduser);
     }
   }, [myInfo]);
-
-  const dropdownRef1 = useRef(null);
-  const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
-  const onClickRef1 = () => setIsActive1(!isActive1);
 
   const [path, setPath] = useState(location.pathname);
 
@@ -238,17 +240,17 @@ const InsightSheetMacros = () => {
                               name="SortBy"
                               className="form-control"
                               placeholder="Sort by"
-                              onClick={() => onClickRef1()}
+                              onClick={toggleActive}
                             />
                             <label className="file_input_label">
                               <img
                                 className="select size"
                                 src={down}
-                                onClick={() => onClickRef1()}
+                                onClick={toggleActive}
                               />
                             </label>
                             <div
-                              className={isActive1 ? "active active_sketch_gallery" : "dropdown-content"}
+                              className={activeMenue ? "active active_sketch_gallery" : "dropdown-content"}
                               ref={dropdownRef1}
                             >
                               <label htmlFor="AZ">
@@ -373,12 +375,8 @@ const InsightSheetMacros = () => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <Link
                                                     className="btn link"
-                                                    to={{
-                                                      pathname: "/my-account",
-                                                      state: {
-                                                        path: path,
-                                                      },
-                                                    }}
+                                                    to="/my-account"
+                                                    state={{ path: path }}
                                                   >
                                                     Sign In
                                                   </Link>
@@ -525,12 +523,8 @@ const InsightSheetMacros = () => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <Link
                                                     className="btn link"
-                                                    to={{
-                                                      pathname: "/my-account",
-                                                      state: {
-                                                        path: path,
-                                                      },
-                                                    }}
+                                                    to="/my-account"
+                                                    state={{ path: path }}
                                                   >
                                                     Sign In
                                                   </Link>
@@ -677,12 +671,8 @@ const InsightSheetMacros = () => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <Link
                                                     className="btn link"
-                                                    to={{
-                                                      pathname: "/my-account",
-                                                      state: {
-                                                        path: path,
-                                                      },
-                                                    }}
+                                                    to="/my-account"
+                                                    state={{ path: path }}
                                                   >
                                                     Sign In
                                                   </Link>
@@ -833,12 +823,8 @@ const InsightSheetMacros = () => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <Link
                                                     className="btn link"
-                                                    to={{
-                                                      pathname: "/my-account",
-                                                      state: {
-                                                        path: path,
-                                                      },
-                                                    }}
+                                                    to="/my-account"
+                                                    state={{ path: path }}
                                                   >
                                                     Sign In
                                                   </Link>
@@ -991,4 +977,4 @@ const InsightSheetMacros = () => {
   );
 };
 
-export default withRouter(InsightSheetMacros);
+export default InsightSheetMacros;

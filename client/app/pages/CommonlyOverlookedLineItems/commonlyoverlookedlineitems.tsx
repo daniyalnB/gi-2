@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -116,12 +116,8 @@ const CommonlyOverlookedLineItems = (props) => {
                                 loading="lazy"
                               />
                               <Link
-                                to={{
-                                  pathname: "/my-account",
-                                  state: {
-                                    path: path,
-                                  },
-                                }}
+                                to="/my-account"
+                                state={{ path: path }}
                               >
                                 <button className="btn"> Sign In </button>
                               </Link>
@@ -229,4 +225,4 @@ const CommonlyOverlookedLineItems = (props) => {
   );
 };
 
-export default withRouter(CommonlyOverlookedLineItems);
+export default CommonlyOverlookedLineItems;

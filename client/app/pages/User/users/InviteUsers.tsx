@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useContext, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LottieLoader from "../../../components/LottieLoader";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import ScrollToTop from "../../../components/ScrollToTop";
@@ -8,7 +8,6 @@ const Footer = React.lazy(() => import("../../../components/Footer"));
 const CookieConsentGI2 = React.lazy(() => import("../../../components/CookieConsent"));
 const WrongBrowserDisclaimer = React.lazy(() => import("../../../components/WrongBrowserDisclaimer"));
 import { AppContext } from "../../../../contexts/appContext";
-import history from "../../../../utils/history";
 import { Helmet } from "react-helmet";
 import validator from "validator";
 import Tabs from "react-bootstrap/Tabs";
@@ -16,6 +15,8 @@ import Tab from "react-bootstrap/Tab";
 import down from "assets/down-arrow-user.svg";
 
 const InviteUsers = () => {
+
+  const navigate = useNavigate();
 
   const [path, setPath] = useState(location.pathname);
 
@@ -419,15 +420,14 @@ const InviteUsers = () => {
 
   const handleSubmit = () => {
     localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-    history.push({
-      pathname: "/checkout",
+    navigate("/checkout", {
       state: {
         invite_users: fields,
         type: "invite_users",
         planName: (myInfo.subscriptioninfo.planname === "EnterprisePlan" || myInfo.subscriptioninfo.planname === "EnterprisePlanAnnual") ? "EP" : "PP",
         path: path,
       },
-    });
+		});
   };
 
   useEffect(() => {
@@ -572,7 +572,7 @@ const InviteUsers = () => {
                 <Footer />
               </>
             ) : (
-              history.push(`/my-account`)
+              navigate(`/my-account`)
             )}
           </>
         ) : (
@@ -602,4 +602,4 @@ const InviteUsers = () => {
   );
 };
 
-export default withRouter(InviteUsers);
+export default InviteUsers;

@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../components/LottieLoader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ScrollToTop from "../components/ScrollToTop";
@@ -8,18 +8,20 @@ const Footer = React.lazy(() => import("../components/Footer"));
 const CookieConsentGI2 = React.lazy(() => import("../components/CookieConsent"));
 const WrongBrowserDisclaimer = React.lazy(() => import("../components/WrongBrowserDisclaimer"));
 import { AppContext } from "../../contexts/appContext";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { Helmet } from "react-helmet";
 import moment from "moment";
-import history from "../../utils/history";
 import person from "assets/receipt_person.svg";
 import envelope from "assets/receipt_envelope.svg";
 import phone from "assets/receipt_phone.svg";
-import location from "assets/receipt_location.svg";
+import receipt_location from "assets/receipt_location.svg";
 import companyname from "assets/receipt_companyname.svg";
 import download from "assets/Download.svg";
 
 const Receipt = (props) => {
+
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	const { getCustomerInfo, myInfo, getMyEncryptedDataFunction, encryptedData } = useContext(AppContext);
 
@@ -47,22 +49,38 @@ const Receipt = (props) => {
 	const [couponData, setCouponData] = useState([]);
 
 	useEffect(() => {
-    if (props.location.state === undefined) {
-      history.push("/");
+    if (!location.state) {
+      navigate("/");
     } else {
-      setData(props.location.state.data);
-			setPropsData(props.location.state.propsData);
-			setCouponData(props.location.state.couponData);
+      setData(location.state.data);
+      setPropsData(location.state.propsData);
+      setCouponData(location.state.couponData);
     }
-  }, []);
+  }, [location.state, navigate]);
 
 	useEffect(() => {
-		return () => {
-			if (history.action === "POP") {
-				history.replace(`${propsData.path}`);
-			}
-		}
-	}, [propsData]);
+    // Create a cleanup function that redirects when component unmounts
+    const handleBeforeUnload = () => {
+      // Store info in sessionStorage for potential redirection after POP
+      if (propsData && propsData.path) {
+        sessionStorage.setItem("redirectPath", propsData.path);
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [propsData]);
+
+	useEffect(() => {
+    const redirectPath = sessionStorage.getItem("redirectPath");
+    if (redirectPath && window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+      navigate(redirectPath);
+      sessionStorage.removeItem("redirectPath");
+    }
+  }, [navigate]);
 
 	const ssoauth = () => {
     const host =  window.location.host;
@@ -228,7 +246,7 @@ const Receipt = (props) => {
 												) : propsData.type == "points" ? (
 													<>
 														{data.producttitle}{" "}(
-															<NumberFormat
+															<NumericFormat
 																value={data.numberofinsigherpointsbought}
 																displayType={"text"}
 																thousandSeparator={true}
@@ -254,7 +272,7 @@ const Receipt = (props) => {
 											<h3 className="text-right">
 												{couponData.length !== 0 ? (
 													<>
-														<NumberFormat
+														<NumericFormat
 															value={(couponData.orignalprice / 100).toFixed(2)}
 															displayType={"text"}
 															thousandSeparator={true}
@@ -264,14 +282,14 @@ const Receipt = (props) => {
 												) : (
 													<>
 														{propsData.type == "users" || propsData.type == "invite_users" ? (
-															<NumberFormat
-																value={(props.location.state.ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
+															<NumericFormat
+																value={(location.state.ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
 																displayType={"text"}
 																thousandSeparator={true}
 																prefix={"$"}
 															/>
 														) : (
-															<NumberFormat
+															<NumericFormat
 																value={(data.pricepaidincents / 100).toFixed(2)}
 																displayType={"text"}
 																thousandSeparator={true}
@@ -317,7 +335,7 @@ const Receipt = (props) => {
 													<h3 className="text-right"> 
 														{couponData.length !== 0 ? (
 															<>
-																<NumberFormat
+																<NumericFormat
 																	value={(couponData.orignalprice / 100).toFixed(2)}
 																	displayType={"text"}
 																	thousandSeparator={true}
@@ -327,14 +345,14 @@ const Receipt = (props) => {
 														) : (
 															<>
 																{propsData.type == "users" || propsData.type == "invite_users" ? (
-																	<NumberFormat
-																		value={(props.location.state.ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
+																	<NumericFormat
+																		value={(location.state.ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
 																		displayType={"text"}
 																		thousandSeparator={true}
 																		prefix={"$"}
 																	/>
 																) : (
-																	<NumberFormat
+																	<NumericFormat
 																		value={(data.pricepaidincents / 100).toFixed(2)}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -354,17 +372,17 @@ const Receipt = (props) => {
 									<div className="row">
 										<div className="col" style={{ margin: "10px", textAlign: "center" }}>
 											<span className="coupon_success">
-												{props.location.state.ChildPaymentPreviewData.couponcode && (
+												{location.state.ChildPaymentPreviewData.couponcode && (
 													<>
-														Subscription Coupon Applied: <b>{props.location.state.ChildPaymentPreviewData.couponcode}</b>
+														Subscription Coupon Applied: <b>{location.state.ChildPaymentPreviewData.couponcode}</b>
 														<br />
 													</>
 												)}
-												Next Billing Date: <b>{moment(props.location.state.ChildPaymentPreviewData.nextbillingdate).format("LL")}</b>
+												Next Billing Date: <b>{moment(location.state.ChildPaymentPreviewData.nextbillingdate).format("LL")}</b>
 												<br />
-												Last Billing Date: <b>{moment(props.location.state.ChildPaymentPreviewData.lastbillingdate).format("LL")}</b>
+												Last Billing Date: <b>{moment(location.state.ChildPaymentPreviewData.lastbillingdate).format("LL")}</b>
 												<br />
-												Days Remaining on Current Billing Cycle: <b>{props.location.state.ChildPaymentPreviewData.remainingdaysuntilnextpaymenttocharge}</b>
+												Days Remaining on Current Billing Cycle: <b>{location.state.ChildPaymentPreviewData.remainingdaysuntilnextpaymenttocharge}</b>
 											</span>
 										</div>
 									</div>
@@ -379,7 +397,7 @@ const Receipt = (props) => {
 													{couponData.length !== 0 ? (
 														<>
 															-
-															<NumberFormat
+															<NumericFormat
 																value={(couponData.amountreducned / 100).toFixed(2)}
 																displayType={"text"}
 																thousandSeparator={true}
@@ -408,7 +426,7 @@ const Receipt = (props) => {
 														{couponData.insighterpointsactuallyapplied ? (
 															<>
 																Insighter Points Applied{" "}(
-																	<NumberFormat
+																	<NumericFormat
 																		value={couponData.insighterpointsactuallyapplied}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -418,7 +436,7 @@ const Receipt = (props) => {
 														) : (
 															<>
 																Insighter Points Applied{" "}
-																<NumberFormat
+																<NumericFormat
 																	value={couponData.insighterpointsactuallyapplied}
 																	displayType={"text"}
 																	thousandSeparator={true}
@@ -432,7 +450,7 @@ const Receipt = (props) => {
 														{couponData.length !== 0 ? (
 															<>
 																-
-																<NumberFormat
+																<NumericFormat
 																	value={(couponData.amountreducedduetoinsighterpoints / 100).toFixed(2)}
 																	displayType={"text"}
 																	thousandSeparator={true}
@@ -460,7 +478,7 @@ const Receipt = (props) => {
 											<h3 className="text-right"> 
 												{couponData.length !== 0 ? (
 													<>
-														<NumberFormat
+														<NumericFormat
 															value={(couponData.newprice / 100).toFixed(2)}
 															displayType={"text"}
 															thousandSeparator={true}
@@ -470,14 +488,14 @@ const Receipt = (props) => {
 												) : (
 													<>
 														{propsData.type == "users" || propsData.type == "invite_users" ? (
-															<NumberFormat
-																value={(props.location.state.ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
+															<NumericFormat
+																value={(location.state.ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
 																displayType={"text"}
 																thousandSeparator={true}
 																prefix={"$"}
 															/>
 														) : (
-															<NumberFormat
+															<NumericFormat
 																value={(data.pricepaidincents / 100).toFixed(2)}
 																displayType={"text"}
 																thousandSeparator={true}
@@ -594,21 +612,21 @@ const Receipt = (props) => {
 												alt="location"
 												loading="lazy"
 											/>
-											<h5> {propsData.type == "users" || propsData.type == "invite_users" ? props.location.state.billingDetails.companyname : data && data.contactinformationfororder ? data.contactinformationfororder.companyname : "N/A"} </h5>
+											<h5> {propsData.type == "users" || propsData.type == "invite_users" ? location.state.billingDetails.companyname : data && data.contactinformationfororder ? data.contactinformationfororder.companyname : "N/A"} </h5>
 										</div>
 									</div>
 								</div>
 								{propsData.type == "users" || propsData.type == "invite_users" ? (
-									props.location.state.billingDetails.streetaddress ?
+									location.state.billingDetails.streetaddress ?
 									<div className="billing_info">
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
-												<h5> {props.location.state.billingDetails.streetaddress} </h5>
+												<h5> {location.state.billingDetails.streetaddress} </h5>
 											</div>
 										</div>
 									</div> : ""
@@ -618,7 +636,7 @@ const Receipt = (props) => {
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
@@ -630,16 +648,16 @@ const Receipt = (props) => {
 									""
 								)}
 								{propsData.type == "users" || propsData.type == "invite_users" ? (
-									props.location.state.billingDetails.streetaddress ?
+									location.state.billingDetails.streetaddress ?
 									<div className="billing_info">
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
-												<h5> {props.location.state.billingDetails.streetaddress} </h5>
+												<h5> {location.state.billingDetails.streetaddress} </h5>
 											</div>
 										</div>
 									</div> : ""
@@ -649,7 +667,7 @@ const Receipt = (props) => {
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
@@ -661,16 +679,16 @@ const Receipt = (props) => {
 									""
 								)}
 								{propsData.type == "users" || propsData.type == "invite_users" ? (
-									props.location.state.billingDetails.aptorunitorsuite ?
+									location.state.billingDetails.aptorunitorsuite ?
 									<div className="billing_info">
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
-												<h5> {props.location.state.billingDetails.aptorunitorsuite} </h5>
+												<h5> {location.state.billingDetails.aptorunitorsuite} </h5>
 											</div>
 										</div>
 									</div> : ""
@@ -680,7 +698,7 @@ const Receipt = (props) => {
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
@@ -692,16 +710,16 @@ const Receipt = (props) => {
 									""
 								)}
 								{propsData.type == "users" || propsData.type == "invite_users" ? (
-									props.location.state.billingDetails.city ?
+									location.state.billingDetails.city ?
 									<div className="billing_info">
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
-												<h5> {props.location.state.billingDetails.city} </h5>
+												<h5> {location.state.billingDetails.city} </h5>
 											</div>
 										</div>
 									</div> : ""
@@ -711,7 +729,7 @@ const Receipt = (props) => {
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
@@ -723,16 +741,16 @@ const Receipt = (props) => {
 									""
 								)}
 								{propsData.type == "users" || propsData.type == "invite_users" ? (
-									props.location.state.billingDetails.state ?
+									location.state.billingDetails.state ?
 									<div className="billing_info">
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
-												<h5> {props.location.state.billingDetails.state} </h5>
+												<h5> {location.state.billingDetails.state} </h5>
 											</div>
 										</div>
 									</div> : "N/A"
@@ -742,7 +760,7 @@ const Receipt = (props) => {
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
@@ -754,16 +772,16 @@ const Receipt = (props) => {
 									""
 								)}
 								{propsData.type == "users" || propsData.type == "invite_users" ? (
-									props.location.state.billingDetails.zipcode ?
+									location.state.billingDetails.zipcode ?
 									<div className="billing_info">
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
-												<h5> {props.location.state.billingDetails.zipcode} </h5>
+												<h5> {location.state.billingDetails.zipcode} </h5>
 											</div>
 										</div>
 									</div> : ""
@@ -773,7 +791,7 @@ const Receipt = (props) => {
 										<div className="row">
 											<div className="col">
 												<img
-													src={location}
+													src={receipt_location}
 													alt="location"
 													loading="lazy"
 												/>
@@ -796,4 +814,4 @@ const Receipt = (props) => {
 	);
 };
 
-export default withRouter(Receipt);
+export default Receipt;

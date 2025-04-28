@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-import history from "utils/history";
+import { Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 import { googleCalendarEventUrl } from "google-calendar-url";
 import ICalendarLink from "react-icalendar-link";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { AppContext } from "../../../../contexts/appContext";
 import cal from "assets/CAL.svg";
 import locations from "assets/Location.svg";
@@ -12,6 +11,8 @@ import seats from "assets/Seats.svg";
 import virtual_seats from "assets/VirtualSeats.svg";
 
 const Event = ({ data }) => {
+
+  const navigate = useNavigate();
 
   const { getCustomerInfo, myInfo } = useContext(AppContext);
 
@@ -68,7 +69,7 @@ const Event = ({ data }) => {
       setShow(true);
     } else {
       setShow(false);
-      history.push(`/past-events`)
+      navigate(`/past-events`)
     }
   }, []);
 
@@ -203,9 +204,8 @@ const Event = ({ data }) => {
                               <button 
                                 className="btn"
                                 disabled={(data.noofseats + data.virtualSeats) == 0 ? true : false}
-                                onClick={() => 
-                                  history.push({
-                                    pathname: "/my-account",
+                                onClick={() =>
+                                  navigate("/my-account", {
                                     state: {
                                       path: path,
                                     },
@@ -245,8 +245,7 @@ const Event = ({ data }) => {
                                 className="btn"
                                 disabled={(data.noofseats + data.virtualSeats) == 0 ? true : false}
                                 onClick={() => 
-                                  history.push({
-                                    pathname: "/my-account",
+                                  navigate("/my-account", {
                                     state: {
                                       path: path,
                                     },
@@ -271,7 +270,7 @@ const Event = ({ data }) => {
                       <>
                         {data.type !== "Private" && (
                           <div className="col-xl-5 col-lg-5 col-md-5 text-right">
-                            <NumberFormat 
+                            <NumericFormat 
                               className="price"
                               value={(data.priceincents / 100).toFixed(2)}
                               displayType={"text"}
@@ -280,7 +279,7 @@ const Event = ({ data }) => {
                             />
                             <h3 className="points">
                               or&nbsp; 
-                              <NumberFormat
+                              <NumericFormat
                               value={Math.floor(data.priceincents / 10)}
                               displayType={"text"}
                               thousandSeparator={true}
@@ -293,8 +292,7 @@ const Event = ({ data }) => {
                                   className="btn"
                                   disabled={(data.noofseats + data.virtualSeats) == 0 ? true : false}
                                   onClick={() => 
-                                    history.push({
-                                      pathname: "/my-account",
+                                    navigate("/my-account", {
                                       state: {
                                         path: path,
                                       },

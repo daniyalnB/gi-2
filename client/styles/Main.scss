@@ -98,20 +98,21 @@
   }
   .carousel {
     .carousel-indicators {
-      display: block;
+      display: flex;
+      flex-direction: column;
       top: 0;
       bottom: 0;
       left: auto;
       right: 20px;
       margin: auto;
-      height: 75px;
-      li {
-        width: 12px;
-        height: 12px;
+      button {
+        width: 14px;
+        height: 14px;
         margin: 0px 5px 10px 0px;
         background-color: transparent;
         border: 1px solid #fff;
         border-radius: 50%;
+        outline: none;
         opacity: 1;
         &:last-child {
           margin-bottom: 0px;
@@ -780,13 +781,15 @@
     height: 500px;
     .carousel {
       .carousel-indicators {
-        bottom: -80px; 
-        li {
-          width: 12px;
-          height: 12px;
+        bottom: -80px;
+        button {
+          width: 14px;
+          height: 14px;
           margin: 0px 20px 0px 0px;
+          background: transparent;
           border: 1px solid #38ADA2;
           border-radius: 50%;
+          outline: none;
           opacity: 1;
           &:last-child {
             margin-bottom: 0px;
@@ -834,7 +837,7 @@
             }
           }
           .text-sec {
-            background: url("assets/Quotation-Blue.svg");
+            background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjkuMiIgaGVpZ2h0PSIxMDIuOCIgdmlld0JveD0iMCAwIDEyOS4yIDEwMi44Ij4gPHBhdGggaWQ9IlBhdGhfMTAwMTAiIGRhdGEtbmFtZT0iUGF0aCAxMDAxMCIgZD0iTS0xNy42LTI5MmwtOC44LDQ4LjhoMTZ2NTRoLTU0Vi0yNDRMLTUwLTI5MlptNzUuMiwwLTguOCw0OC44aDE2djU0aC01NFYtMjQ0bDE0LjQtNDhaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NC40IDI5MikiIGZpbGw9IiMzOGFkYTIiIG9wYWNpdHk9IjAuMSIvPiA8L3N2Zz4g");
             background-position: bottom right;
             background-repeat: no-repeat;
             background-size: auto;
@@ -1505,7 +1508,7 @@
       .carousel {
         .carousel-indicators {
           margin: auto 0px;
-          li {
+          button {
             width: 8px;
             height: 8px;
             margin: 0px 10px 0px 0px;

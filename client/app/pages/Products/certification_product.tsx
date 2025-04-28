@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useContext, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -14,15 +14,18 @@ import {
 	CanBuyCertification,
 } from "../../../utils/api-routes/api-routes.util";
 import { AppContext } from "../../../contexts/appContext";
-import history from "../../../utils/history";
 import queryString from "query-string";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { HideOn } from "react-hide-on-scroll";
 import down from "assets/add.svg";
 import up from "assets/minus.svg";
 import scrolldown from "assets/scroll.svg";
 
 const ProductCertification = (props) => {
+
+	const location = useLocation();
+	const navigate = useNavigate();
+	const { permalink } = useParams();
 	
   const [show, setShow] = useState(true);
 
@@ -51,10 +54,23 @@ const ProductCertification = (props) => {
   }, [encryptedData]);
 
 	useEffect(() => {
-    if (props.location.pathname === "/shop/certification/aitc" || props.location.pathname === "/shop/certification/aitc/" || props.location.pathname === "/shop/certification/aimc" || props.location.pathname === "/shop/certification/aimc/" || props.location.pathname === "/shop/certification/aimc-2021" || props.location.pathname === "/shop/certification/aimc-2021/" || props.location.pathname === "/shop/certification/aimc-ce21" || props.location.pathname === "/shop/certification/aimc-ce21/" || props.location.pathname === "/shop/certification/aimc-ce22" || props.location.pathname === "/shop/certification/aimc-ce22/") {
-			history.push("/aimc");
+		const certificationPaths = [
+			"/shop/certification/aitc",
+			"/shop/certification/aitc/",
+			"/shop/certification/aimc",
+			"/shop/certification/aimc/",
+			"/shop/certification/aimc-2021",
+			"/shop/certification/aimc-2021/",
+			"/shop/certification/aimc-ce21",
+			"/shop/certification/aimc-ce21/",
+			"/shop/certification/aimc-ce22",
+			"/shop/certification/aimc-ce22/"
+		];
+	
+		if (certificationPaths.includes(location.pathname)) {
+			navigate("/aimc");
 		}
-  }, [props]);
+	}, [location.pathname, navigate]);
 
 	const [ownerInfo, setOwnerInfo] = useState(false);
 	const [subscriptionInfo, setSubscriptionInfo] = useState(false);
@@ -70,7 +86,7 @@ const ProductCertification = (props) => {
 
 	const ssoauth = () => {
     if (localStorage.getItem("tokenCustomer") == null) {
-      history.push("/my-account");
+      navigate("/my-account");
     } else {
       const host =  window.location.host;
       const LMS_KEY = "mXu8EfYLQVgh8n3iEH6zFl97UPfNwwUf";
@@ -121,7 +137,7 @@ const ProductCertification = (props) => {
 		getAllCertificationsCustomer().subscribe((response) => {
 			if (response.response.Requested_Action) {
 				const x = response.response.data.filter(
-					(certification) => certification.permalink === props.match.params.permalink
+					(certification) => certification.permalink === permalink
 				)[0];
 				if (x == undefined) {
           setShow(false);
@@ -206,7 +222,7 @@ const ProductCertification = (props) => {
     }
 		localStorage.setItem("certification_data", JSON.stringify(certification_data));
     localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-    history.push("/buy-certification");
+    navigate("/buy-certification");
 	};
 
 	const [showExtra, setShowExtra] = useState(false);
@@ -280,7 +296,7 @@ const ProductCertification = (props) => {
 														<div className="col-xl-4 col-lg-4 col-md-12">
 															<div style={{ textAlign: "right" }}>
 																{data.courseTag === "aitc" && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual" || subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
-																	<NumberFormat 
+																	<NumericFormat 
 																		className="price"
 																		value={(0).toFixed(2)}
 																		displayType={"text"}
@@ -290,7 +306,7 @@ const ProductCertification = (props) => {
 																) : (
 																	<>
 																		{certificationsInfo && certificationsInfo.status == 2 ? (
-																			<NumberFormat 
+																			<NumericFormat 
 																				className="price"
 																				value={(data.failedpriceincents / 100).toFixed(2)}
 																				displayType={"text"}
@@ -298,7 +314,7 @@ const ProductCertification = (props) => {
 																				prefix={"$"}
 																			/>
 																		) : (
-																			<NumberFormat 
+																			<NumericFormat 
 																				className="price"
 																				value={(data.priceincents / 100).toFixed(2)}
 																				displayType={"text"}
@@ -746,7 +762,7 @@ const ProductCertification = (props) => {
 																<div className="IP">
 																	<h5> Insighter Points </h5>
 																	<h4> Current Insighter Points Balance: </h4>
-																	<NumberFormat
+																	<NumericFormat
 																		value={points}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -944,4 +960,4 @@ const ProductCertification = (props) => {
 	);
 }
 
-export default withRouter(ProductCertification);
+export default ProductCertification;

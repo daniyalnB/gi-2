@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -18,7 +18,9 @@ const PasswordForm = (props) => {
 
   const [loading, setLoading] = useState(false);
 
-  const data = queryString.parse(props.location.search);
+  const location = useLocation();
+
+  const data = queryString.parse(location.search);
 
   const email = data.email;
 
@@ -206,4 +208,4 @@ const PasswordForm = (props) => {
   );
 };
 
-export default withRouter(PasswordForm);
+export default PasswordForm;

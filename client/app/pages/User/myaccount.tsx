@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext, useCallback } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -24,7 +24,6 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 import { useDropzone } from "react-dropzone";
-import history from "../../../utils/history";
 import { AuthContext } from "../../../contexts/authContext";
 import { AppContext } from "../../../contexts/appContext";
 import {
@@ -192,6 +191,9 @@ const FormElement = (props) => {
 };
 
 const MyAccount = (props) => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [loadingPage, setLoadingPage] = useState(true);
 
@@ -492,21 +494,21 @@ const MyAccount = (props) => {
   });
 
   useEffect(() => {
-    if (props.location.hash === "#billing") {
+    if (location.hash === "#billing") {
       setActive({
         plan: false,
         subscription: true,
         xactimate: false,
         events: false,
       });
-    } else if (props.location.state === undefined) {
+    } else if (!location.state) {
       setActive({
         plan: true,
         subscription: false,
         xactimate: false,
         events: false,
       });
-    } else if (props.location.state.subscription === true) {
+    } else if (location?.state?.subscription === true) {
       setActive({
         plan: false,
         subscription: true,
@@ -556,9 +558,9 @@ const MyAccount = (props) => {
   const [path, setPath] = useState("");
   
   useEffect(() => {
-    if (props.location.state === undefined) {
+    if (!location.state) {
     } else {
-      setPath(props.location.state.path)
+      setPath(location.state.path)
     }
   }, []);
 
@@ -1680,8 +1682,7 @@ const MyAccount = (props) => {
                                           xactimate: false,
                                           events: false,
                                         });
-                                        history.push({
-                                          pathname: "/my-account",
+                                        navigate("/my-account", {
                                           state: {
                                             subscription: false,
                                           }
@@ -1947,4 +1948,4 @@ const MyAccount = (props) => {
   );
 };
 
-export default withRouter(MyAccount);
+export default MyAccount;

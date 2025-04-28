@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Breadcrumb } from "antd";
 import moment from "moment";
 
 const Breadcrumbs = (props) => {
 
-  // console.log(props, "props");
-
   const [data, setData] = useState(false);
 
   // console.log(data, "data");
 
-  const { location: { pathname }} = props;
+  const location = useLocation(); 
+  const { pathname } = location; 
+  // console.log(pathname, "pathname")
 
   const pathnames = pathname.split("/").filter((item) => item);
 
-  for(var i = 0; i < pathnames.length; i++) {                         
-    if (pathnames[i] == "form" || pathnames[i] == "gift-card" || pathnames[i] == "certification" || pathnames[i] == "uncategorized") { 
-      pathnames.splice(i, 1); 
+  for (let i = 0; i < pathnames.length; i++) {
+    if (pathnames[i] == "form" || pathnames[i] == "gift-card" || pathnames[i] == "certification" || pathnames[i] == "uncategorized" || pathnames[i] == "s") {
+      pathnames.splice(i, 1);
       i--;
     }
     if (pathnames[1] == "swag") {
@@ -46,7 +46,7 @@ const Breadcrumbs = (props) => {
   useEffect(() => {
     setData(props.data);
   }, [props]);
-    
+
   const toTitleCase = (phrase) => {
     return phrase
       .toLowerCase()
@@ -72,23 +72,20 @@ const Breadcrumbs = (props) => {
             )}
             {pathnames.map((name, index) => {
               const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-              // console.log(routeTo, "routeTo");
-              // console.log(name, "name");
               const isLast = index === pathnames.length - 1;
-              // console.log(data);
               return isLast ? (
-                <>
+                <React.Fragment key={index}>
                   {data ? (
                     <>
-                      {props.match.path.includes("event") ? (
+                      {pathname.includes("event") ? (
                         <span className="ant-breadcrumb-link"> {toTitleCase(name)} </span>
-                      ) : props.match.path.includes("price-list-update-summary") ? (
+                      ) : pathname.includes("price-list-update-summary") ? (
                         <span className="ant-breadcrumb-link"> Price List Update Summary - {data.title} {moment(data.selecteddate).format("YYYY")} </span>
-                      ) : props.match.path.includes("insighter-report") ? (
+                      ) : pathname.includes("insighter-report") ? (
                         <span className="ant-breadcrumb-link"> {data.pagetitle} </span>
-                      ) : props.match.path.includes("media-release") ? (
+                      ) : pathname.includes("media-release") ? (
                         <span className="ant-breadcrumb-link"> {data.pagetitle} </span>
-                      ) :  props.match.path.includes("certification") ? (
+                      ) : pathname.includes("certification") ? (
                         <span className="ant-breadcrumb-link"> 
                           {
                             props.match.params.permalink == "aitc" ? "AITC" :
@@ -105,52 +102,52 @@ const Breadcrumbs = (props) => {
                     </>
                   ) : (
                     <>
-                      {props.match.path == "/s=:searchfield" ? (
-                        <span className="ant-breadcrumb-link"> Search Results For '{toTitleCase(name.replace("s=","").replace(/%2F/gi, "/"))}' </span>
-                      ) : props.match.path == "/search" ? (
+                      {pathname.startsWith("/s/") ? (
+                        <span className="ant-breadcrumb-link"> Search Results For '{toTitleCase(name.replace("s/","").replace(/%2F/gi, "/"))}' </span>
+                      ) : pathname == "/search" ? (
                         <span className="ant-breadcrumb-link"> Global Search </span>
-                      ) : props.match.path == "/gi-ownership" ? (
+                      ) : pathname == "/gi-ownership" ? (
                         <span className="ant-breadcrumb-link"> Actionable Insights Ownership </span>
-                      ) : props.match.path == "/my-account/points" ? (
+                      ) : pathname == "/my-account/points" ? (
                         <span className="ant-breadcrumb-link"> Insighter Points Dashboard </span>
-                      ) : props.match.path == "/my-account/view-log" ? (
+                      ) : pathname == "/my-account/view-log" ? (
                         <span className="ant-breadcrumb-link"> Review Activity </span>
-                      ) : props.match.path == "/my-account" ? (
+                      ) : pathname == "/my-account" ? (
                         <span className="ant-breadcrumb-link"> {localStorage.getItem("tokenCustomer") ? "My Account" : "Sign In"} </span>
-                      ) : props.match.path == "/ConfirmEmail" ? (
+                      ) : pathname == "/ConfirmEmail" ? (
                         <span className="ant-breadcrumb-link"> Confirm Email </span>
-                      ) : props.match.path == "/resources/3d-training-modules" ? (
+                      ) : pathname == "/resources/3d-training-modules" ? (
                         <span className="ant-breadcrumb-link"> Explore Our 3d Training Modules </span>
-                      ) : props.match.path == "/aitc" ? (
+                      ) : pathname == "/aitc" ? (
                         <span className="ant-breadcrumb-link"> ACTIONABLE INSIGHTS TOOLS CERTIFIED </span>
-                      ) : props.match.path == "/aimc" ? (
+                      ) : pathname == "/aimc" ? (
                         <span className="ant-breadcrumb-link"> AI MATTERPORT CERTIFIED </span>
-                      ) : props.match.path == "/aimc-ce" ? (
+                      ) : pathname == "/aimc-ce" ? (
                         <span className="ant-breadcrumb-link"> AIMC CONTINUING EDUCATION 2022 </span>
-                      ) : props.match.path == "/aimc-graduates-public-registry" ? (
+                      ) : pathname == "/aimc-graduates-public-registry" ? (
                         <span className="ant-breadcrumb-link"> AIMC Graduates Public Registry </span>
-                      ) : props.match.path == "/aimc-refund-policy" ? (
+                      ) : pathname == "/aimc-refund-policy" ? (
                         <span className="ant-breadcrumb-link"> AIMC REFUND POLICY </span>
-                      ) : props.match.path == "/mx_lvl2_ai_v10" ? (
+                      ) : pathname == "/mx_lvl2_ai_v10" ? (
                         <span className="ant-breadcrumb-link"> MX_LVL2_AI_v10 </span>
-                      ) : props.match.path == "/race-machines-recap" ? (
+                      ) : pathname == "/race-machines-recap" ? (
                         <span className="ant-breadcrumb-link"> Race With The Machines Recap </span>
-                      ) : props.match.path == "/2019-year-review" ? (
+                      ) : pathname == "/2019-year-review" ? (
                         <span className="ant-breadcrumb-link"> 2019: A Year In Review </span>
-                      ) : props.match.path == "/actionable-xactimate-profile/FAQ" ? (
+                      ) : pathname == "/actionable-xactimate-profile/FAQ" ? (
                         <span className="ant-breadcrumb-link"> Actionable Xactimate Profile Faqs </span>
-                      ) : props.match.path == "/ria-convention-leads" ? (
+                      ) : pathname == "/ria-convention-leads" ? (
                         <span className="ant-breadcrumb-link"> RIA Convention Leads </span>
-                      ) : props.match.path == "/users" ? (
+                      ) : pathname == "/users" ? (
                         <span className="ant-breadcrumb-link"> User Management </span>
-                      ) : props.match.path == "/request-a-quote" ? (
+                      ) : pathname == "/request-a-quote" ? (
                         <span className="ant-breadcrumb-link"> Get a Quote </span>
                       ) : (
                         <span className="ant-breadcrumb-link"> {toTitleCase(name)} </span>
                       )}
                     </>
                   )}
-                </>
+                </React.Fragment>
               ) : (
                 <Breadcrumb.Item>
                   <Link
@@ -169,4 +166,4 @@ const Breadcrumbs = (props) => {
   );
 };
 
-export default withRouter(Breadcrumbs);
+export default Breadcrumbs;

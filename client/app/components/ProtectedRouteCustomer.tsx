@@ -1,44 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { customerAuth } from "utils/api-routes/api-routes.util";
 
-const ProtectedRouteCustomer = ({ component: Component, ...rest }) => {
-
-  const [path, setPath] = useState(location.pathname);
+const ProtectedRouteCustomer = () => {
+  const location = useLocation();
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("tokenCustomer"));
 
   useEffect(() => {
-    customerAuth().subscribe(
-      (response: any) => {
-        // console.log(response, "response");
-        //console.log(props, "hello");
+    const subscription = customerAuth().subscribe(
+      (response) => {
+        // Authentication successful
+        setIsAuthenticated(true);
       },
       (error) => {
         console.log("error in Protected Route Customer");
+        setIsAuthenticated(false);
       }
     );
-  }, [rest.location.pathname]);
 
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        if (localStorage.getItem("tokenCustomer")) {
-          return <Component />;
-        } else {
-          return (
-            <Redirect
-              to={{
-                pathname: "/my-account",
-                state: {
-                  path: path,
-                },
-              }}
-            />
-          );
-        }
-      }}
-    />
-  );
-}
+    // Clean up subscription
+    return () => subscription.unsubscribe();
+  }, [location.pathname]);
+
+  // If authenticated, render the child routes
+  if (isAuthenticated) {
+    return <Outlet />;
+  }
+  
+  // If not authenticated, redirect to login
+  return <Navigate to="/my-account" state={{ path: location.pathname }} replace />;
+};
 
 export default ProtectedRouteCustomer;

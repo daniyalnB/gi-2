@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -183,12 +183,8 @@ const Aimc = () => {
               <div className="Button" id="BUY">
                 {localStorage.getItem("tokenCustomer") == null ? (
                   <Link 
-                    to={{
-                      pathname: "/my-account",
-                      state: {
-                        path: path,
-                      },
-                    }}
+                    to="/my-account"
+                    state={{ path: path }}
                     className="btn"
                   >
                     Become Matterport Certified
@@ -451,4 +447,4 @@ const Aimc = () => {
 	);
 };
 
-export default withRouter(Aimc);
+export default Aimc;

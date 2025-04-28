@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import queryString from "query-string";
 import moment from "moment";
 import Lightbox from "react-image-lightbox";
@@ -767,4 +767,4 @@ const Comments = (props) => {
   );
 };
 
-export default withRouter(Comments);
+export default Comments;

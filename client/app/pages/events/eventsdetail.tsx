@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -12,10 +12,11 @@ const Event = React.lazy(() => import("../events/eventsdetail/event"));
 const EventAttendance = React.lazy(() => import("../events/eventsdetail/eventattendance"));
 const Comments = React.lazy(() => import("../../components/Comments"));
 import { GetEventByEventId } from "../../../utils/api-routes/api-routes.util";
-import history from "../../../utils/history";
 import Lightbox from "react-image-lightbox";
 
 const EventsDetail = (props) => {
+
+  const { permalink } = useParams();
 
 	const [show, setShow] = useState(true);
   
@@ -32,7 +33,7 @@ const EventsDetail = (props) => {
   };
 
   useEffect(() => {
-    GetEventByEventId(props.match.params.permalink).subscribe((response) => {
+    GetEventByEventId(permalink).subscribe((response) => {
       if (response.response.Requested_Action) {
         const x = response.response.data;
         if (x == undefined) {
@@ -145,4 +146,4 @@ const EventsDetail = (props) => {
   );
 };
 
-export default withRouter(EventsDetail);
+export default EventsDetail;

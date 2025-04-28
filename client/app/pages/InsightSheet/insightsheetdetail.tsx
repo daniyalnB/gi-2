@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -17,13 +17,14 @@ import {
   UpdateInsightSheetRating,
 } from "../../../utils/api-routes/api-routes.util";
 import { AppContext } from "../../../contexts/appContext";
-import history from "../../../utils/history";
 import moment from "moment";
 import queryString from "query-string";
 import Rating from "@material-ui/lab/Rating";
 import Lightbox from "react-image-lightbox";
 
 const InsightSheetDetail = (props) => {
+
+  const { permalink } = useParams();
 
   const [show, setShow] = useState(true);
   
@@ -63,7 +64,7 @@ const InsightSheetDetail = (props) => {
   };
 
   useEffect(() => {
-    GetInsightSheetByPermalink(props.match.params.permalink).subscribe(
+    GetInsightSheetByPermalink(permalink).subscribe(
       (response) => {
         if (response.response.Requested_Action) {
           const x = response.response.data;
@@ -128,7 +129,7 @@ const InsightSheetDetail = (props) => {
   };
 
   function refresh_rating() {
-    GetInsightSheetByPermalink(props.match.params.permalink).subscribe(
+    GetInsightSheetByPermalink(permalink).subscribe(
       (response) => {
         if (response.response.Requested_Action) {
           const x = response.response.data;
@@ -199,12 +200,8 @@ const InsightSheetDetail = (props) => {
                                       <div className="row insight_sheet_row_mask">
                                         <Link
                                           className="btn btns_mask"
-                                          to={{
-                                            pathname: "/my-account",
-                                            state: {
-                                              path: path,
-                                            },
-                                          }}
+                                          to="/my-account"
+                                          state={{ path: path }}
                                         >
                                           Sign In
                                         </Link>
@@ -366,12 +363,8 @@ const InsightSheetDetail = (props) => {
                                 <div className="MACRO">
                                   {localStorage.getItem("tokenCustomer") == null ? (
                                     <Link
-                                      to={{
-                                        pathname: "/my-account",
-                                        state: {
-                                          path: path,
-                                        },
-                                      }}
+                                      to="/my-account"
+                                      state={{ path: path }}
                                       className="btn"
                                     >
                                       Purchase MACRO*
@@ -508,12 +501,8 @@ const InsightSheetDetail = (props) => {
                                         loading="lazy"
                                       />
                                       <Link
-                                        to={{
-                                          pathname: "/my-account",
-                                          state: {
-                                            path: path,
-                                          },
-                                        }}
+                                        to="/my-account"
+                                        state={{ path: path }}
                                       >
                                         <button className="btn"> Sign In </button>
                                       </Link>
@@ -600,4 +589,4 @@ const InsightSheetDetail = (props) => {
   );
 };
 
-export default withRouter(InsightSheetDetail);
+export default InsightSheetDetail;

@@ -1,17 +1,12 @@
 import React, { Suspense, useState } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../components/LottieLoader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ScrollToTop from "../components/ScrollToTop";
 import SEO from "../components/SEO";
 const Navbar = React.lazy(() => import("../components/Navbar"));
 const Footer = React.lazy(() => import("../components/Footer"));
-const CookieConsentGI2 = React.lazy(
-  () => import("../components/CookieConsent")
-);
-const WrongBrowserDisclaimer = React.lazy(
-  () => import("../components/WrongBrowserDisclaimer")
-);
+const CookieConsentGI2 = React.lazy(() => import("../components/CookieConsent"));
+const WrongBrowserDisclaimer = React.lazy(() => import("../components/WrongBrowserDisclaimer"));
 import { ContactUsForm } from "../../utils/api-routes/api-routes.util";
 import queryString from "query-string";
 import InputMask from "react-input-mask";
@@ -1349,4 +1344,4 @@ const ContactUs = () => {
   );
 };
 
-export default withRouter(ContactUs);
+export default ContactUs;

@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { withRouter } from "react-router-dom";
 import queryString from "query-string";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -440,4 +439,4 @@ const ActionableXactimateProfile = (props) => {
   );
 };
 
-export default withRouter(ActionableXactimateProfile);
+export default ActionableXactimateProfile;

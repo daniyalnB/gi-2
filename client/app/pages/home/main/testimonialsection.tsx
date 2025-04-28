@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Slider from "react-slick";
 import user from "assets/user-eyes.svg";
 import AndrewMcCabe from "assets/AndrewMcCabe.webp";
 import BradyBurwell from "assets/BradyBurwell.webp";

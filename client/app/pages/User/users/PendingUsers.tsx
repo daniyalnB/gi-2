@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { withRouter } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import queryString from "query-string";
 import { AppContext } from "../../../../contexts/appContext";
@@ -263,4 +262,4 @@ const PendingUsers = (props) => {
   );
 };
 
-export default withRouter(PendingUsers);
+export default PendingUsers;

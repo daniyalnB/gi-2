@@ -1,11 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import PaymentCard from "./PaymentCard";
 import Checkout from "./subscription-and-billing/Checkout";
 import Receipt from "./subscription-and-billing/Receipt";
-import history from "../../../../utils/history";
 import moment from "moment";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import Modal from "react-bootstrap/Modal";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -21,6 +20,9 @@ import download from "assets/Download.svg";
 import modalclose from "assets/modal-close.svg";
 
 const SubscriptionAndBilling = (props) => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
 	const { getCustomerInfo, cards, myInfo, getMyInvitedUser, invitedUsers, getMyCoAdmin, coAdmins } = useContext(AppContext);
   
@@ -80,7 +82,7 @@ const SubscriptionAndBilling = (props) => {
   //     if (response.response.Requested_Action) {
   //       setCancelPlanLoading(false);
   //       setCancelPlanError("");
-  //       history.push("/my-account/cancel-subscription-form");
+  //       navigate("/my-account/cancel-subscription-form");
   //     } else {
   //       setCancelPlanLoading(false);
   //       setCancelPlanError(response.response.Message);
@@ -89,7 +91,7 @@ const SubscriptionAndBilling = (props) => {
   // };
 
   const cancelPlan = () => {
-    history.push("/my-account/cancel-subscription-form");
+    navigate("/my-account/cancel-subscription-form");
   };
 
   const [subscriptionHistoryData, setSubscriptionHistoryData] = useState([]);
@@ -127,10 +129,10 @@ const SubscriptionAndBilling = (props) => {
   const [checkout, setCheckout] = useState(false);
 
 	useEffect(() => {
-    if (props.location.state === undefined) {
+    if (!location.state) {
       setMembership(true);
 			setCheckout(false);
-    } else if (props.location.state.subscription === true) {
+    } else if (location?.state?.subscription === true) {
       setMembership(false);
 			setCheckout(false);
     }
@@ -289,8 +291,7 @@ const SubscriptionAndBilling = (props) => {
                         onClick={() => {
                           setMembership(false);
                           setCheckout(false);
-                          history.push({
-                            pathname: "/my-account",
+                          navigate("/my-account", {
                             state: {
                               subscription: true,
                               plan: `${subscriptionInfo.planname}`,
@@ -332,7 +333,7 @@ const SubscriptionAndBilling = (props) => {
                           ""
                         )}
                         <h1> 
-                          <NumberFormat 
+                          <NumericFormat 
                             value={(subscriptionInfo.nextchargeamount / 100).toFixed(2)}
                             displayType={"text"}
                             thousandSeparator={true}
@@ -350,7 +351,7 @@ const SubscriptionAndBilling = (props) => {
                               <>
                                 {couponInfo.couponcode} |
                                 {" "}
-                                <NumberFormat
+                                <NumericFormat
                                   value={(couponInfo.subtractfixedamountincents / 100)}
                                   displayType={"text"}
                                   thousandSeparator={true}
@@ -416,8 +417,7 @@ const SubscriptionAndBilling = (props) => {
                           onClick={() => {
                             setMembership(false);
                             setCheckout(false);
-                            history.push({
-                              pathname: "/my-account",
+                            navigate("/my-account", {
                               state: {
                                 subscription: true,
                                 plan: `${subscriptionInfo.planname}`,
@@ -431,7 +431,7 @@ const SubscriptionAndBilling = (props) => {
                       ) : (
                         <button 
                           className="btn change"
-                          onClick={() => history.push("/plan-matrix")}
+                          onClick={() => navigate("/plan-matrix")}
                         >
                           {subscriptionInfo.subscriptionstatus === "Trial" ? "Upgrade Plan" : "Change Plan"}
                         </button>
@@ -442,14 +442,14 @@ const SubscriptionAndBilling = (props) => {
                         ""
                         // <button 
                         //   className="btn btn-fix"
-                        //   onClick={() => error !== "" || subscriptionInfo.planname.includes("Enterprise") ? handleShow() : history.push("/my-account/cancel-subscription")}
+                        //   onClick={() => error !== "" || subscriptionInfo.planname.includes("Enterprise") ? handleShow() : navigate("/my-account/cancel-subscription")}
                         // >
                         //   Cancel Subscription
                         // </button>
                       ) : (
                         <button 
                           className="btn btn-fix"
-                          onClick={() => error !== "" || subscriptionInfo.planname.includes("Enterprise") ? handleShow() : history.push("/my-account/cancel-subscription")}
+                          onClick={() => error !== "" || subscriptionInfo.planname.includes("Enterprise") ? handleShow() : navigate("/my-account/cancel-subscription")}
                         >
                           Cancel Subscription
                         </button>
@@ -738,4 +738,4 @@ const SubscriptionAndBilling = (props) => {
   );
 };
   
-export default withRouter(SubscriptionAndBilling);
+export default SubscriptionAndBilling;

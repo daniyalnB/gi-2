@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -99,12 +99,8 @@ const GiftCards = () => {
                     {localStorage.getItem("tokenCustomer") == null ? (
                       <Link
                         className="btn"
-                        to={{
-                          pathname: "/my-account",
-                          state: {
-                            path: path,
-                          },
-                        }}
+                        to="/my-account"
+                        state={{ path: path }}
                       >
                         Membership Gift Card
                       </Link>
@@ -150,12 +146,8 @@ const GiftCards = () => {
                     {localStorage.getItem("tokenCustomer") == null ? (
                       <Link
                         className="btn"
-                        to={{
-                          pathname: "/my-account",
-                          state: {
-                            path: path,
-                          },
-                        }}
+                        to="/my-account"
+                        state={{ path: path }}
                       >
                         AI Matterport Certification Gift Card
                       </Link>
@@ -203,12 +195,8 @@ const GiftCards = () => {
                     {localStorage.getItem("tokenCustomer") == null ? (
                       <Link
                         className="btn"
-                        to={{
-                          pathname: "/my-account",
-                          state: {
-                            path: path,
-                          },
-                        }}
+                        to="/my-account"
+                        state={{ path: path }}
                       >
                         Xactimate Training Gift Card
                       </Link>
@@ -265,12 +253,8 @@ const GiftCards = () => {
                     {localStorage.getItem("tokenCustomer") == null ? (
                       <Link
                         className="btn"
-                        to={{
-                          pathname: "/my-account",
-                          state: {
-                            path: path,
-                          },
-                        }}
+                        to="/my-account"
+                        state={{ path: path }}
                       >
                         Insighter Points Gift Card
                       </Link>
@@ -299,4 +283,4 @@ const GiftCards = () => {
 	);
 };
 
-export default withRouter(GiftCards);
+export default GiftCards;

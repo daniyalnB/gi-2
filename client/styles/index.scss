@@ -1,130 +1,130 @@
 // Navbar
 
-@import "./Navbar";
+@use "./Navbar";
 
 // Home Page
 
-@import "./Main";
+@use "./Main";
 
 // Progress Circle
 
-@import "./ProgressCircle";
+@use "./ProgressCircle";
 
 // Modal Video
 
-@import "./modal-video";
+@use "./modal-video";
 
 // Footer
 
-@import "./Footer";
+@use "./Footer";
 
 // Main Search
 
-@import "./Search";
+@use "./Search";
 
 // Global Search
 
-@import "./GlobalSearch";
+@use "./GlobalSearch";
 
 // Comments
 
-@import "./Comments";
+@use "./Comments";
 
 // Receipt
 
-@import "./Receipt";
+@use "./Receipt";
 
 // Zora-Solidifai
 
-@import "./Zora-Solidifai";
+@use "./Zora-Solidifai";
 
 // Code of Ethics
 
-@import "./CodeOfEthics";
+@use "./CodeOfEthics";
 
 // Contact Us
 
-@import "./ContactUs";
+@use "./ContactUs";
 
 // Demo
 
-@import "./Demo";
+@use "./Demo";
 
 // MediaKit
 
-@import "./MediaKit";
+@use "./MediaKit";
 
 // Missing Pages
 
-@import "./missingpages";
+@use "./missingpages";
 
 // Hubspot Form
 
-@import "./HubspotForm";
+@use "./HubspotForm";
 
 // React Image Lightbox
 
-@import "./react-image-lightbox";
+@use "./react-image-lightbox";
 
 // React Responsive Carousel
 
-@import "./carousel.min";
+@use "./carousel.min";
 
 // React Slick
 
-@import "./slick-theme";
-@import "./slick";
+@use "./slick-theme";
+@use "./slick";
 
 // Pages
-@import "./loader";
-@import "./pages/login";
-@import "./pages/signup";
-@import "./pages/events";
-@import "./pages/eventsdetail";
-@import "./pages/insightsheet";
-@import "./pages/insightsheetdetail";
-@import "./pages/product";
-@import "./pages/buyproduct";
-@import "./pages/pricelistupdatesummary";
-@import "./pages/pricelistupdatesummaryofmonth";
-@import "./pages/insighterreport";
-@import "./pages/videogallery";
-@import "./pages/trainingmodules";
-@import "./pages/matterportstandards";
-@import "./pages/commonlyoverlookedlineitems";
-@import "./pages/solidifai_zora";
-@import "./pages/lineitemrequest";
-@import "./pages/swag";
-@import "./pages/giftcards";
-@import "./pages/planmatrix";
-@import "./pages/umpiresmanual";
-@import "./pages/myaccount";
-@import "./pages/users";
-@import "./pages/insighterpoints";
-@import "./pages/transactionhistory";
-@import "./pages/actionableacademy";
-@import "./pages/CancelSubscription";
+@use "./loader";
+@use "./pages/login";
+@use "./pages/signup";
+@use "./pages/events";
+@use "./pages/eventsdetail";
+@use "./pages/insightsheet";
+@use "./pages/insightsheetdetail";
+@use "./pages/product";
+@use "./pages/buyproduct";
+@use "./pages/pricelistupdatesummary";
+@use "./pages/pricelistupdatesummaryofmonth";
+@use "./pages/insighterreport";
+@use "./pages/videogallery";
+@use "./pages/trainingmodules";
+@use "./pages/matterportstandards";
+@use "./pages/commonlyoverlookedlineitems";
+@use "./pages/solidifai_zora";
+@use "./pages/lineitemrequest";
+@use "./pages/swag";
+@use "./pages/giftcards";
+@use "./pages/planmatrix";
+@use "./pages/umpiresmanual";
+@use "./pages/myaccount";
+@use "./pages/users";
+@use "./pages/insighterpoints";
+@use "./pages/transactionhistory";
+@use "./pages/actionableacademy";
+@use "./pages/CancelSubscription";
 
 // Admin Side Menu
 
-@import "./gi-team/SideMenu";
+@use "./gi-team/SideMenu";
 
 // Admin Pages
 
-@import "./gi-team/pages/login";
-@import "./gi-team/pages/dashboard";
-@import "./gi-team/pages/insightsheet";
-@import "./gi-team/pages/createInsightSheet";
-@import "./gi-team/pages/products";
-@import "./gi-team/pages/pricelistupdatesummary";
+@use "./gi-team/pages/admin-login";
+@use "./gi-team/pages/dashboard";
+@use "./gi-team/pages/admin-insightsheet";
+@use "./gi-team/pages/createInsightSheet";
+@use "./gi-team/pages/products";
+@use "./gi-team/pages/admin-pricelistupdatesummary";
 
 // Admin Text Editor
 
-@import "./gi-team/react-draft-wysiwyg";
+@use "./gi-team/react-draft-wysiwyg";
 
 // Admin Confirm Alert
 
-@import "./gi-team/react-confirm-alert";
+@use "./gi-team/react-confirm-alert";
 
 .progress-bar {
   width: 100%;

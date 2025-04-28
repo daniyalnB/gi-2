@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -74,4 +74,4 @@ const MatterportFeatureRequest = () => {
 	);
 };
 
-export default withRouter(MatterportFeatureRequest);
+export default MatterportFeatureRequest;

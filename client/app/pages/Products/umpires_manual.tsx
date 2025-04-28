@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -11,12 +11,14 @@ const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 import { GetAllUmpiresManualsCustomer } from "../../../utils/api-routes/api-routes.util";
 import { AppContext } from "../../../contexts/appContext";
-import history from "../../../utils/history";
 import Lightbox from "react-image-lightbox";
 import { Carousel } from "react-responsive-carousel";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 
 const ProductUmpiresManual = (props) => {
+
+	const navigate = useNavigate();
+	const { permalink } = useParams();
 
 	const [show, setShow] = useState(true);
 
@@ -38,7 +40,7 @@ const ProductUmpiresManual = (props) => {
 		// GetAllUmpiresManualsCustomer().subscribe((response) => {
 		// 	if (response.response.Requested_Action) {
 		// 		const x = response.response.data.filter(
-		// 			(manual) => manual.permalink === props.match.params.permalink
+		// 			(manual) => manual.permalink === permalink
 		// 		)[0];
 		// 		if (x == undefined) {
 		// 			setShow(false);
@@ -50,7 +52,7 @@ const ProductUmpiresManual = (props) => {
 		// 		setShow(false);
 		// 	}
 		// });
-		history.push("/actionable-insights-mitigation-and-repair-manual");
+		navigate("/actionable-insights-mitigation-and-repair-manual");
 	}, []);
 
 	function swap (arr, a){    
@@ -102,8 +104,7 @@ const ProductUmpiresManual = (props) => {
 
 	const handleSubmit = () => {
 		localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-		history.push({
-			pathname: "/checkout",
+		navigate("/checkout", {
 			state: {
 				manual: data,
 				quantity: parseInt(quantity),
@@ -192,7 +193,7 @@ const ProductUmpiresManual = (props) => {
 														<div className="col-xl-4 col-lg-4 col-md-12">
 															<div style={{ textAlign: "right" }}>
 																{/* <h2 className="prevprice"> <del> ${data.priceincents * 100} </del> </h2> */}
-																<NumberFormat 
+																<NumericFormat 
 																	className="price"
 																	value={(data.priceincents / 100).toFixed(2)}
 																	displayType={"text"}
@@ -202,7 +203,7 @@ const ProductUmpiresManual = (props) => {
 															</div>
 															<h3 className="points">
 																or&nbsp; 
-																<NumberFormat
+																<NumericFormat
 																	value={Math.floor(data.priceincents / 10)}
 																	displayType={"text"}
 																	thousandSeparator={true}

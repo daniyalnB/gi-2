@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -9,7 +9,6 @@ const Footer = React.lazy(() => import("../../components/Footer"));
 const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent"));
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 import queryString from "query-string";
-import history from "../../../utils/history";
 import InputMask from "react-input-mask";
 import validator from "validator";
 import {
@@ -28,74 +27,80 @@ import hidepassword from "assets/hide_password.svg";
 
 const Signup = (props) => {
 
-  useEffect(() => {
-    if (props.location.state) {
-      if (props.location.state.path) {
-      } else {
-        setCustomerStep1({
-          ...customerstep1,
-          emailaddress: props.location.state.email,
-        });
-        setCustomerStep2({
-          ...customerstep2,
-          emailaddress: props.location.state.email,
-        });
-        setCustomerStep3({
-          ...customerstep3,
-          emailaddress: props.location.state.email,
-        });
-        setCustomerStep4({
-          ...customerstep4,
-          emailaddress: props.location.state.email,
-        });
-        setCustomerStep5({
-          ...customerstep5,
-          emailaddress: props.location.state.email,
-        });
-      }
-    } else {
-    }
-  }, []);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const data = queryString.parse(props.location.search);
+  useEffect(() => {
+    // Check if location state exists and has email
+    if (location.state?.email) {
+      // If there's no path in state or path is falsy
+      if (!location.state?.path) {
+        const emailFromState = location.state.email;
+        
+        // Update all your state objects with the email
+        setCustomerStep1(prev => ({
+          ...prev,
+          emailaddress: emailFromState,
+        }));
+        
+        setCustomerStep2(prev => ({
+          ...prev,
+          emailaddress: emailFromState,
+        }));
+        
+        setCustomerStep3(prev => ({
+          ...prev,
+          emailaddress: emailFromState,
+        }));
+        
+        setCustomerStep4(prev => ({
+          ...prev,
+          emailaddress: emailFromState,
+        }));
+        
+        setCustomerStep5(prev => ({
+          ...prev,
+          emailaddress: emailFromState,
+        }));
+      }
+    }
+  }, [location.state]);
+
+  const data = queryString.parse(location.search);
 
   const referralcode = data.referralcode;
 
   useEffect(() => {
     if (localStorage.getItem("tokenCustomer")) {
-      history.push("/my-account");
+      navigate("/my-account");
     } else {
+      // Check if we have state from the location
+      const email = location.state?.email;
+      const path = location.state?.path;
+      
       if (referralcode) {
-        if (props.location.state) {
-          if (props.location.state.path) {
-          } else {
-            history.push({
-              pathname: `/get-started${props.location.search}`,
-              state: {
-                email: props.location.state.email,
-              },
-            })
-          }
+        if (path) {
+          // Do nothing if there's a path in state
+        } else if (email) {
+          navigate(`/get-started${location.search}`, {
+            state: { email }
+          });
         } else {
-          history.push(`/get-started${props.location.search}`);
+          navigate(`/get-started${location.search}`);
         }
       } else {
-        if (props.location.state) {
-          if (props.location.state.path) { 
-          } else {
-            history.push({
-              pathname: "/get-started",
-              state: {
-                email: props.location.state.email,
-              },
-            })
-          }
+        if (path) {
+          // Do nothing if there's a path in state
+        } else if (email) {
+          navigate("/get-started", {
+            state: { email }
+          });
         } else {
-          history.push("/get-started");
+          navigate("/get-started");
         }
       }
     }
-  }, []);
+  }, [navigate, location, referralcode]);
   
   const [loginError, setLoginError] = useState("");
 
@@ -1061,7 +1066,7 @@ const Signup = (props) => {
                   verify your email.
                 </h2>
                 <button
-                  onClick={() => history.push("/my-account")}
+                  onClick={() => navigate("/my-account")}
                   style={{ marginTop: "70px" }}
                   className="btn"
                 >
@@ -1079,4 +1084,4 @@ const Signup = (props) => {
   );
 }
 
-export default withRouter(Signup);
+export default Signup;

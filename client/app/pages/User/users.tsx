@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useContext, useState, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -13,7 +13,6 @@ import PendingUsers from "./users/PendingUsers";
 import { Helmet } from "react-helmet";
 import { CSVLink } from "react-csv";
 import Modal from "react-bootstrap/Modal";
-import history from "../../../utils/history";
 import down from "assets/down-arrow-user.svg";
 import modalclose from "assets/modal-close.svg";
 import usertab1 from "assets/user-tab-1.svg";
@@ -67,6 +66,9 @@ const FormElement = (props) => {
 };
 
 const Users = (props) => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [path, setPath] = useState(location.pathname);
 
@@ -136,16 +138,16 @@ const Users = (props) => {
   const handleShow1 = () => setShow1(true);
 
   useEffect(() => {
-    if (props.location.state) {
-      if (props.location.state.finalize) {
-        setTimeout(() => {
-          handleShow1();
-          history.replace(props.location.state, undefined);
-        }, 500);
-      }
-    } else {
+    if (location.state?.finalize) {
+      setTimeout(() => {
+        handleShow1();
+        navigate(location.pathname, { 
+          state: { ...location.state, finalize: undefined },
+          replace: true 
+        });
+      }, 500);
     }
-  }, [props]);
+  }, [location.state, navigate, handleShow1]);
 
   const CSVheaders = [
 		{
@@ -321,15 +323,14 @@ const Users = (props) => {
   const handleInvite = () => {
     // console.log("Inviting users with data:", userData);
     localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-    history.push({
-      pathname: "/checkout",
-      state: {
+    navigate("/checkout", {
+			state: {
         invite_users: userData,
         type: "invite_users",
         planName: (myInfo.subscriptioninfo.planname === "EnterprisePlan" || myInfo.subscriptioninfo.planname === "EnterprisePlanAnnual") ? "EP" : "PP",
         path: path,
       },
-    });
+		});
   };
 
   return (
@@ -474,7 +475,7 @@ const Users = (props) => {
                           </div>
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-12">
-                          {(props.location.state && props.location.state.step === "two" &&
+                          {(location.state && location.state.step === "two" &&
                             <div
                               style={showPopup ? { display: "block" } : { display: "none" }}
                               className="step-2-tooltip"
@@ -512,7 +513,7 @@ const Users = (props) => {
 													""
 												)}
                         <div className="col-xl-4 col-lg-4 col-md-12">
-                          {(props.location.state && props.location.state.step === "two" &&
+                          {(location.state && location.state.step === "two" &&
                             <div
                               style={showPopup ? { display: "block" } : { display: "none" }}
                               className="step-2-tooltip-responsive"
@@ -909,7 +910,7 @@ const Users = (props) => {
                 <Footer />
               </>
             ) : (
-              history.push(`/my-account`)
+              navigate(`/my-account`)
             )}
           </>
         ) : (
@@ -939,4 +940,4 @@ const Users = (props) => {
   );
 };
 
-export default withRouter(Users);
+export default Users;

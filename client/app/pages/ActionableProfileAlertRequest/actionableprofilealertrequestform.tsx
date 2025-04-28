@@ -1,5 +1,4 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -113,4 +112,4 @@ const ActionableProfileAlertRequestForm = () => {
 	);
 };
 
-export default withRouter(ActionableProfileAlertRequestForm);
+export default ActionableProfileAlertRequestForm;

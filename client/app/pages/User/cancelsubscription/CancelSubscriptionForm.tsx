@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
 import LottieLoader from "../../../components/LottieLoader";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import ScrollToTop from "../../../components/ScrollToTop";
@@ -161,4 +160,4 @@ const CancelSubscriptionForm = () => {
   );
 };
 
-export default withRouter(CancelSubscriptionForm);
+export default CancelSubscriptionForm;

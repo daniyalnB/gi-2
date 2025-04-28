@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -11,11 +11,12 @@ const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 const Comments = React.lazy(() => import("../../components/Comments"));
 import { GetPriceListUpdateSummaryByPermalink } from "../../../utils/api-routes/api-routes.util";
-import history from "../../../utils/history";
 import Lightbox from "react-image-lightbox";
 import moment from "moment";
 
 const PriceListUpdateSummaryOfMonth = (props) => {
+
+  const { permalink } = useParams();
 
   const [show, setShow] = useState(true);
 
@@ -38,7 +39,7 @@ const PriceListUpdateSummaryOfMonth = (props) => {
   };
 
   useEffect(() => {
-    GetPriceListUpdateSummaryByPermalink(props.match.params.permalink).subscribe((response) => {
+    GetPriceListUpdateSummaryByPermalink(permalink).subscribe((response) => {
       if (response.response.Requested_Action) {
         const x = response.response.data;
         if (x == undefined || x == null) {
@@ -244,4 +245,4 @@ const PriceListUpdateSummaryOfMonth = (props) => {
   );
 };
 
-export default withRouter(PriceListUpdateSummaryOfMonth);
+export default PriceListUpdateSummaryOfMonth;

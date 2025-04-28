@@ -1,5 +1,4 @@
 import React, { Suspense, useState } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../components/LottieLoader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ScrollToTop from "../components/ScrollToTop";
@@ -276,4 +275,4 @@ const ActionableXactimateProfileFAQs = () => {
   );
 };
 
-export default withRouter(ActionableXactimateProfileFAQs);
+export default ActionableXactimateProfileFAQs;

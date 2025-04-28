@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../../../components/LottieLoader";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import ScrollToTop from "../../../components/ScrollToTop";
@@ -9,7 +8,7 @@ const CookieConsentGI2 = React.lazy(() => import("../../../components/CookieCons
 const WrongBrowserDisclaimer = React.lazy(() => import("../../../components/WrongBrowserDisclaimer"));
 import AdminTable from "../.././../gi-team/components/TableExtra";
 import { Helmet } from "react-helmet";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import moment from "moment";
 import { getReviewActivity } from "utils/api-routes/api-routes.util";
 import up from "assets/up-arrow-admin.svg";
@@ -86,7 +85,7 @@ const ReviewActivity = () => {
                 <div className="current-pts">
                   <h3> Current Balance:&nbsp;</h3>
                   <h4 className="pts"> 
-                    <NumberFormat
+                    <NumericFormat
                       value={data.currentbalance ? data.currentbalance : 0}
                       displayType={"text"}
                       thousandSeparator={true}
@@ -126,7 +125,7 @@ const ReviewActivity = () => {
                                   {rowData.original.points > 0 ? (
                                     <td>
                                       +
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={rowData.original.points}
                                         displayType={"text"}
                                         thousandSeparator={true}
@@ -134,7 +133,7 @@ const ReviewActivity = () => {
                                     </td>
                                   ) : (
                                     <td style={{ color: "#DB422D" }}>
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={rowData.original.points}
                                         displayType={"text"}
                                         thousandSeparator={true}
@@ -179,7 +178,7 @@ const ReviewActivity = () => {
                                   {rowData.original.points > 0 ? (
                                     <td>
                                       +
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={rowData.original.points}
                                         displayType={"text"}
                                         thousandSeparator={true}
@@ -187,7 +186,7 @@ const ReviewActivity = () => {
                                     </td>
                                   ) : (
                                     <td style={{ color: "#DB422D" }}>
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={rowData.original.points}
                                         displayType={"text"}
                                         thousandSeparator={true}
@@ -232,7 +231,7 @@ const ReviewActivity = () => {
                                   {rowData.original.points > 0 ? (
                                     <td>
                                       +
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={rowData.original.points}
                                         displayType={"text"}
                                         thousandSeparator={true}
@@ -240,7 +239,7 @@ const ReviewActivity = () => {
                                     </td>
                                   ) : (
                                     <td style={{ color: "#DB422D" }}>
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={rowData.original.points}
                                         displayType={"text"}
                                         thousandSeparator={true}
@@ -274,4 +273,4 @@ const ReviewActivity = () => {
 	);
 };
 
-export default withRouter(ReviewActivity);
+export default ReviewActivity;

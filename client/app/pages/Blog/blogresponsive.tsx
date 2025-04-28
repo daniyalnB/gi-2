@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import moment from "moment";
 
@@ -415,4 +414,4 @@ const BG_Responsive = (props) => {
   );
 };
 
-export default withRouter(BG_Responsive);
+export default BG_Responsive;

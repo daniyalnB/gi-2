@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 const Comments = React.lazy(() => import("../../../components/Comments"));
-import history from "../../../../utils/history";
 import { AppContext } from "../../../../contexts/appContext";
 import moment from "moment";
 import Tabs from "react-bootstrap/Tabs";
@@ -9,6 +9,8 @@ import down from "assets/down-arrow-user.svg";
 
 const EventAttendance = ({ data }) => {
 
+  const navigate = useNavigate();
+  
   const { getCustomerInfo, myInfo } = useContext(AppContext);
 
   useEffect(() => {
@@ -297,7 +299,7 @@ const EventAttendance = ({ data }) => {
     }
     localStorage.setItem("event_data", JSON.stringify(event_data));
     localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-    history.push("/buy-event");
+    navigate("/buy-event");
   };
 
   return (

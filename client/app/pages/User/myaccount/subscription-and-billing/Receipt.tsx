@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import history from "../../../../../utils/history";
 import moment from "moment";
 import { AppContext } from "../../../../../contexts/appContext";
@@ -253,4 +252,4 @@ const Receipt = (props) => {
   );
 };
 
-export default withRouter(Receipt);
+export default Receipt;

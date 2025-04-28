@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -15,31 +15,32 @@ import cal from "assets/CAL.svg";
 import locations from "assets/Location.svg";
 import down from "assets/down-arrow-user.svg";
 
-export const useDetectOutsideClick = (el, initialState) => {
-
-  const [isActive, setIsActive] = useState(initialState);
-
-  useEffect(() => {
-    const onClick = (e) => {
-      if (el.current !== null && !el.current.contains(e.target)) {
-        setIsActive(!isActive);
-      }
-    };
-    if (isActive) {
-      window.addEventListener("click", onClick);
-    }
-    return () => {
-      window.removeEventListener("click", onClick);
-    };
-  }, [isActive, el]);
-  return [isActive, setIsActive];
-};
-
 const Events = (props) => {
 
-  const dropdownRef1 = useRef(null);
-  const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
-  const onClickRef1 = () => setIsActive1(!isActive1);
+  const dropdownRef1 = useRef<HTMLDivElement | null>(null);
+  const [activeMenue, setActiveMenue] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef1.current &&
+        !dropdownRef1.current.contains(event.target)
+      ) {
+        setActiveMenue(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [dropdownRef1]);
+
+  const toggleActive = (event) => {
+    event.stopPropagation();
+    setActiveMenue(!activeMenue);
+  };
   
   const [path, setPath] = useState(location.pathname);
 
@@ -97,7 +98,6 @@ const Events = (props) => {
   const [ActionableProfile, setActionableProfile] = useState(true);
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  console.log(isSmallScreen, "isSmallScreen")
 
   useEffect(() => {
     const checkFullScreen = () => {
@@ -147,17 +147,17 @@ const Events = (props) => {
                             name="Filter"
                             className="form-control"
                             placeholder="Filter"
-                            onClick={() => onClickRef1()}
+                            onClick={toggleActive}
                           />
                           <label className="file_input_label">
                             <img
                               className="select size"
                               src={down}
-                              onClick={() => onClickRef1()}
+                              onClick={toggleActive}
                             />
                           </label>
                           <div
-                            className={isActive1 ? "active" : "dropdown-content"}
+                            className={activeMenue ? "active" : "dropdown-content"}
                             ref={dropdownRef1}
                           >
                             <div className="filter">
@@ -339,12 +339,8 @@ const Events = (props) => {
                                                           "tokenCustomer"
                                                         ) == null ? (
                                                           <Link
-                                                            to={{
-                                                              pathname: "/my-account",
-                                                              state: {
-                                                                path: path,
-                                                              },
-                                                            }}
+                                                            to="/my-account"
+                                                            state={{ path: path }}
                                                             className="btn"
                                                           >
                                                             Register Now
@@ -485,12 +481,8 @@ const Events = (props) => {
                                                           "tokenCustomer"
                                                         ) == null ? (
                                                           <Link
-                                                            to={{
-                                                              pathname: "/my-account",
-                                                              state: {
-                                                                path: path,
-                                                              },
-                                                            }}
+                                                            to="/my-account"
+                                                            state={{ path: path }}
                                                             className="btn"
                                                           >
                                                             Register Now
@@ -631,12 +623,8 @@ const Events = (props) => {
                                                           "tokenCustomer"
                                                         ) == null ? (
                                                           <Link
-                                                            to={{
-                                                              pathname: "/my-account",
-                                                              state: {
-                                                                path: path,
-                                                              },
-                                                            }}
+                                                            to="/my-account"
+                                                            state={{ path: path }}
                                                             className="btn"
                                                           >
                                                             Register Now
@@ -777,12 +765,8 @@ const Events = (props) => {
                                                           "tokenCustomer"
                                                         ) == null ? (
                                                           <Link
-                                                            to={{
-                                                              pathname: "/my-account",
-                                                              state: {
-                                                                path: path,
-                                                              },
-                                                            }}
+                                                            to="/my-account"
+                                                            state={{ path: path }}
                                                             className="btn"
                                                           >
                                                             Register Now
@@ -923,12 +907,8 @@ const Events = (props) => {
                                                           "tokenCustomer"
                                                         ) == null ? (
                                                           <Link
-                                                            to={{
-                                                              pathname: "/my-account",
-                                                              state: {
-                                                                path: path,
-                                                              },
-                                                            }}
+                                                            to="/my-account"
+                                                            state={{ path: path }}
                                                             className="btn"
                                                           >
                                                             Register Now
@@ -1069,12 +1049,8 @@ const Events = (props) => {
                                                           "tokenCustomer"
                                                         ) == null ? (
                                                           <Link
-                                                            to={{
-                                                              pathname: "/my-account",
-                                                              state: {
-                                                                path: path,
-                                                              },
-                                                            }}
+                                                            to="/my-account"
+                                                            state={{ path: path }}
                                                             className="btn"
                                                           >
                                                             Register Now
@@ -1215,12 +1191,8 @@ const Events = (props) => {
                                                           "tokenCustomer"
                                                         ) == null ? (
                                                           <Link
-                                                            to={{
-                                                              pathname: "/my-account",
-                                                              state: {
-                                                                path: path,
-                                                              },
-                                                            }}
+                                                            to="/my-account"
+                                                            state={{ path: path }}
                                                             className="btn"
                                                           >
                                                             Register Now
@@ -1305,4 +1277,4 @@ const Events = (props) => {
   );
 };
 
-export default withRouter(Events);
+export default Events;

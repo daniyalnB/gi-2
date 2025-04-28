@@ -1,8 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppContext } from "../../../../contexts/appContext";
 
 const PlanAndCertification = (props) => {
+  console.log(props, "p")
 
   const { getCustomerInfo, myInfo, getMyInvitedUser, invitedUsers, getMyCoAdmin, coAdmins, getMyEncryptedDataFunction, encryptedData } = useContext(AppContext);
 
@@ -195,4 +196,4 @@ const PlanAndCertification = (props) => {
   );
 };
   
-export default withRouter(PlanAndCertification);
+export default PlanAndCertification;

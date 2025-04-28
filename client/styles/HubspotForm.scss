@@ -172,7 +172,7 @@
   top: 2px;
   left: -1px;
   position: relative;
-  background-image: url("assets/checkbox-unclicked.svg");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4gPGcgaWQ9IlJhZGlvXzIiIGRhdGEtbmFtZT0iUmFkaW8gMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ4NiAtNDE0KSIgb3BhY2l0eT0iMC43OCI+IDxnIGlkPSJFbGxpcHNlXzEyOSIgZGF0YS1uYW1lPSJFbGxpcHNlIDEyOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDg2IDQxNCkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzcxNzE3MSIgc3Ryb2tlLXdpZHRoPSIxIj4gPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIHN0cm9rZT0ibm9uZSIvPiA8Y2lyY2xlIGN4PSI2IiBjeT0iNiIgcj0iNS41IiBmaWxsPSJub25lIi8+IDwvZz4gPC9nPiA8L3N2Zz4g");
   background-repeat: no-repeat;
   background-color: #fff;
   content: '';
@@ -185,7 +185,7 @@
   top: 2px;
   left: -1px;
   position: relative;
-  background-image: url("assets/checkbox-clicked.svg");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4gPGcgaWQ9IlJhZGlvXzEiIGRhdGEtbmFtZT0iUmFkaW8gMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ4NiAtNDE0KSI+IDxnIGlkPSJFbGxpcHNlXzEyOSIgZGF0YS1uYW1lPSJFbGxpcHNlIDEyOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDg2IDQxNCkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2YTQ5OSIgc3Ryb2tlLXdpZHRoPSIxIj4gPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIHN0cm9rZT0ibm9uZSIvPiA8Y2lyY2xlIGN4PSI2IiBjeT0iNiIgcj0iNS41IiBmaWxsPSJub25lIi8+IDwvZz4gPGNpcmNsZSBpZD0iRWxsaXBzZV8xMzAiIGRhdGEtbmFtZT0iRWxsaXBzZSAxMzAiIGN4PSIzIiBjeT0iMyIgcj0iMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDg5IDQxNykiIGZpbGw9IiMyNmE1OWEiLz4gPC9nPiA8L3N2Zz4g");
   background-repeat: no-repeat;
   background-color: #fff;
   content: '';
@@ -209,7 +209,7 @@
   vertical-align: -3px;
 }
 .hs-form input[type="checkbox"]:checked+span:before {
-  background-image: url("assets/Tick.svg");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNC4yOTUiIGhlaWdodD0iMTEuMjE2IiB2aWV3Qm94PSIwIDAgMTQuMjk1IDExLjIxNiI+IDxwYXRoIGlkPSJQYXRoXzEwMTgiIGRhdGEtbmFtZT0iUGF0aCAxMDE4IiBkPSJNOTYuMzIsMTA2LjAyMWwtOS4xNjQsOS4xNjQtNS4xMzItNS4wOTUsMi4wODktMi4wNTMsMy4wNDIsMy4wMDYsNy4wNzQtNy4wNzRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODIuMDI1IC0xMDMuOTY4KSIgZmlsbD0iI2ZmZiIvPiA8L3N2Zz4g");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px;

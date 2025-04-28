@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -216,12 +216,8 @@ const PastEvents = (props) => {
                                               "tokenCustomer"
                                             ) == null ? (
                                               <Link
-                                                to={{
-                                                  pathname: "/my-account",
-                                                  state: {
-                                                    path: path,
-                                                  },
-                                                }}
+                                                to="/my-account"
+                                                state={{ path: path }}
                                                 className="btn"
                                               >
                                                 Register Now
@@ -286,4 +282,4 @@ const PastEvents = (props) => {
   );
 };
 
-export default withRouter(PastEvents);
+export default PastEvents;

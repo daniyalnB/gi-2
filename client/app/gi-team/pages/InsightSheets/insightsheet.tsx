@@ -9,10 +9,10 @@ import AdminTable from "../../components/Table";
 import insightsheetsred from "assets/InsightSheetsRed.svg";
 import vision from "assets/visibility.svg";
 import create from "assets/create.png";
-import Rating from "@material-ui/lab/Rating";
+// import Rating from "@material-ui/lab/Rating";
 import moment from "moment";
 import { Helmet } from "react-helmet";
-import { withStyles } from "@material-ui/core/styles";
+// import { withStyles } from "@material-ui/core/styles";
 import { GetAllInsightSheets } from "../../../../utils/api-routes/api-routes.util";
 
 const InsightSheetAdmin = (props) => {

@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -10,10 +10,11 @@ const Footer = React.lazy(() => import("../../components/Footer"));
 const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent"));
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 import { GetVideoGallaryItemsCustomer } from "../../../utils/api-routes/api-routes.util";
-import history from "../../../utils/history";
 import Lightbox from "react-image-lightbox";
 
 const VideoGalleryDetail = (props) => {
+
+  const { permalink } = useParams();
 
   const [show, setShow] = useState(true);
 
@@ -38,7 +39,7 @@ const VideoGalleryDetail = (props) => {
     GetVideoGallaryItemsCustomer().subscribe((response) => {
       if (response.response.Requested_Action) {
         const x = response.response.data.filter(
-          (vg) => vg.permalink === props.match.params.permalink
+          (vg) => vg.permalink === permalink
         )[0];
         if (x == undefined) {
           setShow(false);
@@ -201,4 +202,4 @@ const VideoGalleryDetail = (props) => {
   );
 };
 
-export default withRouter(VideoGalleryDetail);
+export default VideoGalleryDetail;

@@ -1,23 +1,3 @@
-// import React from "react";
-
-// const ProgressBar = ({ currentSlide, totalSlides, loading }) => {
-//   const progress = (currentSlide / totalSlides) * 100;
-//   console.log(progress, "progress")
-
-//   const progressBarStyles = {
-//     width: `${progress}%`,
-//     transition: loading ? "width 0.5s ease-out" : "none",
-//   };
-
-//   return (
-//     <div className="progress-bar">
-//       <div className="progress" style={progressBarStyles}></div>
-//     </div>
-//   );
-// };
-
-// export default ProgressBar;
-
 import React, { useState, useEffect } from "react";
 
 const ProgressBar = () => {

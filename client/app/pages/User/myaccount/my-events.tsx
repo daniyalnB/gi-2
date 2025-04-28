@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
 import AdminTable from "../.././../gi-team/components/TableExtra";
 import moment from "moment";
 
@@ -51,4 +50,4 @@ const MyEvents = (props) => {
 	);
 };
 
-export default withRouter(MyEvents);
+export default MyEvents;

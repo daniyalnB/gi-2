@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
 
 const ScanTerminology = () => {
 
@@ -136,4 +135,4 @@ const ScanTerminology = () => {
 	);
 };
 
-export default withRouter(ScanTerminology);
+export default ScanTerminology;

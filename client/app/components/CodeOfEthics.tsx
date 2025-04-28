@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../components/LottieLoader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ScrollToTop from "../components/ScrollToTop";
@@ -131,4 +130,4 @@ const CodeOfEthics = () => {
   );
 };
 
-export default withRouter(CodeOfEthics);
+export default CodeOfEthics;

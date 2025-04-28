@@ -70,12 +70,8 @@ const PriceListOfYear = (props) => {
                                         <div className="col-3 text-right">
                                             <Link
                                                 className="btn"
-                                                to={{
-                                                    pathname: "/gi-team/create-price-list-update-summary",
-                                                    state: {
-                                                        path: path,
-                                                    },
-                                                }}
+                                                to="/gi-team/create-price-list-update-summary"
+                                                state={{ path: path }}
                                             >
                                                 <img src={create} />
                                                 Create New
@@ -101,12 +97,8 @@ const PriceListOfYear = (props) => {
                                                                     </div>
                                                                     <div className="data-image-two col-4">
                                                                         <Link
-                                                                            to={{
-                                                                                pathname:`/gi-team/update-price-list-update-summary/${val.id}`,
-                                                                                state: {
-                                                                                    path: path,
-                                                                                },
-                                                                            }}
+                                                                            to="/gi-team/create-price-list-update-summary"
+                                                                            state={{ path: path }}
                                                                         >
                                                                             <img src={right} />
                                                                         </Link>

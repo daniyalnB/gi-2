@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext} from "react";
-import { Link, withRouter } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -14,12 +14,14 @@ import {
 	BuyMacro,
 } from "../../../utils/api-routes/api-routes.util";
 import { AppContext } from "../../../contexts/appContext";
-import history from "../../../utils/history";
 import queryString from "query-string";
 import Lightbox from "react-image-lightbox";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 
 const product_macro = (props) => {
+
+	const navigate = useNavigate();
+	const { permalink } = useParams();
 
 	const [show, setShow] = useState(true);
 
@@ -63,7 +65,7 @@ const product_macro = (props) => {
   const handleOpen = () => {setIsOpen(true)}
 
 	useEffect(() => {
-		getMacroByPermalink(props.match.params.permalink).subscribe((response) => {
+		getMacroByPermalink(permalink).subscribe((response) => {
 			if (response.response.Requested_Action) {
 				const x = response.response.data;
 				if (x == undefined) {
@@ -177,8 +179,7 @@ const product_macro = (props) => {
 
 	const handleSubmit = () => {
     localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-		history.push({
-			pathname: "/checkout",
+		navigate("/checkout", {
 			state: {
 				macro: data,
 				quantity: 1,
@@ -247,7 +248,7 @@ const product_macro = (props) => {
 																	"" 
 																)}
 																{subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") || ischilduser ? (
-																	<NumberFormat 
+																	<NumericFormat 
 																		className="price"
 																		value={"0"}
 																		displayType={"text"}
@@ -255,7 +256,7 @@ const product_macro = (props) => {
 																		prefix={"$"}
 																	/>
 																) : (subscriptionInfo && (subscriptionInfo.planname === "StandardPlan" ||  subscriptionInfo.planname === "StandardPlanAnnual" || subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual")) ? (
-																	<NumberFormat 
+																	<NumericFormat 
 																		className="price"
 																		value={((data.priceincents / 100) - ((data.priceincents / 100) * 0.25)).toFixed(2)}
 																		displayType={"text"}
@@ -263,7 +264,7 @@ const product_macro = (props) => {
 																		prefix={"$"}
 																	/>
 																) : (
-																	<NumberFormat 
+																	<NumericFormat 
 																		className="price"
 																		value={(data.priceincents / 100).toFixed(2)}
 																		displayType={"text"}
@@ -275,19 +276,19 @@ const product_macro = (props) => {
 															<h3 className="points">
 																or&nbsp;
 																{subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") || ischilduser ? (
-																	<NumberFormat
+																	<NumericFormat
 																		value={"0"}
 																		displayType={"text"}
 																		thousandSeparator={true}
 																	/>
 																) : (subscriptionInfo && (subscriptionInfo.planname === "StandardPlan" ||  subscriptionInfo.planname === "StandardPlanAnnual" || subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual")) ? (
-																	<NumberFormat
+																	<NumericFormat
 																		value={Math.floor((data.priceincents / 10) - (data.priceincents / 10) * 0.25)}
 																		displayType={"text"}
 																		thousandSeparator={true}
 																	/>
 																) : (
-																	<NumberFormat
+																	<NumericFormat
 																		value={Math.floor(data.priceincents / 10)}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -404,4 +405,4 @@ const product_macro = (props) => {
 	);
 }
 
-export default withRouter(product_macro);
+export default product_macro;

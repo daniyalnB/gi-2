@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
 import { SearchBlogs } from "../../utils/api-routes/api-routes.util";
 import queryString from "query-string";
 import search2 from "assets/search2.png";
@@ -146,4 +145,4 @@ const SearchBG = (props) => {
 	);
 };
 
-export default withRouter(SearchBG);
+export default SearchBG;

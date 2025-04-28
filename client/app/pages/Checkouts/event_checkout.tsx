@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -15,7 +15,7 @@ import {
   getSetupIntent,
   updateLoggedInUser,
 } from "../../../utils/api-routes/api-routes.util";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { Modal } from "react-bootstrap";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -30,7 +30,6 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import queryString from "query-string";
-import history from "../../../utils/history";
 import visa from "assets/visa.png";
 import mastercard from "assets/mastercard.png";
 import AmericanExpress from "assets/americanexpress.png";
@@ -286,7 +285,10 @@ const FormElementAfterPayDisclaimer = (props) => {
 
 const Buy_Event = (props) => {
 
-  const payment = queryString.parse(props.location.search);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const payment = queryString.parse(location.search);
 
   const [paymentIntent, setPaymentIntent] = useState(false);
 
@@ -351,7 +353,7 @@ const Buy_Event = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem("event_data") == null) {
-      history.push("/");
+      navigate("/");
     } else {
       const x = JSON.parse(localStorage.getItem("event_data"));
       setProductData(x.event);
@@ -552,13 +554,12 @@ const Buy_Event = (props) => {
           setErrorMsg("");
           const x = response.response.data;
           handleSubmitUpdateUser();
-          history.push({
-            pathname: "/receipt",
+          navigate("/receipt", {
             state: {
               propsData: propsData,
               data: x,
               couponData: couponData,
-            },
+            }
           });
         } else {
           setPageLoading(false);
@@ -655,13 +656,12 @@ const Buy_Event = (props) => {
           setLoading(false);
           const x = response.response.data;
           handleSubmitUpdateUser();
-          history.push({
-            pathname: "/receipt",
+          navigate("/receipt", {
             state: {
               propsData: propsData,
               data: x,
               couponData: couponData,
-            },
+            }
           });
         } else {
           setLoading(false);
@@ -1593,21 +1593,21 @@ const Buy_Event = (props) => {
                           <div className="col">
                             <h3 className="text-right">
                               {productData.type === "Bootcamp" && ((subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") && subscriptionInfo.subscriptionstatus === "Active") ? (
-                                <NumberFormat
+                                <NumericFormat
                                   value={((5000 * propsData.quantity) / 100).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
                                   prefix={"$"}
                                 />
                               ) : productData.type === "Bootcamp" && parentInfo && parentInfo.parentsplanstatus === "Active" ? (
-                                <NumberFormat
+                                <NumericFormat
                                   value={((5000 * propsData.quantity) / 100).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
                                   prefix={"$"}
                                 />
                               ) : (
-                                <NumberFormat
+                                <NumericFormat
                                   value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
@@ -1627,21 +1627,21 @@ const Buy_Event = (props) => {
                           <div className="col">
                             <h3 className="text-right">
                               {productData.type === "Bootcamp" && ((subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") && subscriptionInfo.subscriptionstatus === "Active") ? (
-                                <NumberFormat
+                                <NumericFormat
                                   value={((5000 * propsData.quantity) / 100).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
                                   prefix={"$"}
                                 />
                               ) : productData.type === "Bootcamp" && parentInfo && parentInfo.parentsplanstatus === "Active" ? (
-                                <NumberFormat
+                                <NumericFormat
                                   value={((5000 * propsData.quantity) / 100).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
                                   prefix={"$"}
                                 />
                               ) : (
-                                <NumberFormat
+                                <NumericFormat
                                   value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
@@ -1687,7 +1687,7 @@ const Buy_Event = (props) => {
                               {couponData.length !== 0 ? (
                                 <>
                                   -
-                                  <NumberFormat
+                                  <NumericFormat
                                     value={(couponData.amountreducned / 100).toFixed(2)}
                                     displayType={"text"}
                                     thousandSeparator={true}
@@ -1726,7 +1726,7 @@ const Buy_Event = (props) => {
                                 <>
                                   Amount Reduced:{" "}
                                   <b>
-                                    <NumberFormat
+                                    <NumericFormat
                                       value={(couponData.amountreducned / 100).toFixed(2)}
                                       displayType={"text"}
                                       thousandSeparator={true}
@@ -1749,8 +1749,8 @@ const Buy_Event = (props) => {
                             <div className="points-data">
                               <span> Current Insighter Points Balance </span>
                               <span style={{ color: "#26A59A" }}>
-                                <NumberFormat
-                                  value={points}
+                                <NumericFormat
+                                  value={typeof points === "number" ? points : 0}
                                   displayType={"text"}
                                   thousandSeparator={true}
                                 />
@@ -1761,7 +1761,7 @@ const Buy_Event = (props) => {
                               <span style={{ color: "#26A59A" }}>
                                 {couponData.length !== 0 ? (
                                   <>
-                                    <NumberFormat
+                                    <NumericFormat
                                       value={couponData.newprice / 10}
                                       displayType={"text"}
                                       thousandSeparator={true}
@@ -1771,19 +1771,19 @@ const Buy_Event = (props) => {
                                 ) : (
                                   <>
                                     {productData.type === "Bootcamp" && ((subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") && subscriptionInfo.subscriptionstatus === "Active") ? (
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={500 * propsData.quantity}
                                         displayType={"text"}
                                         thousandSeparator={true}
                                       />
                                     ) : productData.type === "Bootcamp" && parentInfo && parentInfo.parentsplanstatus === "Active" ? (
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={500 * propsData.quantity}
                                         displayType={"text"}
                                         thousandSeparator={true}
                                       />
                                     ) : (
-                                      <NumberFormat
+                                      <NumericFormat
                                         value={(productData.priceincents * propsData.quantity) /10}
                                         displayType={"text"}
                                         thousandSeparator={true}
@@ -1838,7 +1838,7 @@ const Buy_Event = (props) => {
                               {couponData.length !== 0 ? (
                                 <>
                                   -
-                                  <NumberFormat
+                                  <NumericFormat
                                     value={(couponData.amountreducedduetoinsighterpoints / 100).toFixed(2)}
                                     displayType={"text"}
                                     thousandSeparator={true}
@@ -1873,7 +1873,7 @@ const Buy_Event = (props) => {
                             <h3 className="text-right">
                               {couponData.length !== 0 ? (
                                 <>
-                                  <NumberFormat
+                                  <NumericFormat
                                     value={(couponData.newprice / 100).toFixed(2)}
                                     displayType={"text"}
                                     thousandSeparator={true}
@@ -1883,21 +1883,21 @@ const Buy_Event = (props) => {
                               ) : (
                                 <>
                                   {productData.type === "Bootcamp" && ((subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") && subscriptionInfo.subscriptionstatus === "Active") ? (
-                                    <NumberFormat
+                                    <NumericFormat
                                       value={((5000 * propsData.quantity) / 100).toFixed(2)}
                                       displayType={"text"}
                                       thousandSeparator={true}
                                       prefix={"$"}
                                     />
                                   ) : productData.type === "Bootcamp" && parentInfo && parentInfo.parentsplanstatus === "Active" ? (
-                                    <NumberFormat
+                                    <NumericFormat
                                       value={((5000 * propsData.quantity) / 100).toFixed(2)}
                                       displayType={"text"}
                                       thousandSeparator={true}
                                       prefix={"$"}
                                     />
                                   ) : (
-                                    <NumberFormat
+                                    <NumericFormat
                                       value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
                                       displayType={"text"}
                                       thousandSeparator={true}
@@ -2201,4 +2201,4 @@ const Buy_Event = (props) => {
   );
 };
 
-export default withRouter(Buy_Event);
+export default Buy_Event;

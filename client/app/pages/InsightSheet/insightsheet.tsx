@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -15,35 +15,58 @@ import ReactPaginate from "react-paginate";
 import Rating from "@material-ui/lab/Rating";
 import down from "assets/down-arrow-user.svg";
 
-export const useDetectOutsideClick = (el, initialState) => {
-
-  const [isActive, setIsActive] = useState(initialState);
-
-  useEffect(() => {
-    const onClick = (e) => {
-      if (el.current !== null && !el.current.contains(e.target)) {
-        setIsActive(!isActive);
-      }
-    };
-    if (isActive) {
-      window.addEventListener("click", onClick);
-    }
-    return () => {
-      window.removeEventListener("click", onClick);
-    };
-  }, [isActive, el]);
-  return [isActive, setIsActive];
-};
-
 const InsightSheet = () => {
   
-  const dropdownRef1 = useRef(null);
-  const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
-  const onClickRef1 = () => setIsActive1(!isActive1);
+  const [activeMenus, setActiveMenus] = useState({
+    menu1: false,
+    menu2: false,
+  });
 
-  const dropdownRef2 = useRef(null);
-  const [isActive2, setIsActive2] = useDetectOutsideClick(dropdownRef2, false);
-  const onClickRef2 = () => setIsActive2(!isActive2);
+  const dropdownRef1 = useRef<HTMLDivElement>(null);
+  const dropdownRef2 = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check for each dropdown
+      if (
+        dropdownRef1.current &&
+        !dropdownRef1.current.contains(event.target)
+      ) {
+        setActiveMenus(prev => ({...prev, menu1: false}));
+      }
+      
+      if (
+        dropdownRef2.current &&
+        !dropdownRef2.current.contains(event.target)
+      ) {
+        setActiveMenus(prev => ({...prev, menu2: false}));
+      }
+      // Add more conditions for other dropdowns
+    };
+  
+    window.addEventListener("click", handleClickOutside);
+  
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const toggleActive = (menuId, event) => {
+    event.stopPropagation();
+    
+    setActiveMenus(prev => {
+      // Create new state object with all menus closed
+      const newState: typeof prev = { ...prev };
+      Object.keys(prev).forEach(key => {
+        newState[key] = false;
+      });
+      
+      // Toggle only the clicked menu
+      newState[menuId] = !prev[menuId];
+      
+      return newState;
+    });
+  };
 
   const [loading, setLoading] = useState(true);
 
@@ -206,17 +229,17 @@ const InsightSheet = () => {
                               name="Filter"
                               className="form-control"
                               placeholder="Filter"
-                              onClick={() => onClickRef1()}
+                              onClick={(e) => toggleActive('menu1', e)}
                             />
                             <label className="file_input_label">
                               <img
                                 className="select size"
                                 src={down}
-                                onClick={() => onClickRef1()}
+                                onClick={(e) => toggleActive('menu1', e)}
                               />
                             </label>
                             <div
-                              className={isActive1 ? "active" : "dropdown-content"}
+                              className={activeMenus.menu1 ? "active" : "dropdown-content"}
                               ref={dropdownRef1}
                             >
                               <h5> Filter by Categories </h5>
@@ -243,17 +266,17 @@ const InsightSheet = () => {
                               name="SortBy"
                               className="form-control"
                               placeholder="Sort by"
-                              onClick={() => onClickRef2()}
+                              onClick={(e) => toggleActive('menu2', e)}
                             />
                             <label className="file_input_label">
                               <img
                                 className="select size"
                                 src={down}
-                                onClick={() => onClickRef2()}
+                                onClick={(e) => toggleActive('menu2', e)}
                               />
                             </label>
                             <div
-                              className={isActive2 ? "active" : "dropdown-content"}
+                              className={activeMenus.menu2 ? "active" : "dropdown-content"}
                               ref={dropdownRef2}
                             >
                               <label htmlFor="AZ">A-Z</label>
@@ -3113,4 +3136,4 @@ const InsightSheet = () => {
   );
 };
 
-export default withRouter(InsightSheet);
+export default InsightSheet;

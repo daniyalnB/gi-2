@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LottieLoader from "../../../components/LottieLoader";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import ScrollToTop from "../../../components/ScrollToTop";
@@ -13,7 +13,6 @@ import {
   cancelSubscriptionPlan,
 } from "utils/api-routes/api-routes.util";
 import { AppContext } from "../../../../contexts/appContext";
-import history from "../../../../utils/history";
 import queryString from "query-string";
 import { Helmet } from "react-helmet";
 import { Modal } from "react-bootstrap";
@@ -25,9 +24,11 @@ import alert from "assets/tick2.svg";
 import modalclose from "assets/modal-close.svg";
 
 const FormElementSubscription = (props) => {
+  
+  const navigate = useNavigate();
 
   const closeModal = () => {
-    history.push("/my-account");
+    navigate("/my-account");
   };
 
   return (
@@ -56,6 +57,8 @@ const FormElementSubscription = (props) => {
 };
 
 const CancelSubscription = (props) => {
+
+  const navigate = useNavigate();
 
   const { getCustomerInfo, myInfo } = useContext(AppContext);
 
@@ -122,7 +125,7 @@ const CancelSubscription = (props) => {
   const [cancelPlanError, setCancelPlanError] = useState("");
 
   const cancelPlan = () => {
-    history.push("/my-account/cancel-subscription-form");
+    navigate("/my-account/cancel-subscription-form");
   };
 
   const [subcardpopupshow, setsubcardpopupshow] = useState(false);
@@ -263,7 +266,7 @@ const CancelSubscription = (props) => {
                               <hr />
                               <button
                                 className="btns"
-                                onClick={() => history.push("/plan-matrix")}
+                                onClick={() => navigate("/plan-matrix")}
                               >
                                 Change Plan
                               </button>
@@ -334,4 +337,4 @@ const CancelSubscription = (props) => {
   );
 };
 
-export default withRouter(CancelSubscription);
+export default CancelSubscription;

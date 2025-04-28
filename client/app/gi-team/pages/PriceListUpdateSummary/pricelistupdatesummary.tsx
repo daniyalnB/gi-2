@@ -70,12 +70,8 @@ const PriceList = (props) => {
                                         <div className="col-3 text-right">
                                             <Link
                                                 className="btn"
-                                                to={{
-                                                    pathname: "/gi-team/create-price-list-update-summary",
-                                                    state: {
-                                                        path: path,
-                                                    },
-                                                }}
+                                                to="/gi-team/create-price-list-update-summary"
+                                                state={{ path: path }}
                                             >
                                                 <img src={create} />
                                                 Create New

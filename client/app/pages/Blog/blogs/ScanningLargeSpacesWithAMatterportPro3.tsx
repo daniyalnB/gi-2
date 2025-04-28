@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../../components/LottieLoader";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import ScrollToTop from "../../../components/ScrollToTop";
@@ -676,4 +676,4 @@ const ScanningLargeSpacesWithAMatterportPro3 = () => {
 	);
 };
 
-export default withRouter(ScanningLargeSpacesWithAMatterportPro3);
+export default ScanningLargeSpacesWithAMatterportPro3;

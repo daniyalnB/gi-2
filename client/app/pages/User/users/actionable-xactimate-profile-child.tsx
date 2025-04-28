@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useContext, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LottieLoader from "../../../components/LottieLoader";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import ScrollToTop from "../../../components/ScrollToTop";
@@ -12,7 +12,6 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip  from "react-bootstrap/Tooltip";
 import { Modal } from "react-bootstrap";
 import { Helmet } from "react-helmet";
-import history from "../../../../utils/history";
 import {
   updateChildUserXactProfile,
   getMyChildAccounts,
@@ -22,6 +21,9 @@ import modalclose from "assets/modal-close.svg";
 
 const ActionableXactimateProfileChild = (props) => {
 
+  const navigate = useNavigate();
+  const { id } = useParams();
+  
   const [ActionableXactimateProfile, setActionableXactimateProfile] = useState({
     childuserid: "", 
     xactProfileCompanyEmailAddress: "",
@@ -35,10 +37,10 @@ const ActionableXactimateProfileChild = (props) => {
     getMyChildAccounts().subscribe((response) => {
       if (response.response.Requested_Action) {
         const x = response.response.data.filter(
-          (childs) => childs.childuserid === parseInt(props.match.params.id)
+          (childs) => childs.childuserid === parseInt(id)
         )[0];
         if (x == undefined) {
-          history.push("/");
+          navigate("/");
         }
         setActionableXactimateProfile({
           childuserid: x.childuserid,
@@ -91,7 +93,7 @@ const ActionableXactimateProfileChild = (props) => {
           (childs) => childs.childuserid === parseInt(props.match.params.id)
         )[0];
         if (x == undefined) {
-          history.push("/");
+          navigate("/");
         }
         setActionableXactimateProfile({
           childuserid: x.childuserid,
@@ -314,7 +316,7 @@ const ActionableXactimateProfileChild = (props) => {
                       <div className="text-right mt-5">
                         <button 
                           className="btn back"
-                          onClick={() => history.push("/users")}
+                          onClick={() => navigate("/users")}
                         >
                           <span> Back </span>
                         </button>
@@ -347,4 +349,4 @@ const ActionableXactimateProfileChild = (props) => {
   );
 };
   
-export default withRouter(ActionableXactimateProfileChild);
+export default ActionableXactimateProfileChild;

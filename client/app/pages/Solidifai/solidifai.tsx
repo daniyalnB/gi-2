@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -12,8 +12,7 @@ import { AppContext } from "../../../contexts/appContext";
 import CurrencyInput from "react-currency-input-field";
 import queryString from "query-string";
 import { isWebUri } from "valid-url";
-import history from "../../../utils/history";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import down from "assets/down-arrow-user.svg";
 import info from "assets/Info.svg";
 import Solidifai_Beta_Logo from "assets/Solidifai_Beta_Logo.webp";
@@ -40,6 +39,9 @@ export const useDetectOutsideClick = (el, initialState) => {
 };
 
 const solidifai = () => {
+
+	const navigate = useNavigate();
+	const { permalink } = useParams();
 
 	const dropdownRef1 = useRef(null);
   const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
@@ -170,8 +172,7 @@ const solidifai = () => {
 	const [CategoryValue, setCategoryValue] = useState(0);
 
 	const handleSubmit = () => {
-		history.push({
-			pathname: "/checkout",
+		navigate("/checkout", {
 			state: {
 				solidifai: solidifai,
 				quantity: 1,
@@ -761,7 +762,7 @@ const solidifai = () => {
 														<div className="IP">
 															<h5> Insighter Points </h5>
 															<h4> Current Insighter Points Balance: </h4>
-															<NumberFormat
+															<NumericFormat
 																value={points}
 																displayType={"text"}
 																thousandSeparator={true}
@@ -1564,4 +1565,4 @@ const solidifai = () => {
 	);
 };
 
-export default withRouter(solidifai);
+export default solidifai;

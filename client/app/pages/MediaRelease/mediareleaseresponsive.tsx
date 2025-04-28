@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 
 const MR_Responsive = (props) => {
@@ -58,4 +57,4 @@ const MR_Responsive = (props) => {
   );
 };
 
-export default withRouter(MR_Responsive);
+export default MR_Responsive;

@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -11,10 +11,9 @@ const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 import { GetAllGiftcards } from "../../../utils/api-routes/api-routes.util";
 import { AppContext } from "../../../contexts/appContext";
-import history from "../../../utils/history";
 import Lightbox from "react-image-lightbox";
 import { Carousel } from "react-responsive-carousel";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import down from "assets/down-arrow-user.svg";
 import info from "assets/Info.svg";
 import Plus_4 from "assets/Plus_4.png";
@@ -25,6 +24,9 @@ import Standard_12 from "assets/Standard_12.png";
 import Pro_3 from "assets/Pro_3.png";
 
 const ProductGiftCards = (props) => {
+
+  const navigate = useNavigate();
+  const { permalink } = useParams();
 
   const [show, setShow] = useState(true);
 
@@ -50,7 +52,7 @@ const ProductGiftCards = (props) => {
 		GetAllGiftcards().subscribe((response) => {
 			if (response.response.Requested_Action) {
         const x = response.response.data.filter(
-					(gc) => gc.title.toLowerCase().replace(/ /g, "-") === props.match.params.permalink
+					(gc) => gc.title.toLowerCase().replace(/ /g, "-") === permalink
 				);
         if (x.length == 0) {
           setShow(false);
@@ -302,8 +304,7 @@ const ProductGiftCards = (props) => {
 
 	const handleSubmit = () => {
     localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-		history.push({
-			pathname: "/checkout",
+    navigate("/checkout", {
 			state: {
 				giftcard: data,
 				quantity: data.quantity,
@@ -407,7 +408,7 @@ const ProductGiftCards = (props) => {
                                 <div className="col-xl-4 col-lg-4 col-md-12">
                                   <div style={{ textAlign: "right" }}>
                                     {/* <h2 className="prevprice"> <del> ${data.priceincents * 100} </del> </h2> */}
-                                    <NumberFormat 
+                                    <NumericFormat 
                                       className="price"
                                       value={(data.priceincents / 100).toFixed(2)}
                                       displayType={"text"}
@@ -736,7 +737,7 @@ const ProductGiftCards = (props) => {
                                 <div className="col-xl-4 col-lg-4 col-md-12">
                                   <div style={{ textAlign: "right" }}>
                                     {/* <h2 className="prevprice"> <del> ${data.priceincents * 100} </del> </h2> */}
-                                    <NumberFormat 
+                                    <NumericFormat 
                                       className="price"
                                       value={(cardData[0].priceincents / 100).toFixed(2)}
                                       displayType={"text"}
@@ -933,7 +934,7 @@ const ProductGiftCards = (props) => {
                                 <div className="col-xl-4 col-lg-4 col-md-12">
                                   <div style={{ textAlign: "right" }}>
                                     {/* <h2 className="prevprice"> <del> ${data.priceincents * 100} </del> </h2> */}
-                                    <NumberFormat 
+                                    <NumericFormat 
                                       className="price"
                                       value={(cardData[0].priceincents / 100).toFixed(2)}
                                       displayType={"text"}
@@ -1137,7 +1138,7 @@ const ProductGiftCards = (props) => {
                                 <div className="col-xl-4 col-lg-4 col-md-12">
                                   <div style={{ textAlign: "right" }}>
                                     {/* <h2 className="prevprice"> <del> ${data.priceincents * 100} </del> </h2> */}
-                                    <NumberFormat 
+                                    <NumericFormat 
                                       className="price"
                                       value={((cardData[0].priceincents / 100) * data.points).toFixed(2)}
                                       displayType={"text"}
@@ -1330,4 +1331,4 @@ const ProductGiftCards = (props) => {
 	);
 }
 
-export default withRouter(ProductGiftCards);
+export default ProductGiftCards;

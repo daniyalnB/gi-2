@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { withRouter } from "react-router-dom";
 const ActionableXactimateProfile = React.lazy(() => import("../actionable-xactimate-profile"));
 const MyEvents = React.lazy(() => import("../my-events"));
 import { Modal } from "react-bootstrap";
@@ -490,4 +489,4 @@ const Collaborator = (props) => {
   );
 };
 
-export default withRouter(Collaborator);
+export default Collaborator;

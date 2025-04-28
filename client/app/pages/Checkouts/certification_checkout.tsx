@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -15,7 +15,7 @@ import {
   getSetupIntent,
   updateLoggedInUser,
 } from "../../../utils/api-routes/api-routes.util";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { Modal } from "react-bootstrap";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -30,7 +30,6 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import queryString from "query-string";
-import history from "../../../utils/history";
 import visa from "assets/visa.png";
 import mastercard from "assets/mastercard.png";
 import AmericanExpress from "assets/americanexpress.png";
@@ -287,7 +286,10 @@ const FormElementAfterPayDisclaimer = (props) => {
 
 const BuyCertification = (props) => {
 
-  const payment = queryString.parse(props.location.search);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const payment = queryString.parse(location.search);
 
   const [paymentIntent, setPaymentIntent] = useState(false);
 
@@ -354,7 +356,7 @@ const BuyCertification = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem("certification_data") == null) {
-      history.push("/");
+      navigate("/");
     } else {
       const x = JSON.parse(localStorage.getItem("certification_data"));
       setProductData(x.certification);
@@ -609,8 +611,7 @@ const BuyCertification = (props) => {
           if (response.response.Message == "Payment Succeded.") {
             setErrorMsg("");
             handleSubmitUpdateUser();
-            history.push({
-              pathname: "/receipt",
+            navigate("/receipt", {
               state: {
                 propsData: propsData,
                 data: x,
@@ -743,8 +744,7 @@ const BuyCertification = (props) => {
           const x = response.response.data;
           if (response.response.Message == "Payment Succeded.") {
             handleSubmitUpdateUser();
-            history.push({
-              pathname: "/receipt",
+            navigate("/receipt", {
               state: {
                 propsData: propsData,
                 data: x,
@@ -1688,7 +1688,7 @@ const BuyCertification = (props) => {
                           <div className="col">
                             <h3 className="text-right">
                               {productData.courseTag === "aitc" && (subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual") || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
-                                <NumberFormat 
+                                <NumericFormat 
                                   value={(0).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
@@ -1699,14 +1699,14 @@ const BuyCertification = (props) => {
                                   {propsData.certificationStatus == 2 ? (
                                     <>
                                       {certificationExtras.proctoring ? (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.failedpriceincents + 5000 * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
                                           prefix={"$"}
                                         />
                                       ) : (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.failedpriceincents * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
@@ -1717,14 +1717,14 @@ const BuyCertification = (props) => {
                                   ) : (
                                     <>
                                       {certificationExtras.proctoring ? (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.priceincents + 10000 * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
                                           prefix={"$"}
                                         />
                                       ) : (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
@@ -1748,7 +1748,7 @@ const BuyCertification = (props) => {
                           <div className="col">
                             <h3 className="text-right">
                               {productData.courseTag === "aitc" && (subscriptionInfo && subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
-                                <NumberFormat 
+                                <NumericFormat 
                                   value={(0).toFixed(2)}
                                   displayType={"text"}
                                   thousandSeparator={true}
@@ -1759,14 +1759,14 @@ const BuyCertification = (props) => {
                                   {propsData.certificationStatus == 2 ? (
                                     <>
                                       {certificationExtras.proctoring ? (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.failedpriceincents + 5000 * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
                                           prefix={"$"}
                                         />
                                       ) : (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.failedpriceincents * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
@@ -1777,14 +1777,14 @@ const BuyCertification = (props) => {
                                   ) : (
                                     <>
                                       {certificationExtras.proctoring ? (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.priceincents + 10000 * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
                                           prefix={"$"}
                                         />
                                       ) : (
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
                                           displayType={"text"}
                                           thousandSeparator={true}
@@ -1834,7 +1834,7 @@ const BuyCertification = (props) => {
                               {couponData.length !== 0 ? (
                                 <>
                                   -
-                                  <NumberFormat
+                                  <NumericFormat
                                     value={(couponData.amountreducned / 100).toFixed(2)}
                                     displayType={"text"}
                                     thousandSeparator={true}
@@ -1873,7 +1873,7 @@ const BuyCertification = (props) => {
                                 <>
                                   Amount Reduced:{" "}
                                   <b>
-                                    <NumberFormat
+                                    <NumericFormat
                                       value={(couponData.amountreducned / 100).toFixed(2)}
                                       displayType={"text"}
                                       thousandSeparator={true}
@@ -1896,8 +1896,8 @@ const BuyCertification = (props) => {
                             <div className="points-data">
                               <span> Current Insighter Points Balance </span>
                               <span style={{ color: "#26A59A" }}>
-                                <NumberFormat
-                                  value={points}
+                                <NumericFormat
+                               	  value={typeof points === "number" ? points : 0}
                                   displayType={"text"}
                                   thousandSeparator={true}
                                 />
@@ -1908,7 +1908,7 @@ const BuyCertification = (props) => {
                               <span style={{ color: "#26A59A" }}>
                                 {couponData.length !== 0 ? (
                                   <>
-                                    <NumberFormat
+                                    <NumericFormat
                                       value={couponData.newprice / 10}
                                       displayType={"text"}
                                       thousandSeparator={true}
@@ -1919,7 +1919,7 @@ const BuyCertification = (props) => {
                                   <>
                                     {productData.courseTag === "aitc" && (subscriptionInfo && subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
                                       <>
-                                        <NumberFormat
+                                        <NumericFormat
                                           value={(0)}
                                           displayType={"text"}
                                           thousandSeparator={true}
@@ -1932,7 +1932,7 @@ const BuyCertification = (props) => {
                                           <>
                                             {certificationExtras.proctoring ? (
                                               <>
-                                                <NumberFormat
+                                                <NumericFormat
                                                   value={((productData.failedpriceincents + 5000 * propsData.quantity) / 10)}
                                                   displayType={"text"}
                                                   thousandSeparator={true}
@@ -1941,7 +1941,7 @@ const BuyCertification = (props) => {
                                               </>
                                             ) : (
                                               <>
-                                                <NumberFormat
+                                                <NumericFormat
                                                   value={((productData.failedpriceincents * propsData.quantity) / 10)}
                                                   displayType={"text"}
                                                   thousandSeparator={true}
@@ -1954,7 +1954,7 @@ const BuyCertification = (props) => {
                                           <>
                                             {certificationExtras.proctoring ? (
                                               <>
-                                                <NumberFormat
+                                                <NumericFormat
                                                   value={((productData.priceincents + 10000 * propsData.quantity) / 10)}
                                                   displayType={"text"}
                                                   thousandSeparator={true}
@@ -1963,7 +1963,7 @@ const BuyCertification = (props) => {
                                               </>
                                             ) : (
                                               <>
-                                                <NumberFormat
+                                                <NumericFormat
                                                   value={((productData.priceincents * propsData.quantity) / 10)}
                                                   displayType={"text"}
                                                   thousandSeparator={true}
@@ -2025,8 +2025,8 @@ const BuyCertification = (props) => {
                               {couponData.length !== 0 ? (
                                 <>
                                   -
-                                  <NumberFormat
-                                   value={(couponData.amountreducedduetoinsighterpoints / 100).toFixed(2)}
+                                  <NumericFormat
+                                    value={(couponData.amountreducedduetoinsighterpoints / 100).toFixed(2)}
                                     displayType={"text"}
                                     thousandSeparator={true}
                                     prefix={"$"}
@@ -2060,7 +2060,7 @@ const BuyCertification = (props) => {
                             <h3 className="text-right">
                               {couponData.length !== 0 ? (
                                 <>
-                                  <NumberFormat
+                                  <NumericFormat
                                     value={(couponData.newprice / 100).toFixed(2)}
                                     displayType={"text"}
                                     thousandSeparator={true}
@@ -2070,7 +2070,7 @@ const BuyCertification = (props) => {
                               ) : (
                                 <>
                                   {productData.courseTag === "aitc" && (subscriptionInfo && subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
-                                    <NumberFormat 
+                                    <NumericFormat 
                                       value={(0).toFixed(2)}
                                       displayType={"text"}
                                       thousandSeparator={true}
@@ -2081,14 +2081,14 @@ const BuyCertification = (props) => {
                                       {propsData.certificationStatus == 2 ? (
                                         <>
                                           {certificationExtras.proctoring ? (
-                                            <NumberFormat
+                                            <NumericFormat
                                               value={((productData.failedpriceincents + 5000 * propsData.quantity) / 100).toFixed(2)}
                                               displayType={"text"}
                                               thousandSeparator={true}
                                               prefix={"$"}
                                             />
                                           ) : (
-                                            <NumberFormat
+                                            <NumericFormat
                                               value={((productData.failedpriceincents * propsData.quantity) / 100).toFixed(2)}
                                               displayType={"text"}
                                               thousandSeparator={true}
@@ -2099,14 +2099,14 @@ const BuyCertification = (props) => {
                                       ) : (
                                         <>
                                           {certificationExtras.proctoring ? (
-                                            <NumberFormat
+                                            <NumericFormat
                                               value={((productData.priceincents + 10000 * propsData.quantity) / 100).toFixed(2)}
                                               displayType={"text"}
                                               thousandSeparator={true}
                                               prefix={"$"}
                                             />
                                           ) : (
-                                            <NumberFormat
+                                            <NumericFormat
                                               value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
                                               displayType={"text"}
                                               thousandSeparator={true}
@@ -2414,4 +2414,4 @@ const BuyCertification = (props) => {
   );
 };
 
-export default withRouter(BuyCertification);
+export default BuyCertification;

@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import LottieLoader from "../components/LottieLoader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ScrollToTop from "../components/ScrollToTop";
@@ -15,10 +15,10 @@ import { Helmet } from "react-helmet";
 const ActivateAccount = (props) => {
 
   const [Msg, setMsg] = useState("");
+  const location = useLocation();
 
-  const data = queryString.parse(props.location.search);
-
-  const stringified = queryString.stringify({thetoken: data.thetoken});
+  const data = queryString.parse(location.search);
+  const stringified = queryString.stringify({ thetoken: data.thetoken });
 
   useEffect(() => {
     if (localStorage.getItem("tokenCustomer") == null) {
@@ -57,31 +57,31 @@ const ActivateAccount = (props) => {
         <Breadcrumbs />
 				<div className="main-container">
           <div className="ActivateAccount">
-          {Msg == "true" ? (
-            <div className="email-verification-success-msg">
-              <h4> Your email address is verified </h4>
-              <Link
-                to="/my-account"
-                className="btn"
-              >
-                Proceed
-              </Link>
-            </div>
-          ) : Msg == "Invalid Token" ? (
-            <div className="email-verification-failed-msg">
-              <h4>
-                Verification link has expired.
-              </h4>
-              <Link
-                to="/my-account"
-                className="btn"
-              >
-                Sign In
-              </Link>
-            </div>
-          ) : (
-            ""
-          )}
+            {Msg == "true" ? (
+              <div className="email-verification-success-msg">
+                <h4> Your email address is verified </h4>
+                <Link
+                  to="/my-account"
+                  className="btn"
+                >
+                  Proceed
+                </Link>
+              </div>
+            ) : Msg == "Invalid Token" ? (
+              <div className="email-verification-failed-msg">
+                <h4>
+                  Verification link has expired.
+                </h4>
+                <Link
+                  to="/my-account"
+                  className="btn"
+                >
+                  Sign In
+                </Link>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
 				</div>
         <WrongBrowserDisclaimer />

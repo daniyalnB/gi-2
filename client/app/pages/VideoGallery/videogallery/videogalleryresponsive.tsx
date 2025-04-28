@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const VG_Responsive = (props) => {
 
@@ -356,4 +356,4 @@ const VG_Responsive = (props) => {
   );
 };
 
-export default withRouter(VG_Responsive);
+export default VG_Responsive;

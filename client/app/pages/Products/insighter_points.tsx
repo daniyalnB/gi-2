@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -10,11 +10,13 @@ const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 import { getAllInsighterPointsProducts } from "../../../utils/api-routes/api-routes.util";
 import { AppContext } from "../../../contexts/appContext";
-import history from "../../../utils/history";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import down from "assets/down-arrow-user.svg";
 
 const ProductInsighterPoints = (props) => {
+
+  const navigate = useNavigate();
+  const { permalink } = useParams();
 
 	const [loading, setLoading] = useState(true);
 
@@ -51,7 +53,7 @@ const ProductInsighterPoints = (props) => {
 		// 		alert("error");
 		// 	}
 		// });
-    history.push("/my-account/points");
+    navigate("/my-account/points");
 	}, []);
 
   const [points, setPoints] = useState([
@@ -117,8 +119,7 @@ const ProductInsighterPoints = (props) => {
 
   const handleSubmit = () => {
     localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-		history.push({
-			pathname: "/checkout",
+    navigate("/checkout", {
 			state: {
 				points: data,
         quantity: 1,
@@ -167,7 +168,7 @@ const ProductInsighterPoints = (props) => {
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-12">
                           <div style={{ textAlign: "right" }}>
-                            <NumberFormat 
+                            <NumericFormat 
 															className="price"
 															value={(insighterPointPrice).toFixed(2)}
 															displayType={"text"}
@@ -258,4 +259,4 @@ const ProductInsighterPoints = (props) => {
 	);
 }
 
-export default withRouter(ProductInsighterPoints);
+export default ProductInsighterPoints;

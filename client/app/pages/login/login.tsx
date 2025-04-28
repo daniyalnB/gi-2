@@ -1,5 +1,5 @@
 import React, { Suspense, useContext, useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -9,25 +9,27 @@ const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
 import { AuthContext } from "../../../contexts/authContext";
 import { resendVerificationEmail } from "../../../utils/api-routes/api-routes.util";
-import history from "utils/history";
 import queryString from "query-string";
 import { Helmet } from "react-helmet";
 import email from "assets/envelope.svg";
 import password from "assets/passwordnew.png";
 
 const login = (props) => {
-  
+    
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [loading, setLoading] = useState(false);
 
   const [path, setPath] = useState("");
   
   useEffect(() => {
-    if (props.location.state === undefined) {
-      history.push("/my-account");
-    } else if (props.location.state.path == props.location.state.path) {
-      setPath(props.location.state.path);
+    if (!location.state) {
+      navigate("/");
+    } else if (location.state.path == location.state.path) {
+      setPath(location.state.path);
     } else {
-      setPath(props.location.state.path)
+      setPath(location.state.path)
     }
   }, []);
 
@@ -55,7 +57,7 @@ const login = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem("tokenCustomer")) {
-      history.push("/");
+      navigate("/");
     } else {
       setToken(false);
     }
@@ -223,4 +225,4 @@ const login = (props) => {
   );
 };
 
-export default withRouter(login);
+export default login;

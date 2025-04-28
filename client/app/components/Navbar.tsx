@@ -1,63 +1,98 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Banner = React.lazy(() => import("../components/Banner"));
 import { AuthContext } from "../../contexts/authContext";
 import { AppContext } from "../../contexts/appContext";
 import { GetLiveSessionDetails } from "../../utils/api-routes/api-routes.util";
 import moment from "moment";
-import history from "utils/history";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import logo from "assets/Logo.svg";
 import search from "assets/search.svg";
 import user from "assets/user-eyes.svg";
 import live from "assets/Live.gif";
 import MenuIcon from "assets/menu-icon.svg"
 
-export const useDetectOutsideClick = (el, initialState) => {
-
-  const [isActive, setIsActive] = useState(initialState);
-
-  useEffect(() => {
-    const onClick = e => {
-      if (el.current !== null && !el.current.contains(e.target)) {
-        setIsActive(!isActive);
-      }
-    };
-    if (isActive) {
-      window.addEventListener("click", onClick);
-    }
-    return () => {
-      window.removeEventListener("click", onClick);
-    };
-  }, [isActive, el]);
-  return [isActive, setIsActive];
-};
-
 const Navbar = (props) => {
   
-  const dropdownRef1 = useRef(null);
-  const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
-  const onClickRef1 = () => setIsActive1(!isActive1);
+  const navigate = useNavigate();
 
-  const dropdownRef2 = useRef(null);
-  const [isActive2, setIsActive2] = useDetectOutsideClick(dropdownRef2, false);
-  const onClickRef2 = () => setIsActive2(!isActive2);
+  const [activeMenus, setActiveMenus] = useState({
+    menu1: false,
+    menu2: false,
+    menu3: false,
+    menu4: false,
+    mobile: false,
+  });
 
-  const dropdownRef3 = useRef(null);
-  const [isActive3, setIsActive3] = useDetectOutsideClick(dropdownRef3, false);
-  const onClickRef3 = () => setIsActive3(!isActive3);
+  const dropdownRef1 = useRef<HTMLDivElement>(null);
+  const dropdownRef2 = useRef<HTMLDivElement>(null);
+  const dropdownRef3 = useRef<HTMLDivElement>(null);
+  const dropdownRef4 = useRef<HTMLDivElement>(null);
+  const dropdownRef5 = useRef<HTMLDivElement>(null);
 
-  const dropdownRef4 = useRef(null);
-  const [isActive4, setIsActive4] = useDetectOutsideClick(dropdownRef4, false);
-  const onClickRef4 = () => setIsActive4(!isActive4);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check for each dropdown
+      if (
+        dropdownRef1.current &&
+        !dropdownRef1.current.contains(event.target)
+      ) {
+        setActiveMenus(prev => ({...prev, menu1: false}));
+      }
+      
+      if (
+        dropdownRef2.current &&
+        !dropdownRef2.current.contains(event.target)
+      ) {
+        setActiveMenus(prev => ({...prev, menu2: false}));
+      }
+      
+      if (
+        dropdownRef3.current &&
+        !dropdownRef3.current.contains(event.target)
+      ) {
+        setActiveMenus(prev => ({...prev, menu3: false}));
+      }
 
-  const dropdownRef5 = useRef(null);
-  const [isActive5, setIsActive5] = useDetectOutsideClick(dropdownRef5, false);
-  const onClickRef5 = () => setIsActive5(!isActive5);
+      if (
+        dropdownRef4.current &&
+        !dropdownRef4.current.contains(event.target)
+      ) {
+        setActiveMenus(prev => ({...prev, menu4: false}));
+      }
+      
+      if (
+        dropdownRef5.current &&
+        !dropdownRef5.current.contains(event.target)
+      ) {
+        setActiveMenus(prev => ({...prev, mobile: false}));
+      }
+      // Add more conditions for other dropdowns
+    };
+  
+    window.addEventListener("click", handleClickOutside);
+  
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
-  const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-  const onClickRef = () => setIsActive(!isActive);
+  const toggleActive = (menuId, event) => {
+    event.stopPropagation();
+    
+    setActiveMenus(prev => {
+      // Create new state object with all menus closed
+      const newState: typeof prev = { ...prev };
+      Object.keys(prev).forEach(key => {
+        newState[key] = false;
+      });
+      
+      // Toggle only the clicked menu
+      newState[menuId] = !prev[menuId];
+      
+      return newState;
+    });
+  };
   
   const { logoutCustomer } = useContext(AuthContext);
   const { getCustomerInfo, myInfo, getMyInsighterPoints, insighterPoints, getMyEncryptedDataFunction, encryptedData, getNavbarData, navbarData, onTrial } = useContext(AppContext);
@@ -148,7 +183,7 @@ const Navbar = (props) => {
 
   const ssoauth = () => {
     if (localStorage.getItem("tokenCustomer") == null) {
-      history.push("/my-account");
+      navigate("/my-account");
     } else {
       const host =  window.location.host;
       const LMS_KEY = "mXu8EfYLQVgh8n3iEH6zFl97UPfNwwUf";
@@ -244,15 +279,15 @@ const Navbar = (props) => {
               </li>
               <li
                 className="nav-item"
-                onClick={() => onClickRef2()}
+                onClick={(e) => toggleActive('menu1', e)}
               >
-                <span className={isActive2 ? "nav-links bor" : "nav-links"}>
+                <span className={activeMenus.menu1 ? "nav-links bor" : "nav-links"}>
                   Free Resources{" "}
                   <i className="fa fa-angle-down" aria-hidden="true"></i>
                 </span>
                 <div
-                  className={isActive2 ? "active active-two" : "dropdown-content"}
-                  ref={dropdownRef2}
+                  className={activeMenus.menu1 ? "active active-two" : "dropdown-content"}
+                  ref={dropdownRef1}
                 >
                   <Link to="/resources/price-list-update-summary">
                     <p className="h3"> Price List Update Summary </p>
@@ -281,15 +316,15 @@ const Navbar = (props) => {
               </li>
               <li
                 className="nav-item"
-                onClick={() => onClickRef3()}
+                onClick={(e) => toggleActive('menu2', e)}
               >
-                <span className={isActive3 ? "nav-links bor" : "nav-links"}>
+                <span className={activeMenus.menu2 ? "nav-links bor" : "nav-links"}>
                   Membership Resources{" "}
                   <i className="fa fa-angle-down" aria-hidden="true"></i>
                 </span>
                 <div
-                  className={isActive3 ? "active active-three" : "dropdown-content"}
-                  ref={dropdownRef3}
+                  className={activeMenus.menu2 ? "active active-three" : "dropdown-content"}
+                  ref={dropdownRef2}
                 >
                   <Link to="/plan-matrix">
                     <p className="h3"> Membership Plans </p>
@@ -322,15 +357,15 @@ const Navbar = (props) => {
               </li>
               <li
                 className="nav-item"
-                onClick={() => onClickRef4()}
+                onClick={(e) => toggleActive('menu3', e)}
               >
-                <span className={isActive4 ? "nav-links bor" : "nav-links"}>
+                <span className={activeMenus.menu3 ? "nav-links bor" : "nav-links"}>
                   Actionable Academy{" "}
                   <i className="fa fa-angle-down" aria-hidden="true"></i>
                 </span>
                 <div
-                  className={isActive4 ? "active active-four" : "dropdown-content"}
-                  ref={dropdownRef4}
+                  className={activeMenus.menu3 ? "active active-four" : "dropdown-content"}
+                  ref={dropdownRef3}
                 >
                   <p className="h3" onClick={ssoauth}> Go to Academy </p>
                   <hr />
@@ -365,15 +400,15 @@ const Navbar = (props) => {
               </li>
               <li
                 className="nav-item"
-                onClick={() => onClickRef5()}
+                onClick={(e) => toggleActive('menu4', e)}
               >
-                <span className={isActive5 ? "nav-links bor" : "nav-links"}>
+                <span className={activeMenus.menu4 ? "nav-links bor" : "nav-links"}>
                   Advance the Cause{" "}
                   <i className="fa fa-angle-down" aria-hidden="true"></i>
                 </span>
                 <div
-                  className={isActive5 ? "active active-five" : "dropdown-content"}
-                  ref={dropdownRef5}
+                  className={activeMenus.menu4 ? "active active-five" : "dropdown-content"}
+                  ref={dropdownRef4}
                 >
                    <Link to="/advance-the-cause/actionable-profile-alert-request">
                     <p className="h3"> Actionable Profile Alert Request </p>
@@ -404,12 +439,8 @@ const Navbar = (props) => {
                 <li className="nav-item">
                   <Link
                     className="nav-links"
-                    to={{
-                      pathname: "/my-account",
-                      state: {
-                        path: path,
-                      },
-                    }}
+                    to="/my-account"
+                    state={{ path: path }}
                   >
                     <button className="btn"> Sign In </button>
                   </Link>
@@ -418,7 +449,7 @@ const Navbar = (props) => {
                 <li className="nav-item">
                   <a
                     className="nav-links"
-                    onClick={() => onClickRef()}
+                    onClick={(e) => toggleActive('mobile', e)}
                   >
                     <img
                       className="user-image"
@@ -433,8 +464,8 @@ const Navbar = (props) => {
                     <i className="fa fa-angle-down" aria-hidden="true"></i>
                   </a>
                   <div
-                    className={isActive ? `active ${lastNameCheck}` : "dropdown-content"}
-                    ref={dropdownRef}
+                    className={activeMenus.mobile ? `active ${lastNameCheck}` : "dropdown-content"}
+                    ref={dropdownRef5}
                   >
                     {parentInfo ? (
                       <>
@@ -490,10 +521,10 @@ const Navbar = (props) => {
                               : { color: "#DD4124" }
                           }
                         >
-                          <NumberFormat
-                            value={points}
-                            displayType={"text"}
-                            thousandSeparator={true}
+                          <NumericFormat
+                            value={typeof points === "number" ? points : 0}
+                            displayType="text"
+                            thousandSeparator
                           />
                         </span>
                       </p>
@@ -516,8 +547,9 @@ const Navbar = (props) => {
                     style={{ borderBottom: "1px solid #e9e9e9"}}
                   >
                     <Link
-                      to="/my-account"
                       style={{ paddingRight: "0px" }}
+                      to="/my-account"
+                      state={{ path: path }}
                     >
                       <button className="btn"> Sign In </button>
                     </Link>
@@ -590,8 +622,8 @@ const Navbar = (props) => {
                                 : { color: "#DD4124" }
                             }
                           >
-                            <NumberFormat
-                              value={points}
+                            <NumericFormat
+                              value={typeof points === "number" ? points : 0}
                               displayType={"text"}
                               thousandSeparator={true}
                             />
@@ -862,4 +894,4 @@ const Navbar = (props) => {
   );
 };
 
-export default withRouter(Navbar);
+export default Navbar;

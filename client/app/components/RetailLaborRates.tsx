@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import { withRouter } from "react-router-dom";
 import LottieLoader from "../components/LottieLoader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ScrollToTop from "../components/ScrollToTop";
@@ -98,4 +97,4 @@ const RetailLaborRates = () => {
 	);
 };
 
-export default withRouter(RetailLaborRates);
+export default RetailLaborRates;

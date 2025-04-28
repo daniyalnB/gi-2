@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -7,9 +7,8 @@ const Navbar = React.lazy(() => import("../../components/Navbar"));
 const Footer = React.lazy(() => import("../../components/Footer"));
 const CookieConsentGI2 = React.lazy(() => import("../../components/CookieConsent"));
 const WrongBrowserDisclaimer = React.lazy(() => import("../../components/WrongBrowserDisclaimer"));
-import history from "../../../utils/history";
 import { Helmet } from "react-helmet";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { AppContext } from "../../../contexts/appContext";
 import { 
   applyInsighterPointCoupon,
@@ -30,6 +29,8 @@ import copy from "assets/Copy.svg";
 import share from "assets/ShareCode.svg";
 
 const Points = (props) => {
+
+  const navigate = useNavigate();
 
   const [loadingPage, setLoadingPage] = useState(true);
 
@@ -269,7 +270,7 @@ const Points = (props) => {
                           Insighter Points 
                         </h3>
                         <div className="pts"> 
-                          <NumberFormat
+                          <NumericFormat
                             value={myPoints}
                             displayType={"text"}
                             thousandSeparator={true}
@@ -278,7 +279,7 @@ const Points = (props) => {
                         </div> 
                         {/* <button
                           className="btn"
-                          onClick={() => history.push("/shop/buy-points/insighter-points")}
+                          onClick={() => navigate("/shop/buy-points/insighter-points")}
                         >
                           Buy Insighter Points
                         </button> */}
@@ -424,7 +425,7 @@ const Points = (props) => {
                       <div className="points-sec-1">
                         <h3> Earned Points To Date </h3>
                         <div className="pts"> 
-                          <NumberFormat
+                          <NumericFormat
                             value={InsigherPointsDashboard.totalearned}
                             displayType={"text"}
                             thousandSeparator={true}
@@ -441,7 +442,7 @@ const Points = (props) => {
                           Trailing 12 Months
                         </h3>
                         <div className="pts"> 
-                          <NumberFormat
+                          <NumericFormat
                             value={InsigherPointsDashboard.totalearnedinlast12months}
                             displayType={"text"}
                             thousandSeparator={true}
@@ -485,4 +486,4 @@ const Points = (props) => {
 	);
 };
 
-export default withRouter(Points);
+export default Points;

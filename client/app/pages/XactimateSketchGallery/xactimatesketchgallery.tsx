@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -13,31 +13,32 @@ import ReactPaginate from "react-paginate";
 import down from "assets/down-arrow-user.svg";
 import search2 from "assets/search2.png";
 
-export const useDetectOutsideClick = (el, initialState) => {
-
-  const [isActive, setIsActive] = useState(initialState);
-
-  useEffect(() => {
-    const onClick = e => {
-      if (el.current !== null && !el.current.contains(e.target)) {
-        setIsActive(!isActive);
-      }
-    };
-    if (isActive) {
-      window.addEventListener("click", onClick);
-    }
-    return () => {
-      window.removeEventListener("click", onClick);
-    };
-  }, [isActive, el]);
-  return [isActive, setIsActive];
-};
-
 const XactimateSketchGallery = (props) => {
 
-  const dropdownRef1 = useRef(null);
-  const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
-  const onClickRef1 = () => setIsActive1(!isActive1);
+  const dropdownRef1 = useRef<HTMLDivElement | null>(null);
+  const [activeMenue, setActiveMenue] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef1.current &&
+        !dropdownRef1.current.contains(event.target)
+      ) {
+        setActiveMenue(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [dropdownRef1]);
+
+  const toggleActive = (event) => {
+    event.stopPropagation();
+    setActiveMenue(!activeMenue);
+  };
 
   const [path, setPath] = useState(location.pathname);
 
@@ -86,12 +87,6 @@ const XactimateSketchGallery = (props) => {
 
   const [searchField, setSearchField] = useState("");
   const [searchResults, setSearchResults]= useState([]);
-
-  useEffect(() => {
-    if (props.location.state) {
-      searchHandler(props.location.state.search);
-    }
-  }, [data]);
 
   const searchHandler = (value) => {
     setSearchField(value);
@@ -150,17 +145,17 @@ const XactimateSketchGallery = (props) => {
                               name="SortBy"
                               className="form-control"
                               placeholder="Sort by"
-                              onClick={() => onClickRef1()}
+                              onClick={toggleActive}
                             />
                             <label className="file_input_label">
                               <img
                                 className="select size"
                                 src={down}
-                                onClick={() => onClickRef1()}
+                                onClick={toggleActive}
                               />
                             </label>
                             <div
-                              className={isActive1 ? "active active_sketch_gallery" : "dropdown-content"}
+                              className={activeMenue ? "active active_sketch_gallery" : "dropdown-content"}
                               ref={dropdownRef1}
                             >
                               <label htmlFor="AZ">
@@ -291,12 +286,8 @@ const XactimateSketchGallery = (props) => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <div className="not-signed-in">
                                                     <Link
-                                                      to={{
-                                                        pathname: "/my-account",
-                                                        state: {
-                                                          path: path,
-                                                        },
-                                                      }}
+                                                      to="/my-account"
+                                                      state={{ path: path }}
                                                     >
                                                       Sign In
                                                     </Link>
@@ -407,12 +398,8 @@ const XactimateSketchGallery = (props) => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <div className="not-signed-in"> 
                                                     <Link
-                                                      to={{
-                                                        pathname: "/my-account",
-                                                        state: {
-                                                          path: path,
-                                                        },
-                                                      }}
+                                                      to="/my-account"
+                                                      state={{ path: path }}
                                                     >
                                                       Sign In
                                                     </Link>
@@ -523,12 +510,8 @@ const XactimateSketchGallery = (props) => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <div className="not-signed-in"> 
                                                     <Link
-                                                      to={{
-                                                        pathname: "/my-account",
-                                                        state: {
-                                                          path: path,
-                                                        },
-                                                      }}
+                                                      to="/my-account"
+                                                      state={{ path: path }}
                                                     >
                                                       Sign In
                                                     </Link>
@@ -643,12 +626,8 @@ const XactimateSketchGallery = (props) => {
                                                 {localStorage.getItem("tokenCustomer") == null ? (
                                                   <div className="not-signed-in"> 
                                                     <Link
-                                                      to={{
-                                                        pathname: "/my-account",
-                                                        state: {
-                                                          path: path,
-                                                        },
-                                                      }}
+                                                      to="/my-account"
+                                                      state={{ path: path }}
                                                     >
                                                       Sign In
                                                     </Link>
@@ -718,4 +697,4 @@ const XactimateSketchGallery = (props) => {
   );
 };
 
-export default withRouter(XactimateSketchGallery);
+export default XactimateSketchGallery;

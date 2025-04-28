@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useContext, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -24,7 +24,7 @@ import {
 	uploadFileAndGetURL,
 	updateLoggedInUser,
 } from "../../../utils/api-routes/api-routes.util";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { Modal } from "react-bootstrap";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -39,9 +39,8 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import Airtable from "airtable";
 import queryString from "query-string";
-import history from "../../../utils/history";
 import moment from "moment";
-import Typed from "react-typed";
+import { Typed } from "react-typed";
 import visa from "assets/visa.png";
 import mastercard from "assets/mastercard.png";
 import AmericanExpress from "assets/americanexpress.png";
@@ -139,6 +138,9 @@ const FormElement = (props) => {
 };
 
 const BuyProduct = (props) => {
+
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	var base = new Airtable({apiKey: "keyQKyOQpHMEU4Xvg"}).base("appR9Ychu3rmKMY5h");
 
@@ -240,15 +242,15 @@ const BuyProduct = (props) => {
 	const [errorMsg, setErrorMsg] = useState("");
 
 	useEffect(() => {
-    if (props.location.state === undefined) {
-      history.push("/");
-    } else if (props.location.state.macro) {
-			setProductData(props.location.state.macro);
+    if (!location.state) {
+      navigate("/");
+    } else if (location.state.macro) {
+			setProductData(location.state.macro);
 			setPropsData({
 				...propsData,
-				quantity: props.location.state.quantity,
-				type: props.location.state.type,
-				path: props.location.state.path,
+				quantity: location.state.quantity,
+				type: location.state.type,
+				path: location.state.path,
 			});
 			const z = JSON.parse(localStorage.getItem("objContactInformationForOrderDTO"));
 			setObjContactInformationForOrderDTO({
@@ -267,13 +269,13 @@ const BuyProduct = (props) => {
 				zipcode: z.zipcode,
 			});
 			setAddress(z.fullAddress);
-		} else if (props.location.state.manual) {
-			setProductData(props.location.state.manual);
+		} else if (location.state.manual) {
+			setProductData(location.state.manual);
 			setPropsData({
 				...propsData,
-				quantity: props.location.state.quantity,
-				type: props.location.state.type,
-				path: props.location.state.path,
+				quantity: location.state.quantity,
+				type: location.state.type,
+				path: location.state.path,
 			});
 			const z = JSON.parse(localStorage.getItem("objContactInformationForOrderDTO"));
 			setObjContactInformationForOrderDTO({
@@ -292,14 +294,14 @@ const BuyProduct = (props) => {
 				zipcode: z.zipcode,
 			});
 			setAddress(z.fullAddress);
-		} else if (props.location.state.swag) {
-			setProductData(props.location.state.swag);
+		} else if (location.state.swag) {
+			setProductData(location.state.swag);
 			setPropsData({
 				...propsData,
-				quantity: props.location.state.quantity,
-				type: props.location.state.type,
-				size: props.location.state.size,
-				path: props.location.state.path,
+				quantity: location.state.quantity,
+				type: location.state.type,
+				size: location.state.size,
+				path: location.state.path,
 			});
 			const z = JSON.parse(localStorage.getItem("objContactInformationForOrderDTO"));
       setObjContactInformationForOrderDTO({
@@ -318,13 +320,13 @@ const BuyProduct = (props) => {
         zipcode: z.zipcode,
       });
 			setAddress(z.fullAddress);
-		 } else if (props.location.state.points) {
-			setProductData(props.location.state.points);
+		 } else if (location.state.points) {
+			setProductData(location.state.points);
 			setPropsData({
 				...propsData,
-				type: props.location.state.type,
-				path: props.location.state.path,
-				quantity: props.location.state.quantity,
+				type: location.state.type,
+				path: location.state.path,
+				quantity: location.state.quantity,
 			});
 			const z = JSON.parse(localStorage.getItem("objContactInformationForOrderDTO"));
       setObjContactInformationForOrderDTO({
@@ -343,13 +345,13 @@ const BuyProduct = (props) => {
         zipcode: z.zipcode,
       });
 			setAddress(z.fullAddress);
-		} else if (props.location.state.giftcard) {
-			setProductData(props.location.state.giftcard);
+		} else if (location.state.giftcard) {
+			setProductData(location.state.giftcard);
 			setPropsData({
 				...propsData,
-				type: props.location.state.type,
-				path: props.location.state.path,
-				quantity: props.location.state.quantity,
+				type: location.state.type,
+				path: location.state.path,
+				quantity: location.state.quantity,
 			});
 			const z = JSON.parse(localStorage.getItem("objContactInformationForOrderDTO"));
       setObjContactInformationForOrderDTO({
@@ -368,58 +370,58 @@ const BuyProduct = (props) => {
         zipcode: z.zipcode,
       });
 			setAddress(z.fullAddress);
-		} else if (props.location.state.solidifai) {
-			setProductData(props.location.state.solidifai);
-			setAirtableData(props.location.state.airtableData);
+		} else if (location.state.solidifai) {
+			setProductData(location.state.solidifai);
+			setAirtableData(location.state.airtableData);
 			setPropsData({
 				...propsData,
-				type: props.location.state.type,
-				path: props.location.state.path,
-				quantity: props.location.state.quantity,
+				type: location.state.type,
+				path: location.state.path,
+				quantity: location.state.quantity,
 			});
-			handleFileUpload(props.location.state.airtableData);
-		} else if (props.location.state.users) {
+			handleFileUpload(location.state.airtableData);
+		} else if (location.state.users) {
 			setProductData([
 				{
-					toInvite: props.location.state.users.toInvite,
-					firstname: props.location.state.users.firstname,
-					lastname: props.location.state.users.lastname,
-					branch: props.location.state.users.branch,
-					role: props.location.state.users.role,
-					inviteMessage: props.location.state.users.inviteMessage,
-					XactProfileveriskid: props.location.state.users.XactProfileveriskid,
-					useparentspaymentmethod: props.location.state.users.useparentspaymentmethod,
+					toInvite: location.state.users.toInvite,
+					firstname: location.state.users.firstname,
+					lastname: location.state.users.lastname,
+					branch: location.state.users.branch,
+					role: location.state.users.role,
+					inviteMessage: location.state.users.inviteMessage,
+					XactProfileveriskid: location.state.users.XactProfileveriskid,
+					useparentspaymentmethod: location.state.users.useparentspaymentmethod,
 				}
 			]);
 			setPropsData({
 				...propsData,
-				type: props.location.state.type,
-				path: props.location.state.path,
-				planName: props.location.state.planName,
+				type: location.state.type,
+				path: location.state.path,
+				planName: location.state.planName,
 				users: [
 					{
-						toInvite: props.location.state.users.toInvite,
-						firstname: props.location.state.users.firstname,
-						lastname: props.location.state.users.lastname,
-						branch: props.location.state.users.branch,
-						role: props.location.state.users.role,
-						inviteMessage: props.location.state.users.inviteMessage,
-						XactProfileveriskid: props.location.state.users.XactProfileveriskid,
-						useparentspaymentmethod: props.location.state.users.useparentspaymentmethod,
+						toInvite: location.state.users.toInvite,
+						firstname: location.state.users.firstname,
+						lastname: location.state.users.lastname,
+						branch: location.state.users.branch,
+						role: location.state.users.role,
+						inviteMessage: location.state.users.inviteMessage,
+						XactProfileveriskid: location.state.users.XactProfileveriskid,
+						useparentspaymentmethod: location.state.users.useparentspaymentmethod,
 					}
 				],
 			});
 			setTimeout(() => {
 				const fields = [
 					{
-						toInvite: props.location.state.users.toInvite,
-						firstname: props.location.state.users.firstname,
-						lastname: props.location.state.users.lastname,
-						branch: props.location.state.users.branch,
-						role: props.location.state.users.role,
-						inviteMessage: props.location.state.users.inviteMessage,
-						XactProfileveriskid: props.location.state.users.XactProfileveriskid,
-						useparentspaymentmethod: props.location.state.users.useparentspaymentmethod,
+						toInvite: location.state.users.toInvite,
+						firstname: location.state.users.firstname,
+						lastname: location.state.users.lastname,
+						branch: location.state.users.branch,
+						role: location.state.users.role,
+						inviteMessage: location.state.users.inviteMessage,
+						XactProfileveriskid: location.state.users.XactProfileveriskid,
+						useparentspaymentmethod: location.state.users.useparentspaymentmethod,
 					}
 				];
 
@@ -461,18 +463,18 @@ const BuyProduct = (props) => {
         zipcode: z.zipcode,
       });
 			setAddress(z.fullAddress);
-		} else if (props.location.state.invite_users) { 
-			setProductData(props.location.state.invite_users);
+		} else if (location.state.invite_users) { 
+			setProductData(location.state.invite_users);
 			setPropsData({
 				...propsData,
-				type: props.location.state.type,
-				path: props.location.state.path,
-				users: props.location.state.invite_users,
-				planName: props.location.state.planName,
+				type: location.state.type,
+				path: location.state.path,
+				users: location.state.invite_users,
+				planName: location.state.planName,
 			});
 			setTimeout(() => {
 
-				const UsersIDs = props.location.state.invite_users.map(x => x.toInvite);
+				const UsersIDs = location.state.invite_users.map(x => x.toInvite);
 				const toInvites = UsersIDs;
 		
 				ChildPaymentPreview(toInvites).subscribe((response) => {
@@ -510,15 +512,15 @@ const BuyProduct = (props) => {
         zipcode: z.zipcode,
       });
 			setAddress(z.fullAddress);
-		} else if (props.location.state.certification) {
-			setProductData(props.location.state.certification);
-			setCertificationExtras(props.location.state.certificationExtras);
+		} else if (location.state.certification) {
+			setProductData(location.state.certification);
+			setCertificationExtras(location.state.certificationExtras);
 			setPropsData({
 				...propsData,
-				type: props.location.state.type,
-				path: props.location.state.path,
-				quantity: props.location.state.quantity,
-				certificationStatus: props.location.state.certificationStatus,
+				type: location.state.type,
+				path: location.state.path,
+				quantity: location.state.quantity,
+				certificationStatus: location.state.certificationStatus,
 			});
 			const z = JSON.parse(localStorage.getItem("objContactInformationForOrderDTO"));
       setObjContactInformationForOrderDTO({
@@ -711,8 +713,7 @@ const BuyProduct = (props) => {
 					const x = response.response.data;
 					handleSubmitUpdateUser();
 					localStorage.removeItem("objContactInformationForOrderDTO");
-					history.push({
-						pathname: "/receipt",
+					navigate("/receipt", {
 						state: {
 							propsData: propsData,
 							data: x,
@@ -756,8 +757,7 @@ const BuyProduct = (props) => {
 					const x = response.response.data;
 					handleSubmitUpdateUser();
 					localStorage.removeItem("objContactInformationForOrderDTO");
-					history.push({
-						pathname: "/receipt",
+					navigate("/receipt", {
 						state: {
 							propsData: propsData,
 							data: x,
@@ -803,8 +803,7 @@ const BuyProduct = (props) => {
 					const x = response.response.data;
 					handleSubmitUpdateUser();
 					localStorage.removeItem("objContactInformationForOrderDTO");
-					history.push({
-						pathname: "/receipt",
+					navigate("/receipt", {
 						state: {
 							propsData: propsData,
 							data: x,
@@ -838,7 +837,7 @@ const BuyProduct = (props) => {
 				ReplaceWithLossSnapshot: airtableData.losssnapshot,
 				ReplaceWithLineItemCount: airtableData.lineitemcount,
 				ReplaceWithGrandTotal: parseInt(airtableData.grandtotal * 100),
-				ReplaceWithAugmentwithZORAAnalysis: props.location.state.AugmentwithZORAAnalysis,
+				ReplaceWithAugmentwithZORAAnalysis: location.state.AugmentwithZORAAnalysis,
 				firstname: objContactInformationForOrderDTO.firstname,
 				lastname: objContactInformationForOrderDTO.lastname,
 				companyname: objContactInformationForOrderDTO.companyname,
@@ -864,7 +863,7 @@ const BuyProduct = (props) => {
 				ReplaceWithLossSnapshot: airtableData.losssnapshot,
 				ReplaceWithLineItemCount: airtableData.lineitemcount,
 				ReplaceWithGrandTotal: parseInt(airtableData.grandtotal * 100),
-				ReplaceWithAugmentwithZORAAnalysis: props.location.state.AugmentwithZORAAnalysis,
+				ReplaceWithAugmentwithZORAAnalysis: location.state.AugmentwithZORAAnalysis,
 				firstname: objContactInformationForOrderDTO.firstname,
 				lastname: objContactInformationForOrderDTO.lastname,
 				companyname: objContactInformationForOrderDTO.companyname,
@@ -902,8 +901,7 @@ const BuyProduct = (props) => {
 					});
 					const x = response.response.data;
 					handleSubmitUpdateUser();
-					history.push({
-						pathname: "/receipt",
+					navigate("/receipt", {
 						state: {
 							propsData: propsData,
 							data: x,
@@ -937,8 +935,7 @@ const BuyProduct = (props) => {
 					const x = response.response.data;
 					handleSubmitUpdateUser();
 					localStorage.removeItem("objContactInformationForOrderDTO");
-					history.push({
-						pathname: "/receipt",
+					navigate("/receipt", {
 						state: {
 							propsData: propsData,
 							data: x,
@@ -986,8 +983,7 @@ const BuyProduct = (props) => {
 					const x = response.response.data;
 					handleSubmitUpdateUser();
 					localStorage.removeItem("objContactInformationForOrderDTO");
-					history.push({
-						pathname: "/receipt",
+					navigate("/receipt", {
 						state: {
 							propsData: propsData,
 							data: x,
@@ -1055,8 +1051,7 @@ const BuyProduct = (props) => {
 						if (response.response.Message == "Payment Succeded.") {
 							handleSubmitUpdateUser();
 							localStorage.removeItem("objContactInformationForOrderDTO");
-							history.push({
-								pathname: "/receipt",
+							navigate("/receipt", {
 								state: {
 									propsData: propsData,
 									data: x,
@@ -1107,8 +1102,7 @@ const BuyProduct = (props) => {
 						if (response.response.Message == "Payment Succeded.") {
 							handleSubmitUpdateUser();
 							localStorage.removeItem("objContactInformationForOrderDTO");
-							history.push({
-								pathname: "/receipt",
+							navigate("/receipt", {
 								state: {
 									propsData: propsData,
 									data: x,
@@ -1183,8 +1177,7 @@ const BuyProduct = (props) => {
 						if (response.response.Message == "Payment Succeded.") {
 							handleSubmitUpdateUser();
 							localStorage.removeItem("objContactInformationForOrderDTO");
-							history.push({
-								pathname: "/receipt",
+							navigate("/receipt", {
 								state: {
 									propsData: propsData,
 									data: x,
@@ -1235,8 +1228,7 @@ const BuyProduct = (props) => {
 						if (response.response.Message == "Payment Succeded.") {
 							handleSubmitUpdateUser();
 							localStorage.removeItem("objContactInformationForOrderDTO");
-							history.push({
-								pathname: "/receipt",
+							navigate("/receipt", {
 								state: {
 									propsData: propsData,
 									data: x,
@@ -1279,8 +1271,7 @@ const BuyProduct = (props) => {
 						if (response.response.Message == "Payment Succeded.") {
 							handleSubmitUpdateUser();
 							localStorage.removeItem("objContactInformationForOrderDTO");
-							history.push({
-								pathname: "/receipt",
+							navigate("/receipt", {
 								state: {
 									propsData: propsData,
 									data: x,
@@ -1325,8 +1316,7 @@ const BuyProduct = (props) => {
 				setinviteUsersLoading(false);
 				handleSubmitUpdateUser();
 				localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-				history.push({
-					pathname: "/receipt",
+				navigate("/receipt", {
 					state: {
 						propsData: propsData,
 						data: dumyArr,
@@ -1344,8 +1334,7 @@ const BuyProduct = (props) => {
 				setinviteUsersLoading(false);
 				handleSubmitUpdateUser();
 				localStorage.setItem("objContactInformationForOrderDTO", JSON.stringify(objContactInformationForOrderDTO));
-				history.push({
-					pathname: "/receipt",
+				navigate("/receipt", {
 					state: {
 						propsData: propsData,
 						data: dumyArr,
@@ -2474,7 +2463,7 @@ const BuyProduct = (props) => {
 														) : propsData.type == "points" ? (
 															<>
 																{productData.title}{" "}(
-																	<NumberFormat
+																	<NumericFormat
 																		value={productData.numberofinsigherpointsbought}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -2496,7 +2485,7 @@ const BuyProduct = (props) => {
 													<h3 className="text-right">
 														{propsData.type == "users" || propsData.type == "invite_users" ? (
 															<>
-																<NumberFormat
+																<NumericFormat
 																	value={(ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
 																	displayType={"text"}
 																	thousandSeparator={true}
@@ -2505,7 +2494,7 @@ const BuyProduct = (props) => {
 															</>
 														) : propsData.type == "points" ? (
 															<>
-																<NumberFormat
+																<NumericFormat
 																	value={(productData.priceincents / 100).toFixed(2)}
 																	displayType={"text"}
 																	thousandSeparator={true}
@@ -2515,21 +2504,21 @@ const BuyProduct = (props) => {
 														) : propsData.type == "macro" ? (
 															<>
 																{subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") || ischilduser ? (
-																	<NumberFormat
+																	<NumericFormat
 																		value={"0"}
 																		displayType={"text"}
 																		thousandSeparator={true}
 																		prefix={"$"}
 																	/>
 																) : (subscriptionInfo && (subscriptionInfo.planname === "StandardPlan" ||  subscriptionInfo.planname === "StandardPlanAnnual" || subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual")) ? (
-																	<NumberFormat
+																	<NumericFormat
 																		value={((productData.priceincents / 100) - ((productData.priceincents / 100) * 0.25)).toFixed(2)}
 																		displayType={"text"}
 																		thousandSeparator={true}
 																		prefix={"$"}
 																	/>
 																) : (
-																	<NumberFormat
+																	<NumericFormat
 																		value={(productData.priceincents / 100).toFixed(2)}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -2540,7 +2529,7 @@ const BuyProduct = (props) => {
 														) : propsData.type == "certification" ? (
 															<>
 																{productData.courseTag === "aitc" && (subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
-																	<NumberFormat 
+																	<NumericFormat 
 																		value={(0).toFixed(2)}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -2551,14 +2540,14 @@ const BuyProduct = (props) => {
 																		{propsData.certificationStatus == 2 ? (
 																			<>
 																				{certificationExtras.proctoring ? (
-																					<NumberFormat
+																					<NumericFormat
 																						value={((productData.failedpriceincents + 5000 * propsData.quantity) / 100).toFixed(2)}
 																						displayType={"text"}
 																						thousandSeparator={true}
 																						prefix={"$"}
 																					/>
 																				) : (
-																					<NumberFormat
+																					<NumericFormat
 																						value={((productData.failedpriceincents * propsData.quantity) / 100).toFixed(2)}
 																						displayType={"text"}
 																						thousandSeparator={true}
@@ -2569,14 +2558,14 @@ const BuyProduct = (props) => {
 																		) : (
 																			<>
 																				{certificationExtras.proctoring ? (
-																					<NumberFormat
+																					<NumericFormat
 																						value={((productData.priceincents + 10000 * propsData.quantity) / 100).toFixed(2)}
 																						displayType={"text"}
 																						thousandSeparator={true}
 																						prefix={"$"}
 																					/>
 																				) : (
-																					<NumberFormat
+																					<NumericFormat
 																						value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
 																						displayType={"text"}
 																						thousandSeparator={true}
@@ -2589,7 +2578,7 @@ const BuyProduct = (props) => {
 																)}
 															</>
 														) : (
-															<NumberFormat
+															<NumericFormat
 																value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
 																displayType={"text"}
 																thousandSeparator={true}
@@ -2614,7 +2603,7 @@ const BuyProduct = (props) => {
 															<h3 className="text-right">
 																{propsData.type == "users" || propsData.type == "invite_users" ? (
 																	<>
-																		<NumberFormat
+																		<NumericFormat
 																			value={(ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
 																			displayType={"text"}
 																			thousandSeparator={true}
@@ -2623,7 +2612,7 @@ const BuyProduct = (props) => {
 																	</>
 																) : propsData.type == "points" ? (
 																	<>
-																		<NumberFormat
+																		<NumericFormat
 																			value={(productData.priceincents / 100).toFixed(2)}
 																			displayType={"text"}
 																			thousandSeparator={true}
@@ -2633,21 +2622,21 @@ const BuyProduct = (props) => {
 																) : propsData.type == "macro" ? (
 																	<>
 																		{subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") || ischilduser ? (
-																			<NumberFormat
+																			<NumericFormat
 																				value={"0"}
 																				displayType={"text"}
 																				thousandSeparator={true}
 																				prefix={"$"}
 																			/>
 																		) : (subscriptionInfo && (subscriptionInfo.planname === "StandardPlan" ||  subscriptionInfo.planname === "StandardPlanAnnual" || subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual")) ? (
-																			<NumberFormat
+																			<NumericFormat
 																				value={((productData.priceincents / 100) - ((productData.priceincents / 100) * 0.25)).toFixed(2)}
 																				displayType={"text"}
 																				thousandSeparator={true}
 																				prefix={"$"}
 																			/>
 																		) : (
-																			<NumberFormat
+																			<NumericFormat
 																				value={(productData.priceincents / 100).toFixed(2)}
 																				displayType={"text"}
 																				thousandSeparator={true}
@@ -2658,7 +2647,7 @@ const BuyProduct = (props) => {
 																) : propsData.type == "certification" ? (
 																	<>
 																		{productData.courseTag === "aitc" && (subscriptionInfo && subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
-																			<NumberFormat 
+																			<NumericFormat 
 																				value={(0).toFixed(2)}
 																				displayType={"text"}
 																				thousandSeparator={true}
@@ -2669,14 +2658,14 @@ const BuyProduct = (props) => {
 																				{propsData.certificationStatus == 2 ? (
 																					<>
 																						{certificationExtras.proctoring ? (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.failedpriceincents + 5000 * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
 																								prefix={"$"}
 																							/>
 																						) : (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.failedpriceincents * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -2687,14 +2676,14 @@ const BuyProduct = (props) => {
 																				) : (
 																					<>
 																						{certificationExtras.proctoring ? (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.priceincents + 10000 * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
 																								prefix={"$"}
 																							/>
 																						) : (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -2707,7 +2696,7 @@ const BuyProduct = (props) => {
 																		)}
 																	</>
 																) : (
-																	<NumberFormat
+																	<NumericFormat
 																		value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -2804,7 +2793,7 @@ const BuyProduct = (props) => {
 																{couponData.length !== 0 ? (
 																	<>
 																		-
-																		<NumberFormat
+																		<NumericFormat
 																			value={(couponData.amountreducned / 100).toFixed(2)}
 																			displayType={"text"}
 																			thousandSeparator={true}
@@ -2843,7 +2832,7 @@ const BuyProduct = (props) => {
 																	<>
 																		Amount Reduced:{" "}
 																		<b>
-																			<NumberFormat
+																			<NumericFormat
 																				value={(couponData.amountreducned / 100).toFixed(2)}
 																				displayType={"text"}
 																				thousandSeparator={true}
@@ -2872,8 +2861,8 @@ const BuyProduct = (props) => {
 															<div className="points-data">
 																<span> Current Insighter Points Balance </span>
 																<span style={{ color: "#26A59A" }}> 
-																	<NumberFormat
-																		value={points}
+																	<NumericFormat
+																		value={typeof points === "number" ? points : 0}
 																		displayType={"text"}
 																		thousandSeparator={true}
 																	/>
@@ -2884,7 +2873,7 @@ const BuyProduct = (props) => {
 																<span style={{ color: "#26A59A" }}>
 																	{couponData.length !== 0 ? (
 																		<>
-																			<NumberFormat
+																			<NumericFormat
 																				value={(couponData.newprice / 10)}
 																				displayType={"text"}
 																				thousandSeparator={true}
@@ -2897,7 +2886,7 @@ const BuyProduct = (props) => {
 																				<>
 																					{productData.courseTag === "aitc" && (subscriptionInfo && subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
 																						<>
-																							<NumberFormat
+																							<NumericFormat
 																								value={(0)}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -2910,7 +2899,7 @@ const BuyProduct = (props) => {
 																								<>
 																									{certificationExtras.proctoring ? (
 																										<>
-																											<NumberFormat
+																											<NumericFormat
 																												value={((productData.failedpriceincents + 5000 * propsData.quantity) / 10)}
 																												displayType={"text"}
 																												thousandSeparator={true}
@@ -2919,7 +2908,7 @@ const BuyProduct = (props) => {
 																										</>
 																									) : (
 																										<>
-																											<NumberFormat
+																											<NumericFormat
 																												value={((productData.failedpriceincents * propsData.quantity) / 10)}
 																												displayType={"text"}
 																												thousandSeparator={true}
@@ -2932,7 +2921,7 @@ const BuyProduct = (props) => {
 																								<>
 																									{certificationExtras.proctoring ? (
 																										<>
-																											<NumberFormat
+																											<NumericFormat
 																												value={((productData.priceincents + 10000 * propsData.quantity) / 10)}
 																												displayType={"text"}
 																												thousandSeparator={true}
@@ -2941,7 +2930,7 @@ const BuyProduct = (props) => {
 																										</>
 																									) : (
 																										<>
-																											<NumberFormat
+																											<NumericFormat
 																												value={((productData.priceincents * propsData.quantity) / 10)}
 																												displayType={"text"}
 																												thousandSeparator={true}
@@ -2958,7 +2947,7 @@ const BuyProduct = (props) => {
 																				<>
 																					{subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") || ischilduser ? (
 																						<>
-																							<NumberFormat
+																							<NumericFormat
 																								value={"0"}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -2967,7 +2956,7 @@ const BuyProduct = (props) => {
 																						</>
 																					) : (subscriptionInfo && (subscriptionInfo.planname === "StandardPlan" ||  subscriptionInfo.planname === "StandardPlanAnnual" || subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual")) ? (
 																						<>
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.priceincents / 10) - (productData.priceincents / 10) * 0.25)}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -2976,7 +2965,7 @@ const BuyProduct = (props) => {
 																						</>
 																					) : (
 																						<>
-																							<NumberFormat
+																							<NumericFormat
 																								value={(productData.priceincents / 10)}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -2987,7 +2976,7 @@ const BuyProduct = (props) => {
 																				</>
 																			) : (
 																				<>
-																					<NumberFormat
+																					<NumericFormat
 																						value={((productData.priceincents * propsData.quantity) / 10)}
 																						displayType={"text"}
 																						thousandSeparator={true}
@@ -3037,7 +3026,7 @@ const BuyProduct = (props) => {
 																{couponData.length !== 0 ? (
 																	<>
 																		-
-																		<NumberFormat
+																		<NumericFormat
 																			value={(couponData.amountreducedduetoinsighterpoints / 100).toFixed(2)}
 																			displayType={"text"}
 																			thousandSeparator={true}
@@ -3074,7 +3063,7 @@ const BuyProduct = (props) => {
 													<h3 className="text-right"> 
 														{couponData.length !==0 ? (
 															<>
-																<NumberFormat
+																<NumericFormat
 																	value={(couponData.newprice / 100).toFixed(2)}
 																	displayType={"text"}
 																	thousandSeparator={true}
@@ -3085,7 +3074,7 @@ const BuyProduct = (props) => {
 															<>
 																{propsData.type == "users" || propsData.type == "invite_users" ? (
 																	<>
-																		<NumberFormat
+																		<NumericFormat
 																			value={(ChildPaymentPreviewData.amounttochargeincents / 100).toFixed(2)}
 																			displayType={"text"}
 																			thousandSeparator={true}
@@ -3094,7 +3083,7 @@ const BuyProduct = (props) => {
 																	</>
 																) : propsData.type == "points" ? (
 																	<>
-																		<NumberFormat
+																		<NumericFormat
 																			value={(productData.priceincents / 100).toFixed(2)}
 																			displayType={"text"}
 																			thousandSeparator={true}
@@ -3104,21 +3093,21 @@ const BuyProduct = (props) => {
 																) : propsData.type == "macro" ? (
 																	<>
 																		{subscriptionInfo && (subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual") || ischilduser ? (
-																			<NumberFormat
+																			<NumericFormat
 																				value={"0"}
 																				displayType={"text"}
 																				thousandSeparator={true}
 																				prefix={"$"}
 																			/>
 																		) : (subscriptionInfo && (subscriptionInfo.planname === "StandardPlan" ||  subscriptionInfo.planname === "StandardPlanAnnual" || subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual")) ? (
-																			<NumberFormat
+																			<NumericFormat
 																				value={((productData.priceincents / 100) - ((productData.priceincents / 100) * 0.25)).toFixed(2)}
 																				displayType={"text"}
 																				thousandSeparator={true}
 																				prefix={"$"}
 																			/>
 																		) : (
-																			<NumberFormat
+																			<NumericFormat
 																				value={(productData.priceincents / 100).toFixed(2)}
 																				displayType={"text"}
 																				thousandSeparator={true}
@@ -3129,7 +3118,7 @@ const BuyProduct = (props) => {
 																) : propsData.type == "certification" ? (
 																	<>
 																		{productData.courseTag === "aitc" && (subscriptionInfo && subscriptionInfo.planname === "ProfessionalPlan" || subscriptionInfo.planname === "ProfessionalPlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "EnterprisePlan" || subscriptionInfo.planname === "EnterprisePlanAnnual" || subscriptionInfo && subscriptionInfo.planname === "PlusPlan" || subscriptionInfo.planname === "PlusPlanAnnual" || ischilduser) ? (
-																			<NumberFormat 
+																			<NumericFormat 
 																				value={(0).toFixed(2)}
 																				displayType={"text"}
 																				thousandSeparator={true}
@@ -3140,14 +3129,14 @@ const BuyProduct = (props) => {
 																				{propsData.certificationStatus == 2 ? (
 																					<>
 																						{certificationExtras.proctoring ? (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.failedpriceincents + 5000 * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
 																								prefix={"$"}
 																							/>
 																						) : (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.failedpriceincents * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -3158,14 +3147,14 @@ const BuyProduct = (props) => {
 																				) : (
 																					<>
 																						{certificationExtras.proctoring ? (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.priceincents + 10000 * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
 																								prefix={"$"}
 																							/>
 																						) : (
-																							<NumberFormat
+																							<NumericFormat
 																								value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
 																								displayType={"text"}
 																								thousandSeparator={true}
@@ -3178,7 +3167,7 @@ const BuyProduct = (props) => {
 																		)}
 																	</>
 																) : (
-																	<NumberFormat
+																	<NumericFormat
 																		value={((productData.priceincents * propsData.quantity) / 100).toFixed(2)}
 																		displayType={"text"}
 																		thousandSeparator={true}
@@ -3324,4 +3313,4 @@ const BuyProduct = (props) => {
 	);
 }
 
-export default withRouter(BuyProduct);
+export default BuyProduct;

@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import LottieLoader from "../../components/LottieLoader";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -13,12 +13,16 @@ import {
   SearchInsightSheets,
 } from "../../../utils/api-routes/api-routes.util";
 import { Helmet } from "react-helmet";
-import history from "../../../utils/history";
 import queryString from "query-string";
 import moment from "moment";
 import Rating from "@material-ui/lab/Rating";
 
 const InsightSheetDatabaseSearch = (props) => {
+
+  const location = useLocation();
+  console.log(location, "location");
+  const { searchfield } = useParams();
+  console.log(searchfield, "searchfield");
 
   const [mitigation, setMitigation] = useState(true);
   const [repair, setRepair] = useState(true);
@@ -29,21 +33,19 @@ const InsightSheetDatabaseSearch = (props) => {
   const [repairData, setRepairData] = useState([]);
 
   useEffect(() => {
-    if (props.location.state == undefined) {
+    if (!location.state) {
       setMitigation(true);
       setRepair(true);
     } else {
-      setMitigation(props.location.state.mitigation);
-      setRepair(props.location.state.repair);
+      setMitigation(location.state.mitigation);
+      setRepair(location.state.repair);
     }
-  }, [props]);
+  }, [location]);
 
   const [loading, setLoading] = useState(false);
 
-  // const id = props.location.state.id;
-
   const name = location.pathname;
-  const omittedName = name.replace("/s=", "");
+  const omittedName = name.replace("/s/", "");
   const def = omittedName.replace(/%20/gi, " ");
   const ghi = def.replace(/%5E/gi, "^");
   const abc = ghi.replace(/%2F/gi, "/");
@@ -58,7 +60,7 @@ const InsightSheetDatabaseSearch = (props) => {
 
         setTimeout(() => {
           const payload = {
-            keywords: props.match.params.searchfield,
+            keywords: searchfield,
           };
 
           const stringified = queryString.stringify(payload);
@@ -83,7 +85,7 @@ const InsightSheetDatabaseSearch = (props) => {
         alert("error");
       }
     });
-  }, [props.match.params.searchfield]);
+  }, [searchfield]);
 
   const merge = (arr1, arr2) => {
     const temp = [];
@@ -156,12 +158,10 @@ const InsightSheetDatabaseSearch = (props) => {
                                 <span>
                                   Showing the most relevant results for:&nbsp;"
                                   <Link
-                                    to={{
-                                      pathname: `/s=${abc}`,
-                                      state: {
-                                        mitigation: mitigation,
-                                        repair: repair,
-                                      },
+                                    to={`/s/${abc}`}
+                                    state={{
+                                      mitigation: mitigation,
+                                      repair: repair,
                                     }}
                                   >
                                     {abc}
@@ -204,12 +204,10 @@ const InsightSheetDatabaseSearch = (props) => {
                                                   </span>
                                                   <span className="value">
                                                     <Link
-                                                      to={{
-                                                        pathname: `/s=${val.catagory.toLowerCase()}`,
-                                                        state: {
-                                                          mitigation: true,
-                                                          repair: true,
-                                                        },
+                                                      to={`/s/${val.catagory.toLowerCase()}`}
+                                                      state={{
+                                                        mitigation: true,
+                                                        repair: true,
                                                       }}
                                                       style={{
                                                         fontWeight: 500,
@@ -263,19 +261,14 @@ const InsightSheetDatabaseSearch = (props) => {
                                                         return (
                                                           <>
                                                             <Link
-                                                              to={{
-                                                                pathname: `/s=${tag
-                                                                  .toLowerCase()
-                                                                  .trim()
-                                                                  .replace(
-                                                                    /\//gi,
-                                                                    "%2F"
-                                                                  )}`,
-                                                                state: {
-                                                                  mitigation:
-                                                                    true,
-                                                                  repair: true,
-                                                                },
+                                                              to={`/s/${tag
+                                                                .toLowerCase()
+                                                                .trim()
+                                                                .replace(/\//gi, "%2F")}`
+                                                              }
+                                                              state={{
+                                                                mitigation: true,
+                                                                repair: true,
                                                               }}
                                                               style={{
                                                                 fontWeight: 500,
@@ -418,12 +411,10 @@ const InsightSheetDatabaseSearch = (props) => {
                                 <span>
                                   Showing the most relevant results for:&nbsp;"
                                   <Link
-                                    to={{
-                                      pathname: `/s=${abc}`,
-                                      state: {
-                                        mitigation: mitigation,
-                                        repair: repair,
-                                      },
+                                    to={`/s/${abc}`}
+                                    state={{
+                                      mitigation: mitigation,
+                                      repair: repair,
                                     }}
                                   >
                                     {abc}
@@ -466,12 +457,10 @@ const InsightSheetDatabaseSearch = (props) => {
                                                   </span>
                                                   <span className="value">
                                                     <Link
-                                                      to={{
-                                                        pathname: `/s=${val.catagory.toLowerCase()}`,
-                                                        state: {
-                                                          mitigation: true,
-                                                          repair: true,
-                                                        },
+                                                      to={`/s/${val.catagory.toLowerCase()}`}
+                                                      state={{
+                                                        mitigation: true,
+                                                        repair: true,
                                                       }}
                                                       style={{
                                                         fontWeight: 500,
@@ -525,19 +514,14 @@ const InsightSheetDatabaseSearch = (props) => {
                                                         return (
                                                           <>
                                                             <Link
-                                                              to={{
-                                                                pathname: `/s=${tag
-                                                                  .toLowerCase()
-                                                                  .trim()
-                                                                  .replace(
-                                                                    /\//gi,
-                                                                    "%2F"
-                                                                  )}`,
-                                                                state: {
-                                                                  mitigation:
-                                                                    true,
-                                                                  repair: true,
-                                                                },
+                                                              to={`/s/${tag
+                                                                .toLowerCase()
+                                                                .trim()
+                                                                .replace(/\//gi, "%2F")}`
+                                                              }
+                                                              state={{
+                                                                mitigation: true,
+                                                                repair: true,
                                                               }}
                                                               style={{
                                                                 fontWeight: 500,
@@ -680,12 +664,10 @@ const InsightSheetDatabaseSearch = (props) => {
                                 <span>
                                   Showing the most relevant results for:&nbsp;"
                                   <Link
-                                    to={{
-                                      pathname: `/s=${abc}`,
-                                      state: {
-                                        mitigation: mitigation,
-                                        repair: repair,
-                                      },
+                                    to={`/s/${abc}`}
+                                    state={{
+                                      mitigation: mitigation,
+                                      repair: repair,
                                     }}
                                   >
                                     {abc}
@@ -728,12 +710,10 @@ const InsightSheetDatabaseSearch = (props) => {
                                                   </span>
                                                   <span className="value">
                                                     <Link
-                                                      to={{
-                                                        pathname: `/s=${val.catagory.toLowerCase()}`,
-                                                        state: {
-                                                          mitigation: true,
-                                                          repair: true,
-                                                        },
+                                                      to={`/s/${val.catagory.toLowerCase()}`}
+                                                      state={{
+                                                        mitigation: true,
+                                                        repair: true,
                                                       }}
                                                       style={{
                                                         fontWeight: 500,
@@ -787,19 +767,15 @@ const InsightSheetDatabaseSearch = (props) => {
                                                         return (
                                                           <>
                                                             <Link
-                                                              to={{
-                                                                pathname: `/s=${tag
-                                                                  .toLowerCase()
-                                                                  .trim()
-                                                                  .replace(
-                                                                    /\//gi,
-                                                                    "%2F"
-                                                                  )}`,
-                                                                state: {
-                                                                  mitigation:
-                                                                    true,
-                                                                  repair: true,
-                                                                },
+                                                              to={`/s/${tag
+                                                                .toLowerCase()
+                                                                .trim()
+                                                                .replace(/\//gi, "%2F"
+                                                                )}`
+                                                              }
+                                                              state={{
+                                                                mitigation: true,
+                                                                repair: true,
                                                               }}
                                                               style={{
                                                                 fontWeight: 500,
@@ -954,4 +930,4 @@ const InsightSheetDatabaseSearch = (props) => {
   );
 };
 
-export default withRouter(InsightSheetDatabaseSearch);
+export default InsightSheetDatabaseSearch;

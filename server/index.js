@@ -474,7 +474,6 @@ app.get(
     "/s=refridgerator",
     "/s=stucco20repair",
     "/s=thermal20dbk",
-
     "/tag",
     "/tag/*",
     "/venue",
@@ -867,9 +866,9 @@ app.get("/insight-sheets/*", function (req, res) {
   });
 });
 
-//VIDEOGALLERY
+//Search Insightsheets
 
-app.get("/s=*", function (req, res) {
+app.get("/s/*", function (req, res) {
   const filePath = path.resolve(__dirname, "..", "build", "index.html");
 
   fs.readFile(filePath, "utf8", function (err, htmlData) {

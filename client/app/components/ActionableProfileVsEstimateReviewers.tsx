@@ -12,9 +12,9 @@ import { ContactUsForm } from "../../utils/api-routes/api-routes.util";
 import InputMask from "react-input-mask";
 import ReCAPTCHA from "react-google-recaptcha";
 import download from "assets/Download.svg";
-import frame from "assets/Frame5.svg";
+import frame from "assets/Frame9.svg";
 
-const XactimateMacro = () => {
+const ActionableProfileVsEstimateReviewers = () => {
 
   const [loading, setLoading] = useState(false);
 
@@ -89,9 +89,9 @@ const XactimateMacro = () => {
   return (
     <>
       <SEO
-        title="Xactimate Macros: Automate and Accelerate Your Workflow"
-        description="What are Xactimate Macros, and how can you use them to automate and streamline your Xactimate estimates? Learn from our comprehensive guide. Read more."
-        link="xactimate-macro"
+        title="The Actionable Profile vs Estimate Reviewers | Getinsights.org"
+        description="The Actionable Profile is an Xactimate profile that offers live estimating guidance. But how does it differ from 3rd party estimate auditors? Find out."
+        link="actionable-profile-vs-estimate-reviewers"
       />
       <Suspense
         fallback={
@@ -108,11 +108,13 @@ const XactimateMacro = () => {
             <div className="row">
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 m-auto">
                 <h1>
-                  Xactimate Macros: Automate and
+                  How is the Actionable Profile
                   <br />
-                  Accelerate Your Workflow
+                  different from 3rd party estimate
+                  <br />
+                  review solutions?
                 </h1>
-                <p> By Team Actionable | Dec 11, 2024 </p>
+                <p> By Team Actionable | Apr 17, 2025 </p>
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 image-sec">
                 <img src={frame} />
@@ -125,152 +127,98 @@ const XactimateMacro = () => {
             <div className="">
               <div className="master-xactimate-improve-estimating-skills">
                 <p className="mt-4">
-                  As an estimator or adjuster, managing multiple estimates simultaneously makes efficiency crucial.{" "}
-                  <a href="https://xactimate.com/xor/sign-in" target="_blank" className="red">
-                    Xactimate
-                  </a> offers a powerful tool to help you automate and accelerate your workflow: macros. These allow you to streamline repetitive tasks in Xactimate estimates, increasing productivity and saving time.
-                  <br /><br />
-                  Here, we’ll explore how macros work, the advantages they bring to your workflow, and practical tips to make the most out of this feature. Let’s dive in!
+                  Your estimates can make or break your business because they determine your payout. The more accurately your estimates reflect the work done, the easier it will be to get paid in full. In this regard, many third-party estimate review services are available, but the{" "}
+                  <Link to="/actionable-xactimate-profile" target="_blank">
+                    Actionable Xactimate Profile
+                  </Link> is different from these review services. How? This article will explore exactly that.
                 </p>
                 <h2 className="mt-5 mb-3">
-                  What Are <span className="red">Xactimate</span> Macros?
+                  What is the <span className="blue">Actionable Profile</span>?
                 </h2>
                 <p className="mb-0">
-                  Simply put, a macro in Xactimate is a pre-configured set of line items that can be quickly applied to common types of estimates, eliminating repetitive data entry.
+                  The Actionable Xactimate Profile is not a third-party estimate writing or review service. Instead, it is a profile within{" "}
+                  <a href="https://xactimate.com/home/" target="_blank" className="red">
+                    Xactimate
+                  </a> that provides live estimating guidance.
+                </p>
+                <h2 className="mt-5 mb-3">
+                  What makes it <span className="red">different</span>?
+                </h2>
+                <h5 className="mb-2"> Origin </h5>
+                <p className="mb-3">
+                  The Actionable Profile was created to reduce friction in the claims process. A group of Xactimate estimators and adjusters in San Diego came together to determine and establish standards of invoicing based on customary building practices.
                   <br /><br />
-                  By creating macros for frequently recurring jobs, such as water mitigation, roofing repairs, or drywall replacement, you can standardize the estimating process and streamline Xactimate estimates. 
+                  Soon, this evolved into a 3,000-page book authored by our Founder, Mark Whatley, and Executive Director, Seth Harrison. Drawing from their years of experience as Xactimate Certified Trainers, they compiled this book, which later became the Actionable Profile.
                   <br /><br />
-                  This allows you to quickly populate your estimates with the necessary line items, ensuring that nothing is overlooked. Macros help you maintain consistency, save time, and reduce errors by applying a predefined template to various scenarios, making the estimating process faster and easier to manage.
+                  The Actionable Profile leverages the collective experience of all the estimators and adjusters who participated in this effort to minimize claims disputes between carriers and contractors.
+                </p>
+                <h5 className="mb-2"> Integrated with Xactimate </h5>
+                <p className="mb-3">
+                  Unlike third-party estimate review services, the Actionable Profile is built within Xactimate. This means that you don’t have to send your estimates to anyone to get reviewed. You can have them reviewed using the Actionable Profile within Xactimate. This removes the unnecessary hassle and extra steps involved with sending your estimates back and forth. Furthermore, with less hassle, you will save more time as well.
+                </p>
+                <h5 className="mb-2"> Live Estimating Guidance </h5>
+                <p className="mb-3">
+                  The Actionable Xactimate Profile offers live estimating guidance. This means that the Actionable Profile reviews your estimate as you write your scope. Over 4,200 Actionable Alerts guide you to write increasingly accurate and complete estimates. But how does this guidance work? There are two primary types of alerts: Overages and Omissions.
                   <br /><br />
-                  Actionable Insights offers over 100 macros designed to help you with your estimates.
+                  Overages refer to excessive quantities and duplicative line items used in the estimate. Overage alerts help you use mutually exclusive line items and set accurate quantities. For example, the drywall line item already includes texture. An overage alert will trigger if you add drywall and texture as separate line items. It will prompt you to remove the redundant item or provide clarification using an F9 note.
+                  <br /><br />
+                  Omissions refer to missing but warranted items, as well as insufficient quantities of line items. These alerts help ensure that your estimate reflects the true scope of work. For example, when working on a 20-foot-high ceiling, you may charge for the usual height. In this case, an omission alert will remind you to add a line item for the additional cost of working at that height.
+                  <br /><br />
+                  Together, these alerts help you write accurate and complete estimates, reducing friction in the approval process.
+                </p>
+                <h5 className="mb-2"> Learn from the guidance </h5>
+                <p className="mb-3">
+                  Compared to estimate auditing services, the Actionable Profile acts as a mentor who guides you while you write your scope. Its live estimating guidance also serves as a learning tool that gives you the why and the what. If you read the guidance with each alert, you will understand the reasons and learn how to apply it in future estimates. 
+                  <br /><br />
+                  As the guidance is based on what is customary and reasonable in the industry, the Actionable Profile helps you grow your construction experience and knowledge. This is unique to the Actionable Profile because third-party estimate reviewers will only review your estimates.
+                </p>
+                <h5 className="mb-2"> Fast but not Furious </h5>
+                <p className="mb-3">
+                  The constant back and forth at the time of estimate approvals costs the industry billions of dollars annually. Having more delays or back-and-forth is the last thing that this industry needs. Another major advantage of the Actionable Profile is that it eliminates the need for any back-and-forth to review your estimates. 
+                  <br /><br />
+                  You do not need to submit your estimate anywhere. Simply work on it as you would normally do, and you will be notified about mistakes and missing warranted line items in real-time. No need to send it off, wait for it to come back, or follow up. You can do it on your own, right then and there.
+                </p>
+                <h5 className="mb-2"> 100+ free macros available </h5>
+                <p className="mb-3">
+                  The first step in getting your estimate reviewed is to write it. The Actionable Profile comes with over 100 free macros– pre-saved templates of line items for specific scenarios. Macros make your work easier and help you be more productive. 
+                  <br /><br />
+                  For instance, if you are writing an estimate for gluing down a wooden floor, you can simply load the macro, and it will list all the line items required. You can adjust the values and then make your estimates more accurate with the Actionable Profile’s live estimating guidance.
+                </p>
+                <h5 className="mb-2"> Properly Formatted Estimates </h5>
+                <p className="mb-3">
+                  Formatting matters a lot when it comes to getting your estimates approved and getting paid accurately. The easier your estimate is to understand for the adjuster, the less friction it will face before getting approved. Traditional Xactimate estimate review services typically only review your mistakes, they do not improve your formatting.
+                  <br /><br />
+                  The Actionable Xactimate Profile comes with a formatting header macro, which helps you arrange the line items in your estimate in a proper format. This makes it easier for the adjuster reviewing your estimate to understand the work done. The better they can understand it, the less friction it will face.
+                </p>
+                <h5 className="mb-2"> No strings attached </h5>
+                <p className="mb-3">
+                  We know that flexibility matters in our industry, so we offer the Actionable Profile without any contracts. You can cancel and resubscribe any time you want. This gives you the flexibility to manage your subscription based on your company's requirements. Furthermore, we understand the importance of testing the waters before fully committing. You can try the Actionable Xactimate Profile at 99% OFF the first month.
+                </p>
+                <h5 className="mb-2"> Regularly Updated </h5>
+                <p className="mb-0">
+                  All of the Actionable Alerts are regularly updated to reflect changes in the prices and the line items in Xactimate. We also add new alerts based on the updates in Xactimate. With the Actionable Profile, you can rest assured that you will always be provided with the most updated guidance.
                 </p>
                 <div className="try-it-now mt-4">
-                  <Link to="/macros" target="_blank">
+                  <Link to="/actionable-xactimate-profile" target="_blank">
                     <button
                       className="btn"
                       style={{
                         fontSize: "20px",
-                        maxWidth: "200px",
-                        minHeight: "50px",
+                        width: "140px",
+                        height: "50px",
                       }}
                     >
-                      Check them out
+                      Try it now
                     </button>
                   </Link>
                 </div>
-                <div className="about-actionable-profile" style={{ maxWidth: "600px", margin: "0 auto" }}>
-                  <div className="youtube_video_main">
-                    <div className="video">
-                      <div className="fluid-width-video-wrapper">
-                        <iframe
-                          src="https://www.youtube.com/embed/RbJdXPBllTs"
-                          frameBorder="0"
-                          allow="autoplay; encrypted-media"
-                          allowFullScreen
-                          name="actionable-xactimate-profile"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <h2 className="mt-5 mb-3">
-                  Why Use Xactimate <span className="blue">Macros</span>?
+                  In a nutshell
                 </h2>
-                <h4 className="mb-3"> Time Savings </h4>
-                <p className="mb-4">
-                  Manually entering line items for every estimate can be tedious and time-consuming. With macros, you can predefine sets of line items for common jobs. Using macros to automate Xactimate estimates reduces data entry time, enabling you to generate comprehensive estimates in a shorter timeframe.
-                </p>
-                <h4 className="mb-3"> Consistency </h4>
-                <p className="mb-4">
-                  Macros ensure that every estimate adheres to your company’s standards. Preconfigured line items for specific tasks help maintain consistency across estimates, creating a more reliable and professional output.
-                </p>
-                <h4 className="mb-3"> Increased Productivity </h4>
-                <p className="mb-0">
-                  By automating routine tasks, Xactimate macros allow estimators to focus on strategic work, whether that’s fine-tuning estimates, addressing client needs, or enhancing processes. The saved time can be invested elsewhere, improving overall productivity while still delivering estimates on time.
-                </p>
-                <h2 className="mt-5 mb-3">
-                  How to Use <span className="blue">Macros</span> in Xactimate?
-                </h2>
-                <p className="mb-4">
-                  Xactimate macros are easy to set up and can greatly simplify your workflow. Here’s a step-by-step guide to creating and using macros to automate your estimates:
-                </p>
-                <h4 className="mb-3"> Step 1: Access the Macro Library in Xactimate </h4>
-                <p className="mb-4">
-                  To begin, open Xactimate and navigate to the Macros tab in the Items window. Here, you’ll find the macro library where existing macros are stored and where you can create new ones.
-                </p>
-                <h4 className="mb-3"> Step 2: Create a Macro Based on Frequently Used Line Items </h4>
-                <p className="mb-4">
-                  To create a macro, select the line items you frequently use in your estimates. Once selected, click on the “Create Macro” option, assign it a name (e.g., "Water Mitigation" or "Roofing Repair"), and save it for future use.
-                </p>
-                <h4 className="mb-3"> Step 3: Apply the Macro to New Estimates for Quick and Easy Automation </h4>
-                <p className="mb-4">
-                  When starting a new estimate, access the macro library, select the macro you want, and Xactimate will automatically populate the estimate with all pre-defined line items from your macro, saving you from manually inputting them each time.
-                </p>
-                <h4 className="mb-3"> Step 4: Customize and Modify Macros as Needed </h4>
-                <p className="mb-0">
-                  Once a macro is applied, you can customize it to fit the specific needs of the project. Add, remove, or modify line items as required to ensure the estimate is tailored to the job at hand. You can also update your macros over time as your processes evolve, ensuring they stay relevant to your needs.
-                </p>
-                <div className="about-actionable-profile" style={{ maxWidth: "600px", margin: "0 auto" }}>
-                  <div className="youtube_video_main">
-                    <div className="video">
-                      <div className="fluid-width-video-wrapper">
-                        <iframe
-                          src="https://www.youtube.com/embed/83_BJykyTxc"
-                          frameBorder="0"
-                          allow="autoplay; encrypted-media"
-                          allowFullScreen
-                          name="actionable-xactimate-profile"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <h2 className="mt-5 mb-3">
-                  Take it to the next level with the <span className="blue">Actionable Profile</span>
-                </h2>
-                <p className="mb-0">
-                  Macros are awesome, but there’s one hiccup when it comes to using them. When you use a macro, it populates all the line items at once. While this automation streamlines your Xactimate estimates, customization is still required to match the specific project. The best way to handle this effortlessly is by using the{" "}
-                  <Link to="/actionable-xactimate-profile" target="_blank">
-                    Actionable Xactimate Profile
-                  </Link>.
-                  <br /><br />
-                  Not only does it come with 115+ free Xactimate Macros to help you, but it also offers live estimating guidance. Once you are done using your macro and now it's time to make the customizations, that’s where the actual benefit of the profile comes into play. It will give you all the actions needed to be taken in the form of alerts. It identifies any missing warranted line items, incorrect entries, insufficient quantities, duplications, or other issues within your estimate. The Actionable Profile will guide you to make it right.
-                  <br /><br />
-                  Want to learn more about it? Book a free{" "}
-                  <Link to="/demo" target="_blank">
-                    demo
-                  </Link>.
-                </p>
-                <h2 className="mt-5 mb-3">
-                  Frequently Asked <span className="red">Questions</span> 
-                </h2>
-                <h5 className="mb-2"> Can I share my Xactimate macros with other team members? </h5>
                 <p className="mb-3">
-                  Yes, macros can be shared with your team. By exporting the macro file from your Xactimate system, other users can import it into their libraries and use it for their estimates.
+                  The Actionable Profile is unique from its origin to how it operates. Each of its distinct features is built to ensure maximum help in writing increasingly accurate and complete scopes. The ultimate goal is to reduce the back and forth in the claims process which the Actionable Profile has proven to do by about 50%. If you want to ensure that there are no mistakes and no missed line items in your estimates, try the Actionable Profile.
                 </p>
-                <h5 className="mb-2"> Can I use macros for complex estimates with multiple phases? </h5>
-                <p className="mb-3">
-                  Absolutely! Xactimate macros can be tailored for different phases of complex projects. For example, you can create separate macros for demolition, mitigation, and reconstruction, making it easier to apply them to specific project phases.
-                </p>
-                <h5 className="mb-2"> What happens if Xactimate updates its line items? Do I need to update my macros? </h5>
-                <p className="mb-3">
-                  Yes, if Xactimate updates pricing or details of certain line items, you’ll need to manually update your macros to reflect these changes. It’s a good practice to review your macros periodically to ensure they are up-to-date.</p>
-                <h5 className="mb-2"> Is there a limit to how many macros I can create in Xactimate? </h5>
-                <p className="mb-3">
-                  No, there is no limit on the number of macros you can create.
-                </p>
-                <h5 className="mb-2"> Can macros include notes or custom descriptions for specific line items? </h5>
-                <p className="mb-3">
-                  Yes, you can include custom notes or descriptions in your macros. This is especially helpful for adding important details that may need to be referenced in each estimate, ensuring clarity and compliance.
-                </p>
-                <h5 className="mb-2"> Can I edit a macro after applying it to an estimate? </h5>
-                <p className="mb-3">
-                  Yes, once a macro is applied to an estimate, you can freely edit the line items within the estimate without affecting the original macro. If you want to update the macro itself, you’ll need to save the changes separately.
-                </p>
-                <h5 className="mb-2"> How do I troubleshoot if my macro isn't working as expected? </h5>
-                <p className="mb-0">
-                  If a macro doesn’t populate the correct line items or isn’t working as expected, check for outdated line items or mismatched settings. Make sure that all necessary items are included and confirm the macro is compatible with the current version of Xactimate.
-                </p>
+
                 <h2 className="mt-5 mb-3">
                   About <span className="red">Actionable Insights</span>
                 </h2>
@@ -561,9 +509,9 @@ const XactimateMacro = () => {
         <WrongBrowserDisclaimer />
         <CookieConsentGI2 />
         <Footer />
-			</Suspense>
+      </Suspense>
     </>
   );
 };
 
-export default XactimateMacro;
+export default ActionableProfileVsEstimateReviewers;

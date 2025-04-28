@@ -1,23 +1,21 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { DefinePlugin } = require("webpack");
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const appConfig = require("../client/appConfig.json");
+const { GENERAL, PATHS } = require("../settings");
 
 const API_URL = {
   production: appConfig.production,
   development: appConfig.development,
 };
 
-const { DefinePlugin } = require("webpack");
-
-const { GENERAL, PATHS } = require("../settings");
-
 module.exports = (env) => {
   console.log(env, "env");
-  const envirement = env.production ? "production" : "development";
+  const environment = env.production ? "production" : "development";
+
   return {
     entry: { app: PATHS.entry },
     resolve: {
@@ -37,25 +35,15 @@ module.exports = (env) => {
         crypto: require.resolve("crypto-browserify"),
         stream: require.resolve("stream-browserify"),
       },
-      extensions: [".ts", ".tsx", ".js", ".css"],
+      extensions: [".ts", ".tsx", ".js", ".json", ".css"],
     },
     module: {
       rules: [
         {
-          test: /\.(png|gif|jpg|cur|webp)$/,
-          type: "asset/resource",
-        },
-        {
-          test: /\.[tj]sx?$/,
+          test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
-          loader: "babel-loader",
+          use: "babel-loader",
         },
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          loader: "babel-loader",
-        },
-
         {
           test: /\.svg$/,
           exclude: /node_modules/,
@@ -69,38 +57,28 @@ module.exports = (env) => {
             },
           },
         },
-        // {
-        //   test: /\.(png|gif|jpg|cur|webp)$/,
-        //   loader: "url-loader",
-        //   options: {
-        //     limit: false,
-        //     // encoding: 'base64',
-        //   },
-        // },
         {
-          test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-          loader: "file-loader",
+          test: /\.(png|gif|jpg|jpeg|webp|cur)$/i,
+          type: "asset/resource",
         },
         {
-          test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-          loader: "file-loader",
-        },
-        {
-          test: /\.(ttf|eot|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-          loader: "file-loader",
+          test: /\.(woff|woff2|ttf|eot|otf)$/i,
+          type: "asset/resource",
         },
       ],
     },
     plugins: [
+      // Uncomment this only when needed for bundle analysis
       // new BundleAnalyzerPlugin(),
 
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new HTMLWebpackPlugin({
+      new HtmlWebpackPlugin({
         filename: PATHS.index.output,
         template: PATHS.index.input,
+        title: GENERAL.name,
       }),
       new DefinePlugin({
-        "process.env.API_URL": API_URL[envirement],
+        "process.env.API_URL": JSON.stringify(API_URL[environment]),
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -110,11 +88,11 @@ module.exports = (env) => {
             to: "assets/",
           },
           {
-            from: PATHS.client + "/sitemap.xml",
+            from: `${PATHS.client}/sitemap.xml`,
             to: PATHS.output,
           },
           {
-            from: PATHS.client + "/robots.txt",
+            from: `${PATHS.client}/robots.txt`,
             to: PATHS.output,
           },
         ],

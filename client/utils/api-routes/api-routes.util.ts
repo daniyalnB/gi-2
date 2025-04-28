@@ -1,7 +1,6 @@
-import { Observable } from "rxjs/Observable";
-import { ajax } from "rxjs/observable/dom/ajax";
+import { throwError } from "rxjs";
+import { ajax } from "rxjs/ajax";
 import { catchError } from "rxjs/operators";
-import "rxjs/add/observable/throw";
 import history from "../history";
 import appConfig from "../../appConfig.json";
 
@@ -40,11 +39,11 @@ const handleError = (operation: string) => (err: any) => {
     localStorage.removeItem("token");
     history.push("/gi-team/login");
     localStorage.removeItem("activeTab");
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 
   if (err.status === 503) {
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 };
 
@@ -100,26 +99,26 @@ const handleErrorCustomer = (operation: string) => (err: any) => {
   console.log(`${errMsg}:`, err);
 
   if (err.status === 400) {
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 
   if (err.status === 401) {
     localStorage.removeItem("tokenCustomer");
     history.push("/my-account");
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 
   if (err.status === 404) {
     history.push("/404");
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 
   if (err.status === 405) {
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 
   if (err.status === 420) {
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 
   if (err.status === 500) {
@@ -127,12 +126,12 @@ const handleErrorCustomer = (operation: string) => (err: any) => {
   }
 
   if (err.status === 503) {
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 
   if (err.status === 504) {
     history.push("/404");
-    return Observable.throw(err);
+    return throwError(() => err);
   }
 };
 
